@@ -40,11 +40,25 @@ prospectus is a photograph frozen on its date).
 
 ## Install
 
+There is no install script to pipe into your shell, nothing starts with your computer, and
+nothing updates itself. You download the code, can read every file first, and run it.
+
 You need Python 3.10 or newer.
 
+1. Download it: on this page, **Code → Download ZIP** (or `git clone https://github.com/greeksoup/s1-prospectus-terminal.git`), and unzip it.
+2. Read it if you like: it is plain Python in `prospectus/` and one HTML page in `prospectus/web/`.
+3. In a terminal, inside the folder, give it its own Python environment and its three libraries:
+
 ```
+python3 -m venv .venv
+source .venv/bin/activate        # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
+python3 -m prospectus serve
 ```
+
+The three libraries are `beautifulsoup4` and `lxml` (reading the filing's HTML) and `certifi`
+(the certificates that reach SEC.gov). The program talks to SEC EDGAR, and to the AI you choose
+only when you ask a question; nothing else. To update, download the new version the same way.
 
 `certifi` matters on a Mac: the Python from python.org ships without the certificates that
 reach SEC.gov.

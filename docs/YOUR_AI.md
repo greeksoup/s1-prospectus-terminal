@@ -23,7 +23,7 @@ If you pay for Claude or ChatGPT, you already have what you need:
 You do not need to type any of this. The Ask view lists all seven apps whether or not they are on
 your computer, and each row has the button you need next:
 
-- **Install** opens a terminal window that runs the maker's own install line, the one above.
+- **Install** opens a terminal window that runs the maker's own install line, the one above. The row shows the line before you press it. Most makers publish their installer as a line that downloads a script and runs it; if you would rather read it first, use **Maker's page** instead, where each maker also offers a download or a package manager (Homebrew, npm, winget).
 - **Sign in** opens a terminal window running the app, whose sign-in continues in your browser.
   When it says you are in, close the window and press **Check again**.
 - **Use it** makes that app the one that answers. The picker under the question box, **Who answers**,
