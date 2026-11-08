@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>S-1 Prospectus Terminal</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20120%20120%22%20width%3D%22120%22%20height%3D%22120%22%3E%3Crect%20width%3D%22120%22%20height%3D%22120%22%20rx%3D%2226%22%20fill%3D%22%23ED5A24%22/%3E%3Cpath%20d%3D%22M16%2042l14%2018-14%2018%22%20stroke%3D%22%23FFFFFF%22%20stroke-width%3D%2210%22%20stroke-linecap%3D%22square%22%20stroke-linejoin%3D%22miter%22%20fill%3D%22none%22/%3E%3Cg%20fill%3D%22%230B1424%22%3E%3Crect%20x%3D%2242%22%20y%3D%2242%22%20width%3D%2222%22%20height%3D%228%22/%3E%3Crect%20x%3D%2242%22%20y%3D%2242%22%20width%3D%228%22%20height%3D%2222%22/%3E%3Crect%20x%3D%2242%22%20y%3D%2256%22%20width%3D%2222%22%20height%3D%228%22/%3E%3Crect%20x%3D%2256%22%20y%3D%2256%22%20width%3D%228%22%20height%3D%2222%22/%3E%3Crect%20x%3D%2242%22%20y%3D%2270%22%20width%3D%2222%22%20height%3D%228%22/%3E%3Crect%20x%3D%2267%22%20y%3D%2256%22%20width%3D%2212%22%20height%3D%228%22/%3E%3Crect%20x%3D%2290%22%20y%3D%2242%22%20width%3D%228%22%20height%3D%2236%22/%3E%3Crect%20x%3D%2282%22%20y%3D%2242%22%20width%3D%2210%22%20height%3D%228%22/%3E%3C/g%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:light;--bg:#FFFFFF;--app:#F3F4F6;--band:#F6F7F9;--hover:#F0F2F5;--line:#E5E8EE;--line2:#D3D8E0;--ink:#0B1220;--ink2:#3A4556;--mute:#6B7280;--faint:#9AA3AF;--sn:#ED5A24;--sn-ink:#C2410C;--focus:#1D4ED8;--up:#047857;--down:#B91C1C;--warn:#B45309;
+ --sans:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;--mono:"JetBrains Mono",ui-monospace,Menlo,monospace}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--bg:#0B0E13;--app:#07090D;--band:#161B23;--hover:#1A202A;--line:#232B36;--line2:#2F3946;--ink:#E6E9EF;--ink2:#B4BCC8;--mute:#8B95A3;--faint:#6B7480;--sn:#E85D2A;--sn-ink:#F59A70;--focus:#60A5FA;--up:#34D399;--down:#F87171;--warn:#FBBF24}}
+:root[data-theme="dark"]{color-scheme:dark;--bg:#0B0E13;--app:#07090D;--band:#161B23;--hover:#1A202A;--line:#232B36;--line2:#2F3946;--ink:#E6E9EF;--ink2:#B4BCC8;--mute:#8B95A3;--faint:#6B7480;--sn:#E85D2A;--sn-ink:#F59A70;--focus:#60A5FA;--up:#34D399;--down:#F87171;--warn:#FBBF24}
+*{box-sizing:border-box}html,body{margin:0;background:var(--app);color:var(--ink);font:13px/1.45 var(--sans);-webkit-font-smoothing:antialiased}
+.bar{height:44px;display:flex;align-items:center;gap:12px;padding:0 14px;background:var(--bg);border-bottom:1px solid var(--line)}
+.logo{display:flex;align-items:center;gap:8px;font-weight:600}
+.logo i{width:20px;height:20px;border-radius:3px;background:var(--sn);color:#fff;display:grid;place-items:center;font:600 12px/1 var(--mono);font-style:normal}
+.sp{flex:1}
+.btn{height:28px;border:1px solid var(--line2);background:var(--bg);border-radius:3px;padding:0 10px;font:500 12px var(--sans);color:var(--ink);cursor:pointer}
+.btn:hover{background:var(--hover)}
+main{padding:16px;max-width:1280px}
+h1{font:600 16px/1.3 var(--sans);margin:0 0 4px}
+.lead{color:var(--ink2);margin:0 0 14px;max-width:90ch}
+.panel{background:var(--bg);border:1px solid var(--line);border-radius:3px}
+.ph{display:flex;align-items:center;height:32px;padding:0 10px;background:var(--band);border-bottom:1px solid var(--line)}
+.ph h3{font:600 11px/1 var(--sans);letter-spacing:.06em;text-transform:uppercase;margin:0;color:var(--ink2)}
+.tw{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:12.5px}
+th,td{height:32px;padding:4px 12px;border-bottom:1px solid var(--line);text-align:right;white-space:nowrap}
+th{font:600 10.5px/1.2 var(--sans);letter-spacing:.05em;text-transform:uppercase;color:var(--mute);background:var(--band)}
+td{font-family:var(--mono);font-feature-settings:"tnum"}
+th.l,td.l{text-align:left}td.l{font-family:var(--sans)}
+tbody tr{cursor:pointer}tbody tr:hover td{background:var(--hover)}
+td a{text-decoration:none;color:var(--ink);font-weight:600}
+.tk{font:600 11.5px var(--mono);background:var(--ink);color:var(--bg);border-radius:3px;padding:2px 6px}
+.up{color:var(--up)}.down{color:var(--down)}.warn{color:var(--warn);font-weight:600}.na{color:var(--faint)}
+code{display:inline-block;font:12px/1.5 var(--mono);background:var(--band);border:1px solid var(--line);border-radius:3px;padding:6px 10px;margin-top:4px}
+.note{color:var(--mute);font-size:11.5px;margin:12px 0 0;max-width:110ch}
+</style></head><body>
+<div class="bar"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="20" height="20" aria-hidden="true"><rect width="120" height="120" rx="26" fill="#ED5A24"/><path d="M16 42l14 18-14 18" stroke="#FFFFFF" stroke-width="10" stroke-linecap="square" stroke-linejoin="miter" fill="none"/><g fill="#0B1424"><rect x="42" y="42" width="22" height="8"/><rect x="42" y="42" width="8" height="22"/><rect x="42" y="56" width="22" height="8"/><rect x="56" y="56" width="8" height="22"/><rect x="42" y="70" width="22" height="8"/><rect x="67" y="56" width="12" height="8"/><rect x="90" y="42" width="8" height="36"/><rect x="82" y="42" width="10" height="8"/></g></svg><span>S-1 Prospectus Terminal</span></div><span class="sp"></span><button class="btn" id="theme">Dark</button></div>
+<main>
+<h1>Every prospectus read so far</h1>
+<p class="lead">Each row was built from SEC filings by code, with no AI. Click a company to open its terminal. To add one, run this in the program folder:<br><code>python3 -m prospectus "company name or ticker"</code></p>
+<div class="panel"><div class="ph"><h3>IPO pipeline · newest read first</h3></div><div class="tw"><table>
+<thead><tr><th class="l">Ticker</th><th class="l">Company</th><th class="l">Latest filing</th><th>Filed</th><th>Versions</th><th>Price</th><th>Revenue (latest)</th><th>Growth</th><th>Flags to read</th><th>Pages</th><th>Read in</th></tr></thead>
+<tbody id="rows"></tbody></table></div></div>
+<p class="note">Information from public filings only, not a recommendation to buy or sell anything. Check every figure against the linked page before relying on it.</p>
+</main>
+<script>
+const C=__CARDS__;
+const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const money=v=>{if(v==null||isNaN(v))return'NA';const a=Math.abs(v),s=v<0?'−':'';return a>=1000?s+'$'+(a/1000).toFixed(a>=100000?0:1)+'B':s+'$'+a.toFixed(0)+'M'};
+const fmtDate=d=>{if(!d)return'';const[y,m,dd]=d.split('-');return `${+dd} ${['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][+m-1]} ${y}`};
+const rows=document.getElementById('rows');
+C.forEach(c=>{const tr=document.createElement('tr');tr.onclick=()=>location.href=c.file;
+ const g=c.growth;tr.innerHTML=`<td class="l"><span class="tk">${esc(c.ticker||'NA')}</span></td><td class="l"><a href="${esc(c.file)}">${esc(c.name)}</a></td><td class="l">${esc(c.latest?c.latest.form:'')}</td><td>${esc(c.latest?fmtDate(c.latest.date):'')}</td><td>${c.versions||''}</td><td>${esc(c.price||'Not set')}</td><td>${money(c.revenue)} <span class="na">${esc(c.revenue_label||'')}</span></td><td class="${g==null?'na':g>=0?'up':'down'}">${g==null?'NA':(g>=0?'+':'−')+Math.abs(g).toFixed(0)+'%'}</td><td class="${c.watch?'warn':''}">${c.watch}/${c.flags}</td><td>${c.pages||'NA'}</td><td>${c.seconds?c.seconds+'s':'NA'}</td>`;rows.append(tr)});
+if(!C.length)rows.innerHTML='<tr><td class="l" colspan="11">Nothing read yet.</td></tr>';
+(function(){const t=document.getElementById('theme');let cur=null;try{cur=localStorage.getItem('ipo-dash:theme')}catch(e){}
+ const dark=()=>cur?cur==='dark':matchMedia('(prefers-color-scheme: dark)').matches;const apply=()=>{if(cur)document.documentElement.dataset.theme=cur;t.textContent=dark()?'Light':'Dark'};apply();
+ t.onclick=()=>{cur=dark()?'light':'dark';try{localStorage.setItem('ipo-dash:theme',cur)}catch(e){};apply()}})();
+</script></body></html>

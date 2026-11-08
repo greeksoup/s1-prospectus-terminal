@@ -1,0 +1,3850 @@
+{
+"meta": {
+"name": "Cerebras Systems Inc.",
+"ticker": "CBRS",
+"cik": 2021728,
+"filings": [
+{
+"form": "S-1",
+"date": "2024-09-30",
+"url": "https://www.sec.gov/Archives/edgar/data/2021728/000162828024041596/cerebras-sx1.htm"
+},
+{
+"form": "S-1",
+"date": "2026-04-17",
+"url": "https://www.sec.gov/Archives/edgar/data/2021728/000162828026025762/cerebras-sx1april2026.htm"
+},
+{
+"form": "S-1/A",
+"date": "2026-05-04",
+"url": "https://www.sec.gov/Archives/edgar/data/2021728/000162828026029503/cerebras-sx1amay2026.htm"
+},
+{
+"form": "S-1/A",
+"date": "2026-05-11",
+"url": "https://www.sec.gov/Archives/edgar/data/2021728/000162828026033143/cerebras-sx1a2.htm"
+},
+{
+"form": "424B4",
+"date": "2026-05-14",
+"url": "https://www.sec.gov/Archives/edgar/data/2021728/000162828026035214/cerebras-424b4.htm"
+}
+],
+"latest": {
+"form": "424B4",
+"date": "2026-05-14",
+"url": "https://www.sec.gov/Archives/edgar/data/2021728/000162828026035214/cerebras-424b4.htm"
+},
+"latest_file": "2026-05-14_424B4_0001628280-26-035214.htm",
+"generated": "08 November 2026, 23:05",
+"stats": {
+"pages": 271,
+"seconds": 45.7,
+"total_seconds": 96.7,
+"ai_tokens": 0
+}
+},
+"q": {
+"filing": "2026-05-14_424B4_0001628280-26-035214.htm",
+"layout": "positioned",
+"q1_growth": {
+"revenue": {
+"values": {
+"2024": 290.252,
+"2025": 509.991
+},
+"page": "F-5",
+"note": ""
+},
+"growth_pct": {
+"2025": 75.7
+},
+"segments": {
+"status": "not disclosed"
+}
+},
+"q2_funds_itself": {
+"net_income": {
+"values": {
+"2024": -481.602,
+"2025": 237.827
+},
+"page": "F-8",
+"note": ""
+},
+"operating_cash_flow": {
+"values": {
+"2024": 451.978,
+"2025": -10.05
+},
+"page": "F-8",
+"note": ""
+},
+"capex": {
+"values": {
+"2024": -23.435,
+"2025": -382.739
+},
+"page": "F-8",
+"note": ""
+},
+"free_cash_flow": {
+"values": {
+"2025": -392.789,
+"2024": 428.543
+},
+"page": "F-8",
+"note": "derived: operating cash flow less capex"
+},
+"outside_money_net": {
+"values": {
+"2024": 112.296,
+"2025": 1026.56
+},
+"page": "F-8",
+"note": "net cash from financing: what came in from shareholders and lenders after repayments"
+}
+},
+"q3_debt": {
+"cash": {
+"values": {
+"2024": 220.208,
+"2025": 701.706
+},
+"page": "F-4",
+"note": ""
+},
+"equity": {
+"values": {
+"2024": -966.791,
+"2025": -578.655
+},
+"page": "F-4",
+"note": ""
+},
+"debt": {
+"status": "not read"
+},
+"maturities": {
+"status": "not found",
+"note": "no table of debt principal due by year was found"
+}
+},
+"q4_profit_real": {
+"gap": {
+"values": {
+"2025": -247.877,
+"2024": 933.5799999999999
+},
+"page": "F-8",
+"note": "derived: operating cash flow minus net income. Positive means cash came in above the reported profit (the safe direction)."
+},
+"largest_non_cash_items": {
+"note": "ranked by their largest size in any year",
+"items": [
+{
+"label": "Change in fair value (extinguishment) of forward contract liability",
+"page": "F-8",
+"values": {
+"2025": -363.336,
+"2024": 401.264
+}
+},
+{
+"label": "Stock-based compensation",
+"page": "F-8",
+"values": {
+"2025": 49.767,
+"2024": 58.564
+}
+},
+{
+"label": "Depreciation and amortization",
+"page": "F-8",
+"values": {
+"2025": 34.454,
+"2024": 11.537
+}
+},
+{
+"label": "Non-cash lease expense",
+"page": "F-8",
+"values": {
+"2025": 22.673,
+"2024": 7.607
+}
+},
+{
+"label": "Provision for product warranties",
+"page": "F-8",
+"values": {
+"2025": 20.969,
+"2024": 12.525
+}
+}
+]
+}
+},
+"q5_price": {
+"price": {
+"value": 185.0,
+"note": "set in this filing"
+},
+"votes_per_share_high_class": "20"
+}
+},
+"flags": [
+{
+"kind": "numbers",
+"title": "Loss in 2024 turned into a profit in 2025",
+"page": "F-8",
+"quote": "",
+"detail": "2024: \u2212$482M; 2025: $238M. Check what drove the turn (the November 2025 find: a loss flipping to profit the year before listing)."
+},
+{
+"kind": "numbers",
+"title": "Profit not turning into cash in 2025",
+"page": "F-8",
+"quote": "",
+"detail": "Operating cash flow was $248M below reported profit: the pattern behind most accounting frauds."
+},
+{
+"kind": "numbers",
+"title": "Most of the 2024 loss is not cash",
+"page": "F-8",
+"quote": "",
+"detail": "Reported loss \u2212$482M; operating cash flow $452M. Read the non-cash items before reading the loss."
+},
+{
+"kind": "numbers",
+"title": "Pre-IPO funding turns into shares at the offering",
+"page": "15, 16, 18, 19, 73, 83",
+"quote": "",
+"detail": "Before the IPO: equity \u2212$579M (2025). These convert into common stock at the offering, so the deficit is not the picture after listing. Read the pro forma column of the capitalization table (page 83)."
+},
+{
+"kind": "customers",
+"title": "G42: 24% and 85% of revenue",
+"page": "23",
+"quote": "Group 42 Holding Ltd (together with its affiliates, \u201cG42\u201d) accounted for 24.0% and 85.0% of our total revenue for the years ended December 31, 2025 and 2024, respectively, and in the year ended December 31, 2025, Mohamed bin Zayed University of Artificial Intelligence (\u201cMBZUAI\u201d) accounted for 62.0% of our total revenue.",
+"detail": ""
+},
+{
+"kind": "customers",
+"title": "MBZUAI: 62% of revenue",
+"page": "23",
+"quote": "Group 42 Holding Ltd (together with its affiliates, \u201cG42\u201d) accounted for 24.0% and 85.0% of our total revenue for the years ended December 31, 2025 and 2024, respectively, and in the year ended December 31, 2025, Mohamed bin Zayed University of Artificial Intelligence (\u201cMBZUAI\u201d) accounted for 62.0% of our total revenue.",
+"detail": ""
+},
+{
+"kind": "trust",
+"title": "Emerging growth company",
+"page": "12",
+"quote": "Implications of Being an Emerging Growth Company We are an emerging growth company as defined in the Jumpstart Our Business Startups Act of 2012 (the \u201cJOBS Act\u201d).",
+"detail": "Lighter disclosure rules apply (fewer years of audited numbers, no auditor attestation on internal controls). It uses the extended transition period for new accounting standards, so its numbers may not line up with public companies that adopt them on time (page 12)."
+},
+{
+"kind": "trust",
+"title": "Material weakness in internal control",
+"page": "64, 65",
+"quote": "Risks Related to Financial and Accounting Matters We identified material weaknesses in our internal control over financial reporting.",
+"detail": "The company says its own controls over the numbers had a material weakness. Read what it was and whether it is fixed."
+},
+{
+"kind": "trust",
+"title": "Auditor changed from BDO USA, P.C. to KPMG LLP",
+"page": "214",
+"quote": "CHANGE IN INDEPENDENT ACCOUNTANT On November\u00a010, 2025, we dismissed BDO USA, P.C.",
+"detail": "A new audit firm signs some of the years. Check both reports and the reason given for the change."
+}
+],
+"versions": [
+{
+"from": "2024-09-30_S-1_0001628280-24-041596.htm",
+"to": "2026-04-17_S-1_0001628280-26-025762.htm",
+"price_from": "not disclosed",
+"price_to": "not disclosed",
+"sections": [
+{
+"section": "Cover and front pages",
+"added": 1915,
+"removed": 1664,
+"changed": 0,
+"examples_added": [
+{
+"text": "The following table sets forth selected consolidated state ments of operations data expressed as a percentage of revenue for each of the periods indicated: Year Ended December 31, 2025 2024 (as a percentage of revenue) Revenue: Hardware 70.3 % 73.0 % Cloud and other services 29.7 27.0 Total revenue 100.0 100.0 Cost of revenue: Hardware 40.1 47.3 Cloud and other services 20.8 10.4 Total cost of revenue 61.0 57.7 Gross profit 39.0 42.3 Operating expenses: Research and development 47.7 54.5 Sales and marketing 13.9 7.2 General and administrative 6.1 15.5 Total operating expenses 67.6 77.2 Loss from operations (28.6) (34.9) Other income (expense), net 76.6 (130.3) Income (loss) before income tax 48.0 (165.2) Income tax expense 1.4 0.7 Net income (loss) 46.6 % (165.9) % Comparison of the Years Ended December 31, 2025 and 2024 Revenue Year Ended December 31, 2025 2024 $ Change % Change (in thousands, except percentages) Hardware $ 358,440 $ 211,965 $ 146,475 69 % Cloud and other services 151,551 78,287 73,264 94 % Total revenue $ 509,991 $ 290,252 $ 219,739 76 % Total revenue for the year ended December 31, 2025 increased by $219.7 million, or 76%, compared to the year ended December 31, 2024.",
+"page": "100"
+},
+{
+"text": "The following table illustrates this dilution on a per share basis: Assumed initial public offering price per share $ Pro forma net tangible book value per share as of December 31, 2025 $ Increase in pro forma net tangible book value per share attributable to new investors participating in this offering Pro forma as adjusted net tangible book value per share after this offering Dilution per share to new investors participating in this offering $ Each $1.00 increase or decrease in the assumed initial public offering price of $ per share, which is the midpoint of the estimated price range set forth on the cover page of this prospectus, would increase or decrease, as applicable, our pro forma as adjusted net tangible book value per share after this offering by $ per share and the dilution in pro forma per share to investors participating in this offering by $ per share, assuming that the number of shares of Class A common stock offered by us, as set forth on the cover page of this prospectus, remains the same, and after deducting estimated underwriting discounts and commissions and estimated offering expenses payable by us.",
+"page": "87"
+},
+{
+"text": "The shares of Class N common stock underlying the OpenAI Warrant vest and become exercisable upon the occurrence of certain events, as set forth below: \u2022 4,459,337 shares vested in January 2026 upon our receipt of the Working Capital Loan; \u2022 5,574,171 shares will vest upon the earlier of (i) the first date that our market capitalization exceeds $40 billion, measured by the product of (a) the number of shares of common stock outstanding (on an as- converted basis for each authorized class or series of our common stock), multiplied by (b) the 30-day volume-weighted average closing price per share of our Class A common stock on Nasdaq, and (ii) receipt by us of certain fee payments from OpenAI under the MRA; and \u2022 23,411,518 shares in the aggregate will vest in multiple tranches on certain committed delivery dates of compute capacity pursuant to the MRA, including committed delivery dates to be mutually agreed upon for the Additional Capacity (as defined in the section titled \u201cManagement\u2019s Discussion and Analysis of Financial Condition and Results of Operations\u201d), if any.",
+"page": "86"
+},
+{
+"text": "The shares of Class N common stock underlying the OpenAI Warrant vest and become exercisable upon the occurrence of certain events, as set forth below: \u2022 4,459,337 shares vested in January 2026 upon our receipt of the Working Capital Loan; \u2022 5,574,171 shares will vest upon the earlier of (i) the first date that our market capitalization exceeds $40 billion, measured by the product of (a) the number of shares of common stock outstanding (on an as- converted basis for each authorized class or series of our common stock), multiplied by (b) the 30-day volume-weighted average closing price per share of our Class A common stock on Nasdaq, and (ii) receipt by us of certain fee payments from OpenAI under the MRA; and \u2022 23,411,518 shares in the aggregate will vest in multiple tranches on certain committed delivery dates of compute capacity pursuant to the MRA, including committed delivery dates to be mutually agreed upon for the Additional Capacity (if any).",
+"page": "170"
+},
+{
+"text": "Persons who have beneficially owned restricted shares of our common stock for at least six months but who are our affiliates at the time of, or any time during the 90 days preceding, a sale, would be subject to additional restrictions, by which such person would be entitled to sell within any three-month period only a number of securities that does not exceed the greater of either of the following: \u2022 1% of the number of shares of our Class A common stock then outstanding, which will equal approximately shares immediately after this offering, assuming no exercise of the underwriters\u2019 over-allotment option; or \u2022 the average weekly trading volume of shares of our Class A common stock on the Nasdaq Global Select Market during the four calendar weeks preceding the filing of a notice on Form 144 with respect to that sale; provided, in each case, that we are subject to the Exchange Act periodic reporting requirements for at least 90 days before the sale.",
+"page": "189"
+},
+{
+"text": "The number of shares initially reserved for issuance or transfer pursuant to awards under the 2026 Plan will be increased by (i) the number of shares represented by awards outstanding under the 2016 Plan that become available for issuance under the counting provisions described below following the effective date and (ii) an annual increase on the first day of each fiscal year beginning in 2027 and ending in 2036, equal to the lesser of (A) 5% of the sum of (1) all shares of all classes of our common stock, and (2) the number of shares issuable upon the exercise of warrants to purchase shares of our common stock with an exercise price per share of $0.01 or less, in each case, outstanding on the last day of the immediately preceding fiscal year and (B) such smaller number of shares of stock as determined by our board of directors; provided, however, that no more than shares may be issued upon the exercise of incentive stock options.",
+"page": "160"
+}
+],
+"examples_changed": [],
+"examples_removed": [
+{
+"text": "Delaware Law We are subject to Section 203 of the Delaware General Corporation Law, which prohibits a Delaware corporation from engaging in any business combination with any interested stockholder for a period of three years after the date that such stockholder became an interested stockholder, with the following exceptions: \u2022 the business combination or transaction which resulted in the stockholder becoming an interested stockholder was approved by the board of directors prior to the time that the stockholder became an interested stockholder; \u2022 upon consummation of the transaction which resulted in the stockholder becoming an interested stockholder, the interested stockholder owned at least 85% of the voting stock of the corporation outstanding at the time the transaction commenced, excluding shares owned by directors who are also officers of the corporation and shares owned by employee stock plans in which employee participants do not have the right to determine confidentially whether shares held subject to the plan will be tendered in a tender or exchange offer; or \u2022 at or subsequent to the time the stockholder became an interested stockholder, the business combination was approved by the board of directors and authorized at an annual or special meeting of the stockholders, and not by written consent, by the affirmative vote of at least 66 2/3% of the outstanding voting stock which is not owned by the interested stockholder.",
+"page": "163"
+},
+{
+"text": "The following table illustrates this dilution on a per share basis: Assumed initial public offering price per share $ Historical net tangible book value (deficit) per share as of June 30, 2024 $ Pro forma increase in net tangible book value per share as of June 30, 2024 attributable to the pro forma transactions described above Pro forma net tangible book value per share as of June 30, 2024 Increase in pro forma net tangible book value per share attributable to new investors participating in this offering Pro forma as adjusted net tangible book value per share after this offering Dilution per share to new investors participating in this offering $ Each $1.00 increase or decrease in the assumed initial public offering price of $ per share, which is the midpoint of the estimated price range set forth on the cover page of this prospectus, would increase or decrease, as applicable, our pro forma as adjusted net tangible book value per share after this offering by $ per share and the dilution in pro forma per share to investors participating in this offering by $ per share, assuming that the number of shares of Class A common stock offered by us, as set forth on the cover page of this prospectus, remains the same, and after deducting estimated underwriting discounts and commissions and estimated offering expenses payable by us.",
+"page": "75"
+},
+{
+"text": "Notwithstanding the foregoing, if the closing price of our Class A common stock on the Nasdaq Global Market has exceeded 125% of the initial public offering price per share set forth on the cover page of this prospectus for at least two trading days out of the first five full consecutive trading days after the date of our public announcement of earnings for the quarter ending September 30, 2024 (such date, the \u201cPrice Condition Satisfaction Date\u201d), holders of our securities may freely transfer or dispose of (i) for our officers and directors and entities affiliated with Alpha Wave, Altimeter, Benchmark, Coatue, Eclipse Ventures, and Foundation Capital, up to 10%, and (ii) for all other holders, up to 20%, of the sum of (A) the outstanding shares of Class A common stock that are held by such holder as of November 15, 2024 and (B) the securities convertible into or exchangeable or exercisable for Class A common stock that were held by such holder and fully vested as of November 15, 2024.",
+"page": "178"
+}
+]
+},
+{
+"section": "Financial Statements",
+"added": 280,
+"removed": 370,
+"changed": 95,
+"examples_added": [
+{
+"text": "For the year ended December 31, 2024, the following potential common shares were excluded from the computation of diluted net loss per share because their inclusion would have been anti-dilutive: Year ended December 31, 2024 Redeemable convertible preferred stock 82,899,159 Early exercised shares subject to repurchase 1,373,428 Options to purchase common stock 35,033,929 Total potential common stock excluded from net loss per share 119,306,516 Table o f Contents NOTES TO THE CONSOLIDATED FINANCIAL STATEMENTS The following is a reconciliation of the numerator and denominator of the basic and diluted net income per share computations for the periods presented: Years Ended December 31, 2025 2024 (in thousands, except per share data) Numerator: Net income (loss) $ 237,827 $ (481,602) Less: Net income attributable to participating securities 149,952 \u2014 Deemed dividend upon issuance of Series F-1 redeemable convertible preferred stock \u2014 3,182 Net income (loss) attributable to common stockholders $ 87,875 $ (484,784) Denominator: Basic weighted-average common shares net of shares subject to repurchase $ 53,616 $ 48,972 Dilutive impact of outstanding redeemable convertible preferred stock (as-if converted basis) 91,491 \u2014 Dilutive impact of outstanding stock options 26,714 \u2014 Dilutive weighted-average common shares $ 171,821 $ 48,972 Net income (loss) per share: Basic $ 1.64 $ (9.90) Diluted $ 1.38 $ (9.90) Note 8 \u2013 Investments The Company classifies its U.S.",
+"page": "F-21"
+},
+{
+"text": "CONSOLIDATED STATEMENTS OF OPERATIONS (in thousands, except per share data) Years Ended December 31, 2025 2024 Revenue Hardware $ 358,440 $ 211,965 Cloud and other services 151,551 78,287 Total revenue 509,991 290,252 Cost of revenue Hardware 204,746 137,310 Cloud and other services 106,174 30,204 Total cost of revenue 310,920 167,514 Gross profit 199,071 122,738 Operating expenses Research and development 243,319 158,234 Sales and marketing 70,645 20,980 General and administrative 30,969 44,962 Total operating expenses 344,933 224,176 Loss from operations (145,862) (101,438) Other income (expense), net 390,746 (378,237) Income (loss) before income taxes 244,884 (479,675) Income tax expense 7,057 1,927 Net income (loss) 237,827 (481,602) Less: Net income attributable to participating securities 149,952 \u2014 Less: Deemed dividend on issuance of Series F-1 redeemable convertible preferred stock \u2014 3,182 Net income (loss) attributable to common shareholders $ 87,875 $ (484,784) Net income (loss) per share attributable to common shareholders Basic $ 1.64 $ (9.90) Diluted $ 1.38 $ (9.90) Weighted average shares used in per share computation: Basic 53,616 48,972 Diluted 171,821 48,972 The accompanying notes are an integral part of these consolidated financial statements.",
+"page": "F-5"
+},
+{
+"text": "Table o f Contents NOTES TO THE CONSOLIDATED FINANCIAL STATEMENTS The weighted-average remaining lease terms and discount rates were as follows As of December 31, Other information 2025 2024 Weighted-average remaining lease term (in years) 4.7 2.7 Weighted-average discount rate 8.6 % 10.6 % As of December 31, 2025, future minimum lease payments of the Company\u2019s operating lease liabilities were due as follows (in thousands): Year ending December 31, Operating Leases 2026 $ 66,337 2027 70,073 2028 59,502 2029 60,244 Thereafter 62,792 Total future lease payments 318,948 Less: Imputed interest (57,126) Present value of operating lease liabilities $ 261,822 Supplemental cash flow information related to leases was as follows (in thousands): Years Ended December 31, 2025 2024 Cash paid for amounts included in the measurement of lease liabilities: Operating cash flows for operating leases $ 23,039 $ 6,442 Right-of-use assets obtained in exchange for lease obligations: Operating leases $ 235,053 $ 43,659 Leases Not Yet Commenced In late 2025, the Company executed non-cancelable lease agreements for additional data center capacity with lease commencement dates in 2026.",
+"page": "F-39"
+},
+{
+"text": "Significant components of the Company\u2019s deferred tax assets and liabilities are as follows (in thousands): As of December 31, 2025 2024 Deferred Tax Assets: Net operating losses $ 123,490 $ 86,111 Allowances and accruals 29,259 11,107 Tax credits, net of FIN48 reserves 30,621 30,876 Stock-based compensation 10,045 7,438 Lease liability 98,904 9,673 Capitalized R&D and identified intangibles 62,295 63,796 Other 2,482 439 Gross deferred tax assets 357,096 209,440 Less: Valuation Allowance (233,035) (200,259) Net deferred tax assets $ 124,061 $ 9,181 Deferred Tax Liabilities: Depreciation $ (23,076) $ \u2014 Right-of-use asset (94,255) (8,671) Other (4,849) (916) Gross deferred tax liabilities (122,180) (9,587) Net deferred tax assets (liabilities) $ 1,881 $ (406) The realization of deferred tax assets is dependent upon the generation of sufficient taxable income of the appropriate character in future periods.",
+"page": "F-37"
+},
+{
+"text": "No modification charges were recorded during the year ended December 31, 2024 Note 15 \u2013 Income Taxes The components of income (loss) before income taxes are as follows (in thousands): Years Ended December 31, 2025 2024 Domestic $ 239,568 $ (482,424) Foreign 5,316 2,749 Income (loss) before income taxes $ 244,884 $ (479,675) The components of the income tax expense (benefit) are as follows (in thousands): As of December 31, 2025 2024 Current Federal $ (169) $ 527 State 9,128 898 Foreign 392 213 Total current tax expense $ 9,351 $ 1,638 Deferred Foreign $ (2,294) $ 289 Total deferred tax expense (benefit) (2,294) 289 Total income tax expense $ 7,057 $ 1,927 ASU 2023-09 Adoption The Company has early adopted the new disclosure rules found in ASU 2023-09 for the 2025 year and has elected to use the Prospective Adoption approach.",
+"page": "F-35"
+},
+{
+"text": "Total stock-based compensation expense for years ended December 31, 2025 and 2024 was as follows (in thousands): Years Ended December 31, 2025 2024 Cost of revenue $ 827 $ 921 Research and development $ 32,154 $ 41,397 Sales and marketing $ 9,950 $ 8,723 General and administrative $ 6,836 $ 7,523 Total stock-based compensation expense $ 49,767 $ 58,564 Approximately $0.9 million and $1.0 million of the compensation expense recognized for each of the years ended December 31, 2025 and 2024, respectively, was attributed to certain share-based awards, which provided the employee the option to choose between equity or cash, of which approximately $0.5 million and $0.6 million was included in accrued and other current liabilities on the consolidated balance sheets as of December 31, 2025 and 2024, respectively.",
+"page": "F-34"
+}
+],
+"examples_changed": [
+{
+"before": "Below is a reconciliation of shares issued and outstanding: December 31, 2023 2022 Total shares of common stock legally issued and outstanding (including shares issued upon early exercise of stock options) 45,361,795 43,011,356 Less: Shares subject to repurchase for early exercised stock options (95,905) (400,145) Total shares issued and outstanding not subject to repurchase 45,265,890 42,611,211 The voting, dividend, and liquidation rights of the holders of the Company\u2019s shares of common stock are subject to and qualified by the rights, powers, and preferences of the holders of shares of the Company\u2019s redeemable convertible preferred stock.",
+"after": "Below is a reconciliation of shares issued and outstanding: As of December 31, 2025 2024 Total shares of common stock legally issued and outstanding (including shares issued upon early exercise of stock options) 57,907,093 53,372,691 Less: Shares subject to repurchase for early exercised stock options (772,584) (1,373,428) Total shares issued and outstanding not subject to repurchase 57,134,509 51,999,263 The voting, dividend, and liquidation rights of the holders of the Company\u2019s shares of common stock are subject to and qualified by the rights, powers, and preferences of the holders of shares of the Company\u2019s redeemable convertible preferred stock.",
+"page": "F-30",
+"diff": "Below is a \u2026 issued and outstanding: {+As of+} December 31, [-2023 2022-] {+2025 2024+} Total shares of \u2026 of stock options) [-45,361,795 43,011,356-] {+57,907,093 53,372,691+} Less: Shares subject \u2026 exercised stock options [-(95,905) (400,145)-] {+(772,584) (1,373,428)+} Total shares issued \u2026 subject to repurchase [-45,265,890 42,611,211-] {+57,134,509 51,999,263+} The voting, dividend, \u2026 convertible preferred stock."
+},
+{
+"before": "Approximately $9.0 million and $2.4 million of the compensation expense recognized for the years ended December 31, 2023 and 2022, respectively, was attributed to sales of shares of common stock by certain current and former employees of the Company to certain economic interest holders in the Company, through secondary market transactions, where the excess price paid above fair value for shares was recorded as stock-based compensation expense.",
+"after": "Table o f Contents NOTES TO THE CONSOLIDATED FINANCIAL STATEMENTS Approximately $14.1 million and $30.7 million of the compensation expense recognized for the years ended December 31, 2025 and 2024, respectively, was attributed to sales of shares of common stock by certain current and former employees of the Company to certain existing equity holders in the Company, through secondary market transactions, where the excess price paid above fair value for shares was recorded as stock-based compensation expense.",
+"page": "F-35",
+"diff": "{+Table o f Contents NOTES TO THE CONSOLIDATED FINANCIAL STATEMENTS+} Approximately [-$9.0-] {+$14.1+} million and [-$2.4-] {+$30.7+} million of the \u2026 ended December 31, [-2023-] {+2025+} and [-2022,-] {+2024,+} respectively, was attributed \u2026 Company to certain [-economic interest-] {+existing equity+} holders in the \u2026 stock-based compensation expense."
+},
+{
+"before": "The commitments made by these investors to purchase shares of the Company\u2019s Series F-1 redeemable convertible preferred stock at a future date for a fixed price of $14.66 per share represent a forward contract between the Company and the counterparties.",
+"after": "Forward Contract Liability The commitments made by the investors to purchase shares of the Company\u2019s certain series of redeemable convertible preferred stock at a future date for a discounted fixed price of $14.66 per share represented forward contracts between the Company and the counterparties.",
+"page": "F-29",
+"diff": "{+Forward Contract Liability+} The commitments made by [-these-] {+the+} investors to purchase shares of the Company\u2019s [-Series F-1-] {+certain series of+} redeemable convertible preferred \u2026 date for a {+discounted+} fixed price of $14.66 per share [-represent a-] {+represented+} forward [-contract-] {+contracts+} between the Company and the counterparties."
+},
+{
+"before": "Accordingly, the Company recorded the unvested portion of the exercise proceeds of $0.2 million and $1.0 million as a liability from the early exercise in the accompanying consolidated balance sheets as of December 31, 2023 and 2022, respectively.",
+"after": "Accordingly, the Company recorded the unvested portion of the exercise proceeds of $5.2 million and $8.5 million as a liability from the early exercise in the accompanying consolidated balance sheets as of December 31, 2025 and 2024, respectively.",
+"page": "F-32",
+"diff": "Accordingly, the Company \u2026 exercise proceeds of [-$0.2-] {+$5.2+} million and [-$1.0-] {+$8.5+} million as a \u2026 of December 31, [-2023-] {+2025+} and [-2022,-] {+2024,+} respectively."
+},
+{
+"before": "Warrants In August 2020, the Company entered into an equity arrangement with one of its customers whereby the Company issued a warrant that is exercisable for up to 68,213 shares of its Series E redeemable convertible preferred stock.",
+"after": "Series E Warrants In 2020, the Company entered into an equity arrangement with one of its customers whereby the Company issued a warrant that is exercisable for up to 68,213 shares of its Series E redeemable convertible preferred stock.",
+"page": "F-27",
+"diff": "{+Series E+} Warrants In [-August-] 2020, the Company \u2026 convertible preferred stock."
+},
+{
+"before": "As of December 31, 2023 and 2022, the Company had 300,138 shares of common stock held as treasury shares, which may be used for issuance under the Equity Incentive Plan.",
+"after": "As of December 31, 2025 and 2024, the Company had 889,890 and 300,138 shares of common stock held as treasury shares, respectively which may be used for issuance under the Equity Incentive Plan.",
+"page": "F-30",
+"diff": "As of December 31, [-2023-] {+2025+} and [-2022,-] {+2024,+} the Company had {+889,890 and+} 300,138 shares of \u2026 as treasury shares, {+respectively+} which may be \u2026 Equity Incentive Plan."
+}
+],
+"examples_removed": [
+{
+"text": "NOTES TO THE CONSOLIDATED FINANCIAL STATEMENTS Prepaid expenses and other current assets consisted of the following (in thousands): Years Ended December 31, 2023 2022 Prepaid expenses $ 3,380 $ 2,019 Other receivables 1,355 Security deposit Deferred cost of sales Other prepaid expenses and current assets Total prepaid expenses and other current assets $ 4,039 $ 4,454 Property and equipment, net consisted of the following (in thousands): Years Ended December 31, 2023 2022 Computer equipment $ 25,997 $ 37,361 Software 1,584 1,584 Machinery and equipment 2,644 2,243 Leasehold improvements Furniture and fixtures Construction in progress \u2014 30,725 41,696 Less: accumulated depreciation (18,212) (14,863) Total property and equipment, net $ 12,513 $ 26,833 During the year ended December 31, 2023, the Company recognized $1.5 million, $8.9 million, and $0.2 million of depreciation expense in cost of sales, research and development expenses, and general and administrative expenses on the consolidated statement of operations, respectively.",
+"page": "F-23"
+},
+{
+"text": "CONDENSED CONSOLIDATED STATEMENTS OF OPERATIONS (unaudited, in thousands, except per share data) Six Months Ended June 30, 2024 2023 Revenue Hardware $ 104,269 $ 1,559 Services and other 32,133 7,105 Total revenue 136,402 8,664 Cost of sales Hardware 66,442 1,980 Services and other 13,941 2,306 Total cost of sales 80,383 4,286 Gross profit 56,019 4,378 Operating expenses Research and development 77,742 76,295 Sales and marketing 7,237 4,176 General and administrative 12,851 4,922 Total operating expenses 97,830 85,393 Loss from operations (41,811) (81,015) Interest income 3,809 2,349 Other (expense) income, net (28,284) Loss before income taxes (66,286) (77,748) Income tax expense Net loss $ (66,605) $ (77,820) Net loss per share \u2013 basic and diluted $ (1.42) $ (1.82) Weighted average number of common shares outstanding, basic and diluted 46,945 42,857 The accompanying notes are an integral part of these condensed consolidated financial statements.",
+"page": "F-38"
+},
+{
+"text": "NOTES TO THE CONSOLIDATED FINANCIAL STATEMENTS The components of the income tax expense were as follows (in thousands): December 31, 2023 2022 Current Federal $ \u2014 $ \u2014 State \u2014 Foreign Total current tax expense Deferred Federal \u2014 \u2014 State \u2014 \u2014 Foreign Total deferred tax expense Total income tax expense $ $ A reconciliation of the Company\u2019s recorded income tax expense to the U.S. statutory rate was as follows (in thousands): Years Ended December 31, 2023 2022 Income taxes computed at U.S. federal statutory rate $ (26,675) $ (37,278) Stock based compensation 3,487 2,528 Foreign rate differential Tax credits, net (2,483) (4,496) Change in valuation allowance 24,272 38,864 Other 1,522 Income tax expense $ $ Deferred income taxes arise from temporary differences between the carrying value of assets and liabilities for financial reporting purposes and income tax reporting purposes, as well as net operating losses and tax credit CEREBRAS SYSTEMS INC.",
+"page": "F-31"
+}
+]
+}
+]
+},
+{
+"from": "2026-04-17_S-1_0001628280-26-025762.htm",
+"to": "2026-05-04_S-1-A_0001628280-26-029503.htm",
+"price_from": "not disclosed",
+"price_to": "$115.00 to $125.00 per share",
+"sections": [
+{
+"section": "Cover and front pages",
+"added": 166,
+"removed": 46,
+"changed": 163,
+"examples_added": [
+{
+"text": "A $1.00 increase or decrease, as applicable, in the assumed initial public offering price of $120.00 per share of Class A common stock, which is the midpoint of the estimated price range set forth on the cover page of this prospectus, assuming no change to the applicable tax rate, would increase or decrease, as applicable, the amount we would be required to pay to satisfy these tax withholding and remittance obligations by approximately $1.9 million In addition, it is possible that in the future, we will decide to \u201cnet settle\u201d additional RSUs upon the applicable vesting date, meaning that we will withhold a portion of the vested shares on the applicable vesting date and use some of the net proceeds from this offering to satisfy tax withholding and remittance obligations related to the vesting and settlement of such awards.",
+"page": "82"
+},
+{
+"text": "(v) the increase in accrued expenses and other current liabilities and an equivalent decrease in additional paid-in capital of $ 230.0 million in connection with the estimated tax withholding and remittance obligations related to the RSU Net Settlement; and (vi) stock-based compensation expense of approximately $ 150.5 million that we will recognize upon the completion of this offering related to RSUs subject to service-based and liquidity-based vesting conditions for which the service-based vesting condition was satisfied as of December 31, 2025 and for which the liquidity-based vesting condition will be satisfied in connection with this offering.",
+"page": "88"
+},
+{
+"text": "Once this offering is completed, based on beneficial ownership as of March 31, 2026, the holders of our outstanding Class B common stock will hold approximately 86.1% of our outstanding shares and control approximately 99.2% of the voting power of our outstanding shares, and our executive officers, directors, and stockholders holding more than 5% of our outstanding capital stock, together with their affiliates, will beneficially own, in the aggregate, approximately 38.5% of our outstanding shares and control approximately 50.9% of the voting power of our outstanding shares.",
+"page": "14"
+},
+{
+"text": "MORGAN STANLEY CITIGROUP BARCLAYS UBS INVESTMENT BANK MIZUHO TD COWEN NEEDHAM & COMPANY CRAIG-HALLUM WEDBUSH SECURITIES ROSENBLATT ACADEMY SECURITIES CREDIT AGRICOLE CIB MUFG FIRST CITIZENS CAPITAL SECURITIES Prospectus dated, 2026 Cerebras The World\u2019s Fastest AI Infrastructure Cerebras Wafer-Scale Engine 4 trillion transistors 900,000 cores optimized for sparse linear algebra 214 Petabits/s fabric bandwidth WSE-3 third generation in production 46,225 mm2 silicon 44 Gigabytes of on-chip memory 21 Petabytes/s memory bandwidth 5nmTSMC process Cerebras WSE-3 vs.",
+"page": "unnumbered"
+},
+{
+"text": "(iii) 927,777 shares issuable upon settlement of RSUs that will have satisfied the service-based and liquidity-based vesting conditions in connection with this offering, before giving effect to the RSU Net Settlement; and (iv) an additional 38,889 shares that may be acquired upon the settlement of outstanding RSUs within 60 days of March 31, 2026 (4) Represents 203,750 shares of Class B common stock, of which 116,459 shares are subject to repurchase within 60 days of March 31, 2026 (5) See footnote (10) for shares held by the entities affiliated with Eclipse.",
+"page": "177"
+},
+{
+"text": "(iii) 1,250,506 shares issuable upon settlement of RSUs that will have satisfied the service-based and liquidity-based vesting conditions in connection with this offering, before giving effect the RSU Net Settlement; and (iv) an additional 117,092 shares that may be acquired upon the settlement of outstanding RSUs within 60 days of March 31, 2026 (8) Represents (i) 8,057,636 shares of Class B common stock held by Alpha Wave Ventures II, LP (\u201cAlpha Wave Ventures\u201d);",
+"page": "178"
+}
+],
+"examples_changed": [
+{
+"before": "Table o f Contents Furthermore, (i) an additional approximately % of our outstanding Class A common stock and securities directly or indirectly convertible into or exchangeable or exercisable for our Class A common stock are subject to the market standoff provisions in our amended and restated investors\u2019 rights agreement, pursuant to which such holders agreed to not lend, offer, pledge, sell, contract to sell, sell any option or contract to purchase, purchase any option or contract to sell, grant any option, right, or warrant to purchase, or otherwise transfer or dispose of, directly or indirectly, any shares of our Class A common stock or any securities convertible into or exercisable or exchangeable for our Class A common stock held immediately prior to the effectiveness of this registration statement, or enter into any swap or other arrangement that transfers to another, in whole or in part, any of the economic consequences of ownership of such securities during the Lock-up Period and (ii) an additional approximately % of our outstanding Class A common stock and securities directly or indirectly convertible into or exchangeable or exercisable for our Class A common stock are subject to restrictions contained in market standoff agreements with us that include restrictions on the sale, transfer, or other disposition of shares during the Lock-up Period.",
+"after": "Table o f Contents Furthermore, (i) an additional approximately 4.9% of our outstanding Class A common stock and securities directly or indirectly convertible into or exchangeable or exercisable for our Class A common stock are subject to the market standoff provisions in our amended and restated investors\u2019 rights agreement, pursuant to which such holders agreed to not lend, offer, pledge, sell, contract to sell, sell any option or contract to purchase, purchase any option or contract to sell, grant any option, right, or warrant to purchase, or otherwise transfer or dispose of, directly or indirectly, any shares of our Class A common stock or any securities convertible into or exercisable or exchangeable for our Class A common stock held immediately prior to the effectiveness of this registration statement, or enter into any swap or other arrangement that transfers to another, in whole or in part, any of the economic consequences of ownership of such securities during the Lock-up Period and (ii) an additional approximately 23.7% of our outstanding Class A common stock and securities directly or indirectly convertible into or exchangeable or exercisable for our Class A common stock are subject to restrictions contained in market standoff agreements with us that include restrictions on the sale, transfer, or other disposition of shares during the Lock-up Period.",
+"page": "193",
+"diff": "Table o f \u2026 an additional approximately [-%-] {+4.9%+} of our outstanding \u2026 an additional approximately [-%-] {+23.7%+} of our outstanding \u2026 the Lock-up Period."
+},
+{
+"before": "Furthermore, (i) an additional approximately % of our outstanding Class A common stock and securities directly or indirectly convertible into or exchangeable or exercisable for our Class A common stock are subject to the market standoff provisions in our amended and restated investors\u2019 rights agreement, pursuant to which such holders agreed to not lend, offer, pledge, sell, contract to sell, sell any option or contract to purchase, purchase any option or contract to sell, grant any option, right, or warrant to purchase, or otherwise transfer or dispose of, directly or indirectly, any shares of our Class A common stock or any securities convertible into or exercisable or exchangeable for our Class A common stock held immediately prior to the effectiveness of this registration statement, or enter into any swap or other arrangement that transfers to another, in whole or in part, any of the economic consequences of ownership of such securities during the Lock-up Period and (ii) an additional approximately % of our outstanding Class A common stock and securities directly or indirectly convertible into or exchangeable or exercisable for our Class A common stock are subject to restrictions contained in market standoff agreements with us that include restrictions on the sale, transfer, or other disposition of shares during the Lock-up Period.",
+"after": "Furthermore, (i) an additional approximately 4.9% of our outstanding Class A common stock and securities directly or indirectly convertible into or exchangeable or exercisable for our Class A common stock are subject to the market standoff provisions in our amended and restated investors\u2019 rights agreement, pursuant to which such holders agreed to not lend, offer, pledge, sell, contract to sell, sell any option or contract to purchase, purchase any option or contract to sell, grant any option, right, or warrant to purchase, or otherwise transfer or dispose of, directly or indirectly, any shares of our Class A common stock or any securities convertible into or exercisable or exchangeable for our Class A common stock held immediately prior to the effectiveness of this registration statement, or enter into any swap or other arrangement that transfers to another, in whole or in part, any of the economic consequences of ownership of such securities during the Lock-up Period and (ii) an additional approximately 23.7% of our outstanding Class A common stock and securities directly or indirectly convertible into or exchangeable or exercisable for our Class A common stock are subject to restrictions contained in market standoff agreements with us that include restrictions on the sale, transfer, or other disposition of shares during the Lock-up Period.",
+"page": "202",
+"diff": "Furthermore, (i) an additional approximately [-%-] {+4.9%+} of our outstanding \u2026 an additional approximately [-%-] {+23.7%+} of our outstanding \u2026 the Lock-up Period."
+},
+{
+"before": "The following table illustrates this dilution on a per share basis: Assumed initial public offering price per share $ Pro forma net tangible book value per share as of December 31, 2025 $ Increase in pro forma net tangible book value per share attributable to new investors participating in this offering Pro forma as adjusted net tangible book value per share after this offering Dilution per share to new investors participating in this offering $ Each $1.00 increase or decrease in the assumed initial public offering price of $ per share, which is the midpoint of the estimated price range set forth on the cover page of this prospectus, would increase or decrease, as applicable, our pro forma as adjusted net tangible book value per share after this offering by $ per share and the dilution in pro forma per share to investors participating in this offering by $ per share, assuming that the number of shares of Class A common stock offered by us, as set forth on the cover page of this prospectus, remains the same, and after deducting estimated underwriting discounts and commissions and estimated offering expenses payable by us.",
+"after": "The following table illustrates this dilution on a per share basis: Assumed initial public offering price per share $ 120.00 Pro forma net tangible book value per share as of December 31, 2025 $ 6.08 Increase in pro forma net tangible book value per share attributable to new investors participating in this offering 14.42 Pro forma as adjusted net tangible book value per share after this offering 20.50 Dilution per share to new investors participating in this offering $ 99.50 Each $1.00 increase or decrease in the assumed initial public offering price of $ 120.00 per share, which is the midpoint of the estimated price range set forth on the cover page of this prospectus, would increase or decrease, as applicable, our pro forma as adjusted net tangible book value per share after this offering by $ 0.13 per share and the dilution in pro forma per share to investors participating in this offering by $ 0.87 per share, assuming that the number of shares of Class A common stock offered by us, as set forth on the cover page of this prospectus, remains the same, and after deducting estimated underwriting discounts and commissions and estimated offering expenses payable by us.",
+"page": "88",
+"diff": "The following table \u2026 per share $ {+120.00+} Pro forma net \u2026 31, 2025 $ {+6.08+} Increase in pro \u2026 in this offering {+14.42+} Pro forma as \u2026 after this offering {+20.50+} Dilution per share \u2026 this offering $ {+99.50+} Each $1.00 increase \u2026 price of $ {+120.00+} per share, which \u2026 offering by $ {+0.13+} per share and \u2026 offering by $ {+0.87+} per share, assuming \u2026 payable by us."
+},
+{
+"before": "(v) the sale or issuance of or entry into an agreement to sell or issue Class A common stock or any securities convertible into or exercisable or exchangeable for Class A common stock in connection with one or more mergers, acquisitions of securities, businesses, property or other assets, products or technologies, joint ventures, commercial relationships, or other strategic corporate transactions or alliances; provided that the aggregate amount of Class A common stock or any securities convertible into or exercisable or exchangeable for Class A common stock (on an as-converted, as-exercised, or as-exchanged basis) that we may sell or issue or agree to sell or issue pursuant to this clause (v) shall not exceed % of the total number of shares of our Class A common stock issued and outstanding immediately following the completion of this offering, and provided, further, that each recipient of such securities enter into a lock- up agreement with the underwriters covering the remainder of the Lock-up Period to the extent the securities held by such person are not otherwise bound by a market standoff agreement that is at least as restrictive as the terms described herein;",
+"after": "(v) the sale or issuance of or entry into an agreement to sell or issue Class A common stock or any securities convertible into or exercisable or exchangeable for Class A common stock in connection with one or more mergers, acquisitions of securities, businesses, property or other assets, products or technologies, joint ventures, commercial relationships, or other strategic corporate transactions or alliances; provided that the aggregate amount of Class A common stock or any securities convertible into or exercisable or exchangeable for Class A common stock (on an as-converted, as-exercised, or as-exchanged basis) that we may sell or issue or agree to sell or issue pursuant to this clause (v) shall not exceed 10% of the total number of shares of our common stock issued and outstanding immediately following the completion of this offering, and provided, further, that each recipient of such securities enter into a lock-up agreement with the underwriters covering the remainder of the Lock-up Period to the extent the securities held by such person are not otherwise bound by a market standoff agreement that is at least as restrictive as the terms described herein;",
+"page": "206",
+"diff": "(v) the sale \u2026 shall not exceed [-%-] {+10%+} of the total number of shares of our [-Class A-] common stock issued \u2026 enter into a [-lock- up-] {+lock-up+} agreement with the \u2026 terms described herein;"
+},
+{
+"before": "We have applied to list our Class A common stock on the Nasdaq Global Select Market under the symbol \u201cCBRS.\u201d In connection with this offering, we, our executive officers and directors, and certain other record holders that together represent approximately % of our Class A common stock, stock options, and other securities convertible into, exercisable, or exchangeable for our Class A common stock have entered into or will enter into lock-up agreements with the underwriters pursuant to which we and they have agreed to not, among other things and subject to certain exceptions, offer, sell, contract to sell, pledge, or otherwise dispose of, (or enter into any transaction which is designed to, or might reasonably be expected to, result in the disposition (whether by actual disposition or effective economic disposition due to cash settlement or otherwise) any shares of Class A common stock or securities convertible into or exchangeable for shares of our Class A common stock during the period from the date of this prospectus continuing through the earlier of (i) 6:00 a.m.",
+"after": "We have applied to list our Class A common stock on the Nasdaq Global Select Market under the symbol \u201cCBRS.\u201d In connection with this offering, we, our executive officers and directors, and certain other record holders that together represent approximately 71.4% of our Class A common stock, stock options, and other securities convertible into, exercisable, or exchangeable for our Class A common stock have entered into or will enter into lock-up agreements with the underwriters pursuant to which we and they have agreed to not, among other things and subject to certain exceptions, offer, sell, contract to sell, pledge, or otherwise dispose of, (or enter into any transaction which is designed to, or might reasonably be expected to, result in the disposition (whether by actual disposition or effective economic disposition due to cash settlement or otherwise) any shares of Class A common stock or securities convertible into or exchangeable for shares of our Class A common stock during the period from the date of this prospectus continuing through the earlier of (i) 6:00 a.m.",
+"page": "202",
+"diff": "We have applied \u2026 together represent approximately [-%-] {+71.4%+} of our Class \u2026 (i) 6:00 a.m."
+},
+{
+"before": "The number of shares initially reserved for issuance or transfer pursuant to awards under the 2026 Plan will be increased by (i) the number of shares represented by awards outstanding under the 2016 Plan that become available for issuance under the counting provisions described below following the effective date and (ii) an annual increase on the first day of each fiscal year beginning in 2027 and ending in 2036, equal to the lesser of (A) 5% of the sum of (1) all shares of all classes of our common stock, and (2) the number of shares issuable upon the exercise of warrants to purchase shares of our common stock with an exercise price per share of $0.01 or less, in each case, outstanding on the last day of the immediately preceding fiscal year and (B) such smaller number of shares of stock as determined by our board of directors; provided, however, that no more than shares may be issued upon the exercise of incentive stock options.",
+"after": "The number of shares initially reserved for issuance or transfer pursuant to awards under the 2026 Plan will be increased by (i) the number of shares of our Class A common stock and Class B common stock represented by awards outstanding under the 2016 Plan that become available for issuance under the counting provisions described below following the effective date and (ii) an annual increase on the first day of each fiscal year beginning in 2027 and ending in 2036, equal to the lesser of (A) 5% of the sum of (1) all shares of all classes of our common stock, and (2) the number of shares issuable upon the exercise of warrants to purchase shares of our common stock with an exercise price per share of $0.01 or less, in each case, outstanding on the last day of the immediately preceding fiscal year and (B) such smaller number of shares of stock as determined by our board of directors; provided, however, that no more than 273,786,493 shares may be issued upon the exercise of incentive stock options.",
+"page": "163",
+"diff": "The number of \u2026 number of shares {+of our Class A common stock and Class B common stock+} represented by awards \u2026 no more than {+273,786,493+} shares may be \u2026 incentive stock options."
+}
+],
+"examples_removed": [
+{
+"text": "Once this offering is completed (and without giving effect to any shares that may be purchased in this offering or pursuant to our directed share program), the holders of our outstanding Class B common stock will hold approximately % of our outstanding shares and control approximately % of the voting power of our outstanding shares, and our executive officers, directors, and stockholders holding more than 5% of our outstanding capital stock, together with their affiliates, will beneficially own, in the aggregate, approximately % of our outstanding shares and control approximately % of the voting power of our outstanding shares.",
+"page": "14"
+},
+{
+"text": "A $1.00 increase or decrease, as applicable, in the assumed initial public offering price of $ per share of Class A common stock, which is the midpoint of the estimated price range set forth on the cover page of this prospectus, assuming no change to the applicable tax rate, would increase or decrease, as applicable, the amount we would be required to pay to satisfy these tax withholding and remittance obligations by approximately $.",
+"page": "81"
+},
+{
+"text": "In addition, as of December 31, 2025, after giving effect to the Common Stock Reclassification and the RSU Net Settlement, we had 28,361,707 options outstanding that, if fully exercised, would result in the issuance of shares of our Class B common stock and shares of our Class B common stock issuable upon vesting of outstanding RSUs.",
+"page": "72"
+}
+]
+},
+{
+"section": "Financial Statements",
+"added": 0,
+"removed": 0,
+"changed": 2,
+"examples_added": [],
+"examples_changed": [
+{
+"before": "Note 9 \u2013 Fair Value Measurements Assets and liabilities measured at fair value on a recurring basis were as follows (in thousands): Fair Value Measurements As of December 31, Balance Sheet Captions 2025 Level 1 Level 2 Level 3 Total Gains Cash and cash equivalents Money market funds $ 598,544 $ 598,544 $ \u2014 $ \u2014 $ \u2014 U.S.",
+"after": "Note 9 \u2013 Fair Value Measurements Assets and liabilities measured at fair value on a recurring basis were as follows (in thousands): Fair Value Measurements As of December 31, (1) Balance Sheet Captions 2025 Level 1 Level 2 Level 3 Total Gains Cash and cash equivalents Money market funds $ 598,544 $ 598,544 $ \u2014 $ \u2014 $ \u2014 U.S.",
+"page": "F-23",
+"diff": "Note 9 \u2013 \u2026 of December 31, {+(1)+} Balance Sheet Captions \u2026 $ \u2014 U.S."
+},
+{
+"before": "Fair Value Measurements As of December 31, Total Gains Balance Sheet Captions 2024 Level 1 Level 2 Level 3 (Losses) Cash and cash equivalents Money market funds $ 216,748 $ 216,748 $ \u2014 $ \u2014 $ \u2014 Restricted cash Money market funds 361,757 361,757 \u2014 \u2014 \u2014 Investments U.S.",
+"after": "Fair Value Measurements As of December 31, Total Gains (1) Balance Sheet Captions 2024 Level 1 Level 2 Level 3 (Losses) Cash and cash equivalents Money market funds $ 216,748 $ 216,748 $ \u2014 $ \u2014 $ \u2014 Restricted cash Money market funds 361,757 361,757 \u2014 \u2014 \u2014 Investments U.S.",
+"page": "F-23",
+"diff": "Fair Value Measurements \u2026 31, Total Gains {+(1)+} Balance Sheet Captions \u2026 \u2014 Investments U.S."
+}
+],
+"examples_removed": []
+}
+]
+},
+{
+"from": "2026-05-04_S-1-A_0001628280-26-029503.htm",
+"to": "2026-05-11_S-1-A_0001628280-26-033143.htm",
+"price_from": "$115.00 to $125.00 per share",
+"price_to": "$150.00 to $160.00 per share",
+"sections": [
+{
+"section": "Cover and front pages",
+"added": 19,
+"removed": 18,
+"changed": 74,
+"examples_added": [
+{
+"text": "The following table illustrates this dilution on a per share basis: Assumed initial public offering price per share $ 155.00 Pro forma net tangible book value per share as of December 31, 2025 $ 5.53 Increase in pro forma net tangible book value per share attributable to new investors participating in this offering 20.08 Pro forma as adjusted net tangible book value per share after this offering 25.61 Dilution per share to new investors participating in this offering $ 129.39 Each $1.00 increase or decrease in the assumed initial public offering price of $ 155.00 per share, which is the midpoint of the estimated price range set forth on the cover page of this prospectus, would increase or decrease, as applicable, our pro forma as adjusted net tangible book value per share after this offering by $ 0.13 per share and the dilution in pro forma per share to investors participating in this offering by $ 0.87 per share, assuming that the number of shares of Class A common stock offered by us, as set forth on the cover page of this prospectus, remains the same, and after deducting estimated underwriting discounts and commissions and estimated offering expenses payable by us.",
+"page": "88"
+},
+{
+"text": "Therefore, if you purchased our Class A common stock in this offering, at the assumed initial public offering price of $155.00 per share, which is the midpoint of the estimated price range set forth on the cover page of this prospectus, you would experience an immediate dilution of $129.39 per share, the difference between the price per share you pay for our Class A common stock and our pro forma net tangible book value per share as of December 31, 2025, after giving effect to the issuance by us of shares of our Class A common stock in this offering, the Preferred Stock Conversion, the Common Stock Reclassification, and the RSU Net Settlement.",
+"page": "73"
+},
+{
+"text": "In connection with the completion of this offering, an aggregate of approximately 10,819,379 shares of our Class B common stock, 20,225,735 shares of our Class B common stock issuable upon the exercise of outstanding stock options, and 16,687,344 shares of Class B common stock issuable upon the vesting and settlement of RSUs subject to service-based and liquidity-based vesting conditions, without giving effect to the RSU Net Settlement, in each case, outstanding as of May 11, 2026, will be converted into shares of our Class A common stock or awards for shares of our Class A common stock, as applicable.",
+"page": "16"
+},
+{
+"text": "Upon the completion of this offering, based on the number of shares of our capital stock outstanding as of December 31, 2025, we will have an aggregate of 30,000,000 shares of our Class A common stock (or 34,500,000 shares of Class A common if the underwriters exercise their over-allotment option in full), 185,228,541 shares of our Class B common stock, and no shares of our Class N common stock outstanding, after giving effect to (i) the filing and effectiveness of our amended and restated certificate of incorporation, which will occur immediately prior to the completion of this offering;",
+"page": "190"
+},
+{
+"text": "In accordance with the rules of the SEC, beneficial ownership includes voting or investment power with respect to securities and includes the shares issuable pursuant to stock options that are exercisable within 60 days of March 31, 2026 or issuable pursuant to RSUs that are subject to vesting and settlement conditions expected to occur within 60 days of March 31, 2026, after giving effect to the RSU Net Settlement (based on an assumed 44.3% tax withholding rate).",
+"page": "176"
+},
+{
+"text": "(ii) 537,987 shares of Class B common stock issued pursuant to the RSU Net Settlement; and (iii) 1,211,536 shares underlying options to purchase shares of Class B common stock that are exercisable within 60 days of March 31, 2026 (4) Represents 203,750 shares of Class B common stock, of which 116,459 shares are subject to repurchase within 60 days of March 31, 2026 (5) See footnote (10) for shares held by the entities affiliated with Eclipse.",
+"page": "177"
+}
+],
+"examples_changed": [
+{
+"before": "The number of shares initially reserved for issuance or transfer pursuant to awards under the 2026 Plan will be increased by (i) the number of shares of our Class A common stock and Class B common stock represented by awards outstanding under the 2016 Plan that become available for issuance under the counting provisions described below following the effective date and (ii) an annual increase on the first day of each fiscal year beginning in 2027 and ending in 2036, equal to the lesser of (A) 5% of the sum of (1) all shares of all classes of our common stock, and (2) the number of shares issuable upon the exercise of warrants to purchase shares of our common stock with an exercise price per share of $0.01 or less, in each case, outstanding on the last day of the immediately preceding fiscal year and (B) such smaller number of shares of stock as determined by our board of directors; provided, however, that no more than 273,786,493 shares may be issued upon the exercise of incentive stock options.",
+"after": "The number of shares initially reserved for issuance or transfer pursuant to awards under the 2026 Plan will be increased by (i) the number of shares of our Class A common stock and Class B common stock represented by awards outstanding under the 2016 Plan that become available for issuance under the counting provisions described below following the effective date and (ii) an annual increase on the first day of each fiscal year beginning in 2027 and ending in 2036, equal to the lesser of (A) 5% of the sum of (1) all shares of all classes of our common stock, and (2) the number of shares issuable upon the exercise of warrants to purchase shares of our common stock with an exercise price per share of $0.01 or less, in each case, outstanding on the last day of the immediately preceding fiscal year and (B) such smaller number of shares of stock as determined by our board of directors; provided, however, that no more than 275,520,731 shares may be issued upon the exercise of incentive stock options.",
+"page": "163",
+"diff": "The number of \u2026 no more than [-273,786,493-] {+275,520,731+} shares may be \u2026 incentive stock options."
+},
+{
+"before": "Persons who have beneficially owned restricted shares of our common stock for at least six months but who are our affiliates at the time of, or any time during the 90 days preceding, a sale, would be subject to additional restrictions, by which such person would be entitled to sell within any three-month period only a number of securities that does not exceed the greater of either of the following: \u2022 1% of the number of shares of our Class A common stock then outstanding, which will equal approximately 280,000 shares immediately after this offering, assuming no exercise of the underwriters\u2019 over-allotment option; or \u2022 the average weekly trading volume of shares of our Class A common stock on the Nasdaq Global Select Market during the four calendar weeks preceding the filing of a notice on Form 144 with respect to that sale; provided, in each case, that we are subject to the Exchange Act periodic reporting requirements for at least 90 days before the sale.",
+"after": "Persons who have beneficially owned restricted shares of our common stock for at least six months but who are our affiliates at the time of, or any time during the 90 days preceding, a sale, would be subject to additional restrictions, by which such person would be entitled to sell within any three-month period only a number of securities that does not exceed the greater of either of the following: \u2022 1% of the number of shares of our Class A common stock then outstanding, which will equal approximately 300,000 shares immediately after this offering, assuming no exercise of the underwriters\u2019 over-allotment option; or \u2022 the average weekly trading volume of shares of our Class A common stock on the Nasdaq Global Select Market during the four calendar weeks preceding the filing of a notice on Form 144 with respect to that sale; provided, in each case, that we are subject to the Exchange Act periodic reporting requirements for at least 90 days before the sale.",
+"page": "192",
+"diff": "Persons who have \u2026 will equal approximately [-280,000-] {+300,000+} shares immediately after \u2026 before the sale."
+},
+{
+"before": "A $1.00 increase or decrease, as applicable, in the assumed initial public offering price of $120.00 per share of Class A common stock, which is the midpoint of the estimated price range set forth on the cover page of this prospectus, assuming no change to the applicable tax rate, would increase or decrease, as applicable, the amount we would be required to pay to satisfy these tax withholding and remittance obligations by approximately $1.9 million In addition, it is possible that in the future, we will decide to \u201cnet settle\u201d additional RSUs upon the applicable vesting date, meaning that we will withhold a portion of the vested shares on the applicable vesting date and use some of the net proceeds from this offering to satisfy tax withholding and remittance obligations related to the vesting and settlement of such awards.",
+"after": "A $1.00 increase or decrease, as applicable, in the assumed initial public offering price of $155.00 per share of Class A common stock, which is the midpoint of the estimated price range set forth on the cover page of this prospectus, assuming no change to the applicable tax rate, would increase or decrease, as applicable, the amount we would be required to pay to satisfy these tax withholding and remittance obligations by approximately $2.1 million In addition, it is possible that in the future, we will decide to \u201cnet settle\u201d additional RSUs upon the applicable vesting date, meaning that we will withhold a portion of the vested shares on the applicable vesting date and use some of the net proceeds from this offering to satisfy tax withholding and remittance obligations related to the vesting and settlement of such awards.",
+"page": "82",
+"diff": "A $1.00 increase \u2026 offering price of [-$120.00-] {+$155.00+} per share of \u2026 obligations by approximately [-$1.9-] {+$2.1+} million In addition, \u2026 of such awards."
+},
+{
+"before": "The maximum number of our shares of our Class A common stock that will be authorized for sale under the ESPP is equal to the sum of (i) 3,531,817 shares of Class A common stock and (ii) an annual increase on the first day of each fiscal year beginning in 2027 and ending in 2036, equal to the lesser of (A) 1% of the sum of (1) all shares of all classes of our common stock, and (2) the number of shares issuable upon the exercise of warrants to purchase shares of our common stock with an exercise price per share of $0.01 or less, in each case, outstanding on the last day of the immediately preceding fiscal year and (B) such smaller number of shares of Class A common stock as determined by our board of directors; provided, however, no more than 48,562,484 shares of our Class A common stock may be issued under the ESPP.",
+"after": "The maximum number of our shares of our Class A common stock that will be authorized for sale under the ESPP is equal to the sum of (i) 3,554,189 shares of Class A common stock and (ii) an annual increase on the first day of each fiscal year beginning in 2027 and ending in 2036, equal to the lesser of (A) 1% of the sum of (1) all shares of all classes of our common stock, and (2) the number of shares issuable upon the exercise of warrants to purchase shares of our common stock with an exercise price per share of $0.01 or less, in each case, outstanding on the last day of the immediately preceding fiscal year and (B) such smaller number of shares of Class A common stock as determined by our board of directors; provided, however, no more than 48,870,099 shares of our Class A common stock may be issued under the ESPP.",
+"page": "168",
+"diff": "The maximum number \u2026 sum of (i) [-3,531,817-] {+3,554,189+} shares of Class \u2026 no more than [-48,562,484-] {+48,870,099+} shares of our \u2026 under the ESPP."
+},
+{
+"before": "(v) the increase in accrued expenses and other current liabilities and an equivalent decrease in additional paid-in capital of $230.0 million in connection with the estimated tax withholding and remittance obligations related to the RSU Net Settlement; and (vi) stock-based compensation expense of approximately $150.5 million that we will recognize upon the completion of this offering related to RSUs subject to service-based and liquidity- based vesting conditions for which the service-based vesting condition was satisfied as of December 31, 2025 and for which the liquidity-based vesting condition will be satisfied in connection with this offering; and \u2022 on a pro forma as adjusted basis to give effect to: (i) the pro forma adjustments set forth above;",
+"after": "(v) the increase in accrued expenses and other current liabilities and an equivalent decrease in additional paid-in capital of $329.6 million in connection with the estimated tax withholding and remittance obligations related to the RSU Net Settlement; and (vi) stock-based compensation expense of approximately $150.5 million that we will recognize upon the completion of this offering related to RSUs subject to service-based and liquidity- based vesting conditions for which the service-based vesting condition was satisfied as of December 31, 2025 and for which the liquidity-based vesting condition will be satisfied in connection with this offering; and \u2022 on a pro forma as adjusted basis to give effect to: (i) the pro forma adjustments set forth above;",
+"page": "84",
+"diff": "(v) the increase \u2026 paid-in capital of [-$230.0-] {+$329.6+} million in connection \u2026 set forth above;"
+},
+{
+"before": "After giving effect to (i) the pro forma adjustments set forth above, (ii) the sale by us of 28,000,000 shares of our Class A common stock in this offering at an assumed initial public offering price of $120.00 per share, which is the midpoint of the estimated price range set forth on the cover page of this prospectus, after deducting estimated underwriting discounts and commissions and estimated offering expenses payable by us, and (iii) the use of a portion of the net proceeds from this offering to satisfy the estimated tax withholding and remittance obligations related to the RSU Net Settlement, our pro forma as adjusted net tangible book value as of December 31, 2025 would have been $ 4,366.5 million, or $ 20.50 per share.",
+"after": "After giving effect to (i) the pro forma adjustments set forth above, (ii) the sale by us of 30,000,000 shares of our Class A common stock in this offering at an assumed initial public offering price of $155.00 per share, which is the midpoint of the estimated price range set forth on the cover page of this prospectus, after deducting estimated underwriting discounts and commissions and estimated offering expenses payable by us, and (iii) the use of a portion of the net proceeds from this offering to satisfy the estimated tax withholding and remittance obligations related to the RSU Net Settlement, our pro forma as adjusted net tangible book value as of December 31, 2025 would have been $ 5,512.6 million, or $ 25.61 per share.",
+"page": "88",
+"diff": "After giving effect \u2026 by us of [-28,000,000-] {+30,000,000+} shares of our \u2026 offering price of [-$120.00-] {+$155.00+} per share, which \u2026 have been $ [-4,366.5-] {+5,512.6+} million, or $ [-20.50-] {+25.61+} per share."
+}
+],
+"examples_removed": [
+{
+"text": "The following table illustrates this dilution on a per share basis: Assumed initial public offering price per share $ 120.00 Pro forma net tangible book value per share as of December 31, 2025 $ 6.08 Increase in pro forma net tangible book value per share attributable to new investors participating in this offering 14.42 Pro forma as adjusted net tangible book value per share after this offering 20.50 Dilution per share to new investors participating in this offering $ 99.50 Each $1.00 increase or decrease in the assumed initial public offering price of $ 120.00 per share, which is the midpoint of the estimated price range set forth on the cover page of this prospectus, would increase or decrease, as applicable, our pro forma as adjusted net tangible book value per share after this offering by $ 0.13 per share and the dilution in pro forma per share to investors participating in this offering by $ 0.87 per share, assuming that the number of shares of Class A common stock offered by us, as set forth on the cover page of this prospectus, remains the same, and after deducting estimated underwriting discounts and commissions and estimated offering expenses payable by us.",
+"page": "88"
+},
+{
+"text": "Therefore, if you purchased our Class A common stock in this offering, at the assumed initial public offering price of $120.00 per share, which is the midpoint of the estimated price range set forth on the cover page of this prospectus, you would experience an immediate dilution of $99.50 per share, the difference between the price per share you pay for our Class A common stock and our pro forma net tangible book value per share as of December 31, 2025, after giving effect to the issuance by us of shares of our Class A common stock in this offering, the Preferred Stock Conversion, the Common Stock Reclassification, and the RSU Net Settlement.",
+"page": "73"
+},
+{
+"text": "Upon the completion of this offering, based on the number of shares of our capital stock outstanding as of December 31, 2025, we will have an aggregate of 28,000,000 shares of our Class A common stock (or 32,200,000 shares of Class A common if the underwriters exercise their over-allotment option in full), 184,965,381 shares of our Class B common stock, and no shares of our Class N common stock outstanding, after giving effect to (i) the filing and effectiveness of our amended and restated certificate of incorporation, which will occur immediately prior to the completion of this offering;",
+"page": "190"
+}
+]
+}
+]
+},
+{
+"from": "2026-05-11_S-1-A_0001628280-26-033143.htm",
+"to": "2026-05-14_424B4_0001628280-26-035214.htm",
+"price_from": "$150.00 to $160.00 per share",
+"price_to": "not disclosed",
+"sections": [
+{
+"section": "Cover and front pages",
+"added": 19,
+"removed": 98,
+"changed": 77,
+"examples_added": [
+{
+"text": "The following table sets forth, on the pro forma basis described above, as of December 31, 2025, the number of shares of Class A common stock purchased from us, the total consideration paid, or to be paid, and the weighted- average price per share paid, or to be paid, by existing stockholders and by the new investors, at the initial public offering price of $ 185.00 per share, before deducting underwriting discounts and commissions and estimated offering expenses payable by us: Weighted- Shares Purchased Total Consideration Average Price Number Percent Amount Percent Per Share (in thousands, except share, per share, and percent data) Existing stockholders 185,110,345 86.1 % $ 938,612 14.5 % $ 5.07 New investors 30,000,000 13.9 5,550,000 85.5 185.00 Total 215,110,345 100.0 % $ 6,488,612 100.0 % $ 30.16 The foregoing tables assume no exercise of the underwriters\u2019 over-allotment option.",
+"page": "87"
+},
+{
+"text": "The following table illustrates this dilution on a per share basis: Initial public offering price per share $ 185.00 Pro forma net tangible book value per share as of December 31, 2025 $ 5.07 Increase in pro forma net tangible book value per share attributable to new investors participating in this offering 24.44 Pro forma as adjusted net tangible book value per share after this offering 29.51 Dilution per share to new investors participating in this offering $ 155.49 If the underwriters\u2019 over-allotment option is exercised in full, the pro forma as adjusted net tangible book value per share of our Class A common stock after this offering would be $ 32.60 per share, and the dilution in pro forma net tangible book value per share to investors participating in this offering would be $ 152.40 per share of our Class A common stock.",
+"page": "87"
+},
+{
+"text": "LLC 9,839,362 Citigroup Global Markets Inc. 5,910,638 Barclays Capital Inc. 5,910,638 UBS Securities LLC 3,255,319 Mizuho Securities USA LLC 1,627,660 TD Securities (USA) LLC 1,474,468 Needham & Company, LLC 440,426 Craig-Hallum Capital Group LLC 402,128 Wedbush Securities Inc. 335,106 Rosenblatt Securities Inc. 268,085 Academy Securities, Inc. 201,064 Credit Agricole Securities (USA) Inc. \u2014 MUFG Securities Americas Inc. 335,106 First Citizens Capital Securities, LLC \u2014 Total: 30,000,000 The underwriters and the representatives are collectively referred to as the \u201cunderwriters\u201d and the \u201crepresentatives,\u201d respectively.",
+"page": "200"
+},
+{
+"text": "Therefore, if you purchase our Class A common stock in this offering at the initial public offering price of $185.00 per share, you will experience immediate dilution of $155.49 per share, the difference between the price per share you pay for our Class A common stock and our pro forma net tangible book value per share as of December 31, 2025, after giving effect to the issuance by us of shares of our Class A common stock in this offering, the Preferred Stock Conversion, the Common Stock Reclassification, and the RSU Net Settlement.",
+"page": "72"
+},
+{
+"text": "Use of proceeds We estimate that we will receive net proceeds from this offering of approximately $5,408.5 million (or $6,221.4 million if the underwriters exercise their over-allotment option in full), based upon the initial public offering price of $185.00 per share of Class A common stock, and after deducting underwriting discounts and commissions and estimated offering expenses payable by us.",
+"page": "13"
+},
+{
+"text": "USE OF PROCEEDS We estimate that we will receive net proceeds from this offering of approximately $5,408.5 million (or $6,221.4 million if the underwriters\u2019 over-allotment option is exercised in full), based on the initial public offering price of $185.00 per share, and after deducting underwriting discounts and commissions and estimated offering expenses payable by us.",
+"page": "81"
+}
+],
+"examples_changed": [
+{
+"before": "Table o f Contents Furthermore, (i) an additional approximately 4.9% of our outstanding Class A common stock and securities directly or indirectly convertible into or exchangeable or exercisable for our Class A common stock are subject to the market standoff provisions in our amended and restated investors\u2019 rights agreement, pursuant to which such holders agreed to not lend, offer, pledge, sell, contract to sell, sell any option or contract to purchase, purchase any option or contract to sell, grant any option, right, or warrant to purchase, or otherwise transfer or dispose of, directly or indirectly, any shares of our Class A common stock or any securities convertible into or exercisable or exchangeable for our Class A common stock held immediately prior to the effectiveness of this registration statement, or enter into any swap or other arrangement that transfers to another, in whole or in part, any of the economic consequences of ownership of such securities during the Lock-up Period and (ii) an additional approximately 23.7% of our outstanding Class A common stock and securities directly or indirectly convertible into or exchangeable or exercisable for our Class A common stock are subject to restrictions contained in market standoff agreements with us that include restrictions on the sale, transfer, or other disposition of shares during the Lock-up Period.",
+"after": "Furthermore, (i) an additional approximately 4.9% of our outstanding Class A common stock and securities directly or indirectly convertible into or exchangeable or exercisable for our Class A common stock are subject to Table o f Contents the market standoff provisions in our amended and restated investors\u2019 rights agreement, pursuant to which such holders agreed to not lend, offer, pledge, sell, contract to sell, sell any option or contract to purchase, purchase any option or contract to sell, grant any option, right, or warrant to purchase, or otherwise transfer or dispose of, directly or indirectly, any shares of our Class A common stock or any securities convertible into or exercisable or exchangeable for our Class A common stock held immediately prior to the effectiveness of this registration statement, or enter into any swap or other arrangement that transfers to another, in whole or in part, any of the economic consequences of ownership of such securities during the Lock-up Period and (ii) an additional approximately 23.7% of our outstanding Class A common stock and securities directly or indirectly convertible into or exchangeable or exercisable for our Class A common stock are subject to restrictions contained in market standoff agreements with us that include restrictions on the sale, transfer, or other disposition of shares during the Lock-up Period.",
+"page": "191",
+"diff": "[-Table o f Contents-] Furthermore, (i) an \u2026 are subject to {+Table o f Contents+} the market standoff \u2026 the Lock-up Period."
+},
+{
+"before": "We have applied to list our Class A common stock on the Nasdaq Global Select Market under the symbol \u201cCBRS.\u201d In connection with this offering, we, our executive officers and directors, and certain other record holders that together represent approximately 71.4% of our Class A common stock, stock options, and other securities convertible into, exercisable, or exchangeable for our Class A common stock have entered into or will enter into lock-up agreements with the underwriters pursuant to which we and they have agreed to not, among other things and subject to certain exceptions, offer, sell, contract to sell, pledge, or otherwise dispose of, (or enter into any transaction which is designed to, or might reasonably be expected to, result in the disposition (whether by actual disposition or effective economic disposition due to cash settlement or otherwise) any shares of Class A common stock or securities convertible into or exchangeable for shares of our Class A common stock during the period from the date of this prospectus continuing through the earlier of (i) 6:00 a.m.",
+"after": "We have been approved to list our Class A common stock on the Nasdaq Global Select Market under the symbol \u201cCBRS.\u201d In connection with this offering, we, our executive officers and directors, and certain other record holders that together represent approximately 71.4% of our Class A common stock, stock options, and other securities convertible into, exercisable, or exchangeable for our Class A common stock have entered into lock-up agreements with the underwriters pursuant to which we and they have agreed to not, among other things and subject to certain exceptions, offer, sell, contract to sell, pledge, or otherwise dispose of, (or enter into any transaction which is designed to, or might reasonably be expected to, result in the disposition (whether by actual disposition or effective economic disposition due to cash settlement or otherwise) any shares of Class A common stock or securities convertible into or exchangeable for shares of our Class A common stock during the period from the date of this prospectus continuing through the earlier of (i) 6:00 a.m.",
+"page": "201",
+"diff": "We have [-applied-] {+been approved+} to list our \u2026 stock have entered [-into or will enter-] into lock-up agreements \u2026 (i) 6:00 a.m."
+},
+{
+"before": "The number of shares initially reserved for issuance or transfer pursuant to awards under the 2026 Plan will be increased by (i) the number of shares of our Class A common stock and Class B common stock represented by awards outstanding under the 2016 Plan that become available for issuance under the counting provisions described below following the effective date and (ii) an annual increase on the first day of each fiscal year beginning in 2027 and ending in 2036, equal to the lesser of (A) 5% of the sum of (1) all shares of all classes of our common stock, and (2) the number of shares issuable upon the exercise of warrants to purchase shares of our common stock with an exercise price per share of $0.01 or less, in each case, outstanding on the last day of the immediately preceding fiscal year and (B) such smaller number of shares of stock as determined by our board of directors; provided, however, that no more than 275,520,731 shares may be issued upon the exercise of incentive stock options.",
+"after": "The number of shares initially reserved for issuance or transfer pursuant to awards under the 2026 Plan will be increased by (i) the number of shares of our Class A common stock and Class B common stock represented by awards outstanding under the 2016 Plan that become available for issuance under the counting provisions described below following the effective date of the 2026 Plan and (ii) an annual increase on the first day of each fiscal year beginning in 2027 and ending in 2036, equal to the lesser of (A) 5% of the sum of (1) all shares of all classes of our common stock, and (2) the number of shares issuable upon the exercise of warrants to purchase shares of our common stock with an exercise price per share of $0.01 or less, in each case, outstanding on the last day of the immediately preceding fiscal year and (B) such smaller number of shares of stock as determined by our board of directors; provided, however, that no more than 275,520,731 shares may be issued upon the exercise of incentive stock options.",
+"page": "162",
+"diff": "The number of \u2026 the effective date {+of the 2026 Plan+} and (ii) an \u2026 incentive stock options."
+},
+{
+"before": "Lock-Up and Market Standoff Agreements In connection with this offering, we, our executive officers and directors, and certain other record holders that together represent approximately 71.4% of our Class A common stock, stock options, and other securities convertible into, exercisable, or exchangeable for our Class A common stock have entered into or will enter into lock-up agreements with the underwriters pursuant to which we and they have agreed to not, among other things and subject to certain exceptions, offer, sell, contract to sell, pledge, or otherwise dispose of, (or enter into any transaction which is designed to, or might reasonably be expected to, result in the disposition (whether by actual disposition or effective economic disposition due to cash settlement or otherwise) any shares of Class A common stock or securities convertible into or exchangeable for shares of our Class A common stock during the Lock-up Period.",
+"after": "Lock-Up and Market Standoff Agreements In connection with this offering, we, our executive officers and directors, and certain other record holders that together represent approximately 71.4% of our Class A common stock, stock options, and other securities convertible into, exercisable, or exchangeable for our Class A common stock have entered into lock-up agreements with the underwriters pursuant to which we and they have agreed to not, among other things and subject to certain exceptions, offer, sell, contract to sell, pledge, or otherwise dispose of, (or enter into any transaction which is designed to, or might reasonably be expected to, result in the disposition (whether by actual disposition or effective economic disposition due to cash settlement or otherwise) any shares of Class A common stock or securities convertible into or exchangeable for shares of our Class A common stock during the Lock-up Period.",
+"page": "191",
+"diff": "Lock-Up and Market \u2026 stock have entered [-into or will enter-] into lock-up agreements \u2026 the Lock-up Period."
+},
+{
+"before": "(v) the increase in accrued expenses and other current liabilities and an equivalent decrease in additional paid-in capital of $329.6 million in connection with the estimated tax withholding and remittance obligations related to the RSU Net Settlement; and (vi) stock-based compensation expense of approximately $150.5 million that we will recognize upon the completion of this offering related to RSUs subject to service-based and liquidity- based vesting conditions for which the service-based vesting condition was satisfied as of December 31, 2025 and for which the liquidity-based vesting condition will be satisfied in connection with this offering; and \u2022 on a pro forma as adjusted basis to give effect to: (i) the pro forma adjustments set forth above;",
+"after": "(v) the increase in accrued expenses and other current liabilities and an equivalent decrease in additional paid-in capital of $416.1 million in connection with the estimated tax withholding and remittance obligations related to the RSU Net Settlement; and (vi) stock-based compensation expense of approximately $150.5 million that we will recognize upon the completion of this offering related to RSUs subject to service-based and liquidity- based vesting conditions for which the service-based vesting condition was satisfied as of December 31, 2025 and for which the liquidity-based vesting condition was satisfied in connection with this offering; and \u2022 on a pro forma as adjusted basis to give effect to: (i) the pro forma adjustments set forth above;",
+"page": "83",
+"diff": "(v) the increase \u2026 paid-in capital of [-$329.6-] {+$416.1+} million in connection \u2026 liquidity-based vesting condition [-will be-] {+was+} satisfied in connection \u2026 set forth above;"
+},
+{
+"before": "We have based percentage ownership of our common stock before this offering on no shares of our Class A common stock, 185,423,145 shares of our Class B common stock, and 2,026,025 shares of our Class N common stock outstanding, in each case, as of March 31, 2026, and assume the occurrence of each of the filing and effectiveness of our amended and restated certificate of incorporation, which will be in effect immediately prior to the completion of this offering, the Preferred Stock Conversion, the Common Stock Reclassification, and the RSU Net Settlement, in each case as if it had occurred as of March 31, 2026, but do not give effect to any voting proxies that will expire in connection with this offering.",
+"after": "We have based percentage ownership of our common stock before this offering on no shares of our Class A common stock, 185,304,949 shares of our Class B common stock, and 2,026,025 shares of our Class N common stock outstanding, in each case, as of March 31, 2026, and assume the occurrence of each of the filing and effectiveness of our amended and restated certificate of incorporation, which will be in effect immediately prior to the completion of this offering, the Preferred Stock Conversion, the Common Stock Reclassification, and the RSU Net Settlement, in each case as if it had occurred as of March 31, 2026, but do not give effect to any voting proxies that will expire in connection with this offering.",
+"page": "175",
+"diff": "We have based \u2026 A common stock, [-185,423,145-] {+185,304,949+} shares of our \u2026 with this offering."
+}
+],
+"examples_removed": [
+{
+"text": "The following table illustrates this dilution on a per share basis: Assumed initial public offering price per share $ 155.00 Pro forma net tangible book value per share as of December 31, 2025 $ 5.53 Increase in pro forma net tangible book value per share attributable to new investors participating in this offering 20.08 Pro forma as adjusted net tangible book value per share after this offering 25.61 Dilution per share to new investors participating in this offering $ 129.39 Each $1.00 increase or decrease in the assumed initial public offering price of $ 155.00 per share, which is the midpoint of the estimated price range set forth on the cover page of this prospectus, would increase or decrease, as applicable, our pro forma as adjusted net tangible book value per share after this offering by $ 0.13 per share and the dilution in pro forma per share to investors participating in this offering by $ 0.87 per share, assuming that the number of shares of Class A common stock offered by us, as set forth on the cover page of this prospectus, remains the same, and after deducting estimated underwriting discounts and commissions and estimated offering expenses payable by us.",
+"page": "88"
+},
+{
+"text": "A $1.00 increase or decrease, as applicable, in the assumed initial public offering price of $155.00 per share of Class A common stock, which is the midpoint of the estimated price range set forth on the cover page of this prospectus, assuming no change to the applicable tax rate, would increase or decrease, as applicable, the amount we would be required to pay to satisfy these tax withholding and remittance obligations by approximately $2.1 million In addition, it is possible that in the future, we will decide to \u201cnet settle\u201d additional RSUs upon the applicable vesting date, meaning that we will withhold a portion of the vested shares on the applicable vesting date and use some of the net proceeds from this offering to satisfy tax withholding and remittance obligations related to the vesting and settlement of such awards.",
+"page": "82"
+},
+{
+"text": "Each $1.00 increase or decrease in the assumed initial public offering price of $ 155.00 per share, which is the midpoint of the estimated price range set forth on the cover page of this prospectus, would increase or decrease, as applicable, each of pro forma as adjusted cash and cash equivalents, additional paid-in capital, total stockholders\u2019 equity, and total capitalization by approximately $ 29.0 million, assuming that the number of shares of Class A common stock offered by us, as set forth on the cover page of this prospectus, remains the same, and after deducting estimated underwriting discounts and commissions and estimated offering expenses payable by us.",
+"page": "85"
+}
+]
+}
+]
+}
+],
+"others": {
+"term": "Cerebras Systems",
+"companies": [
+{
+"name": "Zone Frontier Inc.  (ZONE)",
+"cik": 1956741,
+"filings": [
+{
+"form": "8-K",
+"date": "2026-10-14",
+"url": "https://www.sec.gov/Archives/edgar/data/1956741/000121390026109483/ea030855201ex99-2.htm"
+},
+{
+"form": "8-K",
+"date": "2026-10-14",
+"url": "https://www.sec.gov/Archives/edgar/data/1956741/000121390026109483/ea0308552-8k_zone.htm"
+},
+{
+"form": "8-K",
+"date": "2026-09-30",
+"url": "https://www.sec.gov/Archives/edgar/data/1956741/000121390026105332/ea030695301ex99-1.htm"
+},
+{
+"form": "10-K",
+"date": "2026-09-28",
+"url": "https://www.sec.gov/Archives/edgar/data/1956741/000121390026104157/ea0306318-10k_zone.htm"
+},
+{
+"form": "8-K",
+"date": "2026-07-29",
+"url": "https://www.sec.gov/Archives/edgar/data/1956741/000121390026082561/ea029945901ex99-1.htm"
+}
+],
+"quotes": [
+"Although we have entered into binding agreements for two data center campuses and a 10-year tenancy agreement with Cerebras Systems for our Minnesota campus, we have limited operating history in this industry and there can be no assurance that we will be able to successfully develop, construct and operate our data center facilities or identify and consummate additional transactions on commercially acceptable terms, or at all.",
+"The proceeds will be used to fund the Company\u2019s AI strategy. \u25cf On July 29, 2026, the Company announced its second data center project, a 40-megawatt critical IT load campus located in Minnesota with a fully executed tenancy agreement with Cerebras Systems, a leading AI compute company.",
+"On July 23, 2026, we completed the acquisition of a second campus located in Minnesota, which is currently under construction and is subject to a fully executed 10-year tenancy agreement with Cerebras Systems, a leading AI compute company.",
+"On July 29, 2026, the Company announced its second data center project, a 40-megawatt critical IT load campus located in Minnesota with a fully executed tenancy agreement with Cerebras Systems, a leading AI compute company."
+],
+"read": {
+"form": "10-K",
+"date": "2026-09-28",
+"url": "https://www.sec.gov/Archives/edgar/data/1956741/000121390026104157/ea0306318-10k_zone.htm"
+},
+"count": 6,
+"score": 4,
+"relationship": true
+},
+{
+"name": "Dominari Holdings Inc.  (DOMH)",
+"cik": 12239,
+"filings": [
+{
+"form": "10-Q",
+"date": "2026-08-11",
+"url": "https://www.sec.gov/Archives/edgar/data/12239/000143774926026832/domh20260630_10q.htm"
+},
+{
+"form": "10-Q",
+"date": "2026-05-13",
+"url": "https://www.sec.gov/Archives/edgar/data/12239/000121390026055369/ea0289782-10q_dominari.htm"
+},
+{
+"form": "10-K",
+"date": "2026-03-31",
+"url": "https://www.sec.gov/Archives/edgar/data/12239/000121390026036897/ea0283159-10k_domin.htm"
+},
+{
+"form": "10-Q",
+"date": "2025-11-10",
+"url": "https://www.sec.gov/Archives/edgar/data/12239/000121390025107872/ea0264187-10q_dominari.htm"
+},
+{
+"form": "10-Q",
+"date": "2025-08-11",
+"url": "https://www.sec.gov/Archives/edgar/data/12239/000121390025074425/ea0252311-10q_dominari.htm"
+}
+],
+"quotes": [
+"The Company\u2019s investments in American Ventures LLC Series XIX (Skyline Builders Group Holdings Ltd.), American Ventures LLC Series XIV (JFB Construction Holdings) and investment in Dominari Master SPV LLC Series XI (Cerebras Systems Inc.) are classified as marketable securities.",
+"Investment in Dominari Master SPV LLC Series XI (Cerebras Systems Inc.) As a result of the Cerebras initial public offering on May 14, 2026, the Company's investment in Cerebras was moved to marketable securities as of June 30, 2026.",
+"[table entry] \u2026- 100 109 Investment in Dominari Master SPV LLC Series XI (Cerebras Systems Inc.)* - - 25 25 Investment in Dominari Master SPV LLC Series XII (Groq, Inc.)* - - 25 25\u2026"
+],
+"read": {
+"form": "10-Q",
+"date": "2026-08-11",
+"url": "https://www.sec.gov/Archives/edgar/data/12239/000143774926026832/domh20260630_10q.htm"
+},
+"count": 7,
+"score": 3,
+"relationship": true
+},
+{
+"name": "Digi Power X Inc.  (DGXX)",
+"cik": 1854368,
+"filings": [
+{
+"form": "10-Q",
+"date": "2026-08-14",
+"url": "https://www.sec.gov/Archives/edgar/data/1854368/000121390026089940/ea0301731-10q_digipower.htm"
+},
+{
+"form": "10-Q",
+"date": "2026-05-15",
+"url": "https://www.sec.gov/Archives/edgar/data/1854368/000121390026057115/ea0290525-10q_digipower.htm"
+},
+{
+"form": "8-K",
+"date": "2026-05-08",
+"url": "https://www.sec.gov/Archives/edgar/data/1854368/000121390026053566/ea0289585-8k_digi.htm"
+},
+{
+"form": "8-K",
+"date": "2026-05-08",
+"url": "https://www.sec.gov/Archives/edgar/data/1854368/000121390026053566/ea028958501ex99-1.htm"
+},
+{
+"form": "8-K",
+"date": "2026-05-08",
+"url": "https://www.sec.gov/Archives/edgar/data/1854368/000121390026053566/ea028958501ex10-1.htm"
+}
+],
+"quotes": [
+"(incorporated by reference to Exhibit 1.7 to the Corporation\u2019s Annual Report on Form 20-F, filed with the SEC on March 31, 2025) 10.1 Amended and Restated Sales Agreement, dated April 9, 2026 (incorporated by reference to Exhibit 1.2 to the Corporation\u2019s Registration Statement on Form S-3, filed with the SEC on April 9, 2026) 10.2** # Data Center Colocation and Master Services Agreement, by and between the Corporation and Cerebras Systems, Inc., dated May 4, 2026 (incorporated by reference to Exhibit 10.1 to the Corporation\u2019s Current Report on Form 8-K, filed with the SEC on May 8, 2026) 31.1* Certification of Chief Executive Officer Pursuant to Section 302 of the Sarbanes- Oxley Act of 2002 31.2* Certification of Chief Financial Officer Pursuant to Section 302 of the Sarbanes- Oxley Act of 2002 32.1* Certification of Chief Executive Officer Pursuant to 18 U.S.C.",
+"On May 4, the Corporation entered into a Data Center Colocation and Master Services Agreement (the \u201cCerebras Agreement\u201d) with Cerebras Systems Inc.",
+"On May 4, 2026, the Corporation entered into a ten-year data center colocation and master services agreement with Cerebras Systems Inc."
+],
+"read": {
+"form": "10-Q",
+"date": "2026-08-14",
+"url": "https://www.sec.gov/Archives/edgar/data/1854368/000121390026089940/ea0301731-10q_digipower.htm"
+},
+"count": 5,
+"score": 3,
+"relationship": true
+},
+{
+"name": "WhiteFiber, Inc.  (WYFI)",
+"cik": 2042022,
+"filings": [
+{
+"form": "8-K",
+"date": "2026-09-14",
+"url": "https://www.sec.gov/Archives/edgar/data/2042022/000121390026099424/ea030525701ex99-1.htm"
+},
+{
+"form": "8-K",
+"date": "2026-06-10",
+"url": "https://www.sec.gov/Archives/edgar/data/2042022/000121390026067329/ea029430601ex99-1.htm"
+},
+{
+"form": "8-K",
+"date": "2026-01-26",
+"url": "https://www.sec.gov/Archives/edgar/data/2042022/000121390026007474/ea027401701ex99-1_white.htm"
+},
+{
+"form": "8-K",
+"date": "2025-08-28",
+"url": "https://www.sec.gov/Archives/edgar/data/2042022/000121390025081421/ea025484401ex99-1_white.htm"
+},
+{
+"form": "424B4",
+"date": "2025-08-08",
+"url": "https://www.sec.gov/Archives/edgar/data/2042022/000121390025073279/ea0249945-07.htm"
+}
+],
+"quotes": [
+"SUBSEQUENT EVENTS On April 11, 2025, the Company announced that it has secured the rights to a new data center site in Saint -J \u00e9r\u00f4me, Qu\u00e9bec (\u201cMTL -3 \u201d), which is under development and will support the 5 MW (IT Load) colocation agreement with Cerebras Systems (\u201cCerebras\u201d).",
+"On April 11, 2025, the Company announced that it has secured the rights to a new data center site in Saint -J \u00e9r\u00f4me, Qu\u00e9bec (\u201cMTL -3 \u201d), which is under development and will support the 5 MW colocation agreement with Cerebras Systems (\u201cCerebras\u201d)."
+],
+"read": {
+"form": "424B4",
+"date": "2025-08-08",
+"url": "https://www.sec.gov/Archives/edgar/data/2042022/000121390025073279/ea0249945-07.htm"
+},
+"count": 12,
+"score": 2,
+"relationship": true
+},
+{
+"name": "Bit Digital, Inc  (BTBT)",
+"cik": 1710350,
+"filings": [
+{
+"form": "10-Q",
+"date": "2025-05-15",
+"url": "https://www.sec.gov/Archives/edgar/data/1710350/000121390025044155/ea0241656-10q_bitdigital.htm"
+},
+{
+"form": "8-K",
+"date": "2025-04-15",
+"url": "https://www.sec.gov/Archives/edgar/data/1710350/000121390025032132/ea023804201ex99-1_bitdigital.htm"
+},
+{
+"form": "8-K",
+"date": "2025-04-15",
+"url": "https://www.sec.gov/Archives/edgar/data/1710350/000121390025032132/ea0238042-8k_bitdigital.htm"
+},
+{
+"form": "8-K",
+"date": "2025-03-14",
+"url": "https://www.sec.gov/Archives/edgar/data/1710350/000101376225000323/ea023430901ex99-1_bitdigital.htm"
+}
+],
+"quotes": [
+"On April 11, 2025, the Company announced that it has secured the rights to a new data center site in Saint-J\u00e9r\u00f4me, Qu\u00e9bec (\u201cMTL-3\u201d), which is under development and will support the 5MW colocation agreement with Cerebras Systems (\u201cCerebras\u201d).",
+"We have entered into a five-year colocation agreement with Cerebras Systems (\u201cCerebras\u201d), a leading AI hardware innovator."
+],
+"read": {
+"form": "10-Q",
+"date": "2025-05-15",
+"url": "https://www.sec.gov/Archives/edgar/data/1710350/000121390025044155/ea0241656-10q_bitdigital.htm"
+},
+"count": 4,
+"score": 2,
+"relationship": true
+},
+{
+"name": "Xanadu Quantum Technologies Ltd  (XNDU)",
+"cik": 2097163,
+"filings": [
+{
+"form": "20-F",
+"date": "2026-04-09",
+"url": "https://www.sec.gov/Archives/edgar/data/2097163/000121390026042080/ea0285152-20f_xanadu.htm"
+},
+{
+"form": "6-K",
+"date": "2026-03-31",
+"url": "https://www.sec.gov/Archives/edgar/data/2097163/000121390026037534/ea028427301ex99-1.htm"
+}
+],
+"quotes": [
+"(Nasdaq GFS) a semiconductor foundry company since May 2019 where she is the chair of the Nominating and Governance Committee and a member of the Audit and Risk Committee; and Cerebras Systems Inc., a private AI company, since July 2024, where she serves as chair of its compensation committee and is a member of its audit committee."
+],
+"read": {
+"form": "20-F",
+"date": "2026-04-09",
+"url": "https://www.sec.gov/Archives/edgar/data/2097163/000121390026042080/ea0285152-20f_xanadu.htm"
+},
+"count": 2,
+"score": 1,
+"relationship": false
+},
+{
+"name": "GLOBALFOUNDRIES Inc.  (GFS)",
+"cik": 1709048,
+"filings": [
+{
+"form": "20-F",
+"date": "2026-02-27",
+"url": "https://www.sec.gov/Archives/edgar/data/1709048/000170904826000022/gfs-20251231.htm"
+},
+{
+"form": "6-K",
+"date": "2025-06-18",
+"url": "https://www.sec.gov/Archives/edgar/data/1709048/000162828025032163/agm257.htm"
+},
+{
+"form": "20-F",
+"date": "2025-03-20",
+"url": "https://www.sec.gov/Archives/edgar/data/1709048/000170904825000024/gfs-20241231.htm"
+}
+],
+"quotes": [
+"Dorchak currently does advisory and board work and serves as a member of the board of directors at Cerebras Systems, a private company."
+],
+"read": {
+"form": "20-F",
+"date": "2026-02-27",
+"url": "https://www.sec.gov/Archives/edgar/data/1709048/000170904826000022/gfs-20251231.htm"
+},
+"count": 3,
+"score": 0,
+"relationship": false
+},
+{
+"name": "Lightspeed Commerce Inc.  (LSPD)",
+"cik": 1823306,
+"filings": [
+{
+"form": "6-K",
+"date": "2026-11-05",
+"url": "https://www.sec.gov/Archives/edgar/data/1823306/000182330626000051/earningsreleasefy27q2.htm"
+},
+{
+"form": "6-K",
+"date": "2026-08-25",
+"url": "https://www.sec.gov/Archives/edgar/data/1823306/000182330626000045/aug252026pr.htm"
+}
+],
+"quotes": [
+"Hollenbeck served as President and Chief Commercial Officer of Check Point Software Technologies, and as Chief Marketing Officer at both Cerebras Systems and Oracle."
+],
+"read": {
+"form": "6-K",
+"date": "2026-11-05",
+"url": "https://www.sec.gov/Archives/edgar/data/1823306/000182330626000051/earningsreleasefy27q2.htm"
+},
+"count": 2,
+"score": 0,
+"relationship": false
+},
+{
+"name": "Owlet, Inc.  (OWLT, OWLTW)",
+"cik": 1816708,
+"filings": [
+{
+"form": "10-K/A",
+"date": "2026-04-30",
+"url": "https://www.sec.gov/Archives/edgar/data/1816708/000181670826000031/owlt-20251231.htm"
+},
+{
+"form": "10-K/A",
+"date": "2025-04-30",
+"url": "https://www.sec.gov/Archives/edgar/data/1816708/000162828025021140/owlet_10kaxfy24.htm"
+}
+],
+"quotes": [
+"He also currently serves on the boards of several privately held companies, including Cerebras Systems, Inc., Bright Machines, Inc., Flex Logix, Inc., Augury, Inc., DataPelago, Inc., Metrolink, Inc., Cybertoka Ltd., Dutch Pet, Inc., Skyryse, Inc., Senser Ltd, and InsidePacket, Ltd."
+],
+"read": {
+"form": "10-K/A",
+"date": "2026-04-30",
+"url": "https://www.sec.gov/Archives/edgar/data/1816708/000181670826000031/owlt-20251231.htm"
+},
+"count": 2,
+"score": 0,
+"relationship": false
+},
+{
+"name": "TAIWAN SEMICONDUCTOR MANUFACTURING CO LTD  (TSM, TSMWF)",
+"cik": 1046179,
+"filings": [
+{
+"form": "6-K",
+"date": "2025-02-27",
+"url": "https://www.sec.gov/Archives/edgar/data/1046179/000104617925000019/tsmc2024q4consolidatedfina.htm"
+},
+{
+"form": "6-K",
+"date": "2025-02-27",
+"url": "https://www.sec.gov/Archives/edgar/data/1046179/000104617925000019/tsmc2024q4unconsolidatedfia.htm"
+}
+],
+"quotes": [],
+"read": {
+"form": "6-K",
+"date": "2025-02-27",
+"url": "https://www.sec.gov/Archives/edgar/data/1046179/000104617925000019/tsmc2024q4consolidatedfina.htm"
+},
+"count": 2,
+"score": 0,
+"relationship": false
+}
+],
+"funds": {
+"funds_found": 49,
+"marks": [
+{
+"fund": "ALPS ETF Trust",
+"filed": "2026-10-29",
+"period": "2026-08-31",
+"holding": "Cerebras Systems, Inc.",
+"units": "NS",
+"balance": 799.0,
+"value_usd": 147207.76,
+"per_unit": 184.24,
+"url": "https://www.sec.gov/Archives/edgar/data/1414040/000104916926002770/primary_doc.xml"
+},
+{
+"fund": "COLUMBIA FUNDS SERIES TRUST",
+"filed": "2026-10-28",
+"period": "2026-08-31",
+"holding": "Cerebras Systems Inc",
+"units": "NS",
+"balance": 16636.0,
+"value_usd": 3065016.64,
+"per_unit": 184.24,
+"url": "https://www.sec.gov/Archives/edgar/data/1097519/000141036826109447/primary_doc.xml"
+},
+{
+"fund": "PROSHARES TRUST",
+"filed": "2026-10-28",
+"period": "2026-08-31",
+"holding": "Cerebras Systems, Inc., Class A",
+"units": "NS",
+"balance": 3455.0,
+"value_usd": 636549.2,
+"per_unit": 184.24,
+"url": "https://www.sec.gov/Archives/edgar/data/1174610/000207169126025273/primary_doc.xml"
+},
+{
+"fund": "COLUMBIA FUNDS SERIES TRUST I",
+"filed": "2026-10-28",
+"period": "2026-08-31",
+"holding": "Cerebras Systems Inc",
+"units": "NS",
+"balance": 93404.0,
+"value_usd": 17208752.96,
+"per_unit": 184.24,
+"url": "https://www.sec.gov/Archives/edgar/data/773757/000141036826109465/primary_doc.xml"
+},
+{
+"fund": "Voya EQUITY TRUST",
+"filed": "2026-10-27",
+"period": "2026-08-31",
+"holding": "CEREBRAS SYSTEMS INC COM CL A",
+"units": "NS",
+"balance": 26578.0,
+"value_usd": 4896730.72,
+"per_unit": 184.24,
+"url": "https://www.sec.gov/Archives/edgar/data/1063946/000094040026041572/primary_doc.xml"
+},
+{
+"fund": "FIDELITY SELECT PORTFOLIOS",
+"filed": "2026-10-26",
+"period": "2026-08-31",
+"holding": "CEREBRAS SYSTEMS INC. B - LOCKUP RELEASED - 144 RESTRICTED",
+"units": "NS",
+"balance": 284965.0,
+"value_usd": 52501951.6,
+"per_unit": 184.24,
+"url": "https://www.sec.gov/Archives/edgar/data/320351/000003540226006877/primary_doc.xml"
+},
+{
+"fund": "FIDELITY SELECT PORTFOLIOS",
+"filed": "2026-10-26",
+"period": "2026-08-31",
+"holding": "CEREBRAS SYSTEMS INC. B - OCTOBER 28, 2026 LOCKUP RELEASE",
+"units": "NS",
+"balance": 66047.0,
+"value_usd": 12168499.28,
+"per_unit": 184.24,
+"url": "https://www.sec.gov/Archives/edgar/data/320351/000003540226006877/primary_doc.xml"
+},
+{
+"fund": "FIDELITY SELECT PORTFOLIOS",
+"filed": "2026-10-26",
+"period": "2026-08-31",
+"holding": "CEREBRAS SYSTEMS INC. B - SEPTEMBER 30, 2026 LOCKUP RELEASE",
+"units": "NS",
+"balance": 66047.0,
+"value_usd": 12168499.28,
+"per_unit": 184.24,
+"url": "https://www.sec.gov/Archives/edgar/data/320351/000003540226006877/primary_doc.xml"
+},
+{
+"fund": "FIDELITY SELECT PORTFOLIOS",
+"filed": "2026-10-26",
+"period": "2026-08-31",
+"holding": "CEREBRAS SYSTEMS INC. B - 180 DAY LOCKUP FINAL RELEASE",
+"units": "NS",
+"balance": 159550.0,
+"value_usd": 29395492.0,
+"per_unit": 184.24,
+"url": "https://www.sec.gov/Archives/edgar/data/320351/000003540226006877/primary_doc.xml"
+},
+{
+"fund": "FIDELITY SELECT PORTFOLIOS",
+"filed": "2026-10-26",
+"period": "2026-08-31",
+"holding": "CEREBRAS SYSTEMS INC. B - OCTOBER 14, 2026 LOCKUP RELEASE",
+"units": "NS",
+"balance": 66047.0,
+"value_usd": 12168499.28,
+"per_unit": 184.24,
+"url": "https://www.sec.gov/Archives/edgar/data/320351/000003540226006877/primary_doc.xml"
+},
+{
+"fund": "FIDELITY SELECT PORTFOLIOS",
+"filed": "2026-10-26",
+"period": "2026-08-31",
+"holding": "CEREBRAS SYSTEMS INC A",
+"units": "NS",
+"balance": 1433400.0,
+"value_usd": 264089616.0,
+"per_unit": 184.24,
+"url": "https://www.sec.gov/Archives/edgar/data/320351/000003540226006877/primary_doc.xml"
+},
+{
+"fund": "FIDELITY SELECT PORTFOLIOS",
+"filed": "2026-10-26",
+"period": "2026-08-31",
+"holding": "CEREBRAS SYSTEMS INC. B - SEPTEMBER 2, 2026 LOCKUP RELEASE",
+"units": "NS",
+"balance": 49721.0,
+"value_usd": 9160597.04,
+"per_unit": 184.24,
+"url": "https://www.sec.gov/Archives/edgar/data/320351/000003540226006877/primary_doc.xml"
+},
+{
+"fund": "FIDELITY SELECT PORTFOLIOS",
+"filed": "2026-10-26",
+"period": "2026-08-31",
+"holding": "CEREBRAS SYSTEMS INC. B - SEPTEMBER 16, 2026 LOCKUP RELEASE",
+"units": "NS",
+"balance": 49721.0,
+"value_usd": 9160597.04,
+"per_unit": 184.24,
+"url": "https://www.sec.gov/Archives/edgar/data/320351/000003540226006877/primary_doc.xml"
+},
+{
+"fund": "FIDELITY ADVISOR SERIES I",
+"filed": "2026-10-26",
+"period": "2026-08-31",
+"holding": "CEREBRAS SYSTEMS INC. B - LOCKUP RELEASED - 144 RESTRICTED",
+"units": "NS",
+"balance": 15475.0,
+"value_usd": 2851114.0,
+"per_unit": 184.24,
+"url": "https://www.sec.gov/Archives/edgar/data/722574/000003540226006761/primary_doc.xml"
+},
+{
+"fund": "FIDELITY ADVISOR SERIES I",
+"filed": "2026-10-26",
+"period": "2026-08-31",
+"holding": "CEREBRAS SYSTEMS INC. B - OCTOBER 28, 2026 LOCKUP RELEASE",
+"units": "NS",
+"balance": 3587.0,
+"value_usd": 660868.88,
+"per_unit": 184.24,
+"url": "https://www.sec.gov/Archives/edgar/data/722574/000003540226006761/primary_doc.xml"
+},
+{
+"fund": "FIDELITY ADVISOR SERIES I",
+"filed": "2026-10-26",
+"period": "2026-08-31",
+"holding": "CEREBRAS SYSTEMS INC. B - SEPTEMBER 30, 2026 LOCKUP RELEASE",
+"units": "NS",
+"balance": 3587.0,
+"value_usd": 660868.88,
+"per_unit": 184.24,
+"url": "https://www.sec.gov/Archives/edgar/data/722574/000003540226006761/primary_doc.xml"
+},
+{
+"fund": "FIDELITY ADVISOR SERIES I",
+"filed": "2026-10-26",
+"period": "2026-08-31",
+"holding": "CEREBRAS SYSTEMS INC. B - 180 DAY LOCKUP FINAL RELEASE",
+"units": "NS",
+"balance": 8664.0,
+"value_usd": 1596255.36,
+"per_unit": 184.24,
+"url": "https://www.sec.gov/Archives/edgar/data/722574/000003540226006761/primary_doc.xml"
+},
+{
+"fund": "FIDELITY ADVISOR SERIES I",
+"filed": "2026-10-26",
+"period": "2026-08-31",
+"holding": "CEREBRAS SYSTEMS INC. B - OCTOBER 14, 2026 LOCKUP RELEASE",
+"units": "NS",
+"balance": 3587.0,
+"value_usd": 660868.88,
+"per_unit": 184.24,
+"url": "https://www.sec.gov/Archives/edgar/data/722574/000003540226006761/primary_doc.xml"
+},
+{
+"fund": "FIDELITY ADVISOR SERIES I",
+"filed": "2026-10-26",
+"period": "2026-08-31",
+"holding": "CEREBRAS SYSTEMS INC A",
+"units": "NS",
+"balance": 71700.0,
+"value_usd": 13210008.0,
+"per_unit": 184.24,
+"url": "https://www.sec.gov/Archives/edgar/data/722574/000003540226006761/primary_doc.xml"
+},
+{
+"fund": "FIDELITY ADVISOR SERIES I",
+"filed": "2026-10-26",
+"period": "2026-08-31",
+"holding": "CEREBRAS SYSTEMS INC. B - SEPTEMBER 2, 2026 LOCKUP RELEASE",
+"units": "NS",
+"balance": 2700.0,
+"value_usd": 497448.0,
+"per_unit": 184.24,
+"url": "https://www.sec.gov/Archives/edgar/data/722574/000003540226006761/primary_doc.xml"
+},
+{
+"fund": "FIDELITY ADVISOR SERIES I",
+"filed": "2026-10-26",
+"period": "2026-08-31",
+"holding": "CEREBRAS SYSTEMS INC. B - SEPTEMBER 16, 2026 LOCKUP RELEASE",
+"units": "NS",
+"balance": 2700.0,
+"value_usd": 497448.0,
+"per_unit": 184.24,
+"url": "https://www.sec.gov/Archives/edgar/data/722574/000003540226006761/primary_doc.xml"
+},
+{
+"fund": "FIDELITY PURITAN TRUST",
+"filed": "2026-10-26",
+"period": "2026-08-31",
+"holding": "CEREBRAS SYSTEMS INC. B - LOCKUP RELEASED - 144 RESTRICTED",
+"units": "NS",
+"balance": 2726.0,
+"value_usd": 502238.24,
+"per_unit": 184.24,
+"url": "https://www.sec.gov/Archives/edgar/data/81205/000003540226006756/primary_doc.xml"
+},
+{
+"fund": "FIDELITY PURITAN TRUST",
+"filed": "2026-10-26",
+"period": "2026-08-31",
+"holding": "CEREBRAS SYSTEMS INC. B - OCTOBER 28, 2026 LOCKUP RELEASE",
+"units": "NS",
+"balance": 632.0,
+"value_usd": 116439.68,
+"per_unit": 184.24,
+"url": "https://www.sec.gov/Archives/edgar/data/81205/000003540226006756/primary_doc.xml"
+},
+{
+"fund": "FIDELITY PURITAN TRUST",
+"filed": "2026-10-26",
+"period": "2026-08-31",
+"holding": "CEREBRAS SYSTEMS INC. B - SEPTEMBER 30, 2026 LOCKUP RELEASE",
+"units": "NS",
+"balance": 632.0,
+"value_usd": 116439.68,
+"per_unit": 184.24,
+"url": "https://www.sec.gov/Archives/edgar/data/81205/000003540226006756/primary_doc.xml"
+},
+{
+"fund": "FIDELITY PURITAN TRUST",
+"filed": "2026-10-26",
+"period": "2026-08-31",
+"holding": "CEREBRAS SYSTEMS INC. B - 180 DAY LOCKUP FINAL RELEASE",
+"units": "NS",
+"balance": 1526.0,
+"value_usd": 281150.24,
+"per_unit": 184.24,
+"url": "https://www.sec.gov/Archives/edgar/data/81205/000003540226006756/primary_doc.xml"
+},
+{
+"fund": "FIDELITY PURITAN TRUST",
+"filed": "2026-10-26",
+"period": "2026-08-31",
+"holding": "CEREBRAS SYSTEMS INC. B - OCTOBER 14, 2026 LOCKUP RELEASE",
+"units": "NS",
+"balance": 632.0,
+"value_usd": 116439.68,
+"per_unit": 184.24,
+"url": "https://www.sec.gov/Archives/edgar/data/81205/000003540226006756/primary_doc.xml"
+},
+{
+"fund": "FIDELITY PURITAN TRUST",
+"filed": "2026-10-26",
+"period": "2026-08-31",
+"holding": "CEREBRAS SYSTEMS INC. B - SEPTEMBER 2, 2026 LOCKUP RELEASE",
+"units": "NS",
+"balance": 476.0,
+"value_usd": 87698.24,
+"per_unit": 184.24,
+"url": "https://www.sec.gov/Archives/edgar/data/81205/000003540226006756/primary_doc.xml"
+},
+{
+"fund": "FIDELITY PURITAN TRUST",
+"filed": "2026-10-26",
+"period": "2026-08-31",
+"holding": "CEREBRAS SYSTEMS INC. B - SEPTEMBER 16, 2026 LOCKUP RELEASE",
+"units": "NS",
+"balance": 476.0,
+"value_usd": 87698.24,
+"per_unit": 184.24,
+"url": "https://www.sec.gov/Archives/edgar/data/81205/000003540226006756/primary_doc.xml"
+}
+]
+}
+},
+"statements": {
+"income": {
+"title": "CONSOLIDATED STATEMENTS OF OPERATIONS",
+"pages": [
+"F-5"
+],
+"columns": [
+"2024",
+"2025"
+],
+"rows": [
+{
+"label": "Revenue",
+"values": {
+"2024": null,
+"2025": null
+},
+"kind": "header",
+"indent": 0
+},
+{
+"label": "Hardware",
+"values": {
+"2024": 211.965,
+"2025": 358.44
+},
+"kind": "line",
+"indent": 1
+},
+{
+"label": "Cloud and other services",
+"values": {
+"2024": 78.287,
+"2025": 151.551
+},
+"kind": "line",
+"indent": 1
+},
+{
+"label": "Total revenue",
+"values": {
+"2024": 290.252,
+"2025": 509.991
+},
+"kind": "subtotal",
+"indent": 0
+},
+{
+"label": "Cost of revenue",
+"values": {
+"2024": null,
+"2025": null
+},
+"kind": "header",
+"indent": 0
+},
+{
+"label": "Hardware",
+"values": {
+"2024": 137.31,
+"2025": 204.746
+},
+"kind": "line",
+"indent": 1
+},
+{
+"label": "Cloud and other services",
+"values": {
+"2024": 30.204,
+"2025": 106.174
+},
+"kind": "line",
+"indent": 1
+},
+{
+"label": "Total cost of revenue",
+"values": {
+"2024": 167.514,
+"2025": 310.92
+},
+"kind": "subtotal",
+"indent": 0
+},
+{
+"label": "Gross profit",
+"values": {
+"2024": 122.738,
+"2025": 199.071
+},
+"kind": "subtotal",
+"indent": 0
+},
+{
+"label": "Operating expenses",
+"values": {
+"2024": null,
+"2025": null
+},
+"kind": "header",
+"indent": 0
+},
+{
+"label": "Research and development",
+"values": {
+"2024": 158.234,
+"2025": 243.319
+},
+"kind": "line",
+"indent": 1
+},
+{
+"label": "Sales and marketing",
+"values": {
+"2024": 20.98,
+"2025": 70.645
+},
+"kind": "line",
+"indent": 1
+},
+{
+"label": "General and administrative",
+"values": {
+"2024": 44.962,
+"2025": 30.969
+},
+"kind": "line",
+"indent": 1
+},
+{
+"label": "Total operating expenses",
+"values": {
+"2024": 224.176,
+"2025": 344.933
+},
+"kind": "subtotal",
+"indent": 0
+},
+{
+"label": "Loss from operations",
+"values": {
+"2024": -101.438,
+"2025": -145.862
+},
+"kind": "subtotal",
+"indent": 0
+},
+{
+"label": "Other income (expense), net",
+"values": {
+"2024": -378.237,
+"2025": 390.746
+},
+"kind": "line",
+"indent": 0
+},
+{
+"label": "Income (loss) before income taxes",
+"values": {
+"2024": -479.675,
+"2025": 244.884
+},
+"kind": "subtotal",
+"indent": 0
+},
+{
+"label": "Income tax expense",
+"values": {
+"2024": 1.927,
+"2025": 7.057
+},
+"kind": "line",
+"indent": 0
+},
+{
+"label": "Net income (loss)",
+"values": {
+"2024": -481.602,
+"2025": 237.827
+},
+"kind": "total",
+"indent": 0
+},
+{
+"label": "Less: Net income attributable to participating securities",
+"values": {
+"2024": 0.0,
+"2025": 149.952
+},
+"kind": "line",
+"indent": 0
+},
+{
+"label": "Less: Deemed dividend on issuance of Series F-1 redeemable convertible preferred stock",
+"values": {
+"2024": 3.182,
+"2025": 0.0
+},
+"kind": "line",
+"indent": 0
+},
+{
+"label": "Net income (loss) attributable to common shareholders",
+"values": {
+"2024": -484.784,
+"2025": 87.875
+},
+"kind": "subtotal",
+"indent": 0
+},
+{
+"label": "Net income (loss) per share attributable to common shareholders",
+"values": {
+"2024": null,
+"2025": null
+},
+"kind": "header",
+"indent": 0
+},
+{
+"label": "Basic",
+"values": {
+"2024": -9.9,
+"2025": 1.64
+},
+"unit": "per share",
+"kind": "line",
+"indent": 1
+},
+{
+"label": "Diluted",
+"values": {
+"2024": -9.9,
+"2025": 1.38
+},
+"unit": "per share",
+"kind": "line",
+"indent": 1
+},
+{
+"label": "Weighted average shares used in per share computation",
+"values": {
+"2024": null,
+"2025": null
+},
+"kind": "header",
+"indent": 0
+},
+{
+"label": "Basic",
+"values": {
+"2024": 48972.0,
+"2025": 53616.0
+},
+"unit": "shares",
+"scale": "thousands",
+"kind": "line",
+"indent": 1
+},
+{
+"label": "Diluted",
+"values": {
+"2024": 48972.0,
+"2025": 171821.0
+},
+"unit": "shares",
+"scale": "thousands",
+"kind": "line",
+"indent": 1
+}
+]
+},
+"balance": {
+"title": "CONSOLIDATED BALANCE SHEETS",
+"pages": [
+"F-4"
+],
+"columns": [
+"2024",
+"2025"
+],
+"rows": [
+{
+"label": "ASSETS",
+"values": {
+"2024": null,
+"2025": null
+},
+"kind": "header",
+"indent": 0
+},
+{
+"label": "Current assets",
+"values": {
+"2024": null,
+"2025": null
+},
+"kind": "header",
+"indent": 0
+},
+{
+"label": "Cash and cash equivalents",
+"values": {
+"2024": 220.208,
+"2025": 701.706
+},
+"kind": "line",
+"indent": 1
+},
+{
+"label": "Restricted cash",
+"values": {
+"2024": 361.757,
+"2025": 228.672
+},
+"kind": "line",
+"indent": 1
+},
+{
+"label": "Investments",
+"values": {
+"2024": 116.943,
+"2025": 406.531
+},
+"kind": "line",
+"indent": 1
+},
+{
+"label": "Accounts receivable, net",
+"values": {
+"2024": 137.436,
+"2025": 50.423
+},
+"kind": "line",
+"indent": 1
+},
+{
+"label": "Inventories",
+"values": {
+"2024": 174.492,
+"2025": 63.626
+},
+"kind": "line",
+"indent": 1
+},
+{
+"label": "Prepaid expenses and other current assets",
+"values": {
+"2024": 19.643,
+"2025": 92.688
+},
+"kind": "line",
+"indent": 1
+},
+{
+"label": "Total current assets",
+"values": {
+"2024": 1030.479,
+"2025": 1543.646
+},
+"kind": "subtotal",
+"indent": 0
+},
+{
+"label": "Property and equipment, net",
+"values": {
+"2024": 43.174,
+"2025": 437.396
+},
+"kind": "line",
+"indent": 0
+},
+{
+"label": "Operating lease right-of-use assets",
+"values": {
+"2024": 36.571,
+"2025": 248.95
+},
+"kind": "line",
+"indent": 0
+},
+{
+"label": "Other non-current assets",
+"values": {
+"2024": 2.514,
+"2025": 96.045
+},
+"kind": "line",
+"indent": 0
+},
+{
+"label": "Total assets",
+"values": {
+"2024": 1112.738,
+"2025": 2326.037
+},
+"kind": "total",
+"indent": 0
+},
+{
+"label": "LIABILITIES, REDEEMABLE CONVERTIBLE PREFERRED STOCK, AND STOCKHOLDERS\u2019 DEFICIT",
+"values": {
+"2024": null,
+"2025": null
+},
+"kind": "header",
+"indent": 0
+},
+{
+"label": "Current liabilities",
+"values": {
+"2024": null,
+"2025": null
+},
+"kind": "header",
+"indent": 0
+},
+{
+"label": "Accounts payable",
+"values": {
+"2024": 25.63,
+"2025": 48.63
+},
+"kind": "line",
+"indent": 1
+},
+{
+"label": "Deferred revenue, current",
+"values": {
+"2024": 38.537,
+"2025": 131.049
+},
+"kind": "line",
+"indent": 1
+},
+{
+"label": "Customer deposits",
+"values": {
+"2024": 640.317,
+"2025": 354.46
+},
+"kind": "line",
+"indent": 1
+},
+{
+"label": "Forward contract liability",
+"values": {
+"2024": 363.336,
+"2025": 0.0
+},
+"kind": "line",
+"indent": 1
+},
+{
+"label": "Accrued and other current liabilities",
+"values": {
+"2024": 110.315,
+"2025": 185.401
+},
+"kind": "line",
+"indent": 1
+},
+{
+"label": "Total current liabilities",
+"values": {
+"2024": 1178.135,
+"2025": 719.54
+},
+"kind": "subtotal",
+"indent": 0
+},
+{
+"label": "Operating lease liability, net of current portion",
+"values": {
+"2024": 27.37,
+"2025": 215.957
+},
+"kind": "line",
+"indent": 0
+},
+{
+"label": "Other non-current liabilities",
+"values": {
+"2024": 23.958,
+"2025": 35.847
+},
+"kind": "line",
+"indent": 0
+},
+{
+"label": "Total liabilities",
+"values": {
+"2024": 1229.463,
+"2025": 971.344
+},
+"kind": "subtotal",
+"indent": 0
+},
+{
+"label": "Commitments and contingencies (Note 17)",
+"values": {
+"2024": null,
+"2025": null
+},
+"kind": "header",
+"indent": 0
+},
+{
+"label": "Redeemable convertible preferred stock, $0.00001 par value per share: shares and shares authorized, at December 31, 2025 and, respectively; and shares issued and outstanding as of December 31, 2025 and respectively",
+"values": {
+"2024": 850.066,
+"2025": 1933.348
+},
+"kind": "line",
+"indent": 0
+},
+{
+"label": "Stockholders\u2019 deficit",
+"values": {
+"2024": null,
+"2025": null
+},
+"kind": "header",
+"indent": 0
+},
+{
+"label": "Class A common stock, $0.00001 par value; and shares authorized at December 31, 2025 and, respectively; and shares issued and outstanding as of December 31, 2025 and, respectively",
+"values": {
+"2024": 0.001,
+"2025": 0.001
+},
+"kind": "line",
+"indent": 1
+},
+{
+"label": "Class N common stock, $0.00001 par value; and nil shares authorized at December 31, 2025 and, respectively; nil shares issued and outstanding as of December 31, 2025 and, respectively",
+"values": {
+"2024": 0.0,
+"2025": 0.0
+},
+"kind": "line",
+"indent": 1
+},
+{
+"label": "Treasury stock, at cost, and shares as of December 31, 2025 and respectively",
+"values": {
+"2024": -0.088,
+"2025": -21.456
+},
+"kind": "line",
+"indent": 1
+},
+{
+"label": "Additional paid-in capital",
+"values": {
+"2024": 176.233,
+"2025": 346.829
+},
+"kind": "line",
+"indent": 1
+},
+{
+"label": "Accumulated other comprehensive income",
+"values": {
+"2024": 0.22,
+"2025": 1.301
+},
+"kind": "line",
+"indent": 1
+},
+{
+"label": "Accumulated deficit",
+"values": {
+"2024": -1143.157,
+"2025": -905.33
+},
+"kind": "line",
+"indent": 1
+},
+{
+"label": "Total stockholders\u2019 deficit",
+"values": {
+"2024": -966.791,
+"2025": -578.655
+},
+"kind": "subtotal",
+"indent": 0
+},
+{
+"label": "Total liabilities, redeemable convertible preferred stock, and stockholders\u2019 deficit",
+"values": {
+"2024": 1112.738,
+"2025": 2326.037
+},
+"kind": "total",
+"indent": 0
+}
+]
+},
+"cashflow": {
+"title": "CONSOLIDATED STATEMENTS OF CASH FLOWS",
+"pages": [
+"F-8"
+],
+"columns": [
+"2024",
+"2025"
+],
+"rows": [
+{
+"label": "Cash flows from operating activities",
+"values": {
+"2024": null,
+"2025": null
+},
+"kind": "header",
+"indent": 0
+},
+{
+"label": "Net income (loss)",
+"values": {
+"2024": -481.602,
+"2025": 237.827
+},
+"kind": "total",
+"indent": 0
+},
+{
+"label": "Adjustments to reconcile net income (loss) to net cash flows provided by (used in) operating activities",
+"values": {
+"2024": null,
+"2025": null
+},
+"kind": "header",
+"indent": 0
+},
+{
+"label": "Depreciation and amortization",
+"values": {
+"2024": 11.537,
+"2025": 34.454
+},
+"kind": "line",
+"indent": 1
+},
+{
+"label": "Stock-based compensation",
+"values": {
+"2024": 58.564,
+"2025": 49.767
+},
+"kind": "line",
+"indent": 1
+},
+{
+"label": "Non-cash lease expense",
+"values": {
+"2024": 7.607,
+"2025": 22.673
+},
+"kind": "line",
+"indent": 1
+},
+{
+"label": "Provision for product warranties",
+"values": {
+"2024": 12.525,
+"2025": 20.969
+},
+"kind": "line",
+"indent": 1
+},
+{
+"label": "Change in fair value (extinguishment) of forward contract liability",
+"values": {
+"2024": 401.264,
+"2025": -363.336
+},
+"kind": "line",
+"indent": 1
+},
+{
+"label": "Other",
+"values": {
+"2024": -1.388,
+"2025": 3.235
+},
+"kind": "line",
+"indent": 1
+},
+{
+"label": "Changes in operating assets and liabilities",
+"values": {
+"2024": null,
+"2025": null
+},
+"kind": "header",
+"indent": 0
+},
+{
+"label": "Accounts receivable",
+"values": {
+"2024": -130.672,
+"2025": 87.012
+},
+"kind": "line",
+"indent": 1
+},
+{
+"label": "Inventories",
+"values": {
+"2024": -144.969,
+"2025": 63.307
+},
+"kind": "line",
+"indent": 1
+},
+{
+"label": "Prepaid expenses and other assets",
+"values": {
+"2024": -17.051,
+"2025": -13.867
+},
+"kind": "line",
+"indent": 1
+},
+{
+"label": "Accounts payable",
+"values": {
+"2024": 9.01,
+"2025": 21.151
+},
+"kind": "line",
+"indent": 1
+},
+{
+"label": "Deferred revenue",
+"values": {
+"2024": 38.196,
+"2025": 109.474
+},
+"kind": "line",
+"indent": 1
+},
+{
+"label": "Customer deposits",
+"values": {
+"2024": 640.317,
+"2025": -285.857
+},
+"kind": "line",
+"indent": 1
+},
+{
+"label": "Other liabilities",
+"values": {
+"2024": 48.64,
+"2025": 3.141
+},
+"kind": "line",
+"indent": 1
+},
+{
+"label": "Net cash flows provided by (used in) operating activities",
+"values": {
+"2024": 451.978,
+"2025": -10.05
+},
+"kind": "total",
+"indent": 0
+},
+{
+"label": "Cash flows from investing activities",
+"values": {
+"2024": null,
+"2025": null
+},
+"kind": "header",
+"indent": 0
+},
+{
+"label": "Purchases of property and equipment",
+"values": {
+"2024": -23.435,
+"2025": -382.739
+},
+"kind": "line",
+"indent": 1
+},
+{
+"label": "Purchases of investments",
+"values": {
+"2024": -302.898,
+"2025": -525.414
+},
+"kind": "line",
+"indent": 1
+},
+{
+"label": "Maturities and sales of investments",
+"values": {
+"2024": 309.548,
+"2025": 240.577
+},
+"kind": "line",
+"indent": 1
+},
+{
+"label": "Net cash flows used in investing activities",
+"values": {
+"2024": -16.785,
+"2025": -667.576
+},
+"kind": "total",
+"indent": 0
+},
+{
+"label": "Cash flows from financing activities",
+"values": {
+"2024": null,
+"2025": null
+},
+"kind": "header",
+"indent": 0
+},
+{
+"label": "Proceeds from sale of shares of redeemable convertible preferred stock",
+"values": {
+"2024": 85.0,
+"2025": 1100.0
+},
+"kind": "line",
+"indent": 1
+},
+{
+"label": "Costs incurred in connection with the sale of shares of redeemable convertible preferred stock",
+"values": {
+"2024": -0.102,
+"2025": -16.718
+},
+"kind": "line",
+"indent": 1
+},
+{
+"label": "Proceeds from exercise of stock options",
+"values": {
+"2024": 27.752,
+"2025": 17.299
+},
+"kind": "line",
+"indent": 1
+},
+{
+"label": "Repurchases of early exercised stock options",
+"values": {
+"2024": -0.028,
+"2025": -0.028
+},
+"kind": "line",
+"indent": 1
+},
+{
+"label": "Cancellation and settlement of stock options in connection with the Tender Offer",
+"values": {
+"2024": 0.0,
+"2025": -49.32
+},
+"kind": "line",
+"indent": 1
+},
+{
+"label": "Repurchase of common stock",
+"values": {
+"2024": 0.0,
+"2025": -21.368
+},
+"kind": "line",
+"indent": 1
+},
+{
+"label": "Tax withheld related to RSU settlement",
+"values": {
+"2024": 0.0,
+"2025": -2.95
+},
+"kind": "line",
+"indent": 1
+},
+{
+"label": "Payments of deferred offering costs",
+"values": {
+"2024": -0.326,
+"2025": -0.355
+},
+"kind": "line",
+"indent": 1
+},
+{
+"label": "Net cash flows provided by financing activities",
+"values": {
+"2024": 112.296,
+"2025": 1026.56
+},
+"kind": "total",
+"indent": 0
+},
+{
+"label": "Effect of exchange rate on cash",
+"values": {
+"2024": -0.304,
+"2025": -0.521
+},
+"kind": "line",
+"indent": 0
+},
+{
+"label": "Increase in cash, cash equivalents, and restricted cash",
+"values": {
+"2024": 547.185,
+"2025": 348.413
+},
+"kind": "subtotal",
+"indent": 0
+},
+{
+"label": "Cash, cash equivalents, and restricted cash beginning of period",
+"values": {
+"2024": 34.78,
+"2025": 581.965
+},
+"kind": "line",
+"indent": 0
+},
+{
+"label": "Cash, cash equivalents, and restricted cash end of period",
+"values": {
+"2024": 581.965,
+"2025": 930.378
+},
+"kind": "total",
+"indent": 0
+},
+{
+"label": "Supplemental disclosures of cash flow information",
+"values": {
+"2024": null,
+"2025": null
+},
+"kind": "header",
+"indent": 0
+},
+{
+"label": "Income taxes paid",
+"values": {
+"2024": 0.258,
+"2025": 1.699
+},
+"kind": "line",
+"indent": 1
+},
+{
+"label": "Non-cash investing and financing activities",
+"values": {
+"2024": null,
+"2025": null
+},
+"kind": "header",
+"indent": 0
+},
+{
+"label": "Transfer to property and equipment out of inventories",
+"values": {
+"2024": 18.452,
+"2025": 67.303
+},
+"kind": "line",
+"indent": 1
+},
+{
+"label": "Transfer of property and equipment into inventories",
+"values": {
+"2024": 2.456,
+"2025": 26.534
+},
+"kind": "line",
+"indent": 1
+},
+{
+"label": "Purchases of property and equipment included in accounts payable and accrued and other current liabilities",
+"values": {
+"2024": 4.286,
+"2025": 9.453
+},
+"kind": "line",
+"indent": 1
+},
+{
+"label": "Vesting of early exercised options",
+"values": {
+"2024": 1.733,
+"2025": 3.449
+},
+"kind": "line",
+"indent": 1
+},
+{
+"label": "Right-of-use assets obtained in exchange for lease obligations",
+"values": {
+"2024": 43.659,
+"2025": 235.053
+},
+"kind": "line",
+"indent": 1
+},
+{
+"label": "Unpaid deferred financing costs included in accrued and other current liabilities",
+"values": {
+"2024": 0.337,
+"2025": 0.536
+},
+"kind": "line",
+"indent": 1
+},
+{
+"label": "Settlement of Series F-1 redeemable convertible preferred stock forward contract liability",
+"values": {
+"2024": 37.928,
+"2025": 0.0
+},
+"kind": "line",
+"indent": 1
+},
+{
+"label": "Deemed dividend upon issuance of Series F-1 redeemable convertible preferred stock",
+"values": {
+"2024": 3.182,
+"2025": 0.0
+},
+"kind": "line",
+"indent": 1
+}
+]
+},
+"units": "$ millions"
+},
+"qual": {
+"filing": "2026-05-14_424B4_0001628280-26-035214.htm",
+"summary": {
+"text": "We are building the fastest AI infrastructure in the world. In AI, speed is critical to win. Speed improves user engagement, expands product capabilities, can lower operating costs, and opens new markets. It shortens iteration cycles for engineers, researchers, and professionals across industries, allowing them to be more productive.",
+"page": "1"
+},
+"offer": {
+"shares_offered": {
+"value": 30000000,
+"text": "30,000,000 Shares",
+"page": "cover",
+"by_company": 30000000
+},
+"price_range": {
+"value": "$185.00 per share",
+"low": 185.0,
+"high": 185.0,
+"fixed": true,
+"text": "The initial public offering price per share of our Class A common stock is $185.00 We have been approved to list our Class A common stock on the Nasdaq Global Select Market under the symbol \u201cCBRS,\u201d and this offering is contingent upon the listing of our Class A common stock on the Nasdaq Global Select Market Following completion of this offering, we will have three classes of authorized common stock: Class A common stock, Class B common stock, and Class N common stock.",
+"page": "cover"
+},
+"exchange": {
+"value": "Nasdaq",
+"listing": "Nasdaq Global Select Market",
+"text": "The initial public offering price per share of our Class A common stock is $185.00 We have been approved to list our Class A common stock on the Nasdaq Global Select Market under the symbol \u201cCBRS,\u201d and this offering is contingent upon the listing of our Class A common stock on the Nasdaq Global Select Market Following completion of this offering, we will have three classes of authorized common stock: Class A common stock, Class B common stock, and Class N common stock.",
+"page": "cover"
+},
+"ticker": {
+"value": "CBRS",
+"text": "The initial public offering price per share of our Class A common stock is $185.00 We have been approved to list our Class A common stock on the Nasdaq Global Select Market under the symbol \u201cCBRS,\u201d and this offering is contingent upon the listing of our Class A common stock on the Nasdaq Global Select Market Following completion of this offering, we will have three classes of authorized common stock: Class A common stock, Class B common stock, and Class N common stock.",
+"page": "cover"
+},
+"underwriters": {
+"names": [
+"Morgan Stanley & Co. LLC",
+"Citigroup Global Markets Inc.",
+"Barclays Capital Inc."
+],
+"role": "representatives of the underwriters",
+"text": "Morgan Stanley & Co. LLC, Citigroup Global Markets Inc., and Barclays Capital Inc. are acting as representatives",
+"page": "200"
+},
+"use_of_proceeds": {
+"text": "We estimate that we will receive net proceeds from this offering of approximately $5,408.5 million (or $6,221.4 million if the underwriters\u2019 over-allotment option is exercised in full), based on the initial public offering price of $185.00 per share, and after deducting underwriting discounts and commissions and estimated offering expenses payable by us. We currently intend to use the net proceeds from this offering, together with our existing cash, cash equivalents, and investments, for general corporate purposes, including working capital, operating expenses and capital expenditures. We intend to use a portion of the net proceeds from this offering to satisfy tax withholding and remittance obligations related to the RSU Net Settlement.",
+"page": "81"
+},
+"lockup": {
+"days": 180,
+"text": "In connection with this offering, we, our executive officers and directors, and certain other record holders that together represent approximately 71.4% of our Class A common stock, stock options, and other securities convertible into, exercisable, or exchangeable for our Class A common stock have entered into lock-up agreements with the underwriters pursuant to which we and they have agreed to not, among other things and subject to certain exceptions, offer, sell, contract to sell, pledge, or otherwise dispose of, (or enter into any transaction which is designed to, or might reasonably be expected to, result in the disposition (whether by actual disposition or effective economic disposition",
+"page": "201"
+},
+"selling_stockholders": {
+"value": false,
+"text": "is offering 30,000,000 shares of its Class A common stock.",
+"page": "cover"
+},
+"dividend_policy": {
+"text": "We have never declared or paid any cash dividends on our capital stock. We currently intend to retain any future earnings for use in the operation of our business and do not anticipate declaring or paying any cash dividends in the foreseeable future.",
+"page": "82"
+}
+},
+"owners": {
+"classes": [
+{
+"name": "Class A",
+"page": "cover",
+"text": "Each share of Class A common stock is entitled to one vote.",
+"votes_per_share": 1
+},
+{
+"name": "Class B",
+"page": "cover",
+"text": "Each share of Class B common stock is entitled to 20 votes and is convertible at any time into one share of Class A common stock.",
+"votes_per_share": 20
+},
+{
+"name": "Class N",
+"page": "cover",
+"text": "Each share of Class N common stock is non-voting and is convertible into one share of Class A common stock.",
+"votes_per_share": 0
+}
+],
+"principal_holders": [
+{
+"name": "Andrew D. Feldman",
+"section": "and Directors",
+"classes": {
+"Class B": {
+"shares": 10158635,
+"shares_after": 10144876,
+"pct_before": 5.4,
+"pct_after": 5.4
+},
+"Class A": {
+"shares": null,
+"shares_after": 0,
+"pct_before": null,
+"pct_after": 0.0
+}
+},
+"votes_pct_before": 5.4,
+"votes_pct_after": 5.4,
+"page": "176",
+"outstanding_pct_before": 5.3,
+"outstanding_pct_after": 4.6,
+"pct_before": null,
+"pct_after": null,
+"votes_pct": "5.4%"
+},
+{
+"name": "Sean Lie",
+"section": "and Directors",
+"classes": {
+"Class B": {
+"shares": 5359293,
+"shares_after": 5347647,
+"pct_before": 2.9,
+"pct_after": 2.9
+},
+"Class A": {
+"shares": null,
+"shares_after": 0,
+"pct_before": null,
+"pct_after": 0.0
+}
+},
+"votes_pct_before": 2.9,
+"votes_pct_after": 2.8,
+"page": "176",
+"outstanding_pct_before": 2.8,
+"outstanding_pct_after": 2.4,
+"pct_before": null,
+"pct_after": null,
+"votes_pct": "2.8%"
+},
+{
+"name": "Dhiraj Mallick",
+"section": "and Directors",
+"classes": {
+"Class B": {
+"shares": 1867612,
+"shares_after": 1805200,
+"pct_before": 1.0,
+"pct_after": null
+},
+"Class A": {
+"shares": null,
+"shares_after": 0,
+"pct_before": null,
+"pct_after": 0.0
+}
+},
+"votes_pct_before": 1.0,
+"votes_pct_after": null,
+"page": "176",
+"outstanding_pct_before": null,
+"outstanding_pct_after": null,
+"under_1pct": [
+"outstanding_pct_before",
+"Class B pct_after",
+"outstanding_pct_after",
+"votes_pct_after"
+],
+"pct_before": null,
+"pct_after": null,
+"votes_pct": "<1%"
+},
+{
+"name": "Paul Auvil",
+"section": "and Directors",
+"classes": {
+"Class B": {
+"shares": 203750,
+"shares_after": 203750,
+"pct_before": null,
+"pct_after": null
+},
+"Class A": {
+"shares": null,
+"shares_after": 0,
+"pct_before": null,
+"pct_after": 0.0
+}
+},
+"votes_pct_before": null,
+"votes_pct_after": null,
+"page": "176",
+"outstanding_pct_before": null,
+"outstanding_pct_after": null,
+"under_1pct": [
+"Class B pct_before",
+"outstanding_pct_before",
+"votes_pct_before",
+"Class B pct_after",
+"outstanding_pct_after",
+"votes_pct_after"
+],
+"pct_before": null,
+"pct_after": null,
+"votes_pct": "<1%"
+},
+{
+"name": "Elena Donio",
+"section": "and Directors",
+"classes": {
+"Class B": {
+"shares": 0,
+"shares_after": 0,
+"pct_before": 0.0,
+"pct_after": 0.0
+},
+"Class A": {
+"shares": null,
+"shares_after": 0,
+"pct_before": null,
+"pct_after": 0.0
+}
+},
+"votes_pct_before": 0.0,
+"votes_pct_after": 0.0,
+"page": "176",
+"outstanding_pct_before": 0.0,
+"outstanding_pct_after": 0.0,
+"pct_before": null,
+"pct_after": null,
+"votes_pct": "none"
+},
+{
+"name": "Lior Susan",
+"section": "and Directors",
+"classes": {
+"Class B": {
+"shares": 13466197,
+"shares_after": 13466197,
+"pct_before": 7.3,
+"pct_after": 7.3
+},
+"Class A": {
+"shares": null,
+"shares_after": 0,
+"pct_before": null,
+"pct_after": 0.0
+}
+},
+"votes_pct_before": 7.3,
+"votes_pct_after": 7.2,
+"page": "176",
+"outstanding_pct_before": 7.2,
+"outstanding_pct_after": 6.2,
+"pct_before": null,
+"pct_after": null,
+"votes_pct": "7.2%"
+},
+{
+"name": "Eric Vishria",
+"section": "and Directors",
+"classes": {
+"Class B": {
+"shares": 0,
+"shares_after": 0,
+"pct_before": 0.0,
+"pct_after": 0.0
+},
+"Class A": {
+"shares": null,
+"shares_after": 0,
+"pct_before": null,
+"pct_after": 0.0
+}
+},
+"votes_pct_before": 0.0,
+"votes_pct_after": 0.0,
+"page": "176",
+"outstanding_pct_before": 0.0,
+"outstanding_pct_after": 0.0,
+"pct_before": null,
+"pct_after": null,
+"votes_pct": "none"
+},
+{
+"name": "Steve Vassallo",
+"section": "and Directors",
+"classes": {
+"Class B": {
+"shares": 15302343,
+"shares_after": 15302343,
+"pct_before": 8.3,
+"pct_after": 8.3
+},
+"Class A": {
+"shares": null,
+"shares_after": 0,
+"pct_before": null,
+"pct_after": 0.0
+}
+},
+"votes_pct_before": 8.3,
+"votes_pct_after": 8.2,
+"page": "176",
+"outstanding_pct_before": 8.2,
+"outstanding_pct_after": 7.0,
+"pct_before": null,
+"pct_after": null,
+"votes_pct": "8.2%"
+},
+{
+"name": "All current executive officers and directors as a group (9 persons)",
+"section": "and Directors",
+"classes": {
+"Class B": {
+"shares": 47330231,
+"shares_after": 47242414,
+"pct_before": 24.9,
+"pct_after": 24.9
+},
+"Class A": {
+"shares": null,
+"shares_after": 0,
+"pct_before": null,
+"pct_after": 0.0
+}
+},
+"votes_pct_before": 24.9,
+"votes_pct_after": 24.7,
+"page": "176",
+"outstanding_pct_before": 21.0,
+"outstanding_pct_after": 18.5,
+"is_group": true,
+"pct_before": null,
+"pct_after": null,
+"votes_pct": "24.7%"
+},
+{
+"name": "Entities affiliated with Alpha Wave",
+"section": "Stockholders",
+"classes": {
+"Class B": {
+"shares": 12074647,
+"shares_after": 12074647,
+"pct_before": 6.5,
+"pct_after": 6.5
+},
+"Class A": {
+"shares": null,
+"shares_after": 0,
+"pct_before": null,
+"pct_after": 0.0
+}
+},
+"votes_pct_before": 6.5,
+"votes_pct_after": 6.5,
+"page": "176",
+"outstanding_pct_before": 6.4,
+"outstanding_pct_after": 5.6,
+"pct_before": null,
+"pct_after": null,
+"votes_pct": "6.5%"
+},
+{
+"name": "Entities affiliated with Benchmark",
+"section": "Stockholders",
+"classes": {
+"Class B": {
+"shares": 17602983,
+"shares_after": 17602983,
+"pct_before": 9.5,
+"pct_after": 9.5
+},
+"Class A": {
+"shares": null,
+"shares_after": 0,
+"pct_before": null,
+"pct_after": 0.0
+}
+},
+"votes_pct_before": 9.5,
+"votes_pct_after": 9.4,
+"page": "176",
+"outstanding_pct_before": 9.4,
+"outstanding_pct_after": 8.1,
+"pct_before": null,
+"pct_after": null,
+"votes_pct": "9.4%"
+},
+{
+"name": "Entities affiliated with Eclipse",
+"section": "Stockholders",
+"classes": {
+"Class B": {
+"shares": 13466197,
+"shares_after": 13466197,
+"pct_before": 7.3,
+"pct_after": 7.3
+},
+"Class A": {
+"shares": null,
+"shares_after": 0,
+"pct_before": null,
+"pct_after": 0.0
+}
+},
+"votes_pct_before": 7.3,
+"votes_pct_after": 7.2,
+"page": "176",
+"outstanding_pct_before": 7.2,
+"outstanding_pct_after": 6.2,
+"pct_before": null,
+"pct_after": null,
+"votes_pct": "7.2%"
+},
+{
+"name": "Entities affiliated with Fidelity",
+"section": "Stockholders",
+"classes": {
+"Class B": {
+"shares": 20443122,
+"shares_after": 20443122,
+"pct_before": 11.0,
+"pct_after": 11.0
+},
+"Class A": {
+"shares": null,
+"shares_after": 0,
+"pct_before": null,
+"pct_after": 0.0
+}
+},
+"votes_pct_before": 11.0,
+"votes_pct_after": 10.9,
+"page": "176",
+"outstanding_pct_before": 10.9,
+"outstanding_pct_after": 9.4,
+"pct_before": null,
+"pct_after": null,
+"votes_pct": "10.9%"
+},
+{
+"name": "Entities affiliated with Foundation Capital",
+"section": "Stockholders",
+"classes": {
+"Class B": {
+"shares": 15302343,
+"shares_after": 15302343,
+"pct_before": 8.3,
+"pct_after": 8.3
+},
+"Class A": {
+"shares": null,
+"shares_after": 0,
+"pct_before": null,
+"pct_after": 0.0
+}
+},
+"votes_pct_before": 8.3,
+"votes_pct_after": 8.2,
+"page": "176",
+"outstanding_pct_before": 8.2,
+"outstanding_pct_after": 7.0,
+"pct_before": null,
+"pct_after": null,
+"votes_pct": "8.2%"
+}
+],
+"holders_columns": {
+"classes": [
+"Class A",
+"Class B"
+],
+"columns": [
+{
+"stage": "before",
+"kind": "shares",
+"class": "Class B",
+"header": "Shares Beneficially Owned Before this Offering Class B Common Stock Shares"
+},
+{
+"stage": "before",
+"kind": "pct",
+"class": "Class B",
+"header": "Shares Beneficially Owned Before this Offering Class B Common Stock %"
+},
+{
+"stage": "before",
+"kind": "outstanding",
+"class": null,
+"header": "Shares Beneficially Owned Before this Offering % of Total Outstanding"
+},
+{
+"stage": "before",
+"kind": "votes",
+"class": null,
+"header": "Shares Beneficially Owned Before this Offering % of Total Voting Power"
+},
+{
+"stage": "after",
+"kind": "shares",
+"class": "Class A",
+"header": "Shares Beneficially Owned After this Offering Class A Common Stock Shares"
+},
+{
+"stage": "after",
+"kind": "pct",
+"class": "Class A",
+"header": "Shares Beneficially Owned After this Offering Class A Common Stock %"
+},
+{
+"stage": "after",
+"kind": "shares",
+"class": "Class B",
+"header": "Shares Beneficially Owned After this Offering Class B Common Stock Shares"
+},
+{
+"stage": "after",
+"kind": "pct",
+"class": "Class B",
+"header": "Shares Beneficially Owned After this Offering Class B Common Stock %"
+},
+{
+"stage": "after",
+"kind": "outstanding",
+"class": null,
+"header": "Shares Beneficially Owned After this Offering % of Total Outstanding"
+},
+{
+"stage": "after",
+"kind": "votes",
+"class": null,
+"header": "Shares Beneficially Owned After this Offering % of Total Voting Power"
+}
+],
+"page": "176",
+"has": [
+"outstanding after",
+"outstanding before",
+"pct after",
+"pct before",
+"shares after",
+"shares before",
+"votes after",
+"votes before"
+]
+},
+"wedge": {
+"holder": "Entities affiliated with Fidelity",
+"stage": "after",
+"votes_pct": 10.9,
+"votes_page": "176",
+"economic_pct": 9.4,
+"economic_page": "175",
+"economic_source": "computed",
+"shares_held": 20443122,
+"shares_outstanding": 217330974,
+"note": "Shares held over all shares outstanding; the holder's shares include any options it can exercise within 60 days, which the outstanding count does not.",
+"economic_pct_printed": 9.4
+},
+"control": {
+"controlled_company": {
+"value": false,
+"note": "No sentence says it is a controlled company; the quoted one only says it could become one.",
+"text": "However, if in the future a stockholder or group of stockholders controls over 50% of the voting power of our outstanding capital stock, we may be eligible to elect the \u201ccontrolled company\u201d exemptions to the Nasdaq corporate governance rules for publicly listed companies.",
+"page": "70"
+},
+"board_majority": {
+"text": "As a result, the holders of a majority of shares of our Class A common stock and Class B common stock can elect all of the directors then standing for election.",
+"page": "180"
+},
+"sunset": {
+"value": true,
+"quotes": [
+{
+"class": "Class B",
+"text": "In addition, each share of our Class B common stock held by a Founder will convert automatically into one share of our Class A common stock on the earlier of (i) the death or incapacity of such Founder or (ii) the date that is six months following the date on which such Founder is no longer an employee or director of our company (unless such Founder has rejoined our company during such six-month period).",
+"page": "181"
+},
+{
+"class": "Class B",
+"text": "In addition, all outstanding shares of Class B common stock will convert automatically into one share of Class A common stock on the date that is six months following the date on which no Founder is an employee or director of our company (unless a Founder has rejoined our company during such six-month period).",
+"page": "181"
+}
+],
+"page": "181"
+},
+"public_benefit_corporation": {
+"value": false,
+"page": null
+}
+},
+"vote_rules": []
+},
+"people": {
+"executives": [
+{
+"name": "Andrew D. Feldman",
+"title": "Chief Executive Officer, President, and Director",
+"age": 56,
+"page": "148"
+},
+{
+"name": "Robert Komin",
+"title": "Chief Financial Officer",
+"age": 63,
+"page": "148"
+},
+{
+"name": "Sean Lie",
+"title": "Chief Technology Officer",
+"age": 46,
+"page": "148"
+},
+{
+"name": "Dhiraj Mallick",
+"title": "Chief Operating Officer",
+"age": 54,
+"page": "148"
+}
+],
+"directors": [
+{
+"name": "Andrew D. Feldman",
+"age": 56,
+"page": "148",
+"title": "Chief Executive Officer, President, and Director"
+},
+{
+"name": "Paul Auvil",
+"age": 62,
+"page": "148",
+"title": "Director"
+},
+{
+"name": "Elena Donio",
+"age": 56,
+"page": "148",
+"title": "Director"
+},
+{
+"name": "Lior Susan",
+"age": 42,
+"page": "148",
+"title": "Director"
+},
+{
+"name": "Steve Vassallo",
+"age": 54,
+"page": "148",
+"title": "Director"
+},
+{
+"name": "Eric Vishria",
+"age": 46,
+"page": "148",
+"title": "Director"
+}
+],
+"departures": []
+},
+"risks": {
+"count": 70,
+"headings": [
+{
+"heading": "We may not sustain our growth rate, and we may not be able to manage future growth effectively.",
+"page": "21"
+},
+{
+"heading": "We have a history of generating net losses, and if we are unable to achieve adequate revenue growth while our expenses increase, we may not achieve and maintain profitability in the future.",
+"page": "22"
+},
+{
+"heading": "We have a limited operating history at our current scale, and we may have difficulty evaluating our current business and accurately predicting our future revenue for the purpose of appropriately budgeting and adjusting our expenses.",
+"page": "23"
+},
+{
+"heading": "A substantial portion of our revenue has been, and is expected to continue to be, driven by a limited number of customers. A reduction in demand from, or a material adverse development in our relationship with any of our significant customers, including OpenAI, G42, MBZUAI, and AWS, or our failure to meet our obligations under the MRA with OpenAI, would harm our business, financial condition, results of operations, and prospects.",
+"page": "23"
+},
+{
+"heading": "Our revenue historically has been derived from sales of our hardware systems. We are in the early stages of delivering our cloud-based offerings, the market for which is nascent and evolving rapidly, and which require significant data center capacity and capital investments for which we expect to require significant additional capital. There is no assurance that we will be able to sustain or increase revenue from these efforts.",
+"page": "24"
+},
+{
+"heading": "Our cloud-based offerings are subject to certain risks and challenges. Unfavorable or uncertain conditions in the training or inference cloud market, as well as for AI infrastructure, may cause fluctuations in our results of operations.",
+"page": "25"
+},
+{
+"heading": "If our data center providers fail to meet the requirements of our business, or if the data center facilities experience interruption, damage, or a security breach, our ability to provide access to our infrastructure and maintain the performance of our network could be negatively impacted.",
+"page": "26"
+},
+{
+"heading": "If we are unable to secure data center capacity when needed or at affordable rates, including the cost of power, or do not accurately plan for and manage our infrastructure capacity requirements, our business, financial condition, results of operations, and prospects may be harmed.",
+"page": "28"
+},
+{
+"heading": "The market for AI computing solutions is competitive, evolving, and requires scale, and if we do not compete effectively, our business, financial condition, results of operations, and prospects may be harmed.",
+"page": "29"
+},
+{
+"heading": "The broader adoption, use, and commercialization of AI technology, and the continued rapid pace of developments in the AI field, are inherently uncertain. If we are unable to expand the application of our offerings, keep up with evolving AI technology requirements, or if new offerings we develop and introduce into the market are not successful, our business, financial condition, results of operations, and prospects may be harmed.",
+"page": "31"
+},
+{
+"heading": "We depend on third-party suppliers, including certain sole sources, and substantially all of our manufacturing services and components are procured on a purchase order basis without capacity or volume commitments, which may harm our ability to compete, meet customer demand, satisfy customer contracts or bring products to market, and our reputation, business, financial condition, results of operations, and prospects.",
+"page": "32"
+},
+{
+"heading": "Our supply chain is long, complex, and global, with many interdependencies. Any significant fluctuations of supply and demand or disruption to our supply chain may harm our ability to manufacture and deliver our products to our customers.",
+"page": "34"
+},
+{
+"heading": "Raw material and component price fluctuations or decreased availability of certain raw materials or components can increase the cost of our products, impact our ability to meet customer commitments, and may adversely affect our business, financial condition, results of operations, and prospects.",
+"page": "35"
+},
+{
+"heading": "Dependency on third-party suppliers and their technology to manufacture, assemble, test, or design our products reduces our control over product quantity and quality, manufacturing yields, development, enhancement, and product delivery schedules and could harm our business.",
+"page": "35"
+},
+{
+"heading": "The complexity of our offerings could result in delays in adoption by our customers, unforeseen expense or undetected defects, bugs, or security vulnerabilities, which may harm the market acceptance of new products and services, damage our reputation with current or prospective customers, cause significant remediation expenses, and may harm our business, financial condition, results of operations, and prospects.",
+"page": "36"
+},
+{
+"heading": "New developments and enhancements of our offerings require significant investment. Our failure to develop new or enhanced offerings and introduce them in a timely and effective manner would undermine our competitiveness.",
+"page": "37"
+},
+{
+"heading": "If our customers do not purchase additional products from us or expand their purchases with us in the future, our business, financial condition, results of operations, and prospects could be harmed.",
+"page": "38"
+},
+{
+"heading": "Our sales cycles can be long and unpredictable, and our sales efforts require considerable time and expense. If our sales cycle lengthens or we invest substantial resources pursuing unsuccessful sales opportunities, our business and results of operations may be harmed.",
+"page": "39"
+},
+{
+"heading": "The estimates of market opportunity and forecasts of market growth included in this prospectus may prove to be inaccurate, and even if the markets in which we compete achieve the forecasted growth, our business may not grow at similar rates, or at all, or we may not be able to service these markets in full.",
+"page": "39"
+},
+{
+"heading": "Any failure to offer high-quality maintenance and support services for our customers and maintain customer satisfaction may harm our relationships with our customers and, consequently, our business.",
+"page": "40"
+},
+{
+"heading": "If we are not able to maintain and enhance our reputation and brand recognition, our business, financial condition, results of operations, and prospects may be harmed.",
+"page": "40"
+},
+{
+"heading": "Our semiconductor and hardware system design and manufacturing processes involve numerous technical, operational, and financial risks, including challenges associated with advanced process nodes, tape-outs, and complex packaging technologies, that could delay our product roadmap, increase our costs, and adversely affect our business, financial condition, results of operations, and prospects.",
+"page": "40"
+},
+{
+"heading": "Issues relating to the responsible use of our technologies may result in reputational or financial harm and liability.",
+"page": "41"
+},
+{
+"heading": "Events outside of our control, adverse economic conditions, or economic uncertainty may harm our business, financial condition, results of operations, and prospects.",
+"page": "42"
+},
+{
+"heading": "Pricing for the current generation of our existing products often decreases over time, which may harm our business, financial condition, results of operations, and prospects.",
+"page": "43"
+}
+],
+"new_since_last_version": [],
+"reworded_since_last_version": [],
+"compared_with": "2026-05-11_S-1-A_0001628280-26-033143.htm"
+},
+"related_party": {
+"items": [
+{
+"text": "In July and August 2024, various investors purchased an aggregate of 2,728,512 shares of our Series F-1 redeemable convertible preferred stock for an aggregate purchase price of approximately $40.0 million.",
+"page": "170"
+},
+{
+"text": "In September 2024, Alpha Wave Ventures II, LP, an existing stockholder, purchased 3,069,577 shares of our Series F-1 redeemable convertible preferred stock for an aggregate purchase price of approximately $45.0 million.",
+"page": "170"
+},
+{
+"text": "Tender Offer In December 2025, we completed a tender offer for shares of our outstanding Class B common stock from certain of our employees and purchased an aggregate of 2,156,765 shares of our outstanding Class B common stock at a purchase price of $36.2324 per share, for an aggregate gross purchase price of $78.1 million (the \u201c2025 Tender Offer\u201d).",
+"page": "171"
+},
+{
+"text": "We repurchased an aggregate of 27,599 shares of our Class B common stock from Robert Komin, our Chief Financial Officer, and an aggregate of 27,599 shares of our Class B common stock from Dhiraj Mallick, our Chief Operating Officer, in the 2025 Tender Offer, for an aggregate gross purchase price of $1.0 million and $1.0 million, respectively.",
+"page": "171"
+},
+{
+"text": "In January 2026, OpenAI advanced to us the $1.0 billion Working Capital Loan to accelerate our engineering development, manufacturing scale-up, and data center expansion.",
+"page": "172"
+},
+{
+"text": "Pursuant to the OpenAI Warrant, OpenAI has the right to purchase up to 33,445,026 shares of our Class N common stock at an exercise price of $0.00001 per share.",
+"page": "172"
+}
+]
+},
+"legal": {
+"text": "From time to time, we may be subject to legal proceedings, claims, and investigations in the ordinary course of business. We are not presently a party to any litigation to which the outcome, we believe, if determined adversely to us, would individually or taken together have a material adverse effect on us.",
+"page": "147"
+},
+"employees": {
+"count": 708,
+"as_of": "December 31, 2025",
+"text": "As of December 31, 2025, we had 708 employees, including 426 in the United States, and we have employees located internationally, including in Canada and India.",
+"page": "146"
+},
+"auditor": {
+"name": "KPMG LLP",
+"page": "F-3",
+"since": 2025,
+"other_reports": [
+{
+"name": "BDO USA, P.C.",
+"page": "F-2"
+}
+]
+}
+},
+"shares": {
+"as_of": "December 31, 2025",
+"as_of_page": "15",
+"offering": {
+"class": "Class A",
+"page": "13",
+"primary": 30000000,
+"secondary": 0,
+"overallotment": 4500000,
+"overallotment_from": "us",
+"shares_offered_total": 30000000
+},
+"outstanding_after": {
+"by_class": {
+"Class A": 30000000,
+"Class B": 185110345,
+"Class N": 0
+},
+"total": 215110345,
+"page": "13",
+"total_note": "printed total"
+},
+"excluded": [
+{
+"what": "options",
+"class": "Class B",
+"shares": 28361707,
+"strike": 4.97,
+"text": "28,361,707 shares of our Class B common stock issuable upon the exercise of outstanding stock options as of December 31, 2025, with a weighted-average exercise price of $4.97 per share;",
+"page": "15"
+},
+{
+"what": "rsus",
+"class": "Class B",
+"shares": 10403567,
+"strike": null,
+"text": "10,403,567 shares of our Class B common stock issuable upon the vesting and settlement of RSUs subject to service-based and liquidity-based vesting conditions outstanding as of December 31, 2025, for which the service-based vesting condition was not yet satisfied as of December 31, 2025 and for which the liquidity- based vesting condition was satisfied in connection with this offering, after givin",
+"page": "15"
+},
+{
+"what": "rsus",
+"class": "Class B",
+"shares": 5290573,
+"strike": null,
+"text": "5,290,573 shares of Class B common stock issuable upon the vesting and settlement of RSUs subject to service-based and liquidity-based vesting conditions granted after December 31, 2025, for which the liquidity-based vesting condition was satisfied in connection with this offering, after giving effect to the RSU Net Settlement;",
+"page": "15"
+},
+{
+"what": "prsus",
+"class": "Class B",
+"shares": 9000000,
+"strike": null,
+"text": "9,000,000 shares of Class B common stock issuable upon the vesting and settlement of RSUs subject to market-based vesting conditions (\u201cPRSUs\u201d) granted after December 31, 2025, for which the market-based vesting condition was not yet satisfied as of December 31, 2025 (see the section titled \u201cExecutive and Director Compensation\u2014Narrative to Summary Compensation Table\u2014Equity-Based Compensation\u2014 2026 ",
+"page": "15"
+},
+{
+"what": "warrants",
+"class": "Class N",
+"shares": 33445026,
+"strike": 1e-05,
+"text": "33,445,026 shares of our Class N common stock issuable upon the exercise of a warrant outstanding as of December 31, 2025, with an exercise price of $0.00001 per share (the \u201cOpenAI Warrant\u201d), subject to satisfaction of vesting conditions (see the section titled \u201cCapitalization\u2014Vesting of Shares Underlying the OpenAI Warrant\u201d for additional information);",
+"page": "15"
+},
+{
+"what": "warrants",
+"class": "Class N",
+"shares": 2696678,
+"strike": 100.0,
+"text": "2,696,678 shares of our Class N common stock issuable upon the exercise of a warrant authorized after December 31, 2025, with an exercise price of $100.00 per share, subject to satisfaction of vesting conditions;",
+"page": "15"
+},
+{
+"what": "other",
+"class": "Class N",
+"shares": 3682000,
+"strike": null,
+"text": "3,682,000 shares of our Class N common stock issued after December 31, 2025;",
+"page": "15"
+},
+{
+"what": "reserved",
+"class": "Class A",
+"shares": 42650268,
+"strike": null,
+"text": "42,650,268 shares of our Class A common stock reserved for future issuance under our 2026 Incentive Award Plan (the \u201c2026 Plan\u201d), which became effective on the day immediately prior to the date of effectiveness of the registration statement of which this prospectus forms a part, including the number of shares underlying outstanding stock-based compensation awards granted under the 2016 Plan (such ",
+"page": "15"
+},
+{
+"what": "reserved",
+"class": "Class A",
+"shares": 3554189,
+"strike": null,
+"text": "3,554,189 shares of our Class A common stock reserved for future issuance under our 2026 Employee Stock Purchase Plan (the \u201cESPP\u201d), which became effective on the day immediately prior to the date of effectiveness of the registration statement of which this prospectus forms a part.",
+"page": "15"
+}
+],
+"fully_diluted": {
+"value": 304307896,
+"note": "shares outstanding after the offering plus every option, RSU, PRSU and warrant in the 'excludes' list (all classes, at one share each, no treasury method); reserved plan pools and shares issued, withheld or repurchased after the share-count date are not added",
+"added": {
+"options": 28361707,
+"rsus": 15694140,
+"prsus": 9000000,
+"warrants": 36141704
+}
+},
+"underwriting": {
+"discount_per_share": 4.3475,
+"discount_total": 130.425,
+"discount_pct": 2.35,
+"price": 185.0,
+"net_proceeds": 5408.5,
+"net_proceeds_assumption": "offer price $185.00",
+"page": "cover",
+"gross": 5550.0,
+"net_proceeds_page": "13"
+},
+"lockup_schedule": [
+{
+"when": "6:00 a.m. Eastern Time on the first trading day following the effectiveness of the registration statement of which this prospectus forms a part (the \u201cFirst Trading Day\u201d).",
+"shares": 2500000,
+"who": "Non- Executive Employees (as defined below)",
+"text": "An aggregate of up to 2.5 million shares held by Non- Executive Employees (as defined below).",
+"page": "189"
+},
+{
+"when": "6:00 a.m. Eastern Time on the second trading day following the effectiveness of the registration statement of which this prospectus forms a part, provided that the closing price of our Class A common stock on the Nasdaq Global Select Market on the First Trading Day has exceeded 133% of the initial public offering price per share set forth on the cover page of this prospectus (the \u201cSecond Trading Day Release Trigger\u201d)",
+"shares": 2500000,
+"who": "Non- Executive Employees",
+"text": "An aggregate of up to 2.5 million shares held by Non- Executive Employees",
+"page": "189"
+},
+{
+"when": "6:00 a.m. Eastern Time on the second trading day following our release of earnings for the quarter ended March 31, 2026.",
+"shares": 27700000,
+"who": "Directors and Officers (as defined below) and Non-Employee Holders (as defined below)",
+"text": "If the Second Trading Day Release Trigger was satisfied, an aggregate of up to approximately 27.7 million shares held by Directors and Officers (as defined below) and Non-Employee Holders (as defined below). If the Second Trading Day Release Trigger was not satisfied, an aggregate of up to approximately 30.2 million shares held by Directors and Officers, Non- Executive Employees, and Non-Employee Holders.",
+"page": "190"
+},
+{
+"when": "6:00 a.m. Eastern Time on the second trading day following our release of earnings for the quarter ending June 30, 2026.",
+"shares": 36400000,
+"who": "Directors and Officers, Non-Executive Employees, and Non-Employee Holders",
+"text": "An aggregate of up to approximately 36.4 million shares held by Directors and Officers, Non-Executive Employees, and Non-Employee Holders.",
+"page": "190"
+},
+{
+"when": "6:00 a.m. Eastern Time on August 19, 2026.",
+"shares": 14600000,
+"who": "Directors and Officers, Non-Executive Employees, and Non-Employee Holders",
+"text": "An aggregate of up to approximately 14.6 million shares held by Directors and Officers, Non-Executive Employees, and Non-Employee Holders.",
+"page": "190"
+},
+{
+"when": "6:00 a.m. Eastern Time on September 2, 2026.",
+"shares": 14600000,
+"who": "Directors and Officers, Non-Executive Employees, and Non-Employee Holders",
+"text": "An aggregate of up to approximately 14.6 million shares held by Directors and Officers, Non-Executive Employees, and Non-Employee Holders.",
+"page": "190"
+},
+{
+"when": "6:00 a.m. Eastern Time on September 16, 2026.",
+"shares": 14600000,
+"who": "Directors and Officers, Non-Executive Employees, and Non-Employee Holders",
+"text": "An aggregate of up to approximately 14.6 million shares held by Directors and Officers, Non-Executive Employees, and Non-Employee Holders.",
+"page": "190"
+},
+{
+"when": "6:00 a.m. Eastern Time on September 30, 2026.",
+"shares": 19400000,
+"who": "Directors and Officers, Non-Executive Employees, and Non-Employee Holders",
+"text": "An aggregate of up to approximately 19.4 million shares held by Directors and Officers, Non-Executive Employees, and Non-Employee Holders.",
+"page": "190"
+},
+{
+"when": "6:00 a.m. Eastern Time on October 14, 2026.",
+"shares": 19400000,
+"who": "Directors and Officers, Non-Executive Employees, and Non-Employee Holders",
+"text": "An aggregate of up to approximately 19.4 million shares held by Directors and Officers, Non-Executive Employees, and Non-Employee Holders.",
+"page": "190"
+},
+{
+"when": "6:00 a.m. Eastern Time on October 28, 2026.",
+"shares": 19400000,
+"who": "Directors and Officers, Non-Executive Employees, and Non-Employee Holders",
+"text": "An aggregate of up to approximately 19.4 million shares held by Directors and Officers, Non-Executive Employees, and Non-Employee Holders.",
+"page": "190"
+},
+{
+"when": "The earlier of (i) 6:00 a.m. Eastern Time on the second trading day following our release of earnings for the quarter ending September 30, 2026 or (ii) 180 days after the date of this prospectus (the \u201cLock-up Period\u201d).",
+"shares": null,
+"who": "our stockholders not previously eligible for sale, subject to applicable limitations under Rule 144, including for \u201caffiliates\u201d and compliance with other applicable law, as described below",
+"text": "All remaining shares held by our stockholders not previously eligible for sale, subject to applicable limitations under Rule 144, including for \u201caffiliates\u201d and compliance with other applicable law, as described below.",
+"page": "190",
+"status": "no count printed: all remaining shares"
+}
+],
+"capitalization": {
+"columns": [
+"Actual",
+"Pro forma",
+"Pro forma as adjusted"
+],
+"rows": [
+{
+"label": "Cash and cash equivalents",
+"values": {
+"Actual": 701.706,
+"Pro forma": 701.706,
+"Pro forma as adjusted": 5694.129
+}
+},
+{
+"label": "Redeemable convertible preferred stock, par value $0.00001 per share; 113,258,719 shares authorized, 113,258,716 shares issued and outstanding, actual; no shares authorized, issued, or outstanding, pro forma and pro forma as adjusted",
+"values": {
+"Actual": 1933.348,
+"Pro forma": 0.0,
+"Pro forma as adjusted": 0.0
+}
+},
+{
+"label": "Additional\u00a0paid-in\u00a0capital",
+"values": {
+"Actual": 346.829,
+"Pro forma": 2014.594,
+"Pro forma as adjusted": 7423.098
+}
+},
+{
+"label": "Treasury stock",
+"values": {
+"Actual": -21.456,
+"Pro forma": -21.456,
+"Pro forma as adjusted": -21.456
+}
+},
+{
+"label": "Accumulated other comprehensive income",
+"values": {
+"Actual": 1.301,
+"Pro forma": 1.301,
+"Pro forma as adjusted": 1.301
+}
+},
+{
+"label": "Accumulated deficit",
+"values": {
+"Actual": -905.33,
+"Pro forma": -1055.83,
+"Pro forma as adjusted": -1055.83
+}
+},
+{
+"label": "Total stockholders\u2019 (deficit) equity",
+"values": {
+"Actual": -578.655,
+"Pro forma": 938.611,
+"Pro forma as adjusted": 6347.115
+}
+},
+{
+"label": "Total capitalization",
+"values": {
+"Actual": 1354.693,
+"Pro forma": 938.611,
+"Pro forma as adjusted": 6347.115
+}
+}
+],
+"page": "84",
+"pages": [
+"84"
+]
+},
+"dilution": {
+"ntbv_per_share_before": 5.07,
+"ntbv_per_share_after": 29.51,
+"dilution_per_share": 155.49,
+"price_per_share": 185.0,
+"page": "87"
+}
+},
+"metrics": {
+"quarterly": {
+"columns": [
+"Mar 2024",
+"Jun 2024",
+"Sep 2024",
+"Dec 2024",
+"Mar 2025",
+"Jun 2025",
+"Sep 2025",
+"Dec 2025"
+],
+"rows": [
+{
+"label": "Hardware",
+"section": "",
+"values": {
+"Mar 2024": 49.411,
+"Jun 2024": 54.858,
+"Sep 2024": 50.28,
+"Dec 2024": 57.416,
+"Mar 2025": 69.674,
+"Jun 2025": 70.295,
+"Sep 2025": 96.794,
+"Dec 2025": 121.677
+},
+"unit": "$M",
+"pct_of_revenue": {
+"Mar 2024": 74.2,
+"Jun 2024": 78.6,
+"Sep 2024": 69.5,
+"Dec 2024": 70.4,
+"Mar 2025": 70.0,
+"Jun 2025": 68.0,
+"Sep 2025": 71.3,
+"Dec 2025": 71.0
+}
+},
+{
+"label": "Cloud and other services",
+"section": "",
+"values": {
+"Mar 2024": 17.22,
+"Jun 2024": 14.913,
+"Sep 2024": 22.039,
+"Dec 2024": 24.115,
+"Mar 2025": 29.838,
+"Jun 2025": 33.027,
+"Sep 2025": 38.92,
+"Dec 2025": 49.766
+},
+"unit": "$M",
+"pct_of_revenue": {
+"Mar 2024": 25.8,
+"Jun 2024": 21.4,
+"Sep 2024": 30.5,
+"Dec 2024": 29.6,
+"Mar 2025": 30.0,
+"Jun 2025": 32.0,
+"Sep 2025": 28.7,
+"Dec 2025": 29.0
+}
+},
+{
+"label": "Total revenue",
+"section": "",
+"values": {
+"Mar 2024": 66.631,
+"Jun 2024": 69.771,
+"Sep 2024": 72.319,
+"Dec 2024": 81.531,
+"Mar 2025": 99.512,
+"Jun 2025": 103.322,
+"Sep 2025": 135.714,
+"Dec 2025": 171.443
+},
+"unit": "$M",
+"pct_of_revenue": {
+"Mar 2024": 100.0,
+"Jun 2024": 100.0,
+"Sep 2024": 100.0,
+"Dec 2024": 100.0,
+"Mar 2025": 100.0,
+"Jun 2025": 100.0,
+"Sep 2025": 100.0,
+"Dec 2025": 100.0
+}
+},
+{
+"label": "Hardware",
+"section": "Cost of revenue",
+"values": {
+"Mar 2024": 33.619,
+"Jun 2024": 32.823,
+"Sep 2024": 34.143,
+"Dec 2024": 36.725,
+"Mar 2025": 48.41,
+"Jun 2025": 46.649,
+"Sep 2025": 47.969,
+"Dec 2025": 61.718
+},
+"unit": "$M",
+"pct_of_revenue": {
+"Mar 2024": 50.5,
+"Jun 2024": 47.0,
+"Sep 2024": 47.2,
+"Dec 2024": 45.0,
+"Mar 2025": 48.6,
+"Jun 2025": 45.1,
+"Sep 2025": 35.3,
+"Dec 2025": 36.0
+}
+},
+{
+"label": "Cloud and other services",
+"section": "Cost of revenue",
+"values": {
+"Mar 2024": 7.873,
+"Jun 2024": 6.068,
+"Sep 2024": 6.169,
+"Dec 2024": 10.094,
+"Mar 2025": 9.498,
+"Jun 2025": 24.574,
+"Sep 2025": 32.61,
+"Dec 2025": 39.492
+},
+"unit": "$M",
+"pct_of_revenue": {
+"Mar 2024": 11.8,
+"Jun 2024": 8.7,
+"Sep 2024": 8.5,
+"Dec 2024": 12.4,
+"Mar 2025": 9.5,
+"Jun 2025": 23.8,
+"Sep 2025": 24.0,
+"Dec 2025": 23.0
+}
+},
+{
+"label": "Total cost of revenue",
+"section": "Cost of revenue",
+"values": {
+"Mar 2024": 41.492,
+"Jun 2024": 38.891,
+"Sep 2024": 40.312,
+"Dec 2024": 46.819,
+"Mar 2025": 57.908,
+"Jun 2025": 71.223,
+"Sep 2025": 80.579,
+"Dec 2025": 101.21
+},
+"unit": "$M",
+"pct_of_revenue": {
+"Mar 2024": 62.3,
+"Jun 2024": 55.7,
+"Sep 2024": 55.7,
+"Dec 2024": 57.4,
+"Mar 2025": 58.2,
+"Jun 2025": 68.9,
+"Sep 2025": 59.4,
+"Dec 2025": 59.0
+}
+},
+{
+"label": "Gross profit",
+"section": "Cost of revenue",
+"values": {
+"Mar 2024": 25.139,
+"Jun 2024": 30.88,
+"Sep 2024": 32.007,
+"Dec 2024": 34.712,
+"Mar 2025": 41.604,
+"Jun 2025": 32.099,
+"Sep 2025": 55.135,
+"Dec 2025": 70.233
+},
+"unit": "$M",
+"pct_of_revenue": {
+"Mar 2024": 37.7,
+"Jun 2024": 44.3,
+"Sep 2024": 44.3,
+"Dec 2024": 42.6,
+"Mar 2025": 41.8,
+"Jun 2025": 31.1,
+"Sep 2025": 40.6,
+"Dec 2025": 41.0
+}
+},
+{
+"label": "Total operating expenses",
+"section": "Gross margin % % % % % % % %",
+"values": {
+"Mar 2024": 43.19,
+"Jun 2024": 54.64,
+"Sep 2024": 51.384,
+"Dec 2024": 74.962,
+"Mar 2025": 70.074,
+"Jun 2025": 89.281,
+"Sep 2025": 81.604,
+"Dec 2025": 103.974
+},
+"unit": "$M",
+"pct_of_revenue": {
+"Mar 2024": 64.8,
+"Jun 2024": 78.3,
+"Sep 2024": 71.1,
+"Dec 2024": 91.9,
+"Mar 2025": 70.4,
+"Jun 2025": 86.4,
+"Sep 2025": 60.1,
+"Dec 2025": 60.6
+}
+},
+{
+"label": "Loss from operations",
+"section": "Gross margin % % % % % % % %",
+"values": {
+"Mar 2024": -18.051,
+"Jun 2024": -23.76,
+"Sep 2024": -19.377,
+"Dec 2024": -40.25,
+"Mar 2025": -28.47,
+"Jun 2025": -57.182,
+"Sep 2025": -26.469,
+"Dec 2025": -33.741
+},
+"unit": "$M",
+"pct_of_revenue": {
+"Mar 2024": -27.1,
+"Jun 2024": -34.1,
+"Sep 2024": -26.8,
+"Dec 2024": -49.4,
+"Mar 2025": -28.6,
+"Jun 2025": -55.3,
+"Sep 2025": -19.5,
+"Dec 2025": -19.7
+}
+},
+{
+"label": "Net income (loss)",
+"section": "Gross margin % % % % % % % %",
+"values": {
+"Mar 2024": -15.75,
+"Jun 2024": -50.855,
+"Sep 2024": -309.341,
+"Dec 2024": -105.656,
+"Mar 2025": -23.867,
+"Jun 2025": 309.512,
+"Sep 2025": -22.201,
+"Dec 2025": -25.617
+},
+"unit": "$M",
+"pct_of_revenue": {
+"Mar 2024": -23.6,
+"Jun 2024": -72.9,
+"Sep 2024": -427.7,
+"Dec 2024": -129.6,
+"Mar 2025": -24.0,
+"Jun 2025": 299.6,
+"Sep 2025": -16.4,
+"Dec 2025": -14.9
+}
+}
+],
+"pages": [
+"104"
+],
+"note": "three months ended on each date; % of revenue worked out here from the printed rows"
+},
+"sbc": {
+"by_year": {
+"2025": 49.767,
+"2024": 58.564
+},
+"page": "F-8",
+"pages": [
+"F-8"
+],
+"pct_of_revenue": {
+"2025": 9.8,
+"2024": 20.2
+},
+"note": "from the cash flow statement; % of revenue worked out here",
+"unrecognized": 376.7,
+"recognition_years": null,
+"unrecognized_as_of": "December 31, 2025",
+"unrecognized_page": "F-33",
+"unrecognized_pages": [
+"F-33",
+"F-34"
+],
+"built_from": [
+{
+"award": "options",
+"amount": 33.2,
+"years": 1.78,
+"page": "F-33"
+},
+{
+"award": "RSUs",
+"amount": 343.5,
+"years": null,
+"page": "F-34"
+}
+],
+"items": [
+{
+"amount": 33.2,
+"award": "options",
+"award_from_context": false,
+"as_of": "December 31, 2025",
+"years": 1.78,
+"page": "F-33",
+"text": "No options were granted for the year ended December 31, 2025 As of December 31, 2025 and 2024, the total remaining unrecognized compensation expense related to unvested stock options was $33.2 million and $60.8 million, respectively, which will be amortized over the weighted-average period of 1.78 years and 2.33 years, respectively"
+},
+{
+"amount": 343.5,
+"award": "RSUs",
+"award_from_context": false,
+"as_of": "December 31, 2025",
+"years": null,
+"page": "F-34",
+"text": "As of December 31, 2025 and 2024, the total remaining unrecognized compensation expense related to unvested RSUs was $343.5 million and $79.1 million, respectively"
+}
+],
+"unrecognized_note": "sum of the award types printed separately at the latest date; not every type prints its years"
+},
+"commitments": {
+"by_year": {
+"2026": 4.1,
+"2027": 3.0
+},
+"total": 7.1,
+"kind": "purchase commitments",
+"page": "108",
+"note": "total worked out here from the printed years"
+},
+"key_metrics": [],
+"key_metrics_status": "no key metrics table found (any metrics are in prose only; see Ask)"
+}
+}

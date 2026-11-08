@@ -1,0 +1,927 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>__TITLE__ · S-1 Prospectus Terminal</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20120%20120%22%20width%3D%22120%22%20height%3D%22120%22%3E%3Crect%20width%3D%22120%22%20height%3D%22120%22%20rx%3D%2226%22%20fill%3D%22%23ED5A24%22/%3E%3Cpath%20d%3D%22M16%2042l14%2018-14%2018%22%20stroke%3D%22%23FFFFFF%22%20stroke-width%3D%2210%22%20stroke-linecap%3D%22square%22%20stroke-linejoin%3D%22miter%22%20fill%3D%22none%22/%3E%3Cg%20fill%3D%22%230B1424%22%3E%3Crect%20x%3D%2242%22%20y%3D%2242%22%20width%3D%2222%22%20height%3D%228%22/%3E%3Crect%20x%3D%2242%22%20y%3D%2242%22%20width%3D%228%22%20height%3D%2222%22/%3E%3Crect%20x%3D%2242%22%20y%3D%2256%22%20width%3D%2222%22%20height%3D%228%22/%3E%3Crect%20x%3D%2256%22%20y%3D%2256%22%20width%3D%228%22%20height%3D%2222%22/%3E%3Crect%20x%3D%2242%22%20y%3D%2270%22%20width%3D%2222%22%20height%3D%228%22/%3E%3Crect%20x%3D%2267%22%20y%3D%2256%22%20width%3D%2212%22%20height%3D%228%22/%3E%3Crect%20x%3D%2290%22%20y%3D%2242%22%20width%3D%228%22%20height%3D%2236%22/%3E%3Crect%20x%3D%2282%22%20y%3D%2242%22%20width%3D%2210%22%20height%3D%228%22/%3E%3C/g%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:light;
+ --bg:#FFFFFF;--app:#F3F4F6;--panel:#FFFFFF;--band:#F6F7F9;--hover:#F0F2F5;--line:#E5E8EE;--line2:#D3D8E0;
+ --ink:#0B1220;--ink2:#3A4556;--mute:#6B7280;--faint:#9AA3AF;
+ --sn:#ED5A24;--sn-ink:#C2410C;--focus:#1D4ED8;
+ --up:#047857;--down:#B91C1C;--warn:#B45309;--warn-bg:#FEF3C7;--ctx:#6B7280;
+ --c1:#2563EB;--c2:#D97706;--c3:#0D9488;
+ --ins:#DCFCE7;--ins-ink:#166534;--del:#FEE2E2;--del-ink:#991B1B;
+ --tipbg:#0B1220;--tipink:#F3F4F6;
+ --sans:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;--mono:"JetBrains Mono",ui-monospace,Menlo,monospace}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;
+ --bg:#0B0E13;--app:#07090D;--panel:#11151B;--band:#161B23;--hover:#1A202A;--line:#232B36;--line2:#2F3946;
+ --ink:#E6E9EF;--ink2:#B4BCC8;--mute:#8B95A3;--faint:#6B7480;
+ --sn:#E85D2A;--sn-ink:#F59A70;--focus:#60A5FA;
+ --up:#34D399;--down:#F87171;--warn:#FBBF24;--warn-bg:#3A2A0A;--ctx:#8B95A3;
+ --c1:#3B82F6;--c2:#B87A14;--c3:#16A394;
+ --ins:#0F2F1E;--ins-ink:#86EFAC;--del:#3A1515;--del-ink:#FCA5A5;--tipbg:#E6E9EF;--tipink:#0B0E13}}
+:root[data-theme="dark"]{color-scheme:dark;
+ --bg:#0B0E13;--app:#07090D;--panel:#11151B;--band:#161B23;--hover:#1A202A;--line:#232B36;--line2:#2F3946;
+ --ink:#E6E9EF;--ink2:#B4BCC8;--mute:#8B95A3;--faint:#6B7480;
+ --sn:#E85D2A;--sn-ink:#F59A70;--focus:#60A5FA;
+ --up:#34D399;--down:#F87171;--warn:#FBBF24;--warn-bg:#3A2A0A;--ctx:#8B95A3;
+ --c1:#3B82F6;--c2:#B87A14;--c3:#16A394;
+ --ins:#0F2F1E;--ins-ink:#86EFAC;--del:#3A1515;--del-ink:#FCA5A5;--tipbg:#E6E9EF;--tipink:#0B0E13}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--app);color:var(--ink);font:13px/1.45 var(--sans);-webkit-font-smoothing:antialiased}
+a{color:inherit}button,input,textarea{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--focus);outline-offset:1px}
+.m{font-family:var(--mono);font-feature-settings:"tnum","zero"}
+.mute{color:var(--mute)}
+
+/* top bar */
+.bar{position:sticky;top:0;z-index:30;height:44px;display:flex;align-items:center;gap:12px;padding:0 14px;background:var(--bg);border-bottom:1px solid var(--line)}
+.logo{display:flex;align-items:center;gap:8px;text-decoration:none;font-weight:600;font-size:13px;white-space:nowrap}
+.logo i{width:20px;height:20px;border-radius:3px;background:var(--sn);color:#fff;display:grid;place-items:center;font:600 12px/1 var(--mono);font-style:normal}
+.cmd{position:relative;flex:1;max-width:560px}
+.cmd input{width:100%;height:30px;border:1px solid var(--line2);border-radius:3px;background:var(--band);padding:0 10px 0 64px;font:500 12.5px var(--mono);letter-spacing:.02em}
+.cmd input:focus{outline:none;border-color:var(--focus);background:var(--bg)}
+.cmd .sec{position:absolute;left:8px;top:6px;font:600 11px/18px var(--mono);color:var(--sn-ink);pointer-events:none}
+.cmd .hint{position:absolute;right:8px;top:7px;font:500 10.5px/16px var(--mono);color:var(--faint);border:1px solid var(--line2);border-radius:3px;padding:0 5px;pointer-events:none}
+.sug{position:absolute;left:0;right:0;top:34px;background:var(--bg);border:1px solid var(--line2);border-radius:3px;display:none;max-height:340px;overflow:auto;box-shadow:0 10px 30px -10px rgba(0,0,0,.25)}
+.sug.on{display:block}
+.sug a{display:grid;grid-template-columns:52px 1fr auto;gap:10px;padding:6px 10px;text-decoration:none;font-size:12.5px}
+.sug a b{font:600 12px var(--mono)}.sug a span:last-child{color:var(--faint);font-size:11.5px}
+.sug a.sel,.sug a:hover{background:var(--hover)}
+.bar .sp{flex:1}
+.btn{height:28px;border:1px solid var(--line2);background:var(--bg);border-radius:3px;padding:0 10px;font-size:12px;font-weight:500;cursor:pointer;white-space:nowrap;text-decoration:none;display:inline-flex;align-items:center;gap:6px}
+.btn:hover{background:var(--hover)}
+.btn.pri{background:var(--sn);border-color:var(--sn);color:#fff}
+.btn.pri:hover{filter:brightness(.95)}
+
+/* security header */
+.sh{background:var(--bg);border-bottom:1px solid var(--line);padding:12px 16px 0}
+.sh .id{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.sh h1{font:600 20px/1.2 var(--sans);margin:0;letter-spacing:-.01em}
+.sh .tk{font:600 12px var(--mono);background:var(--ink);color:var(--bg);border-radius:3px;padding:2px 6px}
+.sh .sub{color:var(--mute);font-size:12px}
+.sh .sub a{text-decoration:none;border-bottom:1px solid var(--line2)}
+.sh .sub a:hover{color:var(--ink)}
+.facts{display:flex;overflow-x:auto;margin:10px -16px 0;padding:0 16px;border-top:1px solid var(--line);scrollbar-width:thin}
+.fact{padding:8px 14px 9px 0;margin-right:14px;border-right:1px solid var(--line);white-space:nowrap;min-width:max-content}
+.fact:last-child{border-right:0}
+.fact b{display:block;font:600 15px/1.25 var(--mono);letter-spacing:-.01em}
+.fact b small{font-size:11px;font-weight:500;margin-left:5px}
+.fact span{font-size:11px;color:var(--mute);display:flex;gap:6px;align-items:center}
+.up{color:var(--up)}.down{color:var(--down)}
+
+/* frame */
+.frame{display:grid;grid-template-columns:196px minmax(0,1fr);min-height:calc(100vh - 44px)}
+.rail{background:var(--bg);border-right:1px solid var(--line);padding:10px 0 40px;position:sticky;top:44px;align-self:start;height:calc(100vh - 44px);overflow:auto}
+.rail .g{font:600 10.5px/1 var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--faint);padding:14px 14px 6px}
+.rail a{display:grid;grid-template-columns:36px 1fr auto;align-items:center;gap:6px;padding:5px 14px;text-decoration:none;color:var(--ink2);font-size:12.5px;border-left:2px solid transparent}
+.rail a .c{font:600 10.5px var(--mono);color:var(--mute)}
+.rail a .n{font:500 11px var(--mono);color:var(--faint)}
+.rail a:hover{background:var(--hover);color:var(--ink)}
+.rail a.on{background:var(--band);color:var(--ink);border-left-color:var(--sn);font-weight:600}
+.rail a.on .c{color:var(--sn-ink)}
+.view{display:none;padding:14px 16px 60px;min-width:0}
+.view.on{display:block}
+.vh{display:flex;align-items:baseline;gap:10px;margin:2px 0 12px;flex-wrap:wrap}
+.vh h2{font:600 16px/1.3 var(--sans);margin:0}
+.vh .code{font:600 11px var(--mono);color:var(--mute)}
+.vh .lead{color:var(--ink2);flex-basis:100%;max-width:90ch;margin:2px 0 0}
+
+/* panels */
+.grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:12px}
+.s12{grid-column:span 12}.s8{grid-column:span 8}.s7{grid-column:span 7}.s6{grid-column:span 6}.s5{grid-column:span 5}.s4{grid-column:span 4}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:3px;min-width:0;display:flex;flex-direction:column}
+.ph{display:flex;align-items:center;gap:10px;height:32px;padding:0 10px;background:var(--band);border-bottom:1px solid var(--line)}
+.ph h3{font:600 11px/1 var(--sans);letter-spacing:.06em;text-transform:uppercase;margin:0;color:var(--ink2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ph .sp{flex:1}
+.ph .go{font:600 10.5px var(--mono);color:var(--mute);text-decoration:none;white-space:nowrap}
+.ph .go:hover{color:var(--sn-ink)}
+.ph .act{font:600 10.5px/1 var(--sans);letter-spacing:.06em;text-transform:uppercase;color:var(--mute);background:none;border:0;cursor:pointer;padding:4px 0;white-space:nowrap}
+.ph .act:hover{color:var(--ink)}
+.pb{padding:10px 12px 12px;flex:1;min-width:0}
+.pb.flush{padding:0}
+
+/* tables */
+.tw{overflow-x:auto;max-width:100%}
+table.t{border-collapse:collapse;width:100%;font-size:12.5px}
+table.t th,table.t td{height:28px;padding:4px 10px;border-bottom:1px solid var(--line);text-align:right;white-space:nowrap;vertical-align:middle}
+table.t th{font:600 10.5px/1.2 var(--sans);letter-spacing:.05em;text-transform:uppercase;color:var(--mute);background:var(--band);position:sticky;top:0}
+table.t th.l,table.t td.l{text-align:left}
+table.t td.wrap{white-space:normal;min-width:240px}
+table.t td{font-family:var(--mono);font-feature-settings:"tnum"}
+table.t td.l{font-family:var(--sans)}
+table.t tr.grp td{background:var(--band);font:600 10.5px var(--sans);letter-spacing:.06em;text-transform:uppercase;color:var(--ink2);height:26px}
+table.t tr.sub td{color:var(--mute);font-size:11.5px;height:24px}
+table.t tr.sub td.l{padding-left:24px;font-style:normal}
+table.t tr.hi td{font-weight:600}
+table.t tbody tr:hover td{background:var(--hover)}
+table.t tr.grp:hover td{background:var(--band)}
+table.t th.div,table.t td.div{border-left:1px solid var(--line2)}
+table.t tr.click{cursor:pointer}
+table.t tr.more td{white-space:normal;background:var(--band);font-family:var(--sans);text-align:left;color:var(--ink2);padding:10px 12px 12px 46px;height:auto;line-height:1.55}
+.na{color:var(--faint)}
+.neg{color:var(--ink)}
+
+/* page tags */
+.pg{font:500 10.5px/1 var(--mono);color:var(--mute);border:1px solid var(--line2);border-radius:2px;padding:2px 4px;text-decoration:none;white-space:nowrap;display:inline-block}
+.pg:hover{color:var(--focus);border-color:var(--focus)}
+.pgs{display:inline-flex;gap:4px;flex-wrap:wrap}
+
+/* signals */
+.sig{display:inline-flex;align-items:center;gap:6px;font-weight:600;font-size:12px;white-space:nowrap;font-family:var(--sans)}
+.sig i{font-style:normal;font:700 10px/1 var(--mono);width:16px;height:16px;border-radius:2px;display:grid;place-items:center}
+.sig.up{color:var(--up)}.sig.up i{background:var(--up);color:var(--bg)}
+.sig.ok{color:var(--up)}.sig.ok i{background:var(--up);color:var(--bg)}.sig.no{color:var(--down)}.sig.no i{background:var(--down);color:var(--bg)}
+.sig.down{color:var(--down)}.sig.down i{background:var(--down);color:var(--bg)}
+.sig.warn{color:var(--warn)}.sig.warn i{background:var(--warn);color:var(--bg)}
+.sig.ctx{color:var(--ctx)}.sig.ctx i{border:1px solid var(--ctx);color:var(--ctx)}
+.sig.neu{color:var(--ink2)}.sig.neu i{border:1px solid var(--line2);color:var(--mute)}
+
+/* kpis */
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));border:1px solid var(--line);border-radius:3px;background:var(--panel);margin-bottom:12px}
+.kpi{padding:10px 12px;border-right:1px solid var(--line)}
+.kpi:last-child{border-right:0}
+.kpi .k{font-size:11px;color:var(--mute);display:flex;justify-content:space-between;gap:6px;align-items:center}
+.kpi .v{font:600 18px/1.3 var(--mono);letter-spacing:-.01em;margin-top:3px}
+.kpi .s{font-size:11px;color:var(--mute);margin-top:1px}
+.read{border-left:2px solid var(--sn);padding:2px 0 2px 12px;margin:0 0 12px;font-size:14px;line-height:1.55;max-width:96ch;color:var(--ink)}
+.note{color:var(--mute);font-size:12px;margin:8px 0 0;max-width:96ch}
+.empty{border:1px dashed var(--line2);border-radius:3px;padding:12px;color:var(--mute);font-size:12.5px;background:var(--band)}
+.empty b{color:var(--ink2)}
+
+/* charts */
+.chart{position:relative}
+.chart svg{display:block;width:100%;height:auto;overflow:visible}
+.chart .ax{font:10.5px var(--mono);fill:var(--mute)}
+.chart .lbl{font:600 10.5px var(--mono);fill:var(--ink2)}
+.chart .gl{stroke:var(--line);stroke-width:1}
+.chart .zl{stroke:var(--faint);stroke-width:1}
+.leg{display:flex;gap:12px;flex-wrap:wrap;font-size:11.5px;color:var(--ink2);margin:0 0 6px}
+.leg span{display:inline-flex;align-items:center;gap:5px}.leg i{width:9px;height:9px;border-radius:2px;display:inline-block}
+.tip{position:fixed;pointer-events:none;background:var(--tipbg);color:var(--tipink);border-radius:3px;padding:7px 9px;font-size:11.5px;line-height:1.5;opacity:0;transition:opacity .06s;z-index:60;min-width:150px;max-width:280px;box-shadow:0 8px 24px rgba(0,0,0,.3)}
+.tip .r{display:flex;justify-content:space-between;gap:14px}.tip .r span{opacity:.7}.tip .r b{font:600 11.5px var(--mono)}
+.tip .h{font-weight:600;margin-bottom:3px}
+
+/* tabs (FactSet underline) */
+.tabs{display:flex;gap:18px;border-bottom:1px solid var(--line);margin:0 0 10px;overflow-x:auto}
+.tabs button{background:none;border:0;border-bottom:2px solid transparent;padding:6px 0 7px;font:600 11px/1 var(--sans);letter-spacing:.06em;text-transform:uppercase;color:var(--mute);cursor:pointer;white-space:nowrap}
+.tabs button.on{color:var(--ink);border-bottom-color:var(--sn)}
+.tabs button:hover{color:var(--ink)}
+.tabs button b{font-family:var(--mono);font-weight:500;margin-left:5px;color:var(--faint)}
+
+
+.thread{display:flex;flex-direction:column;gap:18px;margin-bottom:14px}
+.turn{display:flex;flex-direction:column;gap:10px}
+.qb{align-self:flex-end;max-width:80%;background:var(--band);border:1px solid var(--line);border-radius:10px 10px 2px 10px;padding:9px 13px;font-size:14px;white-space:pre-wrap}
+.ab{max-width:92ch;font-size:14px;line-height:1.65}
+.ab.err{color:var(--ink2)}
+.ab.wait{color:var(--mute);display:flex;align-items:center;gap:10px;font-size:13px}
+.dots{display:inline-flex;gap:4px}.dots i{width:6px;height:6px;border-radius:50%;background:var(--faint);animation:blink 1.2s infinite both}
+.dots i:nth-child(2){animation-delay:.2s}.dots i:nth-child(3){animation-delay:.4s}
+@keyframes blink{0%,80%,100%{opacity:.25}40%{opacity:1}}
+.md p{margin:0 0 10px}.md h4{font:600 13px/1.4 var(--sans);letter-spacing:.02em;margin:16px 0 6px;color:var(--ink)}
+.md ul,.md ol{margin:0 0 10px;padding-left:20px}.md li{margin:0 0 6px}.md b{font-weight:600}
+.md .pg{margin:0 1px;vertical-align:1px}.pg.dv{cursor:help}
+.ab .meta{font-size:11.5px;color:var(--faint);margin-top:4px;display:flex;flex-wrap:wrap;gap:4px;align-items:center}
+.composer{display:flex;gap:8px;align-items:flex-end;border-top:1px solid var(--line);padding-top:12px}
+textarea.askin{flex:1;min-height:40px;max-height:160px;resize:none;border:1px solid var(--line2);border-radius:3px;background:var(--bg);padding:10px 12px;font:14px/1.5 var(--sans)}
+textarea.askin:focus{outline:none;border-color:var(--focus)}
+.composer .btn{height:40px;padding:0 18px}
+.starters{display:flex;flex-wrap:wrap;gap:8px;align-items:center}.starters>div{flex-basis:100%}
+button.chip{border:1px solid var(--line2);background:var(--bg);border-radius:3px;padding:6px 10px;font-size:12.5px;cursor:pointer;text-align:left}
+button.chip:hover{border-color:var(--ink2);background:var(--hover)}
+details.apps{background:var(--panel);border:1px solid var(--line);border-radius:3px}
+details.apps>summary{cursor:pointer;padding:9px 12px;font-size:12px;color:var(--ink2)}
+
+.newbar{display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap;background:var(--warn-bg);border:1px solid var(--line2);border-radius:3px;padding:8px 12px;margin:0 0 10px;font-size:12.5px}
+.rd{font-size:12.5px;line-height:1.55;color:var(--ink2);margin-top:4px;white-space:normal}
+.tabrow{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap;border-bottom:1px solid var(--line);margin:0 0 10px}.tabrow .tabs{border-bottom:0;margin:0}
+.seg{display:inline-flex;border:1px solid var(--line2);border-radius:3px;overflow:hidden;margin-bottom:6px}.seg button{background:var(--bg);border:0;border-right:1px solid var(--line2);padding:5px 10px;font:500 11.5px var(--sans);cursor:pointer;color:var(--ink2)}.seg button:last-child{border-right:0}.seg button.on{background:var(--ink);color:var(--bg)}
+h3.subh{font:600 11px/1 var(--sans);letter-spacing:.06em;text-transform:uppercase;color:var(--mute);margin:22px 0 10px}
+details.long summary{cursor:pointer;list-style:none}details.long summary::-webkit-details-marker{display:none}details.long[open] summary{display:none}
+.askhint{font-size:12.5px;color:var(--ink2);margin-top:8px;display:flex;flex-wrap:wrap;gap:8px;align-items:center}.askhint:empty{display:none}
+.msg{font-size:12.5px;margin-top:8px;color:var(--ink2)}.msg:empty{display:none}.msg.ok{color:var(--up)}.msg.err{color:var(--down)}
+p.lead{font-size:13px;line-height:1.55;color:var(--ink2);margin:0 0 10px}.small{font-size:11.5px}
+td.acts{white-space:nowrap;text-align:right}td.acts .btn{margin-left:6px}
+.cmdl{font:11px/1.4 var(--mono);color:var(--mute);margin-top:4px;word-break:break-all;white-space:normal;max-width:360px}
+.frow{display:grid;grid-template-columns:90px minmax(0,1fr);gap:8px;align-items:center;margin:0 0 8px;font-size:12.5px}.frow>label{color:var(--mute)}
+input.in{height:30px;border:1px solid var(--line2);border-radius:3px;background:var(--bg);padding:0 8px;font:13px var(--sans);color:var(--ink);min-width:0}input.in.mono{font-family:var(--mono);font-size:12px}input.in:focus{outline:none;border-color:var(--focus)}
+select.sel.wide{height:30px;width:100%}
+details.adv{margin:0 0 8px;font-size:12px}details.adv summary{cursor:pointer;color:var(--mute);margin-bottom:8px}
+.btns{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
+@media (max-width:820px){table.apps1 tr{display:grid;grid-template-columns:minmax(0,1fr) auto;border-bottom:1px solid var(--line)}table.apps1 td{border:0;height:auto}table.apps1 td.acts{grid-column:1/-1;text-align:left;padding-bottom:10px}table.apps1 td.acts .btn{margin:0 6px 0 0}.frow{grid-template-columns:72px minmax(0,1fr)}}
+.strip{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:12px;margin:0 0 10px}
+.appchip{border:1px solid var(--line2);border-radius:3px;padding:2px 7px;font-weight:500;color:var(--ink2)}.appchip.on{border-color:var(--up);color:var(--up)}.appchip.off{color:var(--down)}
+ol.setup{margin:0;padding-left:20px;font-size:13.5px;line-height:1.6}ol.setup li{margin:0 0 12px}
+.apps-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}.apps-row a.chip{text-decoration:none;display:flex;flex-direction:column;gap:2px}.apps-row small{color:var(--mute);font-size:11px}
+input.mv{width:110px;height:28px;border:1px solid var(--line2);border-radius:3px;background:var(--bg);padding:0 8px;font:500 12.5px var(--mono)}
+.wedge{border:1px solid var(--line);background:var(--panel);border-radius:3px;padding:12px 14px;display:flex;flex-direction:column;gap:8px;font-size:14px}
+.wbar>div{display:grid;grid-template-columns:56px 1fr 60px;align-items:center;gap:8px;margin:3px 0;font-size:12px}.wbar i{display:block;height:10px;border-radius:2px;background:var(--c3);min-width:2px}.wbar i.v{background:var(--c1)}.wbar b{font:600 12px var(--mono)}
+table.t tr.chg td{height:20px;font-size:11px;padding-top:0;padding-bottom:3px;border-bottom:1px solid var(--line)}table.t tr.chg td.l{color:var(--faint);font-family:var(--sans)}
+table.t tbody tr:has(+ tr.chg) td{border-bottom:0}
+input.mv.src{width:240px;font-family:var(--sans)}
+table.t td.lab{white-space:normal;min-width:240px;max-width:520px;line-height:1.4;padding-top:5px;padding-bottom:5px}
+/* diff */
+.ex{font-size:13px;line-height:1.6;color:var(--ink2);margin:0 0 8px}
+.ex ins{background:var(--ins);color:var(--ins-ink);text-decoration:none;border-radius:2px;padding:0 2px}
+.ex del{background:var(--del);color:var(--del-ink);border-radius:2px;padding:0 2px}
+.ex .pg{margin-left:6px}
+.stack{display:flex;height:8px;gap:2px;min-width:120px}
+.stack i{display:block;border-radius:1px}
+blockquote.q{margin:0;font-size:13px;line-height:1.6;color:var(--ink2);border-left:2px solid var(--line2);padding-left:10px}
+.tagx{font:600 10px/1 var(--sans);letter-spacing:.06em;text-transform:uppercase;color:var(--mute);border:1px solid var(--line2);border-radius:2px;padding:3px 5px;white-space:nowrap}
+.tagx.rel{color:var(--ink);border-color:var(--ink2)}
+
+/* yours */
+textarea.mine{width:100%;min-height:150px;border:1px solid var(--line2);border-radius:3px;background:var(--bg);padding:12px 14px;font:14px/1.65 var(--sans);resize:vertical}
+textarea.mine:focus{outline:none;border-color:var(--focus)}
+.saved{font-size:11.5px;color:var(--mute);margin-top:6px}
+.askrow{display:flex;gap:8px}
+.askrow input{flex:1;height:36px;border:1px solid var(--line2);border-radius:3px;background:var(--bg);padding:0 12px;font-size:14px}
+.askrow input:focus{outline:none;border-color:var(--focus)}
+.askrow .btn{height:36px;padding:0 18px}
+.askopts{display:flex;gap:14px;flex-wrap:wrap;margin:10px 0 0;font-size:12px;color:var(--mute)}
+.askopts label{display:flex;align-items:center;gap:6px}
+select.sel{height:28px;border:1px solid var(--line2);border-radius:3px;background:var(--bg);padding:0 6px;font:500 12px var(--sans);color:var(--ink)}
+.reply{margin-top:14px;font-size:14px;line-height:1.65;white-space:pre-wrap;max-width:96ch}
+code.cl{display:block;font:12px/1.5 var(--mono);background:var(--band);border:1px solid var(--line);border-radius:3px;padding:8px 10px;margin:6px 0;overflow-x:auto;white-space:pre}
+.foot{color:var(--faint);font-size:11.5px;padding:18px 0 0;border-top:1px solid var(--line);margin-top:18px;max-width:110ch}
+.kbd{font:500 10.5px var(--mono);border:1px solid var(--line2);border-radius:2px;padding:0 4px;color:var(--mute)}
+
+@media (max-width:1100px){.s8,.s7,.s6,.s5,.s4{grid-column:span 12}}
+@media (max-width:820px){
+ .frame{grid-template-columns:minmax(0,1fr)}
+ .rail{position:sticky;top:44px;z-index:20;height:auto;display:flex;overflow-x:auto;padding:0;border-right:0;border-bottom:1px solid var(--line)}
+ .rail .g{display:none}
+ .rail a{grid-template-columns:auto;padding:9px 12px;border-left:0;border-bottom:2px solid transparent;white-space:nowrap}
+ .rail a .c,.rail a .n{display:none}
+ .rail a.on{border-bottom-color:var(--sn);background:none}
+ .cmd .hint,.logo span{display:none}
+ .cmd input{padding-left:52px}
+ .view{padding:12px 12px 50px}
+ .kpi{border-right:0;border-bottom:1px solid var(--line)}
+ .askrow{flex-direction:column}
+}
+@media (max-width:480px){.bar .btn.sec2{display:none}.kpis{grid-template-columns:1fr 1fr}}
+</style></head>
+<body>
+<div class="bar">
+ <a class="logo" href="index.html" title="All companies"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="20" height="20" aria-hidden="true"><rect width="120" height="120" rx="26" fill="#ED5A24"/><path d="M16 42l14 18-14 18" stroke="#FFFFFF" stroke-width="10" stroke-linecap="square" stroke-linejoin="miter" fill="none"/><g fill="#0B1424"><rect x="42" y="42" width="22" height="8"/><rect x="42" y="42" width="8" height="22"/><rect x="42" y="56" width="22" height="8"/><rect x="56" y="56" width="8" height="22"/><rect x="42" y="70" width="22" height="8"/><rect x="67" y="56" width="12" height="8"/><rect x="90" y="42" width="8" height="36"/><rect x="82" y="42" width="10" height="8"/></g></svg><span>S-1 Prospectus Terminal</span></a>
+ <div class="cmd"><span class="sec" id="cmdsec"></span><input id="cmd" autocomplete="off" spellcheck="false" placeholder="Type a function: FLG, FA, DBT…" aria-label="Function command"><span class="hint">/</span><div class="sug" id="sug"></div></div>
+ <span class="sp"></span>
+ <a class="btn sec2" id="secbtn" target="_blank" rel="noopener">SEC filing ↗</a>
+ <button class="btn" id="theme" aria-label="Switch theme">Dark</button>
+</div>
+<header class="sh" id="sh"></header>
+<div class="frame">
+ <nav class="rail" id="rail" aria-label="Functions"></nav>
+ <main id="views"></main>
+</div>
+<div class="tip" id="tip"></div>
+<script>
+const DATA = __DATA__;
+</script>
+<script>
+"use strict";
+const $=(s,r=document)=>r.querySelector(s);
+const el=(t,a={},...k)=>{const e=document.createElement(t);for(const[x,y]of Object.entries(a||{})){if(y==null||y===false)continue;if(x==='html')e.innerHTML=y;else if(x==='text')e.textContent=y;else if(x.startsWith('on'))e.addEventListener(x.slice(2),y);else e.setAttribute(x,y)}k.flat(9).forEach(c=>{if(c==null||c===false)return;e.append(c.nodeType?c:document.createTextNode(c))});return e};
+const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const M=DATA.meta,Q=DATA.q||{},FL=DATA.flags||[],KEY='ipo-dash:'+M.cik+':';
+const TK=(M.ticker||'IPO');
+const store={get(k){try{return localStorage.getItem(KEY+k)}catch(e){return null}},set(k,v){try{localStorage.setItem(KEY+k,v)}catch(e){}}};
+const converts=FL.some(f=>/turns into shares/i.test(f.title));
+
+/* ---------- numbers ---------- */
+const NA='NA';
+const money=(v,d)=>{if(v==null||isNaN(v))return NA;if(v===0)return'$0';const a=Math.abs(v),s=v<0?'−':'';if(a>=1e6)return s+'$'+(a/1e6).toFixed(2)+'T';if(a>=1000)return s+'$'+(a/1000).toFixed(a>=100000?0:1)+'B';if(a>=10)return s+'$'+a.toFixed(d??0)+'M';if(a>=1)return s+'$'+a.toFixed(d??1)+'M';return s+'$'+Math.round(a*1000)+'K'};
+const acct=v=>{if(v==null||isNaN(v))return NA;const a=Math.abs(v);const t=a>=100?Math.round(a).toLocaleString('en-US'):a.toLocaleString('en-US',{maximumFractionDigits:a<1?3:1});return v<0?'('+t+')':t};
+const pct=v=>v==null||isNaN(v)?NA:(v>0?'+':v<0?'−':'')+Math.abs(v).toLocaleString('en-US',{maximumFractionDigits:Math.abs(v)>=100?0:1})+'%';
+const order=k=>{const y=+(String(k).match(/(\d{4})/)||[0,0])[1];return y*10+(/^\d{4}$/.test(k)?0:/^3M/.test(k)?1:/^6M/.test(k)?2:/^9M/.test(k)?3:4)};
+const keys=o=>Object.keys(o||{}).sort((a,b)=>order(a)-order(b));
+const isFY=k=>/^\d{4}$/.test(k);
+const label=k=>isFY(k)?'FY'+k.slice(2):String(k).replace(/^(\dM) (\d{4})$/,(m,a,b)=>a+' ’'+b.slice(2)).replace(/^([A-Z][a-z]{2}) (\d{4})$/,(m,a,b)=>a+' ’'+b.slice(2));
+const V=x=>x&&x.values&&Object.keys(x.values).length?x.values:null;
+const lastK=o=>{const k=keys(o);return k[k.length-1]};
+const lastFY=o=>{const k=keys(o).filter(isFY);return k[k.length-1]};
+const fmtDate=d=>{if(!d)return'';const[y,m,dd]=d.split('-');return `${+dd} ${['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][+m-1]} ${y}`};
+const pages=s=>String(s||'').split(/,\s*|\s+vs\s+/).filter(Boolean).filter((v,i,a)=>a.indexOf(v)===i);
+const pgLink=p=>el('a',{class:'pg',href:M.latest?M.latest.url:'#',target:'_blank',rel:'noopener',title:(p==='unnumbered'?'A front page without a printed number':'Printed page '+p)+' of the '+(M.latest?M.latest.form+' filed '+fmtDate(M.latest.date):'filing')+' on SEC.gov'},p==='cover'?'cover':p==='unnumbered'?'front':'p.'+p);
+const pgs=s=>el('span',{class:'pgs'},pages(s).map(pgLink));
+const sig=(tone,txt)=>el('span',{class:'sig '+tone},el('i',{},{up:'▲',down:'▼',warn:'!',ctx:'i',neu:'–',ok:'✓',no:'×'}[tone]||'·'),txt);
+
+/* ---------- tooltip ---------- */
+const tip=$('#tip');
+function showTip(e,h,rows){tip.innerHTML=(h?`<div class="h">${esc(h)}</div>`:'')+rows.map(([k,v])=>`<div class="r"><span>${esc(k)}</span><b>${esc(v)}</b></div>`).join('');tip.style.opacity=1;const w=tip.offsetWidth,hh=tip.offsetHeight;let x=e.clientX+14,y=e.clientY-hh-12;if(x+w>innerWidth-8)x=e.clientX-w-14;if(y<52)y=e.clientY+16;tip.style.left=x+'px';tip.style.top=y+'px'}
+const hideTip=()=>{tip.style.opacity=0};
+
+/* ---------- views + charts registry ---------- */
+const VIEWS=[];let BUILDING=null;const charts=[];let CUR='DES';
+function chartReg(fn){charts.push({v:BUILDING,fn})}
+function renderCharts(){charts.filter(c=>c.v===CUR).forEach(c=>c.fn())}
+
+function nice(lo,hi){const span=hi-lo||1,s0=span/4,mag=Math.pow(10,Math.floor(Math.log10(s0))),f=s0/mag,st=(f<1.5?1:f<3?2:f<7?5:10)*mag;return{lo:Math.floor(lo/st)*st,hi:Math.ceil(hi/st)*st,step:st}}
+function bars(series,cats,opts={}){
+ const box=el('div',{class:'chart'});
+ if(series.length>1)box.append(el('div',{class:'leg'},series.map(s=>el('span',{},el('i',{style:`background:var(${s.color})`}),s.name))));
+ const host=el('div');box.append(host);
+ chartReg(()=>{host.innerHTML='';const W=Math.max(300,host.clientWidth||600),H=opts.h||220,pl=56,pr=8,pt=18,pb=26;
+  const vals=series.flatMap(s=>cats.map(c=>s.values[c]).filter(v=>v!=null));if(!vals.length){host.append(el('div',{class:'empty'},'Nothing to draw: the filing gave no values here.'));return}
+  const{lo,hi,step}=nice(Math.min(0,...vals),Math.max(0,...vals));const y=v=>pt+(hi-v)/(hi-lo)*(H-pt-pb);
+  const gw=(W-pl-pr)/cats.length,inner=Math.min(gw*.7,series.length*44),bw=Math.max(5,(inner-(series.length-1)*2)/series.length);
+  let s=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(opts.aria||'')}">`;
+  for(let v=lo;v<=hi+1e-9;v+=step){s+=`<line class="${Math.abs(v)<1e-9?'zl':'gl'}" x1="${pl}" x2="${W-pr}" y1="${y(v)}" y2="${y(v)}"/><text class="ax" x="${pl-8}" y="${y(v)+3.5}" text-anchor="end">${money(v)}</text>`}
+  cats.forEach((c,i)=>{const gx=pl+i*gw+(gw-inner)/2;
+   if(i>0&&isFY(cats[i-1])&&!isFY(c)){const sx=pl+i*gw;s+=`<line x1="${sx}" x2="${sx}" y1="${pt-6}" y2="${H-pb}" stroke="var(--line2)" stroke-dasharray="3 3"/><text class="ax" x="${sx+5}" y="${pt-8}">${/^\dM/.test(c)?'YEAR TO DATE':'PERIOD END'}</text>`}
+   s+=`<text class="ax" x="${pl+i*gw+gw/2}" y="${H-8}" text-anchor="middle">${esc(label(c))}</text>`;
+   series.forEach((se,j)=>{const v=se.values[c];if(v==null)return;const x=gx+j*(bw+2),y0=y(0),y1=y(v),h=Math.max(1,Math.abs(y1-y0)),top=Math.min(y0,y1),r=Math.min(3,bw/2,h);
+    const d=v>=0?`M${x},${y0}V${top+r}Q${x},${top} ${x+r},${top}H${x+bw-r}Q${x+bw},${top} ${x+bw},${top+r}V${y0}Z`:`M${x},${y0}V${top+h-r}Q${x},${top+h} ${x+r},${top+h}H${x+bw-r}Q${x+bw},${top+h} ${x+bw},${top+h-r}V${y0}Z`;
+    s+=`<path d="${d}" fill="var(${se.color})"/>`;
+    if(opts.labels!==false&&(series.length===1||opts.labels===true))s+=`<text class="lbl" x="${x+bw/2}" y="${v>=0?top-4:top+h+11}" text-anchor="middle">${money(v)}</text>`;
+    s+=`<rect x="${x-3}" y="${Math.min(top,y0)-6}" width="${bw+6}" height="${h+12}" fill="transparent" data-j="${j}" data-c="${esc(c)}"/>`})});
+  s+='</svg>';host.innerHTML=s;
+  host.querySelectorAll('rect[data-j]').forEach(r=>{const se=series[+r.dataset.j],c=r.dataset.c;r.addEventListener('mousemove',e=>showTip(e,se.name,[['Period',label(c)],['Value',money(se.values[c])],...(se.page?[['Source','p.'+se.page]]:[])]));r.addEventListener('mouseleave',hideTip)})});
+ return box}
+function hbars(items,opts={}){const box=el('div',{class:'chart'});
+ chartReg(()=>{box.innerHTML='';const W=Math.max(300,box.clientWidth||560),rh=26,H=items.length*rh+4,lw=Math.min(280,W*.45),fmt=opts.fmt||money;
+  const max=Math.max(...items.map(i=>Math.abs(i.v)))||1;let s=`<svg viewBox="0 0 ${W} ${H}">`;
+  items.forEach((it,i)=>{const y=2+i*rh,w=Math.max(2,(W-lw-78)*Math.abs(it.v)/max);
+   s+=`<text x="0" y="${y+16}" style="font:12px var(--sans);fill:var(--ink2)">${esc(it.k.length>44?it.k.slice(0,42)+'…':it.k)}</text>`;
+   s+=`<path d="M${lw},${y+5}H${lw+w-3}Q${lw+w},${y+5} ${lw+w},${y+8}V${y+18}Q${lw+w},${y+21} ${lw+w-3},${y+21}H${lw}Z" fill="var(${it.hl?'--c2':'--c1'})"/>`;
+   s+=`<text class="lbl" x="${lw+w+6}" y="${y+16.5}">${fmt(it.v)}</text>`;
+   s+=`<rect x="0" y="${y}" width="${W}" height="${rh}" fill="transparent" data-i="${i}"/>`});
+  s+='</svg>';box.innerHTML=s;box.querySelectorAll('[data-i]').forEach(r=>{const it=items[+r.dataset.i];r.addEventListener('mousemove',e=>showTip(e,it.k,[['Value',fmt(it.v)],...(it.rows||[])]));r.addEventListener('mouseleave',hideTip)})});
+ return box}
+let rt;addEventListener('resize',()=>{clearTimeout(rt);rt=setTimeout(renderCharts,120)});
+
+/* ---------- building blocks ---------- */
+function panel(title,cls,body,o={}){const h=el('div',{class:'ph'},el('h3',{},title),el('span',{class:'sp'}),o.act||null,o.go?el('a',{class:'go',href:'#'+o.go,title:'Open the full view'},TK+' '+o.go+' ›'):null,o.page?pgs(o.page):null);
+ return el('section',{class:'panel '+(cls||'')},h,el('div',{class:'pb'+(o.flush?' flush':'')},body))}
+function kpi(k,v,s,page,cls){return el('div',{class:'kpi'},el('div',{class:'k'},el('span',{},k),page?pgs(page):null),el('div',{class:'v '+(cls||'')},v),s?el('div',{class:'s'},s):null)}
+function table(head,rows,o={}){const t=el('table',{class:'t'});const th=el('thead');(Array.isArray(head[0])?head:[head]).forEach(hr=>th.append(el('tr',{},hr.map(h=>typeof h==='string'?el('th',{class:''},h):el('th',h.a||{},h.t)))));t.append(th);const tb=el('tbody');rows.forEach(r=>tb.append(r));t.append(tb);return el('div',{class:'tw'},t)}
+function missing(what,f){const st=f&&f.status||'not read';return el('div',{class:'empty'},el('b',{},what+': '+st+'. '),st==='not disclosed'?'The filing is silent here. A silence is a finding.':st==='not found'?'No such table in this filing.':'The code could not read this table, so it says so instead of showing zero.')}
+function viewHead(code,name,lead){return el('div',{class:'vh'},el('h2',{},name),el('span',{class:'code'},TK+' '+code),lead?el('p',{class:'lead'},lead):null)}
+function addView(code,name,grp,num,build){VIEWS.push({code,name,grp,num,build})}
+
+/* ---------- the five answers, computed once ---------- */
+const G=Q.q1_growth||{},C2=Q.q2_funds_itself||{},D3=Q.q3_debt||{},P4=Q.q4_profit_real||{},P5=Q.q5_price||{};
+const REV=V(G.revenue),REVI=V(G.revenue_interim);
+function interimGrowth(){if(!REVI)return null;const k=keys(REVI);if(k.length<2)return null;const a=k[k.length-2],b=k[k.length-1];if(a.split(' ')[0]!==b.split(' ')[0]||!REVI[a])return null;return{from:a,to:b,pct:(REVI[b]/REVI[a]-1)*100}}
+const IG=interimGrowth();
+const A={};
+(function(){
+ // 1 growth
+ if(REV){const lk=lastFY(REV),gp=(G.growth_pct||{})[lk];let t=`Revenue ${gp>=0?'grew':'fell'} ${gp!=null?Math.abs(gp).toFixed(0)+'%':''} in ${label(lk)}.`;
+  if(IG)t+=` Year to date it is ${IG.pct>=0?'up':'down'} ${Math.abs(IG.pct).toFixed(0)}% (${label(IG.to)} on ${label(IG.from)}).`;
+  if(keys(REV).filter(isFY).length<3)t+=` Only ${keys(REV).filter(isFY).length} audited years exist; stay humble about calling a trend.`;
+  const fig=IG?REVI[IG.to]:REV[lk];A.q1={tone:gp==null?'neu':gp>=0?'up':'down',status:gp==null?'Read':gp>=0?'Growing':'Shrinking',text:t,fig:money(fig),figk:'Revenue, '+label(IG?IG.to:lk),page:G.revenue.page}}
+ else A.q1={tone:'neu',status:'Not read',text:'Revenue could not be read.',fig:NA,figk:'Revenue'};
+ // 2 funds itself
+ const o=V(C2.operating_cash_flow),fc=V(C2.free_cash_flow);
+ if(fc){const k=keys(fc),neg=k.filter(x=>fc[x]<0).length,lk=lastK(fc);
+  A.q2={tone:neg===0?'up':neg===k.length?'warn':'warn',status:neg===0?'Self-funded':neg===k.length?'Outside money':'Mixed',fig:money(fc[lk]),figk:'Free cash flow, '+label(lk),page:C2.free_cash_flow.page,
+   text:neg===0?'Free cash flow was positive in every period shown. The business paid for its own growth.':neg===k.length?'Free cash flow was negative in every period shown. Growth was paid for with outside money.':`Free cash flow was negative in ${neg} of ${k.length} periods shown. The latest, ${label(lk)}, was ${money(fc[lk])}. Check what the spending bought.`}}
+ else if(o){const lk=lastK(o);A.q2={tone:'neu',status:'Partly read',fig:money(o[lk]),figk:'Operating cash flow, '+label(lk),page:C2.operating_cash_flow.page,text:'Capex could not be read, so free cash flow is not shown.'}}
+ else A.q2={tone:'neu',status:'Not read',fig:NA,figk:'Free cash flow',text:'Operating cash flow could not be read.'};
+ // 3 debt
+ const nd=V(D3.net_debt),eq=V(D3.equity),w=D3.debt_to_equity&&D3.debt_to_equity.warning;
+ if(D3.equity_negative){const k=lastK(eq);A.q3={tone:converts?'ctx':'warn',status:'Equity below zero',fig:money(eq[k]),figk:'Equity, '+label(k),page:D3.equity.page,text:'Equity is below zero, so the usual debt ratios mean nothing here.'+(converts?' The flags show pre-IPO funding that turns into shares at the offering, which is usually why.':' Read the flags before anything else.')}}
+ else if(nd){const k=lastK(nd);A.q3={tone:w?'warn':nd[k]<0?'up':'warn',status:w?'Ratio warning':nd[k]<0?'Net cash':'Net debt',fig:money(nd[k]),figk:'Net debt, '+label(k),page:(D3.debt||{}).page,text:w?w:nd[k]<0?'The company holds more cash than debt.':'Debt is above cash: read the maturity schedule.'}}
+ else A.q3={tone:'neu',status:'Not read',fig:NA,figk:'Net debt',text:'Debt could not be read from the balance sheet.'};
+ // 4 profit real
+ const ni=V(C2.net_income),gap=V(P4.gap);
+ if(ni&&o){const k=lastK(ni),gp=gap?gap[k]:null;
+  if(ni[k]<0&&gp!=null&&gp>Math.abs(ni[k])*.5)A.q4={tone:'ctx',status:'Loss mostly not cash',text:`In ${label(k)} the company reported a ${money(ni[k])} result but its operations produced ${money(o[k])} of cash. Most of the loss is not cash: read the non-cash items before reading the loss.`};
+  else if(ni[k]>0&&gp!=null&&gp<0)A.q4={tone:'down',status:'Profit not cash',text:`In ${label(k)} the company reported ${money(ni[k])} of profit but operations produced ${money(o[k])} of cash. Profit not turning into cash: find out why.`};
+  else A.q4={tone:ni[k]>=0?'up':'neu',status:ni[k]>=0?'Cash in line':'Loss is cash',text:`In ${label(k)}, reported result ${money(ni[k])} against ${money(o[k])} of operating cash.`};
+  Object.assign(A.q4,{fig:money(ni[k])+' / '+money(o[k]),figk:'Result / op. cash, '+label(k),page:C2.net_income.page})}
+ else A.q4={tone:'neu',status:'Not read',fig:NA,figk:'Result vs cash',text:'Net income or operating cash flow could not be read.'};
+ // 5 price
+ if(P5.price&&P5.price.value)A.q5={tone:'neu',status:'Priced',fig:'$'+P5.price.value,figk:'Offer price',page:'cover',text:`The offer price is set at $${P5.price.value} in this filing. Divide the market value by the revenue and the operating cash flow, and decide. That decision is yours.`};
+ else if(P5.price_range)A.q5={tone:'neu',status:'Range set',fig:`$${P5.price_range.low}–${P5.price_range.high}`,figk:'Price range',page:'cover',text:`A range of $${P5.price_range.low} to $${P5.price_range.high} a share is set. The final price comes in the last prospectus.`};
+ else A.q5={tone:'neu',status:'Not set',fig:'Not set',figk:'Offer price',page:'cover',text:'No price in this filing yet, so no multiple can be computed. That is normal before the roadshow.'};
+})();
+/* each reading gets the figures behind it, for readers who read only the scorecard */
+(function(){const yrs=o=>keys(o).filter(isFY);
+ if(REV){const y=yrs(REV);if(y.length>1)A.q1.text+=` Across the audited years it went from ${money(REV[y[0]])} in ${label(y[0])} to ${money(REV[y[y.length-1]])} in ${label(y[y.length-1])}.`;
+  const seg=G.segments||{};if(!seg.status&&Object.keys(seg).length){const ly=keys(seg).filter(isFY).pop();if(ly){const bs=Object.entries(seg[ly].by_segment).filter(([n])=>!/^total/i.test(n)).sort((a,b)=>b[1]-a[1]);const tot=bs.reduce((a,b)=>a+b[1],0);if(bs.length>1&&tot)A.q1.text+=` ${bs[0][0]} was the largest business in ${label(ly)}, ${Math.round(bs[0][1]/tot*100)}% of segment revenue.`}}
+  else A.q1.text+=' The filing reports no segment split, so growth cannot be checked business by business.'}
+ const o=V(C2.operating_cash_flow),cx=V(C2.capex),fin=V(C2.outside_money_net);
+ if(o){const k=lastK(o);A.q2.text+=` In ${label(k)} operations ${o[k]>=0?'produced':'used'} ${money(Math.abs(o[k]))}${cx&&cx[k]!=null?`, capital spending was ${money(Math.abs(cx[k]))}`:''}${fin&&fin[k]!=null?`, and ${money(Math.abs(fin[k]))} ${fin[k]>=0?'came in from':'went back to'} shareholders and lenders`:''}.`}
+ const cash=V(D3.cash),debt=V(D3.debt),pf=V(D3.redeemable_preferred),mt=D3.maturities||{};
+ if(cash&&debt){const k=lastK(cash);A.q3.text+=` At ${label(k)} the balance sheet held ${money(cash[k])} of cash against ${money(debt[k])} of debt${pf&&pf[k]!=null?` and ${money(pf[k])} of convertible preferred stock outside equity`:''}.`}
+ if(mt.schedule)A.q3.text+=` ${mt.largest_share_pct}% of the debt principal falls due in ${mt.largest_year}.`;
+ const it=((P4.largest_non_cash_items||{}).items||[]);const ni=V(C2.net_income);if(it.length&&ni){const k=lastK(ni);const top=it.filter(x=>x.values[k]!=null).sort((a,b)=>Math.abs(b.values[k])-Math.abs(a.values[k]))[0];if(top)A.q4.text+=` The largest non-cash item in ${label(k)} was “${top.label.toLowerCase()}”, ${money(top.values[k])}.`}
+ if(P5.votes_per_share_high_class)A.q5.text+=` The high-vote class carries ${P5.votes_per_share_high_class} votes a share against one for the shares on offer, so public buyers will hold less of the vote than of the shares.`;
+ if(REV&&!((P5.price&&P5.price.value)||P5.price_range)){const k=lastFY(REV);A.q5.text+=` Whatever the price, it will sit on ${money(REV[k])} of ${label(k)} revenue${IG?` and ${money(REVI[IG.to])} in ${label(IG.to)}`:''}.`}})();
+const QS=[['q1','GRW','Is revenue really growing?','Growth'],['q2','CSH','Does it fund its own growth?','Funds itself'],['q3','DBT','Is the debt sane?','Debt'],['q4','QLT','Does the profit show up as cash?','Profit is real'],['q5','PX','Only now: is the price sane?','Price']];
+function tone(f){if(f.kind==='silence')return'ctx';if(converts&&/Equity below zero/.test(f.title))return'ctx';if(f.kind==='numbers'&&/not cash|turns into shares/i.test(f.title))return'ctx';return'warn'}
+const WATCH=FL.filter(f=>tone(f)==='warn').length;
+const KIND={trust:'Trust',debt:'Debt',numbers:'Numbers',control:'Control',contracts:'Contracts',customers:'Customers',disclosure:'Disclosure',people:'People',silence:'Silence'};
+
+/* ---------- security header ---------- */
+(function(){const L=M.latest||{};const st=M.stats||{};const sh=$('#sh');
+ $('#secbtn').href=L.url||'#';
+ sh.append(el('div',{class:'id'},el('h1',{},M.name),M.ticker?el('span',{class:'tk'},M.ticker+' US'):null,
+  el('span',{class:'sub'},`${L.form||''} filed ${fmtDate(L.date)} · ${M.filings.length} version${M.filings.length>1?'s':''} on file · CIK ${M.cik} · `,el('a',{href:L.url,target:'_blank',rel:'noopener'},'open on SEC.gov'))));
+ const f=el('div',{class:'facts'});const add=(v,k,page,sub,cls)=>f.append(el('div',{class:'fact'},el('b',{class:cls||''},v,sub?el('small',{class:sub.c},sub.t):null),el('span',{},k,page?pgs(page):null)));
+ add(A.q5.fig,'Offer price',null);
+ if(REVI&&IG)add(money(REVI[IG.to]),'Revenue '+label(IG.to),G.revenue_interim.page,{t:pct(IG.pct),c:IG.pct>=0?'up':'down'});
+ if(REV){const k=lastFY(REV),g=(G.growth_pct||{})[k];add(money(REV[k]),'Revenue '+label(k),G.revenue.page,g!=null?{t:pct(g),c:g>=0?'up':'down'}:null)}
+ const ni=V(C2.net_income);if(ni){const k=lastK(ni);add(money(ni[k]),'Net result '+label(k),C2.net_income.page)}
+ const o=V(C2.operating_cash_flow);if(o){const k=lastK(o);add(money(o[k]),'Operating cash '+label(k),C2.operating_cash_flow.page)}
+ const c=V(D3.cash);if(c){const k=lastK(c);add(money(c[k]),'Cash '+label(k),D3.cash.page)}
+ const d=V(D3.debt);if(d){const k=lastK(d);add(money(d[k]),'Debt '+label(k),D3.debt.page)}
+ add(`${WATCH}/${FL.length}`,'Flags to read',null);
+ add(String(st.pages||NA),`Pages read${st.seconds?' in '+st.seconds+'s':''}`,null);
+ add('0','AI tokens to build',null);
+ sh.append(f);
+ if(location.protocol==='file:')return;
+ const K='checked',bar=el('div',{class:'newbar',style:'display:none'});sh.prepend(bar);
+ const showNew=n=>{if(!n||!n.length){bar.style.display='none';return}bar.innerHTML='';bar.style.display='flex';
+  bar.append(el('span',{},el('b',{},'A newer filing is on SEC EDGAR: '),n.map(x=>x.form+' filed '+fmtDate(x.date)).join(', ')+'. This dashboard was built from the '+(L.form||'')+' of '+fmtDate(L.date)+'.'),
+   el('button',{class:'btn pri',onclick:async e=>{e.target.disabled=true;e.target.textContent='Reading the new filing… about a minute';try{const r=await fetch('/rebuild',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({cik:M.cik})});const j=await r.json();if(j.ok)location.reload();else e.target.textContent=j.error||'Could not update'}catch(x){e.target.textContent='Could not update'}}},'Update this dashboard'))};
+ async function chk(force){let last={};try{last=JSON.parse(store.get(K)||'{}')}catch(e){}
+  if(!force&&last.t&&Date.now()-last.t<12*3600e3){showNew(last.new);return}
+  try{const r=await fetch('/refresh?cik='+M.cik);if(!r.ok)return;const j=await r.json();if(j.error)return;store.set(K,JSON.stringify({t:Date.now(),new:j.new}));showNew(j.new);
+   const c=$('#chk');if(c)c.textContent='EDGAR checked '+new Date().toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'})}catch(e){}}
+ sh.querySelector('.sub').append(' · ',el('a',{href:'#',id:'chk',onclick:e=>{e.preventDefault();e.target.textContent='checking EDGAR…';chk(true)}},'check EDGAR for a newer filing'));
+ chk(false);setInterval(()=>chk(false),6*3600e3)})();
+
+/* ---------- DES: the overview ---------- */
+addView('DES','Overview','Monitor','',v=>{
+ v.append(viewHead('DES','Overview',`The prospectus read by code, with no AI. Five questions in a fixed order, price always last. Every number links to the printed page it came from.`));
+ const g=el('div',{class:'grid'});
+ // scorecard
+ const rows=QS.map(([q,code,title],i)=>{const a=A[q];return el('tr',{class:'click',onclick:()=>go(code)},el('td',{class:'l m',style:'width:28px;color:var(--mute)'},String(i+1)),el('td',{class:'l wrap',style:'padding-top:9px;padding-bottom:10px;max-width:760px'},el('b',{style:'font-weight:600'},title),el('div',{class:'rd'},a.text)),el('td',{class:'l',style:'vertical-align:top;padding-top:9px'},sig(a.tone,a.status)),el('td',{},a.fig),el('td',{class:'l mute',style:'font-family:var(--sans);font-size:11.5px'},a.figk),el('td',{},a.page?pgs(a.page):''))});
+ g.append(panel('Five questions · scorecard','s12',table([{t:'#',a:{class:'l'}},{t:'Question',a:{class:'l'}},{t:'Reading',a:{class:'l'}},'Key figure',{t:'Measure',a:{class:'l'}},'Src'],rows),{flush:true}));
+ // filing history
+ const fr=M.filings.slice().reverse().map((f,i)=>el('tr',{},el('td',{class:'l'},el('b',{class:'m',style:'font-weight:600'},f.form),i===0?el('span',{class:'mute',style:'margin-left:6px;font-size:11px'},'latest'):null),el('td',{},fmtDate(f.date)),el('td',{},el('a',{class:'pg',href:f.url,target:'_blank',rel:'noopener'},'SEC ↗'))));
+ g.append(panel('Filing history','s6',table([{t:'Form',a:{class:'l'}},'Filed',''],fr),{flush:true,go:'VER'}));
+ if(DATA.qual&&DATA.qual.offer){const O=DATA.qual.offer,Q2=DATA.qual,rk=Q2.risks||{};const rows=[['Listing',O.exchange],['Ticker',O.ticker],['Lead underwriters',O.underwriters],['Lock-up',O.lockup&&O.lockup.days?{value:O.lockup.days+' days',page:O.lockup.page}:O.lockup],['Employees',Q2.employees&&Q2.employees.count?{value:Number(Q2.employees.count).toLocaleString('en-US'),page:Q2.employees.page}:Q2.employees],['Risk headings',rk.count?{value:rk.count+((rk.reworded_since_last_version||[]).length?`, ${rk.reworded_since_last_version.length} reworded since the last version`:'')+((rk.new_since_last_version||[]).length?`, ${rk.new_since_last_version.length} new`:'')}:rk]];
+  g.append(panel('The offer and the people','s6',table([{t:'Item',a:{class:'l'}},{t:'',a:{class:'l'}},'Src'],factRows(rows)),{flush:true,go:'BIZ'}))}
+ // revenue
+ if(REV){const cats=keys(REV).concat(REVI?keys(REVI):[]);g.append(panel('Revenue by period','s6',bars([{name:'Revenue',values:{...REV,...(REVI||{})},color:'--c1',page:G.revenue.page}],cats,{aria:'Revenue by period'}),{go:'GRW',page:G.revenue.page}))}
+ const ni=V(C2.net_income),o=V(C2.operating_cash_flow);
+ if(ni&&o)g.append(panel('Reported result vs operating cash','s6',bars([{name:'Net income (loss)',values:ni,color:'--c1',page:C2.net_income.page},{name:'Operating cash flow',values:o,color:'--c2',page:C2.operating_cash_flow.page}],keys(ni),{aria:'Net income vs operating cash flow'}),{go:'QLT',page:C2.net_income.page}));
+ // flags
+ const top=FL.slice().sort((a,b)=>(tone(a)==='warn'?0:1)-(tone(b)==='warn'?0:1)).slice(0,7);
+ g.append(panel(`Flags · ${WATCH} to read closely, ${FL.length} in all`,'s7',top.length?table([{t:'',a:{class:'l'}},{t:'Type',a:{class:'l'}},{t:'Finding',a:{class:'l'}},'Src'],top.map(f=>el('tr',{class:'click',onclick:()=>go('FLG')},el('td',{class:'l',style:'width:26px'},sig(tone(f),'')),el('td',{class:'l mute'},KIND[f.kind]||f.kind),el('td',{class:'l wrap'},f.title),el('td',{},pgs(f.page)))))
+  :el('div',{class:'empty',style:'margin:12px'},'No flags fired on this filing.'),{flush:true,go:'FLG'}));
+ // balance
+ const cash=V(D3.cash),debt=V(D3.debt),eq=V(D3.equity);const ss=[];if(cash)ss.push({name:'Cash',values:cash,color:'--c1',page:D3.cash.page});if(debt)ss.push({name:'Debt',values:debt,color:'--c2',page:D3.debt.page});if(eq)ss.push({name:'Equity',values:eq,color:'--c3',page:D3.equity.page});
+ if(ss.length)g.append(panel('Cash, debt, equity','s5',bars(ss,keys(Object.assign({},cash,debt,eq)),{aria:'Cash, debt and equity'}),{go:'DBT'}));
+ // others
+ const O=DATA.others||{},cs=(O.companies||[]).slice(0,6);
+ g.append(panel('Who else names it in SEC filings','s6',cs.length?table([{t:'Company',a:{class:'l'}},'Filings',{t:'Type',a:{class:'l'}},'Latest'],cs.map(x=>el('tr',{class:'click',onclick:()=>go('RLT')},el('td',{class:'l'},x.name.replace(/\s+\(.*$/,'')),el('td',{},String(x.count)),el('td',{class:'l'},el('span',{class:'tagx'+(x.relationship?' rel':'')},x.relationship?'Relationship':'Mention')),el('td',{},x.read&&x.read.date?fmtDate(x.read.date):NA))))
+  :el('div',{class:'empty',style:'margin:12px'},'No other company filing names it yet.'),{flush:true,go:'RLT'}));
+ const mk=((O.funds||{}).marks||[]).filter(m=>m.per_unit);
+ if(mk.length){g.append(panel('Fund marks before trading · per share','s6',fundBars(mk),{go:'RLT'}))}
+ else g.append(panel('What changed between versions','s6',versionSummary(),{go:'VER',flush:true}));
+ v.append(g,foot())});
+
+function fundBars(mk){const by={};mk.forEach(m=>{(by[m.fund]=by[m.fund]||[]).push(m)});
+ const it=Object.entries(by).map(([f,ms])=>{const m=ms.slice().sort((a,b)=>(b.period||'').localeCompare(a.period||''))[0];return{k:f.replace(/\s+\(.*$/,''),v:m.per_unit,rows:[['Holding',m.holding],['Period',fmtDate(m.period)],['Held',money(ms.reduce((a,b)=>a+b.value_usd,0)/1e6)]]}}).sort((a,b)=>b.v-a.v).slice(0,10);
+ return el('div',{},hbars(it,{fmt:v=>'$'+v.toFixed(2)}),el('p',{class:'note'},'Form N-PORT, newest report per fund. Each fund values private shares for its own books; these are the only outside prices on record before trading, not a forecast of the offer price.'))}
+function versionSummary(){const Vs=DATA.versions||[];if(!Vs.length)return el('div',{class:'empty',style:'margin:12px'},'Only one version of this prospectus is on file so far.');
+ const f=x=>x.replace(/^(\d{4}-\d{2}-\d{2})_([^_]+)_.*$/,(m,a,b)=>b.replace('-A','/A')+' '+fmtDate(a));
+ return table([{t:'From → to',a:{class:'l'}},'Sentences moved',{t:'Price',a:{class:'l'}}],Vs.map(v=>el('tr',{class:'click',onclick:()=>go('VER')},el('td',{class:'l'},f(v.from)+'  →  '+f(v.to)),el('td',{},String(v.sections.reduce((a,s)=>a+s.added+s.changed+s.removed,0))),el('td',{class:'l'},v.price_from===v.price_to?v.price_to:v.price_from+' → '+v.price_to))))}
+function foot(){const a=(h,t)=>el('a',{href:h,target:'_blank',rel:'noopener'},t);return el('div',{class:'foot'},`Built ${M.generated} from SEC filings by code, with no AI. Information only, not a recommendation to buy or sell anything. Check every figure against the linked page before relying on it.`,el('div',{style:'margin-top:6px'},'S-1 Prospectus Terminal is open source by ',a('https://greeksoup.ai','GreekSoup'),' · ',a('https://github.com/greeksoup/s1-prospectus-terminal','the code on GitHub'),' · statements for listed US companies, year after year: ',a('https://shikshannivesh.com','Shikshan Nivesh Data')))}
+
+/* ---------- FLG ---------- */
+addView('FLG','Flags','Monitor',FL.length,v=>{
+ v.append(viewHead('FLG','Flags',`The patterns our past IPO reads caught by hand, written as rules. A flag points to a page; it is never a verdict. Click a row to read the filing's own words.`));
+ const kinds=[...new Set(FL.map(f=>f.kind))];let cur='all';const tabs=el('div',{class:'tabs'});const host=el('div');
+ function draw(){host.innerHTML='';const list=FL.filter(f=>cur==='all'||f.kind===cur).sort((a,b)=>(tone(a)==='warn'?0:1)-(tone(b)==='warn'?0:1));
+  const rows=[];list.forEach(f=>{const more=el('tr',{class:'more',style:'display:none'},el('td',{colspan:5},f.quote?el('blockquote',{class:'q'},'“'+f.quote+'”'):null,f.detail?el('p',{style:'margin:'+(f.quote?'8px':'0')+' 0 0'},f.detail.charAt(0).toUpperCase()+f.detail.slice(1)):null));
+   const r=el('tr',{class:'click',onclick:()=>{more.style.display=more.style.display==='none'?'':'none'}},el('td',{class:'l',style:'width:120px'},sig(tone(f),tone(f)==='warn'?'Read closely':'Context')),el('td',{class:'l mute'},KIND[f.kind]||f.kind),el('td',{class:'l wrap',style:'font-weight:500'},f.title),el('td',{class:'l mute wrap',style:'font-size:12px'},f.detail&&!f.quote?'':(f.quote?'Quote and detail ▾':'')),el('td',{},pgs(f.page)));rows.push(r,more)});
+  host.append(panel(cur==='all'?'All flags':KIND[cur],'',list.length?table([{t:'Signal',a:{class:'l'}},{t:'Type',a:{class:'l'}},{t:'Finding',a:{class:'l'}},{t:'',a:{class:'l'}},'Src'],rows):el('div',{class:'empty',style:'margin:12px'},'No flags fired on this filing.'),{flush:true}))}
+ [['all','All',FL.length],...kinds.map(k=>[k,KIND[k]||k,FL.filter(f=>f.kind===k).length])].forEach(([k,t,n])=>{const b=el('button',{class:k==='all'?'on':''},t,el('b',{},String(n)));b.onclick=()=>{cur=k;tabs.querySelectorAll('button').forEach(x=>x.classList.remove('on'));b.classList.add('on');draw()};tabs.append(b)});
+ v.append(tabs,host);draw()});
+
+/* ---------- five question views ---------- */
+function qView(q,code,title,name,lead,fill){addView(code,name,'Five questions',String(QS.findIndex(x=>x[0]===q)+1),v=>{const a=A[q];v.append(viewHead(code,(QS.findIndex(x=>x[0]===q)+1)+'. '+title,lead));
+ v.append(el('div',{style:'margin:0 0 10px'},sig(a.tone,a.status)),el('p',{class:'read'},a.text));fill(v);if(EXTRA[q])EXTRA[q](v)})}
+
+qView('q1','GRW','Is revenue really growing?','Growth','Across years, not one good quarter dressed up as a trend. And across the business, not one segment carrying the rest.',v=>{
+ if(!REV){v.append(missing('Revenue',G.revenue));return}
+ const k=keys(REV),lk=lastFY(REV),gp=G.growth_pct||{};const kp=el('div',{class:'kpis'});
+ kp.append(kpi('Revenue, '+label(lk),money(REV[lk]),gp[lk]!=null?pct(gp[lk])+' on the year before':'',G.revenue.page,''));
+ if(IG)kp.append(kpi('Revenue, '+label(IG.to),money(REVI[IG.to]),pct(IG.pct)+' on '+label(IG.from),G.revenue_interim.page));
+ kp.append(kpi('Audited years','' +k.filter(isFY).length,'in this filing'));v.append(kp);
+ const g=el('div',{class:'grid'});const cats=k.concat(REVI?keys(REVI):[]);
+ g.append(panel('Revenue by period','s8',bars([{name:'Revenue',values:{...REV,...(REVI||{})},color:'--c1',page:G.revenue.page}],cats,{h:260,aria:'Revenue by period'}),{page:G.revenue.page}));
+ const gr=k.filter(isFY).map(x=>el('tr',{},el('td',{class:'l'},label(x)),el('td',{},acct(REV[x])),el('td',{class:gp[x]==null?'na':gp[x]>=0?'up':'down'},gp[x]!=null?pct(gp[x]):NA)));
+ if(IG)gr.push(el('tr',{},el('td',{class:'l'},label(IG.to)),el('td',{},acct(REVI[IG.to])),el('td',{class:IG.pct>=0?'up':'down'},pct(IG.pct))));
+ g.append(panel('Growth table · $M','s4',table([{t:'Period',a:{class:'l'}},'Revenue','Growth'],gr),{flush:true}));
+ const seg=G.segments||{};
+ if(!seg.status){const yrs=keys(seg);const names=[...new Set(yrs.flatMap(y=>Object.keys(seg[y].by_segment)))].filter(n=>!/^total/i.test(n));
+  if(names.length>=2){const fy=yrs.filter(isFY);const vals=names.slice(0,3).map((n,i)=>({name:n,color:['--c1','--c2','--c3'][i],values:Object.fromEntries(yrs.map(y=>[y,seg[y].by_segment[n]])),page:seg[yrs[0]].page}));
+   const lk2=fy[fy.length-1],fk=fy[0];let line='';if(lk2&&fk&&lk2!==fk){const mv=names.slice(0,3).map(n=>[n,(seg[lk2].by_segment[n]||0)-(seg[fk].by_segment[n]||0)]).sort((a,b)=>b[1]-a[1]);const tot=mv.reduce((a,b)=>a+Math.max(0,b[1]),0);if(tot>0)line=`From ${label(fk)} to ${label(lk2)}, ${mv[0][0]} added ${money(mv[0][1])}, ${Math.round(mv[0][1]/tot*100)}% of all the growth.`}
+   g.append(panel('Revenue by segment','s12',el('div',{},line?el('p',{class:'read',style:'margin-bottom:10px'},line):null,bars(vals,fy.length?fy:yrs,{labels:true,h:240,aria:'Revenue by segment'})),{page:[...new Set(yrs.map(y=>seg[y].page))].join(', ')}))}}
+ else g.append(el('div',{class:'s12'},el('div',{class:'empty'},el('b',{},'Segments: '),'this filing reports no segment split, so growth cannot be checked business by business.')));
+ v.append(g)});
+
+qView('q2','CSH','Does it fund its own growth?','Funds itself','A business should pay for its growth from its own cash. If it lives on outside money, you are betting the market stays generous.',v=>{
+ const o=V(C2.operating_cash_flow),cx=V(C2.capex),fc=V(C2.free_cash_flow),fin=V(C2.outside_money_net),gr=V(C2.outside_money_gross);
+ if(!o){v.append(missing('Operating cash flow',C2.operating_cash_flow));return}
+ const lk=lastK(o);const kp=el('div',{class:'kpis'});kp.append(kpi('Operating cash, '+label(lk),money(o[lk]),'',C2.operating_cash_flow.page));
+ if(cx)kp.append(kpi('Capex, '+label(lk),money(cx[lk]),'',C2.capex.page));if(fc)kp.append(kpi('Free cash flow, '+label(lk),money(fc[lk]),'after capex (derived)',C2.free_cash_flow.page));
+ if(fin)kp.append(kpi('Outside money, '+label(lk),money(fin[lk]),'net from shareholders and lenders',C2.outside_money_net.page));v.append(kp);
+ const ss=[{name:'Operating cash flow',values:o,color:'--c1',page:C2.operating_cash_flow.page}];if(cx)ss.push({name:'Capex',values:cx,color:'--c2',page:C2.capex.page});if(fc)ss.push({name:'Free cash flow',values:fc,color:'--c3',page:C2.free_cash_flow.page});
+ const g=el('div',{class:'grid'});g.append(panel('Cash in, cash spent','s7',bars(ss,keys(o),{h:260,aria:'Operating cash flow, capex, free cash flow'}),{page:C2.operating_cash_flow.page}));
+ if(fc&&fin)g.append(panel('Own cash vs outside money','s5',bars([{name:'Free cash flow',values:fc,color:'--c3'},{name:'Outside money (net)',values:fin,color:'--c1'}],keys(fc),{h:260,aria:'Free cash flow vs outside money'}),{page:C2.outside_money_net.page}));
+ v.append(g);if(gr)v.append(el('p',{class:'note'},'Outside money (net) is net cash from financing. Gross money raised before repayments, '+label(lastK(gr))+': '+money(gr[lastK(gr)])+'.'))});
+
+qView('q3','DBT','Is the debt sane?','Debt','Debt is fine until it is not. The question is never just how much; it is whether the lenders are now the ones in control.',v=>{
+ const cash=V(D3.cash),debt=V(D3.debt),eq=V(D3.equity),nd=V(D3.net_debt),pf=V(D3.redeemable_preferred);const kp=el('div',{class:'kpis'});
+ if(cash){const k=lastK(cash);kp.append(kpi('Cash, '+label(k),money(cash[k]),'',D3.cash.page))}
+ if(debt){const k=lastK(debt);kp.append(kpi('Debt, '+label(k),money(debt[k]),'',D3.debt.page))}
+ if(nd){const k=lastK(nd);kp.append(kpi('Net debt, '+label(k),money(nd[k]),nd[k]<0?'more cash than debt':'debt above cash (derived)'))}
+ if(eq){const k=lastK(eq);kp.append(kpi('Equity, '+label(k),money(eq[k]),eq[k]<0?'below zero':'',D3.equity.page))}
+ if(pf){const k=lastK(pf);kp.append(kpi('Convertible preferred, '+label(k),money(pf[k]),'outside equity until it converts',D3.redeemable_preferred.page))}
+ v.append(kp);const g=el('div',{class:'grid'});
+ const ss=[];if(cash)ss.push({name:'Cash',values:cash,color:'--c1',page:D3.cash.page});if(debt)ss.push({name:'Debt',values:debt,color:'--c2',page:D3.debt.page});if(eq)ss.push({name:'Equity',values:eq,color:'--c3',page:D3.equity.page});
+ if(ss.length)g.append(panel('Cash, debt and equity','s7',bars(ss,keys(Object.assign({},cash,debt,eq)),{h:260,aria:'Cash, debt and equity'})));
+ const m=D3.maturities||{};
+ if(m.schedule)g.append(panel(`Principal due by year · ${m.largest_share_pct}% in ${m.largest_year}`,'s5',hbars(Object.entries(m.schedule).map(([k,x])=>({k,v:x,hl:k===m.largest_year}))),{page:m.page}));
+ else g.append(el('div',{class:'s5'},missing('Debt maturities',m)));
+ if(!debt)g.append(el('div',{class:'s12'},missing('Debt',D3.debt)));v.append(g);
+ if(D3.debt&&D3.debt.note)v.append(el('p',{class:'note'},'Debt as read: '+D3.debt.note+'.'))});
+
+qView('q4','QLT','Does the profit show up as cash?','Profit is real','Reported profit is an opinion. Cash is a fact. Profit that never turns into cash is the pattern behind most accounting frauds; a loss that is not cash is the opposite.',v=>{
+ const ni=V(C2.net_income),o=V(C2.operating_cash_flow);if(!ni||!o){v.append(missing('Net income or operating cash flow',{status:'not read'}));return}
+ const g=el('div',{class:'grid'});const k=lastK(ni);
+ g.append(panel('Reported result vs cash from operations','s7',bars([{name:'Net income (loss)',values:ni,color:'--c1',page:C2.net_income.page},{name:'Operating cash flow',values:o,color:'--c2',page:C2.operating_cash_flow.page}],keys(ni),{h:260,aria:'Net income vs operating cash flow'}),{page:C2.net_income.page}));
+ const gap=V(P4.gap);if(gap)g.append(panel('The gap · operating cash minus result · $M','s5',table([{t:'Period',a:{class:'l'}},'Result','Op. cash','Gap'],keys(gap).map(x=>el('tr',{},el('td',{class:'l'},label(x)),el('td',{},acct(ni[x])),el('td',{},acct(o[x])),el('td',{style:'font-weight:600'},acct(gap[x]))))),{flush:true,page:P4.gap.page}));
+ const it=(P4.largest_non_cash_items||{}).items||[];if(it.length)g.append(panel('Largest non-cash items, '+label(k),'s12',hbars(it.filter(x=>x.values[k]).map(x=>({k:x.label,v:x.values[k]}))),{page:it[0].page}));
+ v.append(g,el('p',{class:'note'},'Positive gap means cash came in above the reported result.'))});
+
+/* ---------- price: share ladder, bridge, multiples (mechanics only, never a view of the price) ---------- */
+const SH=DATA.shares||{},MT=DATA.metrics||{};
+const num=x=>x==null?null:typeof x==='object'?(x.value??x.shares??null):x;
+const sharesFmt=n=>n==null?NA:n>=1e9?(n/1e9).toFixed(2)+'B':n>=1e6?(n/1e6).toFixed(1)+'M':Number(n).toLocaleString('en-US');
+function ttm(fy,ytd){if(!fy)return null;const y=lastFY(fy);if(!ytd)return{v:fy[y],k:label(y)};const ks=keys(ytd);if(ks.length<2)return{v:fy[y],k:label(y)};const a=ks[ks.length-2],b=ks[ks.length-1];
+ if(a.split(' ')[0]!==b.split(' ')[0]||+b.slice(-4)!==+y+1||ytd[a]==null)return{v:fy[y],k:label(y)};return{v:fy[y]+ytd[b]-ytd[a],k:'last 12 months through '+label(b)}}
+const PRICES=(()=>{const p=P5.price&&P5.price.value?[['Offer price',+P5.price.value]]:P5.price_range?[['Low',+P5.price_range.low],['Mid',(+P5.price_range.low+ +P5.price_range.high)/2],['High',+P5.price_range.high]]:[];
+ if(!p.length){const q=((DATA.qual||{}).offer||{});if(q.price_range&&q.price_range.low!=null)return[['Low',+q.price_range.low],['Mid',(+q.price_range.low+ +q.price_range.high)/2],['High',+q.price_range.high]];if(q.offer_price&&q.offer_price.value)return[['Offer price',+q.offer_price.value]]}return p})();
+const OUTT=num((SH.outstanding_after||{}).total),FD=num(SH.fully_diluted);
+const debtConverts=converts&&/convertible/i.test(((D3.debt||{}).note||''));
+function bridge(px,mcapIn){const cash=V(D3.cash),debt=V(D3.debt);const cK=cash?lastK(cash):null,dK=debt?lastK(debt):null;const U=SH.underwriting||{};
+ const prim=num((SH.offering||{}).primary);let net=num(U.net_proceeds);const disc=num(U.discount_pct);
+ if(prim&&px)net=prim*px*(1-((disc??7)/100))/1e6;
+ if(prim&&!px)net=num(U.net_proceeds);const mcap=mcapIn!=null?mcapIn:(OUTT?OUTT*px/1e6:null),fd=px&&FD?FD*px/1e6:null;const d=debt&&!debtConverts?debt[dK]:0,c=cash?cash[cK]:null;
+ const ev=mcap!=null&&c!=null?mcap+d-c-(net||0):null;return{px,mcap,fd,debt:d,cash:c,net,ev,cK,dK,netNote:U.net_proceeds?'as stated':prim?`primary shares × price, less ${disc??7}% underwriting${disc==null?' (assumed; the filing’s figure was not read)':''}`:'not read'}}
+const split=o=>{if(!o)return[null,null];const f={},y={};Object.entries(o).forEach(([k,v])=>(isFY(k)?f:y)[k]=v);return[Object.keys(f).length?f:null,Object.keys(y).length?y:null]};
+const REVT=ttm(REV,REVI),OCFT=ttm(...split(V(C2.operating_cash_flow)));
+function lastQRev(){const q=MT.quarterly;if(!q||!q.rows)return null;const r=q.rows.find(r=>/^(total\s+)?(net\s+)?revenues?$/i.test(r.label.trim()));if(!r)return null;const c=q.columns[q.columns.length-1];return r.values[c]!=null?{v:r.values[c],k:c}:null}
+/* deeper readings from the quarterly table, stock pay and commitments */
+(function(){if(PRICES.length&&OUTT){const b=bridge(PRICES[PRICES.length===3?1:0][1]);A.q5.text+=` At ${PRICES.length===3?'the middle of the range':'that price'}, the ${sharesFmt(OUTT)} shares outstanding after the offering put the market value at ${money(b.mcap)}${b.ev!=null?` and the enterprise value, after debt and cash, at ${money(b.ev)}`:''}${b.ev&&REVT&&REVT.v>0?`, ${(b.ev/REVT.v).toFixed(1)} times revenue for ${/^last/.test(REVT.k)?'the '+REVT.k:REVT.k}`:''}.`}
+ else if(OUTT)A.q5.text+=` The share count after the offering is ${sharesFmt(OUTT)}; the price section turns any market value into the per-share and revenue arithmetic.`})();
+const EXTRA={};
+const qRow=re=>{const q=MT.quarterly;if(!q||!q.rows)return null;return q.rows.find(r=>re.test(r.label.trim()))||null};
+EXTRA.q1=v=>{const q=MT.quarterly,r=qRow(/^(total\s+)?(net\s+)?revenues?$/i);if(!q||!r)return;const cols=q.columns;
+ const qoq={};cols.forEach((c,i)=>{if(i>0&&r.values[cols[i-1]])qoq[c]=(r.values[c]/r.values[cols[i-1]]-1)*100});
+ v.append(el('div',{style:'height:12px'}),el('div',{class:'grid'},panel('Revenue by quarter','s8',bars([{name:'Revenue',values:r.values,color:'--c1',page:(q.pages||[])[0]}],cols,{h:240,aria:'Revenue by quarter'}),{page:(q.pages||[]).join(', ')}),
+  panel('Quarter on quarter','s4',table([{t:'Quarter',a:{class:'l'}},'Revenue','Change'],cols.map(c=>el('tr',{},el('td',{class:'l'},c),el('td',{},acct(r.values[c])),el('td',{class:qoq[c]==null?'na':qoq[c]>=0?'up':'down'},qoq[c]!=null?pct(qoq[c]):'')))),{flush:true})))};
+EXTRA.q2=v=>{const sb=MT.sbc||{};if(!sb.by_year)return;const rows=keys(sb.by_year).map(k=>{const r=(REV||{})[k]??(REVI||{})[k];return el('tr',{},el('td',{class:'l'},label(k)),el('td',{},acct(sb.by_year[k])),el('td',{},r?(sb.by_year[k]/r*100).toFixed(1)+'%':''))});
+ v.append(el('div',{style:'height:12px'}),panel('Stock-based pay: a cost paid in shares, not cash','',el('div',{},table([{t:'Period',a:{class:'l'}},'$M','% of revenue'],rows),sb.unrecognized!=null?el('p',{class:'note',style:'margin:8px 12px 10px'},`${money(sb.unrecognized)} of stock pay is granted but not yet expensed${sb.recognition_years?`, over about ${sb.recognition_years} years`:''}. It adds to operating cash flow above because it is not cash; it dilutes shareholders instead.`):null),{flush:true,page:sb.page}))};
+EXTRA.q3=v=>{const c=MT.commitments||{};if(!c.by_year)return;const cash=V(D3.cash),ck=cash?lastK(cash):null;
+ v.append(el('div',{style:'height:12px'}),el('div',{class:'grid'},panel(`Commitments by year · ${c.kind||'contractual obligations'}`,'s8',hbars(Object.entries(c.by_year).map(([k,x])=>({k,v:x}))),{page:c.page}),
+  panel('Commitments beside cash','s4',table([{t:'',a:{class:'l'}},'$M'],[el('tr',{},el('td',{class:'l'},'Total commitments'),el('td',{},acct(c.total))),cash?el('tr',{},el('td',{class:'l'},'Cash, '+label(ck)),el('td',{},acct(cash[ck]))):null].filter(Boolean)),{flush:true})),
+  el('p',{class:'note'},'Commitments are promises to pay that sit off the balance sheet. Some analysts treat them like debt; the filing lists them by year so you can set them against the cash.'))};
+EXTRA.q4=v=>{const q=MT.quarterly;if(!q||!q.rows)return;const r=qRow(/^(total\s+)?(net\s+)?revenues?$/i);if(!r)return;const cols=q.columns;
+ const lines=q.rows.filter(x=>x!==r&&!x.unit&&cols.some(c=>x.values[c]!=null)&&/cost|expense|research|sales|marketing|general|compute|gross|operating|income|loss/i.test(x.label)).slice(0,10);if(!lines.length)return;
+ v.append(el('div',{style:'height:12px'}),panel('Each line as a share of revenue, by quarter','',table([{t:'',a:{class:'l'}},...cols],lines.map(x=>el('tr',{},el('td',{class:'l'},x.label),...cols.map(c=>el('td',{},x.values[c]!=null&&r.values[c]?(x.values[c]/r.values[c]*100).toFixed(0)+'%':''))))),{flush:true,page:(q.pages||[]).join(', ')}))};
+/* prices on record before an offer price: the last funding round (from the filing) and fund marks (Form N-PORT) */
+const ROUNDS=(((DATA.qual||{}).related_party||{}).items||[]).map(x=>{const t=x.text||'';const m=t.match(/(Series [A-Z][\w-]*)[^.]*?purchase price of \$([\d,.]+) per share/i);const d=t.match(/(?:From|In)\s+([A-Z][a-z]+ \d{4})(?:\s+to\s+([A-Z][a-z]+ \d{4}))?/);return m?{series:m[1],px:parseFloat(m[2].replace(/,/g,'')),when:d?(d[2]?d[1]+' to '+d[2]:d[1]):'',page:x.page}:null}).filter(Boolean);
+const MARKS=(((DATA.others||{}).funds||{}).marks||[]).filter(m=>m.per_unit>0);
+qView('q5','PX','Only now: is the price sane?','Price','Last on purpose. Look at the price before checking whether the profit is real and you will reverse-engineer a reason to like it. This section lays out the arithmetic of the price; it never says whether the price is right. That decision is yours.',v=>{
+ const O=SH.offering||{},U=SH.underwriting||{};const fl=num(O.shares_offered_total);const mid=PRICES.length?bridge(PRICES[PRICES.length===3?1:0][1]):null;
+ // 1. the headline strip
+ const k=el('div',{class:'kpis'});
+ k.append(kpi(PRICES.length===3?'Price range':'Offer price',PRICES.length===3?`$${PRICES[0][1]}–${PRICES[2][1]}`:PRICES.length?'$'+PRICES[0][1]:'Not set',PRICES.length?'':'not in this filing yet','cover'));
+ k.append(kpi('Market value'+(PRICES.length===3?', mid':''),mid&&mid.mcap!=null?money(mid.mcap):NA,mid?'price × shares after the offering':'needs a price'));
+ k.append(kpi('Enterprise value'+(PRICES.length===3?', mid':''),mid&&mid.ev!=null?money(mid.ev):NA,mid?'after debt, cash and the cash raised':''));
+ k.append(kpi('EV ÷ revenue',mid&&mid.ev&&REVT&&REVT.v>0?(mid.ev/REVT.v).toFixed(1)+'×':NA,REVT?REVT.k:''));
+ k.append(kpi('Shares after the offering',OUTT?sharesFmt(OUTT):NA,OUTT?(SH.as_of?'base '+SH.as_of:''):((SH.outstanding_after||{}).status||'not read'),(SH.outstanding_after||{}).page));
+ k.append(kpi('Float',fl&&OUTT?(fl/OUTT*100).toFixed(1)+'%':NA,'shares offered ÷ shares after'));
+ v.append(k);
+ // 2. prices on record before the offer price
+ if(ROUNDS.length||MARKS.length){const last=ROUNDS.slice().sort((a,b)=>(b.when||'').slice(-4)-(a.when||'').slice(-4))[0];const g2=el('div',{class:'kpis'});
+  if(last)g2.append(kpi('Last funding round, '+last.series,'$'+last.px.toLocaleString('en-US',{maximumFractionDigits:2}),last.when+' · per share',last.page));
+  if(MARKS.length){const lp=MARKS.map(m=>m.period).sort().pop();const latest=MARKS.filter(m=>m.period===lp).map(m=>m.per_unit);g2.append(kpi('Funds’ marks, latest report','$'+Math.min(...latest).toFixed(0)+(latest.length>1?'–'+Math.max(...latest).toFixed(0):''),`${latest.length} fund filing${latest.length>1?'s':''}, period ${fmtDate(lp)} · per share`))}
+  if(last&&MARKS.length){const lp=MARKS.map(m=>m.period).sort().pop();const hi=Math.max(...MARKS.filter(m=>m.period===lp).map(m=>m.per_unit));g2.append(kpi('Funds’ mark ÷ last round',(hi/last.px).toFixed(2)+'×','highest latest mark against the round price'))}
+  v.append(el('h3',{class:'subh'},'Prices on record before the offer price'),g2,el('p',{class:'note',style:'margin-top:-4px'},'The round price is from the filing; the marks are what mutual funds reported for their private shares (Form N-PORT). Neither is a forecast of the offer price.'))}
+ // 3. the bridge
+ const box=el('div');v.append(el('h3',{class:'subh'},'From price to company value'),panel('Market value, enterprise value and multiples','',box,{}));
+ const inp=el('input',{class:'mv',type:'number',min:'0',step:'any',placeholder:'1500','aria-label':'Market value in billions'}),src=el('input',{class:'mv src',type:'text',placeholder:'where it was reported (optional)','aria-label':'Source'});
+ try{const sv=JSON.parse(store.get('mv')||'{}');if(sv.v)inp.value=sv.v;if(sv.s)src.value=sv.s}catch(e){}
+ function drawBridge(){box.innerHTML='';const cols=PRICES.map(([kk,pp])=>({k:kk+' · $'+(+pp).toFixed(2).replace(/\.00$/,''),...bridge(pp)}));
+  const mv=parseFloat(inp.value);if(mv>0){const px=OUTT?mv*1e9/OUTT:null;cols.push({k:(src.value?'Outside value · '+src.value.slice(0,28):'Your market value'),...bridge(px,mv*1000)})}
+  store.set('mv',JSON.stringify({v:inp.value,s:src.value}));
+  if(!cols.length)box.append(el('p',{class:'note',style:'margin:0 0 10px'},'No price or range in this filing yet. Type a market value below, for example one reported in the press, and the arithmetic fills in. It stays labelled as outside the filing.'));
+  else{const rq=lastQRev();const row=(n,f,cls)=>el('tr',{class:cls||''},el('td',{class:'l'},n),...cols.map(c=>el('td',{},f(c))));
+   const rows=[row('Price a share',c=>c.px?'$'+c.px.toFixed(2):(OUTT?NA:'needs share count')),row('Shares outstanding after the offering',c=>OUTT?sharesFmt(OUTT):NA,'sub'),row('Market value',c=>money(c.mcap),'hi'),row('Fully diluted market value',c=>c.fd!=null?money(c.fd):NA,'sub'),
+    row('+ Debt'+(debtConverts?' (convertible notes convert at the IPO, not added)':''),c=>money(c.debt)),row('− Cash, '+(cols[0].cK?label(cols[0].cK):''),c=>money(c.cash)),row('− Cash the offering brings in',c=>c.net!=null?money(c.net):'not set yet'),row('Enterprise value',c=>money(c.ev),'hi'),
+    row(`EV ÷ revenue, ${REVT?REVT.k:''}`,c=>c.ev&&REVT&&REVT.v>0?(c.ev/REVT.v).toFixed(1)+'×':NA),
+    ...(rq?[row(`EV ÷ latest quarter × 4 (${rq.k})`,c=>c.ev?(c.ev/(rq.v*4)).toFixed(1)+'×':NA)]:[]),
+    row(`Market value ÷ operating cash, ${OCFT?OCFT.k:''}`,c=>c.mcap&&OCFT&&OCFT.v>0?(c.mcap/OCFT.v).toFixed(1)+'×':OCFT&&OCFT.v<=0?'cash flow negative':NA)];
+   box.append(table([{t:'',a:{class:'l'}},...cols.map(c=>c.k)],rows))}
+  box.append(el('div',{class:'askopts',style:'margin:10px 0 0'},el('label',{},'Market value $',inp,' billion'),el('label',{},src)),
+   el('p',{class:'note'},'Debt and cash are the latest balance sheet’s. Cash the offering brings in: '+(cols[0]?cols[0].netNote:'needs a price')+'. Multiples have no “right” level: they depend on growth, margins and risk.'))}
+ inp.oninput=drawBridge;src.oninput=drawBridge;drawBridge();
+ // 4. the offer in numbers, as tiles
+ const t=[['Shares offered',fl?sharesFmt(fl):null,O.page],['New shares from the company',O.primary!=null?sharesFmt(num(O.primary)):null,O.page],['Sold by existing holders',O.secondary!=null?sharesFmt(num(O.secondary))+(fl?` · ${(num(O.secondary)/fl*100).toFixed(0)}%`:''):null,O.page],['Underwriters’ option',O.overallotment!=null?sharesFmt(num(O.overallotment)):null,O.page],
+  ['New shares vs shares before',O.primary&&OUTT?(num(O.primary)/(OUTT-num(O.primary))*100).toFixed(1)+'%':null],['Underwriting discount',U.discount_pct!=null?U.discount_pct+'%':null,U.page],['Net proceeds to the company',U.net_proceeds!=null?money(num(U.net_proceeds)):null,U.page],['Dilution to new buyers',(SH.dilution||{}).dilution_per_share!=null?'$'+SH.dilution.dilution_per_share+' a share':null,(SH.dilution||{}).page]].filter(r=>r[1]!=null);
+ if(t.length){const g3=el('div',{class:'kpis'});t.forEach(([a,b,c])=>g3.append(kpi(a,b,'',c)));v.append(el('h3',{class:'subh'},'The offer in numbers'),g3)}
+ // 5. the share ladder, full width
+ const cls=((DATA.qual||{}).owners||{}).classes||[],ob=(SH.outstanding_after||{}).by_class||{};const vps=n=>{const c=cls.find(c=>c.name===n);return c&&c.votes_per_share!=null?+c.votes_per_share:null};
+ const names=Object.keys(ob).filter(n=>num(ob[n]));const allVotes=names.length&&names.every(n=>vps(n)!=null);const totV=allVotes?names.reduce((a,n)=>a+num(ob[n])*vps(n),0):0;
+ const lr=names.map(n=>el('tr',{},el('td',{class:'l'},n),el('td',{},sharesFmt(num(ob[n]))),el('td',{},OUTT?(num(ob[n])/OUTT*100).toFixed(1)+'%':''),el('td',{},vps(n)!=null?String(vps(n)):NA),el('td',{},allVotes&&totV?(num(ob[n])*vps(n)/totV*100).toFixed(1)+'%':'')));
+ if(OUTT)lr.push(el('tr',{class:'hi'},el('td',{class:'l'},'Outstanding after the offering'),el('td',{},sharesFmt(OUTT)),el('td',{},'100%'),el('td',{}),el('td',{})));
+ (()=>{const ex=(SH.excluded||[]).filter(x=>x.what!=='reserved'&&x.shares);const by={};ex.forEach(x=>{(by[x.what]=by[x.what]||[]).push(x)});const lab={options:'Options',rsus:'RSUs',prsus:'Performance RSUs',warrants:'Warrants',other:'Other excluded items (not added)'};
+  Object.entries(by).forEach(([kk,xs])=>{const tot=xs.reduce((a,x)=>a+x.shares,0);const st=xs.filter(x=>x.strike!=null);const avg=st.length?st.reduce((a,x)=>a+x.strike*x.shares,0)/st.reduce((a,x)=>a+x.shares,0):null;
+   lr.push(el('tr',{class:'sub',title:xs.map(x=>x.text||'').join(' | ').slice(0,600)},el('td',{class:'l'},'+ '+(lab[kk]||kk)+(xs.length>1?` (${xs.length} lines)`:'')+(avg!=null?` · avg. strike $${avg.toFixed(2)}`:'')),el('td',{},sharesFmt(tot)),el('td',{},OUTT?(tot/OUTT*100).toFixed(1)+'%':''),el('td',{}),el('td',{},xs[0].page?pgs(xs[0].page):'')))})})();
+ if(FD)lr.push(el('tr',{class:'hi'},el('td',{class:'l'},'Fully diluted'),el('td',{},sharesFmt(FD)),el('td',{},OUTT?(FD/OUTT*100).toFixed(1)+'%':''),el('td',{}),el('td',{})));
+ v.append(el('h3',{class:'subh'},'Share count'),panel('Share count after the offering'+(SH.as_of?' · base as of '+SH.as_of:''),'',lr.length?el('div',{},table([{t:'',a:{class:'l'}},'Shares','% of shares','Votes a share','% of votes'],lr),el('p',{class:'note',style:'margin:8px 12px 10px'},'Options, RSUs and warrants are left out of the headline count; they become shares later. Reserved pools for future grants are not added.')):missing('Share count',SH.outstanding_after||{status:'not read'}),{flush:lr.length>0,page:(SH.outstanding_after||{}).page}));
+ // 6. lock-ups and capitalization, full width
+ const ls=SH.lockup_schedule||[];if(ls.length)v.append(el('h3',{class:'subh'},'When insiders can sell'),panel('Lock-up releases','',table([{t:'When',a:{class:'l'}},'Shares',{t:'Who',a:{class:'l'}},'Src'],ls.map(x=>el('tr',{},el('td',{class:'l wrap'},x.when),el('td',{},x.shares!=null?sharesFmt(x.shares):''),el('td',{class:'l wrap'},x.who||''),el('td',{},x.page?pgs(x.page):'')))),{flush:true}));
+ const cp=SH.capitalization||{};if(cp.rows&&cp.rows.length)v.append(el('h3',{class:'subh'},'Capitalization'),panel('The balance sheet before and after the offering','',table([{t:'$ millions',a:{class:'l'}},...cp.columns],cp.rows.map(r=>el('tr',{},el('td',{class:'l wrap'},r.label.length>110?r.label.slice(0,108)+'…':r.label),...cp.columns.map(c=>el('td',{class:r.values[c]==null?'na':''},r.values[c]==null?'':acct(r.values[c])))))),{flush:true,page:cp.page}));
+ v.append(el('div',{class:'empty',style:'margin-top:14px'},el('b',{},'What this section will not do: '),'call the price cheap, expensive or fair. It shows the arithmetic a price implies. Whether the business can earn it is your decision.'))});
+
+/* ---------- FA: statement table ---------- */
+addView('FA','Financials','Filing','',v=>{
+ v.append(viewHead('FA','Financials as read',`Every line of the printed statements, in the filing’s own order and labels, with its % change under it. Switch to $M only, or to each line as a share of revenue or total assets. The five readings’ key lines follow below.`));
+ if(stmtView(v))v.append(el('h3',{class:'subh'},'Key lines behind the five readings'));
+ const flow=[['Income',null],['Revenue',G.revenue,G.revenue_interim],['Revenue growth',null,null,'growth'],['Net income (loss)',C2.net_income],['Cash flow',null],['Operating cash flow',C2.operating_cash_flow],['Capital expenditure',C2.capex],['Free cash flow',C2.free_cash_flow,null,'derived'],['Net financing (outside money)',C2.outside_money_net],['Money raised, gross',C2.outside_money_gross,null,'derived'],['Operating cash minus result',P4.gap,null,'derived']];
+ const fcats=[...new Set([...keys(REV),...keys(REVI),...keys(V(C2.net_income)),...keys(V(C2.operating_cash_flow))])].sort((a,b)=>order(a)-order(b));
+ const growth={};keys(G.growth_pct||{}).forEach(k=>growth[k]=G.growth_pct[k]);if(IG)growth[IG.to]=IG.pct;
+ const firstI=fcats.findIndex(k=>!isFY(k));
+ const hdr=[[{t:'$ millions',a:{class:'l',rowspan:2}},...(firstI!==0?[{t:'Fiscal years',a:{colspan:firstI<0?fcats.length:firstI,style:'text-align:center'}}]:[]),...(firstI>=0?[{t:'Year to date',a:{colspan:fcats.length-firstI,class:'div',style:'text-align:center'}}]:[]),{t:'Src',a:{rowspan:2}}],fcats.map((k,i)=>({t:label(k),a:{class:i===firstI?'div':''}}))];
+ const rowsOf=(spec,cats)=>spec.map(([name,f,f2,kind])=>{
+  if(f===null&&!kind)return el('tr',{class:'grp'},el('td',{class:'l',colspan:cats.length+2},name));
+  if(kind==='growth')return el('tr',{class:'sub'},el('td',{class:'l'},name),...cats.map((k,i)=>el('td',{class:(i===firstI?'div ':'')+(growth[k]==null?'na':growth[k]>=0?'up':'down')},growth[k]!=null?pct(growth[k]):'')),el('td',{}));
+  const vals={...(V(f)||{}),...(V(f2)||{})};const has=Object.keys(vals).length;
+  return el('tr',{class:kind==='derived'?'sub':(name==='Revenue'||name==='Free cash flow'?'hi':'')},el('td',{class:'l'},name+(kind==='derived'?' (derived)':'')),...cats.map((k,i)=>el('td',{class:(i===firstI?'div ':'')+(vals[k]==null?'na':'')},vals[k]==null?(has?'':NA):acct(vals[k]))),el('td',{},f&&f.page?pgs(f.page):(f&&f.status?el('span',{class:'na',style:'font-size:11px'},f.status):'')))});
+ const cash=V(D3.cash),debt=V(D3.debt),eq=V(D3.equity);
+ const bal=[['Cash',D3.cash],['Debt',D3.debt],['Convertible preferred',D3.redeemable_preferred],['Equity',D3.equity],['Net debt',D3.net_debt,null,'derived']];
+ const bcats=[...new Set([...keys(cash),...keys(debt),...keys(eq)])].sort((a,b)=>order(a)-order(b));
+ const t1=table(hdr,rowsOf(flow,fcats));const t2=table([[{t:'$ millions, at period end',a:{class:'l'}},...bcats.map(label),'Src']],rowsOf(bal,bcats));
+ v.append(panel('Key lines: income and cash flow','',t1,{flush:true}),el('div',{style:'height:12px'}),panel('Key lines: balance sheet','',bcats.length?t2:missing('Balance sheet',{status:'not read'}),{flush:true}),
+  el('p',{class:'note'},'NA means the program could not read the line, never a zero. Negative values are in brackets. Check every figure against its page before relying on it.'))});
+
+/* ---------- full statements (every printed line) ---------- */
+const ST=DATA.statements||{};
+function stmtView(v){
+ const kinds=[['income','Income statement'],['balance','Balance sheet'],['cashflow','Cash flow']].filter(([k])=>ST[k]&&ST[k].rows&&ST[k].rows.length);
+ if(!kinds.length)return false;
+ let cur=kinds[0][0],mode='both';const tabs=el('div',{class:'tabs'}),modes=el('div',{class:'seg'}),host=el('div');
+ const prior=(cols,i)=>{const k=cols[i],kind=x=>isFY(x)?'FY':(/^\dM/.test(x)?x.split(' ')[0]:'AT');for(let j=i-1;j>=0;j--)if(kind(cols[j])===kind(k))return cols[j];if(kind(k)==='AT')for(let j=i-1;j>=0;j--)if(isFY(cols[j]))return cols[j];return null};
+ function base(st){const want=cur==='income'?/^(total\s+)?(net\s+)?revenues?$|^total net revenue/i:cur==='balance'?/^total assets$/i:null;if(!want)return null;return st.rows.find(r=>want.test(r.label.trim()))||null}
+ function draw(){host.innerHTML='';const st=ST[cur],cols=st.columns||[],b=base(st);const firstI=cols.findIndex(k=>!isFY(k));
+  const cell=(r,k,i)=>{const v=r.values[k];if(v==null)return el('td',{class:(i===firstI&&firstI>0?'div ':'')+'na'},'');
+   if(mode==='chgonly'){if(r.unit)return el('td',{class:i===firstI&&firstI>0?'div':''},'');const pk=prior(cols,i),pv=pk?r.values[pk]:null;if(pv==null||pv===0)return el('td',{class:(i===firstI&&firstI>0?'div ':'')+'na'},'');const c=(v-pv)/Math.abs(pv)*100;return el('td',{class:(i===firstI&&firstI>0?'div ':'')+(c>=0?'up':'down')},pct(c))}
+   if(mode==='pct'){if(r.unit||!b||!b.values[k])return el('td',{class:i===firstI&&firstI>0?'div':''},'');return el('td',{class:i===firstI&&firstI>0?'div':''},(v/b.values[k]*100).toFixed(1)+'%')}
+   return el('td',{class:i===firstI&&firstI>0?'div':''},r.unit?v.toLocaleString('en-US',{maximumFractionDigits:2}):acct(v))};
+  const chgRow=r=>{if(r.unit)return null;const cells=cols.map((k,i)=>{const v=r.values[k],pk=prior(cols,i),pv=pk?r.values[pk]:null;const d=i===firstI&&firstI>0?'div ':'';if(v==null||pv==null||pv===0)return el('td',{class:d+'na'},'');const c=(v-pv)/Math.abs(pv)*100;return el('td',{class:d+(c>=0?'up':'down')},pct(c))});return cells.some(c=>c.textContent)?el('tr',{class:'chg'},el('td',{class:'l',style:`padding-left:${22+(r.indent||0)*14}px`},'% change'),...cells):null};
+  const rows=st.rows.flatMap(r=>{if(r.kind==='header')return[el('tr',{class:'grp'},el('td',{class:'l',colspan:cols.length+1},r.label))];const main=el('tr',{class:(r.kind==='total'||r.kind==='subtotal')?'hi':''},el('td',{class:'l lab',title:r.label,style:`padding-left:${10+(r.indent||0)*14}px`},r.label+(r.unit?` (${r.unit})`:'')),...cols.map((k,i)=>cell(r,k,i)));return mode==='both'?[main,chgRow(r)].filter(Boolean):[main]});
+  const rowsOld=[]&&st.rows.map(r=>r.kind==='header'?el('tr',{class:'grp'},el('td',{class:'l',colspan:cols.length+1},r.label)):
+   el('tr',{class:(r.kind==='total'||r.kind==='subtotal')?'hi':''},el('td',{class:'l',style:`padding-left:${10+(r.indent||0)*14}px`},r.label+(r.unit?` (${r.unit})`:'')),...cols.map((k,i)=>cell(r,k,i))));
+  const hdr=[[{t:ST.units||'$ millions',a:{class:'l'}},...cols.map((k,i)=>({t:label(k),a:{class:i===firstI&&firstI>0?'div':''}}))]];
+  const note=mode==='both'?'Under each line, its % change against the same kind of period before it: a year against the year before, nine months against the same nine months a year earlier, and a balance against the last year-end balance.':mode==='chg'?'Each figure against the same kind of period before it: a year against the year before, nine months against the same nine months a year earlier, a balance against the balance before.':mode==='pct'?(b?`Each line as a share of ${b.label.toLowerCase()} in the same period.`:'This statement has no total to divide by.'):`${ST.units||'$ millions'}, as printed; brackets are negative.`;
+  host.append(panel(st.title||'Statement','',table(hdr,rows),{flush:true,page:(st.pages||[]).join(', '),act:el('button',{class:'act',onclick:()=>csv(st)},'Download CSV')}),el('p',{class:'note'},note+' Lines and labels are the filing’s own, so they differ from company to company.'))}
+ function csv(st){const q=x=>'"'+String(x).replace(/"/g,'""')+'"';const lines=[[q('Line'),...st.columns.map(label)].join(',')];st.rows.forEach(r=>lines.push([q(r.label),...st.columns.map(k=>r.values[k]??'')].join(',')));
+  const a=el('a',{href:URL.createObjectURL(new Blob([lines.join('\n')],{type:'text/csv'})),download:`${TK}-${cur}.csv`});document.body.append(a);a.click();a.remove()}
+ kinds.forEach(([k,t])=>{const bt=el('button',{class:k===cur?'on':''},t,el('b',{},String(ST[k].rows.filter(r=>r.kind!=='header').length)));bt.onclick=()=>{cur=k;tabs.querySelectorAll('button').forEach(x=>x.classList.remove('on'));bt.classList.add('on');draw()};tabs.append(bt)});
+ [['both','$M + % change'],['val','$M only'],['pct',cur==='balance'?'% of total assets':'% of revenue']].forEach(([m,t])=>{const bt=el('button',{class:m===mode?'on':''},t);bt.onclick=()=>{mode=m;modes.querySelectorAll('button').forEach(x=>x.classList.remove('on'));bt.classList.add('on');draw()};modes.append(bt)});
+ v.append(el('div',{class:'tabrow'},tabs,modes),host);draw();return true}
+
+/* ---------- qualitative: the offer, the business, the owners and the people ---------- */
+const QL=DATA.qual||{};
+const fv=x=>{if(x==null)return null;if(typeof x!=='object')return String(x);if(Array.isArray(x))return x.length?x.map(fv).join(', '):null;if(x.status)return null;
+ if(typeof x.value==='boolean')return (x.value?'Yes. ':'No. ')+(x.text||'');if(x.listing)return x.listing;if(x.count!=null&&x.as_of)return Number(x.count).toLocaleString('en-US')+' at '+x.as_of;if(typeof x.value==='number')return x.value.toLocaleString('en-US');if(x.value!=null)return String(x.value);if(x.low!=null)return `$${x.low} to $${x.high}`;if(x.names)return x.names.join(', ');if(x.days!=null)return x.days+' days'+(x.text?': '+x.text:'');if(x.count!=null)return Number(x.count).toLocaleString('en-US');if(x.text)return x.text;if(x.name)return x.name;return null};
+const fp=x=>x&&typeof x==='object'&&x.page?pgs(x.page):'';
+const st_=x=>x&&x.status?x.status:'not found';
+function factRows(list){return list.map(([k,x])=>{const t=fv(x);return el('tr',{},el('td',{class:'l mute',style:'width:200px;vertical-align:top;padding-top:7px'},k),el('td',{class:'l wrap',style:'padding-top:7px;padding-bottom:7px'},t==null?el('span',{class:'na'},st_(x)):t.length>300?el('details',{class:'long'},el('summary',{},t.slice(0,240).replace(/\s+\S*$/,'')+'…'),t):t),el('td',{style:'vertical-align:top;padding-top:7px'},t?fp(x):''))})}
+addView('BIZ','Business and offer','Filing','',v=>{
+ v.append(viewHead('BIZ','The business and the offer','What the company says it does, and what is on offer, in the filing’s own words. Every line carries its page.'));
+ if(!Object.keys(QL).length){v.append(el('div',{class:'empty'},'This dashboard was built before the program read the offer and the people. Rebuild it with: python3 -m prospectus "'+M.name+'"'));return}
+ const g=el('div',{class:'grid'});
+ if(QL.summary&&QL.summary.text)g.append(panel('What it does, in its own words','s12',el('div',{},el('blockquote',{class:'q',style:'font-size:14px'},QL.summary.text),el('div',{style:'margin-top:8px'},fp(QL.summary))),{}));
+ const O=QL.offer||{};
+ {const O2=QL.offer||{},rk=QL.risks||{},tl=el('div',{class:'kpis'});[['Listing',fv(O2.exchange),O2.exchange],['Ticker',fv(O2.ticker),O2.ticker],['Lock-up',O2.lockup&&O2.lockup.days?O2.lockup.days+' days':null,O2.lockup],['Lead underwriters',O2.underwriters&&O2.underwriters.names?String(O2.underwriters.names.length):null,O2.underwriters],['Employees',QL.employees&&QL.employees.count?Number(QL.employees.count).toLocaleString('en-US'):null,QL.employees],['Risk headings',rk.count?String(rk.count):null,null]].forEach(([a,b,x])=>{if(b)tl.append(kpi(a,b.length>26?b.slice(0,24)+'…':b,'',x&&x.page))});g.append(el('div',{class:'s12'},tl))}
+ g.append(panel('Use of the money raised','s12',O.use_of_proceeds&&O.use_of_proceeds.text?el('div',{},el('p',{style:'margin:0 0 8px;font-size:13.5px;line-height:1.6'},O.use_of_proceeds.text),fp(O.use_of_proceeds)):missing('Use of proceeds',O.use_of_proceeds)));
+ g.append(panel('The offer','s12',table([{t:'Item',a:{class:'l'}},{t:'From the filing',a:{class:'l'}},'Src'],factRows([['Shares offered',O.shares_offered],['Price range',O.price_range],['Exchange',O.exchange],['Ticker',O.ticker],['Lead underwriters',O.underwriters],['Selling stockholders',O.selling_stockholders],['Lock-up',O.lockup],['Dividend policy',O.dividend_policy]])),{flush:true}));
+ g.append(panel('Also in the filing','s12',table([{t:'Item',a:{class:'l'}},{t:'From the filing',a:{class:'l'}},'Src'],factRows([['Employees',QL.employees],['Auditor',QL.auditor&&QL.auditor.name?{value:QL.auditor.name+(QL.auditor.since?' (since '+QL.auditor.since+')':''),page:QL.auditor.page}:QL.auditor],...FL.filter(f=>f.kind==='trust').map(f=>[f.title,{text:f.detail||f.quote||'Stated in the filing.',page:f.page}]),['Legal proceedings',QL.legal]])),{flush:true}));
+ v.append(g)});
+addView('OWN','Owners, people, risks','Filing','',v=>{
+ v.append(viewHead('OWN','Owners, people and risks','Who controls the company, who runs it, who left, and what the filing itself lists as risks. The first IPO dashboard’s rule: if the people and the numbers move in different directions, read deeper.'));
+ if(!Object.keys(QL).length){v.append(el('div',{class:'empty'},'Rebuild this dashboard to read the owners and the people: python3 -m prospectus "'+M.name+'"'));return}
+ const g=el('div',{class:'grid'}),ow=QL.owners||{},pe=QL.people||{},rk=QL.risks||{};
+ const cl=ow.classes||[];g.append(panel('Share classes and votes','s12',cl.length?table([{t:'Class',a:{class:'l'}},'Votes a share','Src'],cl.map(c=>el('tr',{},el('td',{class:'l'},c.name),el('td',{},c.votes_per_share!=null?String(c.votes_per_share):NA),el('td',{},fp(c))))):missing('Share classes',ow.classes_status||{status:'not found'}),{flush:!!cl.length}));
+ const wd=ow.wedge||{};if(wd.holder&&wd.votes_pct!=null)g.append(el('div',{class:'s12'},el('div',{class:'wedge'},el('div',{},el('b',{},wd.holder),wd.economic_pct!=null?` holds ${wd.economic_pct}% of all shares but `:' holds ',el('b',{},wd.votes_pct+'% of the vote'),` ${wd.stage==='after'?'after':'before'} the offering.`,wd.economic_pct==null&&wd.shares_held!=null?` It holds ${Number(wd.shares_held).toLocaleString('en-US')} share${wd.shares_held===1?'':'s'}.`:''),el('div',{class:'wbar'},el('div',{},el('span',{},'Shares'),el('i',{style:`width:${wd.economic_pct||0.4}%`}),el('b',{},wd.economic_pct!=null?wd.economic_pct+'%':'NA')),el('div',{},el('span',{},'Votes'),el('i',{class:'v',style:`width:${wd.votes_pct}%`}),el('b',{},wd.votes_pct+'%'))),el('div',{class:'mute',style:'font-size:11.5px'},wd.note||'',' ',wd.economic_page?pgs(wd.economic_page):'',' ',wd.votes_page?pgs(wd.votes_page):''))));
+ const ph=ow.principal_holders||[],hc=(ow.holders_columns||{}).classes||[...new Set((Array.isArray(ph)?ph:[]).flatMap(h=>Object.keys(h.classes||{})))];
+ if(Array.isArray(ph)&&ph.length){const anyAfter=ph.some(h=>Object.values(h.classes||{}).some(c=>c&&c.shares_after!=null));const head=[{t:'Holder',a:{class:'l'}},...hc.flatMap(c=>[{t:c+(anyAfter?' shares after':' shares')},{t:'% of '+c}]),'Vote before','Vote after','Src'];
+  const f=x=>x==null?'':Number(x).toLocaleString('en-US'),pc=x=>x==null?'':String(x).replace(/%?$/,'%');
+  g.append(panel('Who owns what, and who holds the vote','s12',el('div',{},table(head,ph.map(h=>{const c=h.classes||{};return el('tr',{class:/group/i.test(h.name)?'hi':''},el('td',{class:'l wrap',style:'min-width:200px'},h.name),...hc.flatMap(k=>[el('td',{},f((c[k]||{}).shares_after??(c[k]||{}).shares)),el('td',{},pc((c[k]||{}).pct_after??(c[k]||{}).pct_before))]),el('td',{},pc(h.votes_pct_before)),el('td',{},pc(h.votes_pct_after??(typeof h.votes_pct==='string'?h.votes_pct.replace('%',''):h.votes_pct))),el('td',{},h.page?pgs(h.page):''))})),el('p',{class:'note',style:'margin:8px 12px 10px'},'Shares beneficially owned, as the filing prints them: they include options a holder can exercise within 60 days'+(anyAfter?'':'. This version prints only the shares before the offering')+'. Blank means the filing leaves the cell blank in this version.')),{flush:true}))}
+ else g.append(panel('Who owns what','s12',missing('Principal stockholders',ph)));
+ const vr=ow.vote_rules||[];if(vr.length)g.append(panel('How the votes are cast','s12',table([{t:'From the filing',a:{class:'l'}},'Src'],vr.map(x=>el('tr',{},el('td',{class:'l wrap'},x.text),el('td',{},x.page?pgs(x.page):'')))),{flush:true}));
+ const ct=ow.control||{};const crow=[['Controlled company',ct.controlled_company],['Public benefit corporation',ct.public_benefit_corporation||ct.pbc],['Who elects the board majority',ct.board_majority||ct.board],['When the high-vote shares convert (sunset)',ct.sunset]].filter(r=>r[1]);
+ if(crow.length)g.append(panel('Control','s12',table([{t:'',a:{class:'l'}},{t:'From the filing',a:{class:'l'}},'Src'],factRows(crow.map(([k,x])=>[k,x&&typeof x==='object'&&typeof x.value==='boolean'?{...x,value:x.value}:x]))),{flush:true}));
+ const ex=pe.executives||[];g.append(panel('Executives','s6',Array.isArray(ex)&&ex.length?table([{t:'Name',a:{class:'l'}},{t:'Role',a:{class:'l'}},'Age','Src'],ex.map(x=>el('tr',{},el('td',{class:'l',style:'font-weight:500'},x.name),el('td',{class:'l wrap'},x.title||''),el('td',{},x.age!=null?String(x.age):''),el('td',{},fp(x))))):missing('Executives',ex),{flush:Array.isArray(ex)&&ex.length>0}));
+ const dr=pe.directors||[];g.append(panel('Board','s6',Array.isArray(dr)&&dr.length?table([{t:'Director',a:{class:'l'}},'Age','Src'],dr.map(x=>el('tr',{},el('td',{class:'l'},x.name),el('td',{},x.age!=null?String(x.age):''),el('td',{},fp(x))))):missing('Directors',dr),{flush:Array.isArray(dr)&&dr.length>0}));
+ const dp=(pe.departures||[]);g.append(panel('People who left close to the filing','s12',dp.length?table([{t:'From the filing',a:{class:'l'}},'Src'],dp.map(d=>el('tr',{},el('td',{class:'l wrap'},d.title||d.text||''),el('td',{},pgs(d.page))))):el('div',{class:'empty',style:'margin:10px'},'No departure in the year before the filing was found. The first IPO dashboard caught two co-founders stepping down 29 days before a filing; this is where that would show.'),{flush:dp.length>0}));
+ const hd=rk.headings||[],nw=new Set((rk.new_since_last_version||[]).map(x=>typeof x==='string'?x:x.text||x.heading));const rw=new Set((rk.reworded_since_last_version||[]).map(x=>typeof x==='string'?x:x.text||x.heading));
+ g.append(panel(`Risk factors · ${rk.count!=null?rk.count+' headings in the filing':'count not read'}`,'s12',hd.length?table([{t:'#',a:{class:'l'}},{t:'The filing’s own heading',a:{class:'l'}},'','Src'],hd.map((h,i)=>{const t=typeof h==='string'?h:h.text||h.heading;return el('tr',{},el('td',{class:'l mute',style:'width:34px'},String(i+1)),el('td',{class:'l wrap'},t),el('td',{class:'l'},nw.has(t)?el('span',{class:'tagx rel'},'New in this version'):rw.has(t)?el('span',{class:'tagx'},'Reworded in this version'):''),el('td',{},h.page?pgs(h.page):''))})):missing('Risk headings',rk),{flush:hd.length>0}));
+ const rp=(QL.related_party||{}).items||[];if(rp.length)g.append(panel('Related-party dealings','s12',table([{t:'From the filing',a:{class:'l'}},'Src'],rp.map(x=>el('tr',{},el('td',{class:'l wrap'},x.text||String(x)),el('td',{},x.page?pgs(x.page):'')))),{flush:true}));
+ v.append(g)});
+
+/* ---------- VER ---------- */
+addView('VER','Versions','Filing',(DATA.versions||[]).length||'',v=>{
+ v.append(viewHead('VER','What changed between versions','Each amendment is a new photograph of the company. Sentences with numbers in them come first: that is where the information moves.'));
+ const Vs=DATA.versions||[];if(!Vs.length){v.append(el('div',{class:'empty'},'Only one version of this prospectus is on file so far.'));return}
+ const f=x=>x.replace(/^(\d{4}-\d{2}-\d{2})_([^_]+)_.*$/,(m,a,b)=>b.replace('-A','/A')+' · '+fmtDate(a));
+ let cur=Vs.length-1;const tabs=el('div',{class:'tabs'});const host=el('div');
+ function draw(){host.innerHTML='';const ver=Vs[cur];const tot=ver.sections.reduce((a,s)=>a+s.added+s.changed+s.removed,0);
+  const kp=el('div',{class:'kpis'});kp.append(kpi('Comparing',f(ver.from).split(' · ')[0]+' → '+f(ver.to).split(' · ')[0],f(ver.from).split(' · ')[1]+' to '+f(ver.to).split(' · ')[1]),kpi('Sentences moved',String(tot),'new, changed or gone'),kpi('Price',ver.price_from===ver.price_to?ver.price_to:ver.price_from+' → '+ver.price_to,''));host.append(kp);
+  const rows=[];ver.sections.forEach(s=>{const t=s.added+s.changed+s.removed||1;
+   const ex=el('div',{});s.examples_changed.slice(0,4).forEach(e=>ex.append(el('p',{class:'ex',html:esc(e.diff).replace(/\[-(.*?)-\]/g,'<del>$1</del>').replace(/\{\+(.*?)\+\}/g,'<ins>$1</ins>')},pgLink(e.page))));
+   s.examples_added.slice(0,3).forEach(e=>ex.append(el('p',{class:'ex',html:'<ins>New:</ins> '+esc(e.text.length>380?e.text.slice(0,377)+'…':e.text)},pgLink(e.page))));
+   s.examples_removed.slice(0,2).forEach(e=>ex.append(el('p',{class:'ex',html:'<del>Gone:</del> '+esc((e.text||'').length>300?e.text.slice(0,297)+'…':e.text||'')},e.page?pgLink(e.page):null)));
+   const more=el('tr',{class:'more',style:'display:none'},el('td',{colspan:6},ex));
+   rows.push(el('tr',{class:'click',onclick:()=>{more.style.display=more.style.display==='none'?'':'none'}},el('td',{class:'l',style:'font-weight:500'},s.section),el('td',{class:'up'},'+'+s.added),el('td',{},String(s.changed)),el('td',{class:'down'},'−'+s.removed),el('td',{},el('div',{class:'stack',title:'new / changed / gone'},el('i',{style:`width:${s.added/t*100}%;background:var(--c3)`}),el('i',{style:`width:${s.changed/t*100}%;background:var(--c1)`}),el('i',{style:`width:${s.removed/t*100}%;background:var(--c2)`}))),el('td',{class:'mute',style:'font-family:var(--sans);font-size:11.5px'},'Read ▾')),more)});
+  host.append(el('div',{class:'leg'},el('span',{},el('i',{style:'background:var(--c3)'}),'New'),el('span',{},el('i',{style:'background:var(--c1)'}),'Changed'),el('span',{},el('i',{style:'background:var(--c2)'}),'Gone')),
+   panel('By section · click a row to read the changed sentences','',table([{t:'Section',a:{class:'l'}},'New','Changed','Gone','Mix',''],rows),{flush:true}))}
+ Vs.forEach((ver,i)=>{const b=el('button',{class:i===cur?'on':''},f(ver.to).split(' · ')[0]+' '+f(ver.to).split(' · ')[1]);b.onclick=()=>{cur=i;tabs.querySelectorAll('button').forEach(x=>x.classList.remove('on'));b.classList.add('on');draw()};tabs.append(b)});
+ v.append(tabs,host);draw()});
+
+/* ---------- RLT ---------- */
+addView('RLT','Who names it','Filing',((DATA.others||{}).companies||[]).length||'',v=>{
+ v.append(viewHead('RLT','Who else names it','The company describes itself in its prospectus. Its customers, suppliers, partners and investors describe it in their own filings, under their own lawyers.'));
+ const O=DATA.others||{},cs=O.companies||[];const g=el('div',{class:'grid'});
+ const rows=[];cs.forEach(x=>{const r=x.read||{};const qs=(x.quotes||[]).slice(0,3);
+  const more=el('tr',{class:'more',style:'display:none'},el('td',{colspan:5},qs.map(q=>{const t=q.startsWith('[table entry]');return el('blockquote',{class:'q',style:'margin-bottom:8px'},t?el('span',{class:'tagx',style:'margin-right:8px'},'Table entry'):null,(t?q.slice(14):q).slice(0,480))}),r.url?el('a',{class:'pg',href:r.url,target:'_blank',rel:'noopener'},'Open '+r.form+' '+fmtDate(r.date)+' ↗'):null));
+  rows.push(el('tr',{class:'click',onclick:()=>{more.style.display=more.style.display==='none'?'':'none'}},el('td',{class:'l',style:'font-weight:500'},x.name.replace(/\s+\(.*$/,'')),el('td',{},String(x.count)),el('td',{class:'l'},el('span',{class:'tagx'+(x.relationship?' rel':'')},x.relationship?'Relationship':'Mention')),el('td',{},r.form||NA),el('td',{},r.date?fmtDate(r.date):NA)),more)});
+ g.append(panel('Company filings that name it · click a row for their words','s12',cs.length?table([{t:'Company',a:{class:'l'}},'Filings',{t:'Type',a:{class:'l'}},'Form','Filed'],rows):el('div',{class:'empty',style:'margin:12px'},'No other company filing names it yet.'),{flush:true}));
+ const F=O.funds||{},mk=(F.marks||[]).filter(m=>m.per_unit);
+ if(mk.length){g.append(panel(`Fund marks · ${F.funds_found} fund filers hold it`,'s7',fundBars(mk)));
+  g.append(panel('Fund filings','s5',table([{t:'Fund',a:{class:'l'}},'Period','Per share'],mk.slice().sort((a,b)=>(b.period||'').localeCompare(a.period||'')).slice(0,14).map(m=>el('tr',{},el('td',{class:'l'},el('a',{href:m.url,target:'_blank',rel:'noopener',style:'text-decoration:none'},m.fund.replace(/\s+\(.*$/,'').slice(0,34))),el('td',{},fmtDate(m.period)),el('td',{},'$'+m.per_unit.toFixed(2))))),{flush:true}))}
+ v.append(g)});
+
+/* ---------- yours ---------- */
+/* ---------- notes: saved as you type, in this browser and (with the local server) in notes/<company>.md ---------- */
+const SLUG=(location.pathname.split('/').pop()||'').replace(/\.html$/,'');
+const NOTE={zero:store.get('zero')||'',after:store.get('after')||'',free:store.get('free')||''};let noteT=null,noteFile='';
+const noteStatus=[];
+function noteSaved(txt){noteStatus.forEach(e=>e.textContent=txt)}
+async function noteLoad(){if(location.protocol==='file:')return;try{const r=await fetch('/notes?company='+SLUG);const j=await r.json();let changed=false;for(const k of ['zero','after','free'])if(j[k]&&!NOTE[k]){NOTE[k]=j[k];changed=true}if(changed)document.querySelectorAll('textarea.mine').forEach(t=>{t.value=NOTE[t.dataset.k]||''})}catch(e){}}
+function notePush(){clearTimeout(noteT);noteT=setTimeout(async()=>{if(location.protocol==='file:'){noteSaved('Saved in this browser only. Start the local server to keep a file too.');return}
+ try{const r=await fetch('/notes',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({company:SLUG,name:M.name,notes:NOTE})});const j=await r.json();if(j.ok){noteFile=j.file;noteSaved('Saved '+new Date().toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'})+' in this browser and in '+j.file)}}catch(e){noteSaved('Saved in this browser. The local server is not running, so no file was written.')}},700)}
+function mine(key,placeholder){const t=el('textarea',{class:'mine',placeholder,'data-k':key});t.value=NOTE[key];const sv=el('div',{class:'saved'},NOTE[key]?'Saved.':'Saved as you type. Nothing leaves this computer.');noteStatus.push(sv);
+ t.oninput=()=>{NOTE[key]=t.value;store.set(key,t.value);notePush()};return el('div',{},t,sv)}
+function noteMd(){const parts=[`# ${M.name}: my notes`,'',`From the ${M.latest?M.latest.form+' filed '+M.latest.date:'filing'}.`,''];[['zero','Five lines, before any number'],['after','What changed after the filing'],['free','Anything else']].forEach(([k,t])=>{if(NOTE[k])parts.push('## '+t,'',NOTE[k],'')});return parts.join('\n')}
+addView('NTS','My notes','Yours','',v=>{
+ v.append(viewHead('NTS','My notes','The parts no code can fill. They save as you type: in this browser, and, while the program’s local server runs, as a Markdown file in the program’s notes folder (notes/'+SLUG+'.md), which you can open in any notes app, Obsidian included. Your notes never go into the shared library or anywhere online.'));
+ const dl=el('button',{class:'act',onclick:()=>{const a=el('a',{href:URL.createObjectURL(new Blob([noteMd()],{type:'text/markdown'})),download:`${SLUG}-notes.md`});document.body.append(a);a.click();a.remove()}},'Download .md');
+ const cp=el('button',{class:'act',onclick:async e=>{try{await navigator.clipboard.writeText(noteMd());e.target.textContent='Copied'}catch(x){e.target.textContent='Copy failed'}}},'Copy all');
+ const g=el('div',{class:'grid'});
+ g.append(panel('Step zero · five lines, before any number','s6',el('div',{},el('p',{class:'note',style:'margin:0 0 8px'},'Can you explain this business in five lines to a ten-year-old? If you cannot, the filing has more to prove.'),mine('zero','1.\n2.\n3.\n4.\n5.')),{act:el('span',{style:'display:flex;gap:12px'},cp,dl)}));
+ g.append(panel('What changed after the filing','s6',el('div',{},el('p',{class:'note',style:'margin:0 0 8px'},'A prospectus is a photograph frozen on its date. A deal signed, a price set, a customer gone: keep dated news here, apart from what the filing says.'),mine('after','Date · what happened · source'))));
+ g.append(panel('Anything else','s12',mine('free','Questions to come back to, pages to reread, what you would need to see before deciding.')));
+ v.append(g);noteLoad()});
+
+/* ---------- answers: a small, safe renderer (headings, lists, bold, page chips) ---------- */
+function md(text){const out=el('div',{class:'md'});let list=null;
+ const inline=t=>{const span=el('span');let h=esc(t).replace(/\*\*(.+?)\*\*/g,'<b>$1</b>');
+  h=h.replace(/\((?:pp?\.\s*[^()]+|derived)\)/g,m=>{const inner=m.slice(1,-1);if(inner==='derived')return'<span class="pg dv" title="Worked out from two cited figures">derived</span>';
+   return inner.replace(/^pp?\.\s*/,'').split(/\s*[,;]\s*(?:pp?\.\s*)?|\s+and\s+/).filter(Boolean).map(x=>`<a class="pg" target="_blank" rel="noopener" href="${esc(M.latest?M.latest.url:'#')}" title="Printed page ${esc(x)}">p.${esc(x)}</a>`).join(' ')});
+  span.innerHTML=h;return span};
+ String(text||'').split(/\n/).forEach(line=>{const l=line.trim();
+  if(!l){list=null;return}
+  if(/^#{1,4}\s/.test(l)){list=null;out.append(el('h4',{},inline(l.replace(/^#+\s*/,''))));return}
+  if(/^([-*•]|\d+[.)])\s+/.test(l)){if(!list){list=el(/^\d/.test(l)?'ol':'ul');out.append(list)}list.append(el('li',{},inline(l.replace(/^([-*•]|\d+[.)])\s+/,''))));return}
+  list=null;out.append(el('p',{},inline(l)))});
+ return out}
+
+addView('ASK','Ask','Yours','',v=>{
+ v.append(viewHead('ASK','Ask about this prospectus','Ask anything the dashboard does not show. The answer comes from what the code already read (the five readings, every statement line, the flags, the offer and the people) and the printed pages that match. It goes through the AI you choose under Your AI below: an app you already pay for, your own key, or a free model on this computer. Ask a follow-up in the same thread.'));
+ const HK='chat',hist=(()=>{try{return JSON.parse(store.get(HK)||'[]')}catch(e){return[]}})();
+ const thread=el('div',{class:'thread'}),i=el('textarea',{class:'askin',rows:1,placeholder:'Ask about '+M.name+'’s prospectus…','aria-label':'Your question'}),b=el('button',{class:'btn pri'},'Ask');
+ const who=el('select',{class:'sel','aria-label':'Who answers'}),modelSel=el('select',{class:'sel','aria-label':'Model'}),hint=el('div',{class:'askhint'}),strip=el('div',{class:'strip'},el('span',{class:'mute'},'Checking which AI is connected…'));
+ const appsHost=el('div'),keyHost=el('div');let APPS=[],AI=null;
+ const stateTxt={in:['ok','Ready'],out:['no','Installed, sign in once'],unknown:['neu','Installed · checked when you ask'],missing:['ctx','Not installed']};
+ const save=()=>store.set(HK,JSON.stringify(hist.slice(-30)));
+ const post=(u,d)=>fetch(u,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(d||{})}).then(r=>r.json());
+ const starters=['What does the company do, in plain words?','Who controls the company after the IPO?','What changed in the latest amendment?','Which customers matter most to revenue?','Where does the money from the offering go?'];
+ function bubble(h){const box=el('div',{class:'turn'});box.append(el('div',{class:'qb'},h.q));
+  if(h.a){box.append(el('div',{class:'ab'},md(h.a),el('div',{class:'meta'},`${h.app||''}${h.at?' · '+h.at:''}${h.cached?' · from your earlier answer, no cost':''}`,h.pages&&h.pages.length?el('span',{},' · pages read: ',...h.pages.map(pgLink)):null)))}
+  else if(h.err)box.append(el('div',{class:'ab err'},md(h.err),h.setup?el('div',{style:'margin-top:8px'},el('a',{href:'#',onclick:e=>{e.preventDefault();appsHost.scrollIntoView({behavior:'smooth'})}},'Connect an AI ↓')):null));
+  else box.append(el('div',{class:'ab wait'},el('span',{class:'dots'},el('i'),el('i'),el('i')),'Reading the filing'));
+  return box}
+ function draw(){thread.innerHTML='';if(!hist.length){thread.append(el('div',{class:'starters'},el('div',{class:'mute',style:'font-size:12px;margin-bottom:8px'},'Try one of these, or type your own:'),...starters.map(t=>el('button',{class:'chip',onclick:()=>{i.value=t;send()}},t))));return}
+  hist.forEach(h=>thread.append(bubble(h)));}
+
+ /* who answers: every app and the key, always listed, installed or not */
+ const say=(box,t,cls)=>{box.textContent=t||'';box.className='msg '+(cls||'')};
+ async function openWin(app,what,msgBox){say(msgBox,what==='install'?'Opening a terminal window…':'Opening the sign-in…');try{const r=await post('/apps/open',{app,what});say(msgBox,r.ok?r.text:r.error,r.ok?'ok':'err')}catch(e){say(msgBox,'Needs the local server: python3 -m prospectus serve','err')}}
+ function appState(a){return a.state==='in'?'ready':a.found?'signin':'install'}
+ function fillWho(){const cur=store.get('app')||'';who.innerHTML='';who.append(el('option',{value:''},'Whichever is ready first'));
+  const g1=el('optgroup',{label:'An app you already pay for'});APPS.forEach(a=>g1.append(el('option',{value:a.app},a.label+(a.state==='in'?'  ✓':a.found?'  (sign in first)':'  (not installed)'))));
+  const g2=el('optgroup',{label:'Your own key, or a free model here'});g2.append(el('option',{value:'key'},AI&&AI.provider?(AI.label.replace(' (free)','')+(AI.model?' · '+AI.model:'')+(AI.ready?'  ✓':'  (not finished)')):'Set up a key or Ollama below'));
+  who.append(g1,g2);if([...who.options].some(o=>o.value===cur))who.value=cur;fillModels();drawHint()}
+ function fillModels(){const a=APPS.find(x=>x.app===who.value);modelSel.innerHTML='';modelSel.append(el('option',{value:''},who.value==='key'?'the model saved below':'Its default model'));(a&&a.models||[]).forEach(m=>modelSel.append(el('option',{value:m},m)));modelSel.disabled=!(a&&a.models&&a.models.length)}
+ function drawHint(){hint.innerHTML='';const w=who.value;const m=el('span',{class:'msg'});
+  if(w==='key'){if(!AI||!AI.ready)hint.append(el('span',{},'Your key is not finished: ',AI&&AI.why||'pick a provider',' '),el('a',{href:'#',onclick:e=>{e.preventDefault();keyHost.scrollIntoView({behavior:'smooth'})}},'set it up ↓'));return}
+  const a=APPS.find(x=>x.app===w);if(!a){if(!APPS.some(x=>x.state==='in')&&!(AI&&AI.ready))hint.append(el('span',{},'No AI is connected yet. Pick one way below: an app you already pay for, or your own key, or a free model with Ollama. '),el('a',{href:'#',onclick:e=>{e.preventDefault();appsHost.scrollIntoView({behavior:'smooth'})}},'Connect an AI ↓'));return}
+  const st=appState(a);if(st==='ready')return;
+  hint.append(el('span',{},a.label+(st==='install'?' is not installed on this computer yet. ':' needs signing in once. ')),el('button',{class:'btn',onclick:()=>openWin(a.app,st==='install'?'install':'signin',m)},st==='install'?'Install '+a.label:'Sign in to '+a.label),' ',m)}
+ who.onchange=()=>{store.set('app',who.value);fillModels();drawHint()};
+
+ /* panel 1: apps */
+ function drawApps(){appsHost.innerHTML='';const msg=el('div',{class:'msg'});
+  const rows=APPS.map(a=>{const st=appState(a);const[t,l]=stateTxt[a.state]||['neu',a.state];
+   const acts=el('td',{class:'l acts'});
+   if(st==='install'){acts.append(el('button',{class:'btn pri',onclick:()=>openWin(a.app,'install',msg)},'Install'),el('a',{class:'btn',href:a.site,target:'_blank',rel:'noopener'},'Maker’s page ↗'))}
+   else if(st==='signin'){acts.append(el('button',{class:'btn pri',onclick:()=>openWin(a.app,'signin',msg)},'Sign in'),el('button',{class:'btn',onclick:()=>{who.value=a.app;who.onchange()}},'Use it'))}
+   else acts.append(el('button',{class:'btn',onclick:()=>{who.value=a.app;who.onchange();i.focus()}},who.value===a.app?'In use':'Use it'));
+   return el('tr',{},el('td',{class:'l'},el('b',{},a.label),el('div',{class:'mute small'},'with '+a.pays),st==='install'&&a.install?el('div',{class:'cmdl',title:'What Install runs, from the maker’s own page'},a.install):null,st==='install'&&a.needs?el('div',{class:'mute small'},'needs '+a.needs+' first'):null),el('td',{class:'l'},sig(t,l)),acts)});
+  appsHost.append(panel('1 · An app you already pay for · no key · recommended','',el('div',{},
+   el('p',{class:'lead'},el('b',{},'Have a Claude plan? Claude Code comes with it. A ChatGPT plan? Codex comes with it. '),'Press Install, sign in once in your browser, and every question goes through that app on your own plan. This program never sees a key or a password: it runs the maker’s own app on your computer, the way you would in a terminal.'),
+   el('div',{class:'tw'},el('table',{class:'t apps1'},el('tbody',{},rows))),msg,
+   el('div',{class:'small mute',style:'margin-top:8px'},'Installed one in another window? ',el('a',{href:'#',onclick:e=>{e.preventDefault();load(true)}},'Check again'),'.')),{}))}
+
+ /* panel 2: your own key, or a free model on this computer */
+ function drawKey(){keyHost.innerHTML='';if(!AI)return;const P=AI.providers;
+  const prov=el('select',{class:'sel wide','aria-label':'Provider'},el('option',{value:''},'none yet'),...Object.entries(P).map(([k,x])=>el('option',{value:k},x.label)));prov.value=AI.provider||'';
+  const key=el('input',{class:'in',type:'password',autocomplete:'off',spellcheck:'false','aria-label':'Key'}),model=el('input',{class:'in mono',autocomplete:'off',spellcheck:'false',list:'aimodels','aria-label':'Model'}),dl=el('datalist',{id:'aimodels'});
+  const base=el('input',{class:'in mono',autocomplete:'off',spellcheck:'false',placeholder:'https://','aria-label':'Address'}),fmt=el('select',{class:'sel wide','aria-label':'How it is spoken to'},...Object.entries(AI.formats).map(([k,x])=>el('option',{value:k},x)));
+  const get=el('div',{class:'small'}),keyRow=el('div',{class:'frow'}),adv=el('details',{class:'adv'}),msg=el('div',{class:'msg'}),loc=el('div',{class:'small mute'});
+  model.value=AI.model||'';base.value=AI.base_url||'';fmt.value=AI.format||'openai';
+  async function localList(p){loc.textContent='';dl.innerHTML='';if(!(P[p]||{}).local)return;try{const r=await fetch('/ai/models?provider='+p).then(r=>r.json());
+   if(r.ok&&r.models.length){r.models.forEach(m=>dl.append(el('option',{value:m})));loc.textContent='Models on this computer: '+r.models.join(', ');if(!model.value)model.value=r.models[0]}
+   else if(r.ok)loc.textContent='It is running, with no model downloaded yet. In a terminal, run: ollama pull <a model name from ollama.com/search>';else loc.textContent=r.error||''}catch(e){}}
+  function onProv(fill){const p=prov.value,x=P[p]||{};if(fill){fmt.value=x.format||'openai';base.value=x.base_url||'';model.value=x.model||''}
+   key.placeholder=p&&p===AI.provider&&AI.key?AI.key+' · type to replace':(x.needs_key===false?'not needed':'paste your key');keyRow.style.display=x.needs_key===false&&p!=='custom'?'none':'';
+   get.innerHTML='';if(x.keys)get.append('Get a key: ',el('a',{href:x.keys,target:'_blank',rel:'noopener'},x.keys.replace(/^https:\/\//,'')+' ↗'),'. Usage is billed by the provider to your account.');
+   else if(x.get)get.append('Free, and nothing leaves this computer. Get it: ',el('a',{href:x.get,target:'_blank',rel:'noopener'},x.get.replace(/^https:\/\//,'')+' ↗'),', open it, download a model, then press Check.');
+   else if(p==='custom')get.append('Type the address where it answers, how it is spoken to, and the model name.');
+   adv.open=p==='custom';localList(p)}
+  prov.onchange=()=>onProv(true);
+  const saveB=el('button',{class:'btn pri',onclick:async()=>{if(!prov.value)return say(msg,'Pick a provider first.','err');const r=await post('/ai/save',{provider:prov.value,key:key.value.trim(),model:model.value.trim(),base_url:base.value.trim(),format:fmt.value});
+   if(r.ok){key.value='';AI=r;fillWho();drawKey();keyHost.querySelector('.msg').textContent='Saved on this computer. Press Check to send one test line.';keyHost.querySelector('.msg').className='msg ok'}else say(msg,r.error||'Could not save','err')}},'Save');
+  const chk=el('button',{class:'btn',onclick:async()=>{say(msg,'Sending one line…');const r=await post('/ai/check');say(msg,r.ok?`The model answered: “${r.reply}”. It works: pick it under Who answers.`:r.error,r.ok?'ok':'err');if(r.ok){who.value='key';who.onchange()}}},'Check');
+  const rm=el('button',{class:'btn',onclick:async()=>{if(!confirm('Remove the saved key from this computer?'))return;const r=await post('/ai/save',{provider:AI.provider,model:AI.model,base_url:AI.base_url,format:AI.format,clear_key:true});if(r.ok){AI=r;fillWho();drawKey()}}},'Remove the key');
+  keyRow.append(el('label',{},'Key'),key);
+  adv.append(el('summary',{},'Address and format (for local models and other endpoints)'),el('div',{class:'frow'},el('label',{},'Address'),base),el('div',{class:'frow'},el('label',{},'Spoken to'),fmt));
+  keyHost.append(panel('2 · Your own key, or a free model on this computer','',el('div',{},
+   el('p',{class:'lead'},'A key from any of fourteen providers, or a model running on this computer through Ollama or LM Studio, which needs no key and no internet.'),
+   el('div',{class:'frow'},el('label',{},'Provider'),prov),el('div',{class:'frow'},el('span'),get),keyRow,el('div',{class:'frow'},el('label',{},'Model'),model,dl),el('div',{class:'frow'},el('span'),loc),adv,
+   el('div',{class:'btns'},saveB,chk,AI.key?rm:null),msg,
+   el('p',{class:'small mute',style:'margin-top:10px'},'The key is kept in one file on this computer (',el('code',{},AI.file),'), readable only by you. It is never put in this page, in the library or in git, and it goes only to the provider you picked.')),{}));
+  onProv(false);if(AI.provider&&AI.key)saveB.textContent='Save changes'}
+
+ async function load(fresh){try{const[r1,r2]=await Promise.all([fetch('/apps'+(fresh?'?fresh=1':'')).then(r=>{if(!r.ok)throw 0;return r.json()}),fetch('/ai').then(r=>r.json())]);APPS=r1.apps;AI=r2;
+   strip.innerHTML='';const ready=APPS.filter(a=>a.state==='in');strip.append(el('span',{class:'mute'},'Connected: '),...ready.map(a=>el('span',{class:'appchip on'},'✓ ',a.label)),AI.ready?el('span',{class:'appchip on'},'✓ ',AI.label.replace(' (free)','')):null,!ready.length&&!AI.ready?el('span',{class:'appchip off'},'nothing yet: connect one below'):null,el('a',{href:'#',onclick:e=>{e.preventDefault();load(true)}},'check again'));
+   fillWho();drawApps();drawKey()}catch(e){strip.innerHTML='';appsHost.innerHTML='';keyHost.innerHTML='';appsHost.append(offline())}}
+ function offline(){return el('div',{class:'empty'},el('b',{},'Questions need the local server. '),'Start it from the program folder; it opens this page by itself:',el('code',{class:'cl'},'python3 -m prospectus serve'))}
+ async function send(){const q=i.value.trim();if(!q||b.disabled)return;i.value='';fit();b.disabled=true;
+  const prior=hist.filter(h=>h.a).slice(-4).map(h=>({q:h.q,a:h.a}));const h={q};hist.push(h);draw();thread.lastChild.scrollIntoView({block:'nearest'});
+  try{const r=await fetch('/ask',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({cik:M.cik,question:q,app:who.value,model:modelSel.value,history:prior})});if(!r.ok)throw 0;const j=await r.json();
+   if(j.answer)Object.assign(h,{a:j.answer,app:j.app,pages:j.pages,at:j.at,cached:!!j.cached});else{h.err=j.error||'No answer came back.';h.setup=!!j.setup}}
+  catch(e){h.err='Questions need the local server. Start it from the program folder with: python3 -m prospectus serve'}
+  b.disabled=false;if(h.a)save();draw();thread.lastChild.scrollIntoView({block:'nearest'})}
+ const fit=()=>{i.style.height='auto';i.style.height=Math.min(160,i.scrollHeight)+'px'};
+ b.onclick=send;i.oninput=fit;i.onkeydown=e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();send()}};
+ const clear=el('button',{class:'act',onclick:()=>{hist.length=0;save();draw()}},'New thread');
+ who.append(el('option',{value:''},'Whichever is ready first'));fillModels();
+ v.append(strip,panel('Conversation','',el('div',{},thread,el('div',{class:'composer'},i,b),el('div',{class:'askopts'},el('label',{},'Who answers ',who),el('label',{},'Model ',modelSel),el('span',{class:'mute'},'Enter to send · Shift+Enter for a new line')),hint),{act:clear}),
+  el('h3',{class:'subh'},'Your AI · two ways, pick one'),el('div',{class:'grid'},el('div',{class:'s6'},appsHost),el('div',{class:'s6'},keyHost)),
+  el('p',{class:'note'},'An AI can misread a figure. Each one carries its printed page; the Financials view holds what the code read. The full guide: docs/YOUR_AI.md in the program folder.'));
+ draw();load(false)});
+
+/* ---------- build, route, command bar ---------- */
+const host=$('#views'),rail=$('#rail');let g0='';
+VIEWS.forEach(x=>{const d=el('section',{class:'view',id:'v-'+x.code,'aria-label':x.name});BUILDING=x.code;x.build(d);BUILDING=null;host.append(d);
+ if(x.grp!==g0){g0=x.grp;rail.append(el('div',{class:'g'},x.grp))}
+ rail.append(el('a',{href:'#'+x.code,'data-c':x.code},el('span',{class:'c'},x.code),el('span',{},x.name),el('span',{class:'n'},x.num!==''&&x.num!=null?String(x.num):'')))});
+function go(code){if(location.hash!=='#'+code)location.hash=code;else show(code)}
+function show(code){if(!VIEWS.some(x=>x.code===code))code='DES';CUR=code;document.querySelectorAll('.view').forEach(x=>x.classList.toggle('on',x.id==='v-'+code));rail.querySelectorAll('a').forEach(a=>a.classList.toggle('on',a.dataset.c===code));
+ $('#cmdsec').textContent=TK;const a=rail.querySelector('a.on');if(a&&innerWidth<=820)a.scrollIntoView({inline:'center',block:'nearest'});renderCharts();hideTip();document.title=`${M.name} ${code} · S-1 Prospectus Terminal`}
+addEventListener('hashchange',()=>{show(location.hash.slice(1).toUpperCase());scrollTo(0,0)});
+const cmd=$('#cmd'),sug=$('#sug');let sel=0,list=[];
+const ALIAS={GROWTH:'GRW',REVENUE:'GRW',CASH:'CSH',FCF:'CSH',DEBT:'DBT',PROFIT:'QLT',QUALITY:'QLT',PRICE:'PX',FLAGS:'FLG',FINANCIALS:'FA',VERSIONS:'VER',AMENDMENTS:'VER',OTHERS:'RLT',FUNDS:'RLT',NOTES:'NTS',ASK:'ASK',CHAT:'ASK',BUSINESS:'BIZ',OFFER:'BIZ',PROCEEDS:'BIZ',LOCKUP:'BIZ',OWNERS:'OWN',PEOPLE:'OWN',MANAGEMENT:'OWN',RISKS:'OWN',BOARD:'OWN',STATEMENTS:'FA',INCOME:'FA',BALANCE:'FA',OVERVIEW:'DES',HOME:'DES'};
+function match(q){q=q.toUpperCase().replace(new RegExp('^'+TK.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+'\\s*'),'').trim();if(!q)return VIEWS;return VIEWS.filter(x=>x.code.startsWith(q)||x.name.toUpperCase().includes(q)||Object.entries(ALIAS).some(([k,c])=>c===x.code&&k.startsWith(q)))}
+function drawSug(){list=match(cmd.value);sel=Math.min(sel,Math.max(0,list.length-1));sug.innerHTML='';list.forEach((x,i)=>sug.append(el('a',{href:'#'+x.code,class:i===sel?'sel':'',onmousedown:e=>{e.preventDefault();go(x.code);cmd.value='';cmd.blur()}},el('b',{},x.code),el('span',{},x.name),el('span',{},x.grp))));if(!list.length)sug.append(el('a',{},el('b',{},'?'),el('span',{},'No function by that name'),el('span',{},'')));sug.classList.add('on')}
+cmd.addEventListener('focus',drawSug);cmd.addEventListener('input',()=>{sel=0;drawSug()});cmd.addEventListener('blur',()=>sug.classList.remove('on'));
+cmd.addEventListener('keydown',e=>{if(e.key==='ArrowDown'){sel=Math.min(sel+1,list.length-1);drawSug();e.preventDefault()}else if(e.key==='ArrowUp'){sel=Math.max(sel-1,0);drawSug();e.preventDefault()}else if(e.key==='Enter'){if(list[sel]){go(list[sel].code);cmd.value='';cmd.blur()}}else if(e.key==='Escape'){cmd.value='';cmd.blur()}});
+addEventListener('keydown',e=>{if(e.key==='/'&&!/INPUT|TEXTAREA/.test(document.activeElement.tagName)){e.preventDefault();cmd.focus()}});
+
+/* ---------- theme ---------- */
+(function(){const t=$('#theme');let cur=null;try{cur=localStorage.getItem('ipo-dash:theme')}catch(e){}
+ const dark=()=>cur?cur==='dark':matchMedia('(prefers-color-scheme: dark)').matches;
+ const apply=()=>{if(cur)document.documentElement.dataset.theme=cur;t.textContent=dark()?'Light':'Dark'};apply();
+ t.onclick=()=>{cur=dark()?'light':'dark';try{localStorage.setItem('ipo-dash:theme',cur)}catch(e){};apply();renderCharts()}})();
+
+show((location.hash.slice(1)||'DES').toUpperCase());
+</script></body></html>

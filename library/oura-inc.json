@@ -1,0 +1,3973 @@
+{
+"meta": {
+"name": "Oura Inc.",
+"ticker": "OURA",
+"cik": 2133022,
+"filings": [
+{
+"form": "S-1",
+"date": "2026-09-03",
+"url": "https://www.sec.gov/Archives/edgar/data/2133022/000119312526381855/d119865ds1.htm"
+},
+{
+"form": "S-1/A",
+"date": "2026-09-21",
+"url": "https://www.sec.gov/Archives/edgar/data/2133022/000119312526396051/d119865ds1a.htm"
+}
+],
+"latest": {
+"form": "S-1/A",
+"date": "2026-09-21",
+"url": "https://www.sec.gov/Archives/edgar/data/2133022/000119312526396051/d119865ds1a.htm"
+},
+"latest_file": "2026-09-21_S-1-A_0001193125-26-396051.htm",
+"generated": "08 November 2026, 23:06",
+"stats": {
+"pages": 347,
+"seconds": 52.1,
+"total_seconds": 40.7,
+"ai_tokens": 0
+}
+},
+"q": {
+"filing": "2026-09-21_S-1-A_0001193125-26-396051.htm",
+"layout": "html",
+"q1_growth": {
+"revenue": {
+"values": {
+"2024": 406.751,
+"2025": 907.856
+},
+"page": "F-4",
+"note": ""
+},
+"growth_pct": {
+"2025": 123.2
+},
+"revenue_interim": {
+"values": {
+"9M 2025": 697.569,
+"9M 2026": 1214.506
+},
+"page": "F-45",
+"note": ""
+},
+"segments": {
+"status": "not disclosed"
+}
+},
+"q2_funds_itself": {
+"net_income": {
+"values": {
+"2024": 3.649,
+"2025": 0.012
+},
+"page": "F-7",
+"note": ""
+},
+"operating_cash_flow": {
+"values": {
+"2024": 28.227,
+"2025": 121.693
+},
+"page": "F-7",
+"note": ""
+},
+"capex": {
+"values": {
+"2024": -13.189,
+"2025": -21.724
+},
+"page": "F-7",
+"note": ""
+},
+"free_cash_flow": {
+"values": {
+"2025": 99.969,
+"2024": 15.038
+},
+"page": "F-7",
+"note": "derived: operating cash flow less capex"
+},
+"outside_money_net": {
+"values": {
+"2024": -41.658,
+"2025": 653.924
+},
+"page": "F-7",
+"note": "net cash from financing: what came in from shareholders and lenders after repayments"
+},
+"outside_money_gross": {
+"values": {
+"2024": 5.538,
+"2025": 1304.8629999999998
+},
+"page": "F-7",
+"note": "derived: proceeds from issuing shares and borrowing, before repayments"
+}
+},
+"q3_debt": {
+"cash": {
+"values": {
+"2024": 105.2,
+"2025": 764.157
+},
+"page": "F-3",
+"note": ""
+},
+"equity": {
+"values": {
+"2024": -414.322,
+"2025": -618.438
+},
+"page": "F-3",
+"note": ""
+},
+"redeemable_preferred": {
+"values": {
+"2024": 492.77,
+"2025": 1594.98
+},
+"page": "F-3",
+"note": "sits between liabilities and equity until it converts"
+},
+"debt": {
+"values": {
+"2025": 3.226,
+"2024": 138.326
+},
+"page": "F-3, F-3",
+"note": "balance sheet debt, current plus long-term, as labelled in the filing (Debt); operating leases are not included"
+},
+"net_debt": {
+"values": {
+"2025": -760.931,
+"2024": 33.12599999999999
+},
+"note": "derived"
+},
+"equity_negative": {
+"values": {
+"2025": -618.438,
+"2024": -414.322
+},
+"note": "equity is below zero, so debt to equity has no meaning for these periods"
+},
+"debt_to_equity": {
+"values": {},
+"note": "derived"
+},
+"maturities": {
+"status": "not found",
+"note": "no table of debt principal due by year was found"
+}
+},
+"q4_profit_real": {
+"gap": {
+"values": {
+"2025": 121.681,
+"2024": 24.578
+},
+"page": "F-7",
+"note": "derived: operating cash flow minus net income. Positive means cash came in above the reported profit (the safe direction)."
+},
+"largest_non_cash_items": {
+"note": "ranked by their largest size in any year",
+"items": [
+{
+"label": "Accrued liabilities",
+"page": "F-7",
+"values": {
+"2025": 161.376,
+"2024": 62.376
+}
+},
+{
+"label": "Inventories",
+"page": "F-7",
+"values": {
+"2025": -65.434,
+"2024": -56.599
+}
+},
+{
+"label": "Accounts receivable",
+"page": "F-7",
+"values": {
+"2025": -13.298,
+"2024": -55.336
+}
+},
+{
+"label": "Deferred revenue",
+"page": "F-7",
+"values": {
+"2025": 29.074,
+"2024": 46.491
+}
+},
+{
+"label": "Prepaid expenses and other assets",
+"page": "F-7",
+"values": {
+"2025": -45.045,
+"2024": -5.23
+}
+}
+]
+}
+},
+"q5_price": {
+"price_range": {
+"low": 40.0,
+"high": 44.0
+}
+}
+},
+"flags": [
+{
+"kind": "debt",
+"title": "Equity below zero",
+"page": "F-3",
+"quote": "",
+"detail": "equity is below zero, so debt to equity has no meaning for these periods"
+},
+{
+"kind": "numbers",
+"title": "Pre-IPO funding turns into shares at the offering",
+"page": "16, 19, 20, 69, 72, 85",
+"quote": "",
+"detail": "Before the IPO: convertible preferred $1.6B (2025); equity \u2212$618M (2025). These convert into common stock at the offering, so the deficit is not the picture after listing. Read the pro forma column of the capitalization table (page 85)."
+},
+{
+"kind": "trust",
+"title": "Emerging growth company",
+"page": "cover",
+"quote": "Emerging growth company \u2612",
+"detail": "Lighter disclosure rules apply (fewer years of audited numbers, no auditor attestation on internal controls). It uses the extended transition period for new accounting standards, so its numbers may not line up with public companies that adopt them on time (page 13)."
+}
+],
+"versions": [
+{
+"from": "2026-09-03_S-1_0001193125-26-381855.htm",
+"to": "2026-09-21_S-1-A_0001193125-26-396051.htm",
+"price_from": "not disclosed",
+"price_to": "$40.00 to $44.00 per share",
+"sections": [
+{
+"section": "Cover and front pages",
+"added": 90,
+"removed": 32,
+"changed": 111,
+"examples_added": [
+{
+"text": "As of June 30, 2026, we had outstanding RSUs that may be settled once vested for (i) an aggregate of 34,217,022 shares of our common stock under our Existing Plans and (ii) an aggregate of 3,174,354 shares of our common stock outside of our Existing Plans. 25,488,554 of these RSUs will vest in full in connection with this offering and will be settled in the RSU Net Settlement, where we will issue an aggregate of 13,338,451 shares of our common stock, after withholding an aggregate of 12,150,103 shares of common stock to satisfy associated estimated tax withholding and remittance obligations (based on an assumed initial public offering price of $42.00 per share, which is the midpoint of the price range set forth on the cover page of this prospectus, and an assumed tax withholding rate of 47.7%).",
+"page": "216"
+},
+{
+"text": "(e) an additional 18% of the Eligible Securities held by each lock-up holder on each of the dates that are 154 and 168 days, respectively, after the date of this prospectus (representing an aggregate of 36% of the Eligible Securities held by such lock-up holder and, together with clauses (a), (b), (c), and (d), an aggregate of 82% of the Eligible Securities held by such lock-up holder); and (f) all remaining Eligible Securities held by each lock-up holder (representing up to 18% of the Eligible Securities) on the date that is 181 days after the date of this prospectus; provided that, in each case, the expiration, which we refer to as a Time-Based Lock-Up Expiration, will take effect immediately prior to the opening of trading on Nasdaq on the dates described above.",
+"page": "237"
+},
+{
+"text": "As of March 31, 2026, there were: \u2022 983,800 stock options outstanding under the 2015 Plan; \u2022 20,810,596 stock options outstanding under the 2016 Plan; \u2022 600,438 stock options outstanding under the 2019 Plan; and \u2022 291,718 stock options and 32,262,736 restricted stock units (RSUs) outstanding under the 2022 Plan. \u2022 We also assumed outstanding Non-Plan Awards made by Oura Health Oy outside of the Assumed Plans, including in 99,762 stock options and 3,174,354 RSUs outstanding, and an additional 163,910 shares outstanding and available for the issuance of Non-Plan Awards. \u2022 On March 30, 2026, our board of directors and stockholders approved the 2026 Share Option and Grant Plan (the \u201c2026 Pre-Offering Plan\u201d), effective upon the Reorganization on March 31, 2026.",
+"page": "195"
+},
+{
+"text": "Similarly, each increase (decrease) of 1,000,000 shares in the number of shares of common stock offered by us at the assumed initial public offering price of $42.00 per share would increase (decrease) the pro forma as adjusted amount of each of cash and cash equivalents, additional paid-in capital, total stockholders\u2019 deficit, and total capitalization by approximately $39.5 million, assuming the shares of our common stock offered by this prospectus are sold at the assumed initial public offering price of $42.00 per share, and after deducting estimated underwriting discounts and commissions and estimated offering expenses payable by us.",
+"page": "86"
+},
+{
+"text": "Option Awards Stock Awards Name Grant Date Vesting Start Date Number of Securities Underlying Unexercised Options Exercisable (#) Number of Securities Underlying Unexercised Options Unexercisable (#) Option Exercise Price ($) Option Expiration Date Number of Shares or Units of Stock That Have Not Vested (#) Market Value of Shares or Units of Stock That Have Not Vested ($) (8) Thomas Hale 9/27/2022 3/28/2022 (1),(6) \u2014 \u2014 \u2014 7,713,886 $ 80,764,386 3/24/2023 1/1/2023 (2) \u2014 \u2014 \u2014 2,820 $ 29,525 6/18/2024 10/1/2022 (3) \u2014 \u2014 \u2014 26,692 $ 279,465 Sean Brecker 12/11/2023 9/29/2023 (1),(7) \u2014 \u2014 \u2014 2,000,000 $ 20,940,000 5/6/2029 Michael A.",
+"page": "190"
+},
+{
+"text": "If the closing price of the common stock on Nasdaq is at least 40% greater than the IPO Price for any five out of 10 consecutive trading days, with such five trading days occurring after the date on which the conditions for the Stage 2 Expiration have been met, the lock-up restrictions will expire with respect to an additional 6% of the Eligible Securities, which we refer to as the Stage 3 Expiration (and each of the Stage 1 Expiration, Stage 2 Expiration, and Stage 3 Expiration, a \u201cPrice-Based Lock-Up Expiration\u201d).",
+"page": "238"
+}
+],
+"examples_changed": [
+{
+"before": "The following table illustrates this per share dilution to new investors purchasing shares in this offering: Assumed initial public offering price per share $ Historical net tangible book value (deficit) per share as of June 30, 2026 $ Increase per share attributable to the pro forma adjustments described above Pro forma net tangible book value (deficit) per share as of June 30, 2026 Increase in pro forma net tangible book value per share attributable to new investors in this offering Pro forma as adjusted net tangible book value per share immediately after this offering Dilution per share to new investors purchasing shares in this offering $ Each $1.00 increase (decrease) in the assumed initial public offering price of $ per share, which is the midpoint of the price range set forth on the cover page of this prospectus, would increase (decrease) the pro forma as adjusted net tangible book value, by $ per share and the dilution per share to new investors by $ per share, assuming the number of shares of common stock offered by us, as set forth on the cover page of this prospectus, remains the same, and after deducting estimated underwriting discounts and commissions and estimated offering expenses payable by us.",
+"after": "The following table illustrates this per share dilution to new investors purchasing shares in this offering: Assumed initial public offering price per share $42.00 Historical net tangible book value (deficit) per share as of June 30, 2026 $(14.45) Increase per share attributable to the pro forma adjustments described above 11.99 Pro forma net tangible book value (deficit) per share as of June 30, 2026 (2.46) Increase in pro forma net tangible book value (deficit) per share attributable to new investors in this offering 1.77 Pro forma as adjusted net tangible book value (deficit) per share immediately after this offering (0.69) Dilution per share to new investors purchasing shares in this offering $42.69 Each $1.00 increase (decrease) in the assumed initial public offering price of $42.00 per share, which is the midpoint of the price range set forth on the cover page of this prospectus, would increase (decrease) the pro forma as adjusted net tangible book value (deficit), by $0.04 per share and the dilution per share to new investors by $0.96 per share, assuming the number of shares of common stock offered by us, as set forth on the cover page of this prospectus, remains the same, and after deducting estimated underwriting discounts and commissions and estimated offering expenses payable by us.",
+"page": "87",
+"diff": "The following table \u2026 price per share [-$-] {+$42.00+} Historical net tangible \u2026 June 30, 2026 [-$-] {+$(14.45)+} Increase per share \u2026 adjustments described above {+11.99+} Pro forma net \u2026 June 30, 2026 {+(2.46)+} Increase in pro forma net tangible book value {+(deficit)+} per share attributable \u2026 in this offering {+1.77+} Pro forma as adjusted net tangible book value {+(deficit)+} per share immediately after this offering {+(0.69)+} Dilution per share \u2026 in this offering [-$-] {+$42.69+} Each $1.00 increase \u2026 offering price of [-$-] {+$42.00+} per share, which \u2026 net tangible book [-value,-] {+value (deficit),+} by [-$-] {+$0.04+} per share and \u2026 new investors by [-$-] {+$0.96+} per share, assuming \u2026 payable by us."
+},
+{
+"before": "In connection with the Reorganization, on March 31, 2026, the Registrant issued on a one-for-one basis, in exchange for the shares then held by the shareholders of Oura Health Oy: a) 10,561,926 shares of common stock, $0.00001 par value per share; b) 7,728,258 shares of Series Seed-1 preferred stock, $0.00001 par value per share, 1,006,503 shares of Series Seed-2 preferred stock, $0.00001 par value per share, and 4,622,284 shares of Series Seed-3 Preferred Stock, $0.00001 par value per share; c) 23,485,035 shares of Series Preferred Stock, $0.00001 par value per share, and 9,345,214 shares of Series Preferred Stock, $0.00001 par value per share, and d) 2,608,739 shares of Series Preferred Stock, $0.00001 par value per share, and 21,571,278 shares of Series Preferred Stock, $0.00001 par value per share; e) 37,323,337 shares of Series Preferred Stock, $0.00001 par value per share, 9,663,781 shares of Series Preferred Stock, $0.00001 par value per share, and 408,876 shares of Series Preferred Stock, $0.00001 par value per share; f) 7,785,129 shares of Series D Preferred Stock, $0.00001 par value per share; and g) 18,152,483 shares of Series E Preferred Stock, $0.00001 par value per share.",
+"after": "In connection with the Reorganization, on March 31, 2026, the Registrant issued on a one-for-one basis, in exchange for the shares then held by the shareholders of Oura Health Oy: a) 21,123,852 shares of common stock, $0.00001 par value per share; b) 7,728,258 shares of Series Seed-1 preferred stock, $0.00001 par value per share, 1,006,503 shares of Series Seed-2 preferred stock, $0.00001 par value per share, and 4,622,284 shares of Series Seed-3 preferred stock, $0.00001 par value per share; c) 23,485,035 shares of Series preferred stock, $0.00001 par value per share, and 9,345,214 shares of Series preferred stock, $0.00001 par value per share, and d) 2,608,739 shares of Series preferred Stock, $0.00001 par value per share, and 21,571,278 shares of Series preferred stock, $0.00001 par value per share; e) 37,323,337 shares of Series preferred stock, $0.00001 par value per share, 9,663,781 shares of Series preferred stock, $0.00001 par value per share, and 408,876 shares of Series preferred stock, $0.00001 par value per share; f) 7,785,129 shares of Series D preferred stock, $0.00001 par value per share; and g) 18,152,483 shares of Series E preferred stock, $0.00001 par value per share.",
+"page": "unnumbered",
+"diff": "In connection with \u2026 Health Oy: a) [-10,561,926-] {+21,123,852+} shares of common \u2026 of Series Seed-3 [-Preferred Stock,-] {+preferred stock,+} $0.00001 par value \u2026 shares of Series [-Preferred Stock,-] {+preferred stock,+} $0.00001 par value \u2026 shares of Series [-Preferred Stock,-] {+preferred stock,+} $0.00001 par value \u2026 shares of Series [-Preferred-] {+preferred+} Stock, $0.00001 par \u2026 shares of Series [-Preferred Stock,-] {+preferred stock,+} $0.00001 par value \u2026 shares of Series [-Preferred Stock,-] {+preferred stock,+} $0.00001 par value \u2026 shares of Series [-Preferred Stock,-] {+preferred stock,+} $0.00001 par value \u2026 shares of Series [-Preferred Stock,-] {+preferred stock,+} $0.00001 par value \u2026 of Series D [-Preferred Stock,-] {+preferred stock,+} $0.00001 par value \u2026 of Series E [-Preferred Stock,-] {+preferred stock,+} $0.00001 par value per share."
+},
+{
+"before": "The following table summarizes, as of June 30, 2026, on the pro forma basis described above, the number of shares of our common stock, the total consideration, and the average price per share (i) paid to us by our existing stockholders and (ii) to be paid by new investors participating in this offering at an assumed initial public offering price of $ per share, which is the midpoint of the price range set forth on the cover page of this prospectus, before deducting estimated underwriting discounts and commissions and estimated offering expenses payable by us: Shares Purchased Total Consideration Number Percent Amount Percent Average price per share Existing stockholders (1) % $ % $ New investors $ Total % $ % (1) Excludes the shares of common stock to be sold by the selling stockholders to new investors in this offering.",
+"after": "The following table summarizes, as of June 30, 2026, on the pro forma basis described above, the number of shares of our common stock, the total consideration, and the average price per share (i) paid to us by our existing stockholders and (ii) to be paid by new investors participating in this offering at an assumed initial public offering price of $42.00 per share, which is the midpoint of the price range set forth on the cover page of this prospectus, before deducting estimated underwriting discounts and commissions and estimated offering expenses payable by us: Shares Purchased Total Consideration Number Percent Amount Percent Average price per share Existing stockholders 307,445,459 % $1,603,229,218 % $5.21 New investors (1) 13,500,000 567,000,000 $42.00 Total 320,945,459 % $2,170,229,218 % $6.76 (1) Excludes the 36,500,000 shares of common stock to be sold by the selling stockholders to new investors in this offering.",
+"page": "88",
+"diff": "The following table \u2026 offering price of [-$-] {+$42.00+} per share, which \u2026 share Existing stockholders [-(1)-] {+307,445,459+} % [-$-] {+$1,603,229,218+} % [-$-] {+$5.21+} New investors [-$-] {+(1) 13,500,000 567,000,000 $42.00+} Total {+320,945,459+} % [-$-] {+$2,170,229,218+} % {+$6.76+} (1) Excludes the {+36,500,000+} shares of common \u2026 in this offering."
+},
+{
+"before": "The number of shares initially reserved for issuance or transfer pursuant to awards under the 2026 Plan will be increased by (i) the number of shares represented by awards outstanding under our 2022 Plan and 2026 Pre-Offering Plan (\u201cPrior Plan Awards\u201d) that become available for issuance under the counting provisions described below following the effective date of the 2026 Plan and (ii) an annual increase on the first day of each calendar year beginning in 2027 and ending in 2036, equal to the lesser of (A) 5% of the shares of our common stock outstanding (on an as converted basis) on the last day of the immediately preceding calendar year, and (B) such smaller number of shares of stock as determined by our board of directors; provided, however, that no more than shares of stock may be issued upon the exercise of ISOs.",
+"after": "The number of shares initially reserved for issuance or transfer pursuant to awards under the 2026 Plan will be increased by (i) the number of shares represented by awards outstanding under our Existing Plans (\u201cPrior Plan Awards\u201d) that become available for issuance under the counting provisions described below following the effective date of the 2026 Plan and (ii) an annual increase on the first day of each calendar year beginning in 2027 and ending in 2036, equal to the lesser of (A) 5% of the shares of our common stock outstanding (on an as converted basis) on the last day of the immediately preceding calendar year, and (B) such smaller number of shares of stock as determined by our board of directors; provided, however, that no more than 40,000,000 shares of stock may be issued upon the exercise of ISOs.",
+"page": "200",
+"diff": "The number of \u2026 outstanding under our [-2022 Plan and 2026 Pre-Offering Plan-] {+Existing Plans+} (\u201cPrior Plan Awards\u201d) \u2026 no more than {+40,000,000+} shares of stock \u2026 exercise of ISOs."
+},
+{
+"before": "(2) Gives effect to (i) the pro forma adjustments described in footnote (1) above, (ii) the sale by us of shares of common stock in this offering at an assumed initial public offering price of $ per share, which is the midpoint of the price range set forth on the cover page of this prospectus, after deducting estimated underwriting discounts and commissions and estimated offering expenses payable by us, and (iii) the use of approximately $ million of the net proceeds from this offering to satisfy our anticipated tax withholding and remittance obligations related to the RSU Net Settlement.",
+"after": "(2) Gives effect to (i) the pro forma adjustments described in footnote (1) above, (ii) the issuance and sale by us of 13,500,000 shares of common stock in this offering at an assumed initial public offering price of $42.00 per share, which is the midpoint of the price range set forth on the cover page of this prospectus, after deducting estimated underwriting discounts and commissions and estimated offering expenses payable by us, and (iii) the use of approximately $526.4 million of the net proceeds from this offering to satisfy our anticipated tax withholding and remittance obligations related to the RSU Net Settlement.",
+"page": "20",
+"diff": "(2) Gives effect \u2026 above, (ii) the {+issuance and+} sale by us of {+13,500,000+} shares of common \u2026 offering price of [-$-] {+$42.00+} per share, which \u2026 use of approximately [-$-] {+$526.4+} million of the \u2026 RSU Net Settlement."
+},
+{
+"before": "The maximum number of shares of our common stock which will be authorized for sale under the ESPP is equal to the sum of (a) shares of common stock and (b) an annual increase on the first day of each calendar year beginning in 2027 and ending in 2036, equal to the lesser of (i) 1% of the shares of our common stock outstanding (on an as-converted basis) on the last day of the immediately preceding calendar year and (ii) such number of shares of common stock as determined by our board of directors; provided, however, no more than shares of our common stock may be issued under the ESPP.",
+"after": "The maximum number of shares of our common stock which will be authorized for sale under the ESPP is equal to the sum of (a) 2,000,000 shares of common stock and (b) an annual increase on the first day of each calendar year beginning in 2027 and ending in 2036, equal to the lesser of (i) 1% of the shares of our common stock outstanding (on an as-converted basis) on the last day of the immediately preceding calendar year and (ii) such number of shares of common stock as determined by our board of directors; provided, however, no more than 20,000,000 shares of our common stock may be issued under the ESPP.",
+"page": "203",
+"diff": "The maximum number \u2026 sum of (a) {+2,000,000+} shares of common \u2026 no more than {+20,000,000+} shares of our \u2026 under the ESPP."
+}
+],
+"examples_removed": [
+{
+"text": "Nine Months Ended June 30, Year Ended September 30, 2026 2025 2025 2024 (in thousands) Consolidated Statements of Cash Flows: Net cash provided by operating activities $ 328,008 $ 135,315 $ 121,693 $ 28,227 Net cash used in investing activities (76,958) (20,281) (29,186) (12,383) Net cash provided by (used in) financing activities (741,772) (44,495) 653,924 (41,658) As of June 30, 2026 Actual Pro Forma (1) Pro Forma As Adjusted ( 2)(3) (in thousands) Consolidated Balance Sheet: Cash and cash equivalents $ 371,764 $ $ Total assets 1,063,188 Total liabilities 1,181,171 Redeemable convertible preferred stock 1,499,751 Total stockholders\u2019 deficit (1,617,734) (1) Gives effect to (i) the Preferred Stock Conversion, (ii) the SAFE Conversion, and (iii) the RSU Net Settlement.",
+"page": "18"
+},
+{
+"text": "As of March 31, 2026, there were: \u2022 491,900 stock options outstanding under the 2015 Plan; \u2022 10,405,298 stock options outstanding under the 2016 Plan; \u2022 300,219 stock options outstanding under the 2019 Plan; and \u2022 145,859 stock options and 16,131,368 restricted stock units (RSUs) outstanding under the 2022 Plan. \u2022 We also assumed outstanding Non-Plan Awards made by Oura Health Oy outside of the Assumed Plans, including in 49,881 stock options and 1,587,177 RSUs outstanding, and an additional 81,955 shares outstanding and available for the issuance of Non-Plan Awards. \u2022 On March 30, 2026, our board of directors and stockholders approved the 2026 Share Option and Grant Plan (the \u201c2026 Pre-Offering Plan\u201d), effective upon the Reorganization on March 31, 2026.",
+"page": "192"
+},
+{
+"text": "As of June 30, 2026, we had outstanding RSUs that may be settled once vested for (i) an aggregate of 17,184,293 shares of our common stock under our Existing Plans and (ii) an aggregate of 1,587,177 shares of our common stock outside of our Existing Plans. of these RSUs will vest in full in connection with this offering, subject to the RSU holders\u2019 continuous service through the date of this prospectus, and will be settled in the RSU Net Settlement, where we will issue an aggregate of shares of our common stock, after withholding an aggregate of shares of common stock to satisfy associated estimated tax withholding and remittance obligations (based on an assumed tax withholding rate of %).",
+"page": "211"
+}
+]
+},
+{
+"section": "Financial Statements",
+"added": 27,
+"removed": 22,
+"changed": 42,
+"examples_added": [
+{
+"text": "Repurchase of Common Stock: For the nine months ended June 30, 2026, the Company repurchased common stock from certain investors as follows (in thousands, except share and per share data): Shares of common stock Price per share Payment 1,544,290 $ 26.79 $ 41,364 802,892 $ 28.06 22,531 761,066 $ 20.31 15,454 9,730 $ 12.91 3,117,978 $ 79,475 For the nine months ended June 30, 2025, the Company repurchased common stock from certain investors as follows (in thousands, except share and per share data): Shares of common stock Price per share Payment 1,432,958 $ 4.89 $ 7,000 5,104,330 $ 5.13 26,185 1,045,700 $ 8.35 8,732 33,258 $ 8.45 260,960 $ 8.86 2,311 1,736,950 $ 8.99 15,615 9,614,156 $ 60,124 Oura Inc. and Subsidiaries Notes to Condensed Consolidated Financial Statements (unaudited) The Company retired all repurchased common stock during the nine months ended June 30, 2026 and June 30, 2025.",
+"page": "F-67"
+},
+{
+"text": "Oura Inc. and Subsidiaries Notes to Consolidated Financial Statements Stock Option Activity A summary of the Company\u2019s stock option activity under its stock option plans for the year ended September 30, 2025 is as follows: Number of stock options Weighted- average exercise price per share Weighted- average remaining contractual life (years) Outstanding \u2013 September 30, 2024 28,532,156 $ 0.57 5.95 Granted 44,482 $ 0.30 Exercised (4,440,508) $ 0.74 Forfeited or expired (232,516) $ 1.64 Outstanding \u2013 September 30, 2025 23,903,614 $ 0.54 4.83 Vested and exercisable \u2013 September 30, 2025 23,262,248 $ 0.47 4.76 The aggregate intrinsic value of options exercised represents the excess of the fair value of the Company\u2019s common stock on the exercise date over the exercise price of the options exercised for the periods presented.",
+"page": "F-38"
+},
+{
+"text": "Oura Inc. and Subsidiaries Notes to Consolidated Financial Statements Repurchase of Common Stock For the year ended September 30, 2025, the Company repurchased common stock from certain investors as follows (in thousands, except share and per share data): Shares of common stock Price per share Payment 1,432,958 $ 4.89 $ 7,000 5,104,330 $ 5.13 26,185 1,045,700 $ 8.35 8,732 33,258 $ 8.45 260,960 $ 8.86 2,311 2,512,166 $ 8.99 22,584 10,389,372 $ 67,093 The Company retired all repurchased common stock during the year ended September 30, 2025.",
+"page": "F-36"
+},
+{
+"text": "The summary of the Company\u2019s PSU activity for the year ended September 30, 2025 is as follows: Number of awards Weighted- average grant date fair value Unvested \u2013 September 30, 2024 27,718,678 $ 3.89 Granted 8,330,714 $ 7.31 Vested \u2014 $ \u2014 Forfeited (968,684) $ 5.13 Unvested \u2013 September 30, 2025 35,080,708 $ 4.82 The weighted-average grant-date fair value of PSUs granted was $7.31 and $4.76 for the years ended September 30, 2025, and 2024, respectively.",
+"page": "F-39"
+},
+{
+"text": "The summary of the Company\u2019s PSU activity for the nine months ended June 30, 2026 is as follows: Number of awards Weighted- average grant date fair value Unvested \u2013 September 30, 2025 35,080,708 $ 4.82 Granted 3,211,802 $ 18.07 Vested \u2014 $ \u2014 Forfeited (749,570) $ 6.20 Unvested \u2013 June 30, 2026 37,542,940 $ 5.61 Note 14.",
+"page": "F-69"
+},
+{
+"text": "Stock Split On September 18, 2026 the Company filed an amendment to its Amended and Restated Certificate of Incorporation to increase the number of authorized shares of common stock to 400,000,000 and effected a 2-for-1 forward stock split of its common stock.",
+"page": "F-50"
+}
+],
+"examples_changed": [
+{
+"before": "Oura Inc. and Subsidiaries Condensed Consolidated Statements of Operations (in thousands, except share and per share data) (unaudited) Nine Months Ended June 30, 2026 June 30, 2025 Revenue: Hardware $ 973,980 $ 588,726 Membership 240,526 108,843 Total revenue 1,214,506 697,569 Cost of revenue 552,339 341,544 Gross profit 662,167 356,025 Operating expenses: Sales and marketing 257,858 140,273 Research and development 206,800 101,078 General and administrative 126,321 54,409 Total operating expenses 590,979 295,760 Income from operations 71,188 60,265 Interest expense (2,222) (10,602) Loss on extinguishment of debt (479) (8,725) Other income (expense), net 1,596 (4,471) Income before income taxes 70,083 36,467 Provision for income taxes 9,315 34,894 Net income $ 60,768 $ 1,573 Deemed dividend to holders of redeemable convertible preferred stock (985,023) (184,417) Net loss attributable to common stockholders $ (924,255) $ (182,844) Net loss per share attributable to common stockholders, basic and diluted $ (89.53) $ (16.33) Weighted-average shares outstanding, basic and diluted 10,323,194 11,199,382 The accompanying notes are an integral part of these unaudited condensed consolidated financial statements.",
+"after": "Oura Inc. and Subsidiaries Condensed Consolidated Statements of Operations (in thousands, except share and per share data) (unaudited) Nine Months Ended June 30, 2026 June 30, 2025 Revenue: Hardware $ 973,980 $ 588,726 Membership 240,526 108,843 Total revenue 1,214,506 697,569 Cost of revenue 552,339 341,544 Gross profit 662,167 356,025 Operating expenses: Sales and marketing 257,858 140,273 Research and development 206,800 101,078 General and administrative 126,321 54,409 Total operating expenses 590,979 295,760 Income from operations 71,188 60,265 Interest expense (2,222) (10,602) Loss on extinguishment of debt (479) (8,725) Other income (expense), net 1,596 (4,471) Income before income taxes 70,083 36,467 Provision for income taxes 9,315 34,894 Net income $ 60,768 $ 1,573 Deemed dividend to holders of redeemable convertible preferred stock (985,023) (184,417) Net loss attributable to common stockholders $ (924,255) $ (182,844) Net loss per share attributable to common stockholders, basic and diluted $ (44.77) $ (8.16) Weighted-average shares outstanding, basic and diluted 20,646,388 22,398,764 The accompanying notes are an integral part of these unaudited condensed consolidated financial statements.",
+"page": "F-45",
+"diff": "Oura Inc. and \u2026 and diluted $ [-(89.53)-] {+(44.77)+} $ [-(16.33)-] {+(8.16)+} Weighted-average shares outstanding, basic and diluted [-10,323,194 11,199,382-] {+20,646,388 22,398,764+} The accompanying notes \u2026 consolidated financial statements."
+},
+{
+"before": "Oura Inc. and Subsidiaries Consolidated Statements of Operations (in thousands, except share and per share data) Year Ended September 30, 2025 2024 Revenue: Hardware $ 749,393 $ 331,203 Membership 158,463 75,548 Total revenue 907,856 406,751 Cost of revenue 436,844 142,657 Gross profit 471,012 264,094 Operating expenses: Sales and marketing 202,217 108,410 Research and development 141,957 90,596 General and administrative 81,506 51,648 Total operating expenses 425,680 250,654 Income from operations 45,332 13,440 Interest expense (13,384) (15,613) Loss on extinguishment of debt (8,725) \u2014 Other income (expense), net 8,437 Income before income taxes 23,573 6,264 Provision for income taxes 23,561 2,615 Net income $ $ 3,649 Deemed dividend to holders of redeemable convertible preferred stock (186,100) (12,200) Net loss attributable to common stockholders $ (186,088) $ (8,551) Net loss per share attributable to common stockholders, basic and diluted $ (17.07) $ (0.59) Weighted-average shares outstanding, basic and diluted 10,901,942 14,398,386 The accompanying notes are an integral part of these consolidated financial statements.",
+"after": "Oura Inc. and Subsidiaries Consolidated Statements of Operations (in thousands, except share and per share data) Year Ended September 30, 2025 2024 Revenue: Hardware $ 749,393 $ 331,203 Membership 158,463 75,548 Total revenue 907,856 406,751 Cost of revenue 436,844 142,657 Gross profit 471,012 264,094 Operating expenses: Sales and marketing 202,217 108,410 Research and development 141,957 90,596 General and administrative 81,506 51,648 Total operating expenses 425,680 250,654 Income from operations 45,332 13,440 Interest expense (13,384) (15,613) Loss on extinguishment of debt (8,725) \u2014 Other income (expense), net 8,437 Income before income taxes 23,573 6,264 Provision for income taxes 23,561 2,615 Net income $ $ 3,649 Deemed dividend to holders of redeemable convertible preferred stock (186,100) (12,200) Net loss attributable to common stockholders $ (186,088) $ (8,551) Net loss per share attributable to common stockholders, basic and diluted $ (8.53) $ (0.30) Weighted-average shares outstanding, basic and diluted 21,803,884 28,796,772 The accompanying notes are an integral part of these consolidated financial statements.",
+"page": "F-4",
+"diff": "Oura Inc. and \u2026 and diluted $ [-(17.07)-] {+(8.53)+} $ [-(0.59)-] {+(0.30)+} Weighted-average shares outstanding, basic and diluted [-10,901,942 14,398,386-] {+21,803,884 28,796,772+} The accompanying notes \u2026 consolidated financial statements."
+},
+{
+"before": "Net Income (Loss) per Share Attributable to Common Stockholders The computation of basic and diluted net income (loss) per share attributable to common stockholders for the nine months ended June 30, 2026 and June 30, 2025 was as follows (in thousands, except share and per share data): Nine Months Ended June 30, 2026 June 30, 2025 Net income $ 60,768 $ 1,573 Less: Deemed dividend to holders of redeemable convertible preferred stock (1) (985,023) (184,417) Net loss attributable to common stockholders, basic and diluted $ (924,255) $ (182,844) Weighted-average shares outstanding used to compute net loss per share attributable to common stockholders, basic and diluted 10,323,194 11,199,382 Net loss per share attributable to common stockholders, basic and diluted $ (89.53) $ (16.33) (1) Represents deemed dividends, which represent the excess of the purchase price over the carrying value of redeemable convertible preferred stock repurchased by the Company, net of gains on redemption, which represent the excess of the carrying value over the purchase price for such shares.",
+"after": "Net Income (Loss) per Share Attributable to Common Stockholders The computation of basic and diluted net income (loss) per share attributable to common stockholders for the nine months ended June 30, 2026 and June 30, 2025 was as follows (in thousands, except share and per share data): Nine Months Ended June 30, 2026 June 30, 2025 Net income $ 60,768 $ 1,573 Less: Deemed dividend to holders of redeemable convertible preferred stock (1) (985,023) (184,417) Net loss attributable to common stockholders, basic and diluted $ (924,255) $ (182,844) Weighted-average shares outstanding used to compute net loss per share attributable to common stockholders, basic and diluted 20,646,388 22,398,764 Net loss per share attributable to common stockholders, basic and diluted $ (44.77) $ (8.16) (1) Represents deemed dividends, which represent the excess of the purchase price over the carrying value of redeemable convertible preferred stock repurchased by the Company, net of gains on redemption, which represent the excess of the carrying value over the purchase price for such shares.",
+"page": "F-70",
+"diff": "Net Income (Loss) \u2026 basic and diluted [-10,323,194 11,199,382-] {+20,646,388 22,398,764+} Net loss per \u2026 and diluted $ [-(89.53)-] {+(44.77)+} $ [-(16.33)-] {+(8.16)+} (1) Represents deemed \u2026 for such shares."
+},
+{
+"before": "Balance Sheet Components Inventories, net Inventories consisted of the following as of June 30, 2026 and September 30, 2025 (in thousands): June 30, 2026 September 30, 2025 Raw materials $ 21,670 $ 25,859 Finished goods 87,272 128,931 Total inventories, net $ 108,942 $ 154,790 Oura Inc. and Subsidiaries Notes to Condensed Consolidated Financial Statements (unaudited) Prepaid Expenses and Other Current Assets Prepaid expenses and other current assets consisted of the following as of June 30, 2026 and September 30, 2025 (in thousands): June 30, 2026 September 30, 2025 Prepaid assets $ 41,562 $ 18,134 Forward equity instrument asset \u2014 54,577 Sales return receivables 26,799 15,504 Vendor receivables 11,843 19,354 Indirect tax receivables 12,796 9,762 SAFE financing receivable (1) 50,000 \u2014 Other current assets 6,007 1,261 Total prepaid expenses and other current assets $ 149,007 $ 118,592 (1) In June 2026, the Company entered into a simple agreement for future equity (\u201cSAFE\u201d) financing arrangement with an accredited investor for aggregate proceeds of $50.0 million.",
+"after": "Balance Sheet Components Inventories, net Inventories consisted of the following as of June 30, 2026 and September 30, 2025 (in thousands): June 30, 2026 September 30, 2025 Raw materials $ 21,670 $ 25,859 Finished goods 87,272 128,931 Total inventories, net $ 108,942 $ 154,790 Prepaid Expenses and Other Current Assets Prepaid expenses and other current assets consisted of the following as of June 30, 2026 and September 30, 2025 (in thousands): June 30, 2026 September 30, 2025 Prepaid assets $ 41,562 $ 18,134 Forward equity instrument asset \u2014 54,577 Sales return receivables 26,799 15,504 Vendor receivables 11,843 19,354 Indirect tax receivables 12,796 9,762 SAFE financing receivable (1) 50,000 \u2014 Other current assets 6,007 1,261 Total prepaid expenses and other current assets $ 149,007 $ 118,592 (1) In June 2026, the Company entered into a simple agreement for future equity (\u201cSAFE\u201d) financing arrangement with an accredited investor for aggregate proceeds of $50.0 million.",
+"page": "F-53",
+"diff": "Balance Sheet Components \u2026 108,942 $ 154,790 [-Oura Inc. and Subsidiaries Notes to Condensed Consolidated Financial Statements (unaudited)-] Prepaid Expenses and \u2026 of $50.0 million."
+},
+{
+"before": "Net Income (Loss) per Share Attributable to Common Stockholders The computation of basic and diluted net income (loss) per share attributable to common stockholders for the years ended September 2025 and 2024 was as follows (in thousands, except share and per share data): Year Ended September 30, 2025 2024 Net income $ $ 3,649 Less: Deemed dividend to holders of redeemable convertible preferred stock (1) (186,100) (12,200) Net loss attributable to common stockholders, basic and diluted $ (186,088) $ (8,551) Weighted-average shares outstanding used to compute net loss per share attributable to common stockholders, basic and diluted 10,901,942 14,398,386 Net loss per share attributable to common stockholders, basic and diluted $ (17.07) $ (0.59) (1) Represents deemed dividends, which represent the excess of the purchase price over the carrying value of redeemable convertible preferred stock repurchased by the Company.",
+"after": "Net Income (Loss) per Share Attributable to Common Stockholders The computation of basic and diluted net income (loss) per share attributable to common stockholders for the years ended September 2025 and 2024 was as follows (in thousands, except share and per share data): Year Ended September 30, 2025 2024 Net income $ $ 3,649 Less: Deemed dividend to holders of redeemable convertible preferred stock (1) (186,100) (12,200) Net loss attributable to common stockholders, basic and diluted $ (186,088) $ (8,551) Weighted-average shares outstanding used to compute net loss per share attributable to common stockholders, basic and diluted 21,803,884 28,796,772 Net loss per share attributable to common stockholders, basic and diluted $ (8.53) $ (0.30) (1) Represents deemed dividends, which represent the excess of the purchase price over the carrying value of redeemable convertible preferred stock repurchased by the Company.",
+"page": "F-40",
+"diff": "Net Income (Loss) \u2026 basic and diluted [-10,901,942 14,398,386-] {+21,803,884 28,796,772+} Net loss per \u2026 and diluted $ [-(17.07)-] {+(8.53)+} $ [-(0.59)-] {+(0.30)+} (1) Represents deemed \u2026 by the Company."
+},
+{
+"before": "Property and Equipment, net Property and equipment, net consisted of the following as of June 30, 2026 and September 30, 2025 (in thousands): Useful lives June 30, 2026 September 30, 2025 Machinery and equipment 2 to 5 years $ 42,211 $ 20,317 Furniture and fixtures 5 years 3,997 1,800 Retail displays 1 to 3 years 22,662 8,564 Construction in progress \u2014 29,633 6,755 Total property and equipment 98,503 37,436 Less: accumulated depreciation (19,884) (13,295) Total property and equipment, net $ 78,619 $ 24,141 The Company recognized $12.7 million and $5.6 million of depreciation expense for the nine months ended June 30, 2026 and June 30, 2025, respectively.",
+"after": "Property and Equipment, net Property and equipment, net consisted of the following as of June 30, 2026 and September 30, 2025 (in thousands): Useful lives June 30, 2026 September 30, 2025 Machinery and equipment 2 to 5 years $ 42,211 $ 20,317 Furniture and fixtures 5 years 3,997 1,800 Retail displays 1 to 3 years 22,662 8,564 Construction in progress \u2014 29,633 6,755 Total property and equipment 98,503 37,436 Less: accumulated depreciation (19,884) (13,295) Total property and equipment, net $ 78,619 $ 24,141 Oura Inc. and Subsidiaries Notes to Condensed Consolidated Financial Statements (unaudited) The Company recognized $12.7 million and $5.6 million of depreciation expense for the nine months ended June 30, 2026 and June 30, 2025, respectively.",
+"page": "F-52",
+"diff": "Property and Equipment, \u2026 78,619 $ 24,141 {+Oura Inc. and Subsidiaries Notes to Condensed Consolidated Financial Statements (unaudited)+} The Company recognized \u2026 30, 2025, respectively."
+}
+],
+"examples_removed": [
+{
+"text": "Repurchase of Common Stock: For the nine months ended June 30, 2026, the Company repurchased common stock from certain investors as follows (in thousands, except share and per share data): Shares of common stock Price per share Payment 772,145 $ 53.57 $ 41,364 401,446 $ 56.12 22,531 380,533 $ 40.61 15,454 4,865 $ 25.81 1,558,989 $ 79,475 For the nine months ended June 30, 2025, the Company repurchased common stock from certain investors as follows (in thousands, except share and per share data): Shares of common stock Price per share Payment 716,479 $ 9.77 $ 7,000 2,552,165 $ 10.26 26,185 522,850 $ 16.70 8,732 16,629 $ 16.90 130,480 $ 17.71 2,311 868,475 $ 17.98 15,615 4,807,078 $ 60,124 Oura Inc. and Subsidiaries Notes to Condensed Consolidated Financial Statements (unaudited) The Company retired all repurchased common stock during the nine months ended June 30, 2026 and June 30, 2025.",
+"page": "F-67"
+},
+{
+"text": "Oura Inc. and Subsidiaries Notes to Consolidated Financial Statements Stock Option Activity A summary of the Company\u2019s stock option activity under its stock option plans for the year ended September 30, 2025 is as follows: Number of stock options Weighted- average exercise price per share Weighted- average remaining contractual life (years) Outstanding \u2013 September 30, 2024 14,266,078 $ 1.13 5.95 Granted 22,241 $ 0.59 Exercised (2,220,254) $ 1.49 Forfeited or expired (116,258) $ 3.28 Outstanding \u2013 September 30, 2025 11,951,807 $ 1.08 4.83 Vested and exercisable \u2013 September 30, 2025 11,631,124 $ 0.93 4.76 The aggregate intrinsic value of options exercised represents the excess of the fair value of the Company\u2019s common stock on the exercise date over the exercise price of the options exercised for the periods presented.",
+"page": "F-38"
+},
+{
+"text": "Oura Inc. and Subsidiaries Notes to Consolidated Financial Statements Repurchase of Common Stock For the year ended September 30, 2025, the Company repurchased common stock from certain investors as follows (in thousands, except share and per share data): Shares of common stock Price per share Payment 716,479 $ 9.77 $ 7,000 2,552,165 $ 10.26 26,185 522,850 $ 16.70 8,732 16,629 $ 16.90 130,480 $ 17.71 2,311 1,256,083 $ 17.98 22,584 5,194,686 $ 67,093 The Company retired all repurchased common stock during the year ended September 30, 2025.",
+"page": "F-36"
+}
+]
+}
+]
+}
+],
+"others": {
+"term": "Oura",
+"companies": [
+{
+"name": "On Holding AG  (ONON)",
+"cik": 1858985,
+"filings": [
+{
+"form": "6-K",
+"date": "2026-03-03",
+"url": "https://www.sec.gov/Archives/edgar/data/1858985/000185898526000010/ex992_compensationreport.htm"
+},
+{
+"form": "6-K",
+"date": "2025-03-04",
+"url": "https://www.sec.gov/Archives/edgar/data/1858985/000185898525000005/exhibit992_compensationr.htm"
+}
+],
+"quotes": [
+"Alignment to On\u2019s core values Reward entrepreneurial mindset and value contribution Alignment to long-term success of On Commitment to diversity, equity, and inclusion We encourage all team members to challenge the status quo and explore new and creative ideas, using an entrepreneurial mindset to drive initiatives and create long term value.",
+"Our success is built on consistent execution, high standards, and the collective effort of teams who show up with craft, curiosity, and courage every day."
+],
+"read": {
+"form": "6-K",
+"date": "2026-03-03",
+"url": "https://www.sec.gov/Archives/edgar/data/1858985/000185898526000010/ex992_compensationreport.htm"
+},
+"count": 2,
+"score": 1,
+"relationship": false
+},
+{
+"name": "POMDOCTOR Ltd  (POM)",
+"cik": 1877971,
+"filings": [
+{
+"form": "6-K",
+"date": "2026-09-24",
+"url": "https://www.sec.gov/Archives/edgar/data/1877971/000121390026102849/ea030654201ex99-1.htm"
+},
+{
+"form": "6-K",
+"date": "2026-09-10",
+"url": "https://www.sec.gov/Archives/edgar/data/1877971/000121390026098583/ea030509401ex99-2.htm"
+}
+],
+"quotes": [
+"Although the Company believes that the expectations expressed in these forward-looking statements are reasonable, it cannot assure you that such expectations will turn out to be correct, and the Company cautions investors that actual results may differ materially from the anticipated results and encourages investors to review other factors that may affect its future results in the Company\u2019s filings with the SEC.",
+"Wearable technology companies such as Oura demonstrate the value of continuous, longitudinal health-data capture; virtual healthcare platforms such as Teladoc Health validate the effectiveness of digitally delivered medical consultations; and AI healthcare technology companies such as Tempus AI prove the potential of applying AI analytics to real-world data for actionable insights."
+],
+"read": {
+"form": "6-K",
+"date": "2026-09-24",
+"url": "https://www.sec.gov/Archives/edgar/data/1877971/000121390026102849/ea030654201ex99-1.htm"
+},
+"count": 2,
+"score": 1,
+"relationship": false
+},
+{
+"name": "Roblox Corp  (RBLX)",
+"cik": 1315098,
+"filings": [
+{
+"form": "8-K",
+"date": "2026-03-20",
+"url": "https://www.sec.gov/Archives/edgar/data/1315098/000131509826000075/ex991-march2026dd.htm"
+},
+{
+"form": "8-K",
+"date": "2026-03-20",
+"url": "https://www.sec.gov/Archives/edgar/data/1315098/000131509826000075/rblx-20260319.htm"
+}
+],
+"quotes": [
+"Durkin currently serves on the Board of Directors of webAI, Oura Health, and On Holding AG, where he is the Chair of its Audit Committee."
+],
+"read": {
+"form": "8-K",
+"date": "2026-03-20",
+"url": "https://www.sec.gov/Archives/edgar/data/1315098/000131509826000075/ex991-march2026dd.htm"
+},
+"count": 2,
+"score": 1,
+"relationship": false
+},
+{
+"name": "Movano Inc.  (MOVE)",
+"cik": 1734750,
+"filings": [
+{
+"form": "10-K",
+"date": "2025-04-09",
+"url": "https://www.sec.gov/Archives/edgar/data/1734750/000121390025030345/ea0227153-10k_movano.htm"
+}
+],
+"quotes": [
+"Our Certificate of Incorporation and bylaws and applicable provisions of Delaware law may delay or discourage transactions involving an actual or potential change in control or change in our management, including transactions in which stockholders might otherwise receive a premium for their shares, or transactions that our stockholders might otherwise deem to be in their best interests.",
+"However, the provisions may have the effect of discouraging lawsuits against our directors, officers, employees and agents as it may limit any stockholder\u2019s ability to bring a claim in a judicial forum that such stockholder finds favorable for disputes with us or our directors, officers, employees or agents.",
+"The above circumstances may discourage some investors from purchasing our stock, lending us money or from providing alternative forms of financing.",
+"These competitors include Apple, Samsung, Garmin, Fitbit, WHOOP and Oura Health."
+],
+"read": {
+"form": "10-K",
+"date": "2025-04-09",
+"url": "https://www.sec.gov/Archives/edgar/data/1734750/000121390025030345/ea0227153-10k_movano.htm"
+},
+"count": 1,
+"score": 1,
+"relationship": false
+},
+{
+"name": "RESMED INC  (RMD, RSMDF)",
+"cik": 943819,
+"filings": [
+{
+"form": "10-K",
+"date": "2026-08-13",
+"url": "https://www.sec.gov/Archives/edgar/data/943819/000094381926000047/rmd-20260630.htm"
+}
+],
+"quotes": [
+"The issuance of preferred stock may have the effect of delaying, deferring or preventing a change in control, may discourage bids for our common stock at a premium over the market price of our common stock and may adversely affect the market price of our common stock and the voting and other rights of the holders of our common stock. -50- Table of Contents PART I Item 1B \u2014 4 RESMED INC.",
+"In addition, the calculation of our tax liabilities involves dealing with uncertainties in the application of complex tax laws, including current and evolving government policies that encourage the establishment or relocation of certain activities, such as manufacturing, research and development, information technologies, and other business operations in their jurisdictions.",
+"In addition, we are a leading provider of cloud-based health applications, software and devices designed to provide connected care, enabling clinicians to manage more patients efficiently and effectively, as well as enabling and encouraging patients\u2019 long-term adherence to and satisfaction with their therapy.",
+"For example, our collaboration with \u014cURA helps connect individuals who experience nighttime breathing disturbances identified through Oura Ring insights with our educational resources and a sleep assessment to understand more about sleep health."
+],
+"read": {
+"form": "10-K",
+"date": "2026-08-13",
+"url": "https://www.sec.gov/Archives/edgar/data/943819/000094381926000047/rmd-20260630.htm"
+},
+"count": 1,
+"score": 1,
+"relationship": false
+},
+{
+"name": "Apnimed, Inc.  (APMD)",
+"cik": 1745648,
+"filings": [
+{
+"form": "424B4",
+"date": "2026-07-31",
+"url": "https://www.sec.gov/Archives/edgar/data/1745648/000119312526328422/apmd_424b4.htm"
+},
+{
+"form": "S-1/A",
+"date": "2026-07-27",
+"url": "https://www.sec.gov/Archives/edgar/data/1745648/000119312526316811/apni-20260727.htm"
+},
+{
+"form": "S-1/A",
+"date": "2026-07-27",
+"url": "https://www.sec.gov/Archives/edgar/data/1745648/000119312526316811/apni-20260727.htm"
+},
+{
+"form": "S-1",
+"date": "2026-07-10",
+"url": "https://www.sec.gov/Archives/edgar/data/1745648/000119312526300909/apni-20260710.htm"
+}
+],
+"quotes": [
+"In addition, at the state level, legislatures have increasingly passed legislation and implemented regulations similar to those under consideration at the federal level, as well as laws designed to control pharmaceutical and biotherapeutic product pricing, including restrictions on pricing or reimbursement at the state government level, limitations on discounts to patients, marketing cost disclosure and transparency measures, restrictions or other limitations on patient assistance, and, in some cases, policies to encourage importation from other countries (subject to federal approval) and bulk purchasing.",
+"The United States has also sought to implement at the state level, individual states are increasingly aggressive in passing legislation and implementing regulations designed to control pharmaceutical and biological product pricing, including price or patient reimbursement constraints, discounts, restrictions on certain product access and marketing cost disclosure and transparency measures, and, in some cases, designed to encourage importation from other countries and bulk purchasing.",
+"Such exclusive forum provisions may limit a stockholder\u2019s ability to bring a claim in a judicial forum that such stockholder finds favorable for disputes with us or our current or former directors, officers, other employees or stockholders, which may discourage such lawsuits against us and our current and former directors, officers, other employees and stockholders even if an action, if successful, might benefit our stockholders.",
+"At the state level, legislatures have increasingly passed legislation and implemented regulations designed to control pharmaceutical product pricing, including price or patient reimbursement constraints, discounts, restrictions on certain product access and marketing cost disclosure and transparency measures, and, in some cases, designed to encourage importation from other countries and bulk purchasing."
+],
+"read": {
+"form": "424B4",
+"date": "2026-07-31",
+"url": "https://www.sec.gov/Archives/edgar/data/1745648/000119312526328422/apmd_424b4.htm"
+},
+"count": 4,
+"score": 0,
+"relationship": false
+},
+{
+"name": "DEXCOM INC  (DXCM)",
+"cik": 1093557,
+"filings": [
+{
+"form": "8-K",
+"date": "2026-01-12",
+"url": "https://www.sec.gov/Archives/edgar/data/1093557/000109355726000003/dxcm20260107-exhibit992.htm"
+},
+{
+"form": "8-K",
+"date": "2025-02-13",
+"url": "https://www.sec.gov/Archives/edgar/data/1093557/000109355725000029/dxcm12312024-exhibit991.htm"
+}
+],
+"quotes": [],
+"read": {
+"form": "8-K",
+"date": "2026-01-12",
+"url": "https://www.sec.gov/Archives/edgar/data/1093557/000109355726000003/dxcm20260107-exhibit992.htm"
+},
+"count": 2,
+"score": 0,
+"relationship": false
+},
+{
+"name": "Fitell Corp  (FTEL)",
+"cik": 1928581,
+"filings": [
+{
+"form": "20-F",
+"date": "2026-11-02",
+"url": "https://www.sec.gov/Archives/edgar/data/1928581/000149315226049631/form20-f.htm"
+},
+{
+"form": "20-F",
+"date": "2025-11-14",
+"url": "https://www.sec.gov/Archives/edgar/data/1928581/000149315225023553/form20-f.htm"
+}
+],
+"quotes": [
+"Additional marketers of competitive products include the following: activity trackers and content-driven physical activity products, such as Fitbit\u00ae, Garmin vivofit\u00ae, Whoop, and Oura; group fitness, such as cross-fit classes; and gym memberships, each of which offers alternative solutions for a fit and healthy lifestyle. 40 Competitive Strengths We believe that there are several competitive strengths that differentiate us from our competitors.",
+"Users pay a premium and will receive customized programs to fit individual schedules and personalized needs. 35 \u25cb It will allow both online and offline users to participate in the training either on their own schedule or via livestreaming to interact with other subscribed members to encourage a more interactive, engaging and motivating lifestyle.",
+"We believe this offering not only promotes broader awareness and acceptance of the online and offline model in the fitness industry, but also delivers unique fitness experiences to broader gym goers to increase exercise frequency virtually while encouraging the development of experiences at offline studios with interactive programs.",
+"This concentration of ownership may discourage, delay or prevent a change in control of our Company, which could have the effect of depriving our other shareholders of the opportunity to receive a premium for their shares as part of a sale of our Company and may reduce the price of our Class A and Class C Ordinary Shares."
+],
+"read": {
+"form": "20-F",
+"date": "2026-11-02",
+"url": "https://www.sec.gov/Archives/edgar/data/1928581/000149315226049631/form20-f.htm"
+},
+"count": 2,
+"score": 0,
+"relationship": false
+},
+{
+"name": "GARMIN LTD  (GRMN)",
+"cik": 1121788,
+"filings": [
+{
+"form": "10-K",
+"date": "2026-02-18",
+"url": "https://www.sec.gov/Archives/edgar/data/1121788/000119312526056028/grmn-20251227.htm"
+},
+{
+"form": "10-K",
+"date": "2025-02-19",
+"url": "https://www.sec.gov/Archives/edgar/data/1121788/000095017025022760/grmn-20241228.htm"
+}
+],
+"quotes": [
+"The differences could be caused by a number of factors or combination of factors including, but not limited to, those factors identified under Item 1A \u201cRisk Factors.\u201d Readers are strongly encouraged to consider those factors when evaluating any forward-looking statements concerning the Company.",
+"Garmin believes that its principal competitors for fitness products are Apple, Bryton, Coros, Elite, Google, Huawei, Oura, Polar, Samsung, SRAM, Suunto, Wahoo Fitness, Whoop, Xiaomi, Zepp Health, and Zwift.",
+"Garmin\u2019s strategic aim in these educational programs is to educate and encourage local students of all backgrounds to pursue careers in the engineering field. 13 Item 1A.",
+"In addition, users can share their accomplishments, create training groups and group challenges, and get feedback and encouragement from the Connect community."
+],
+"read": {
+"form": "10-K",
+"date": "2026-02-18",
+"url": "https://www.sec.gov/Archives/edgar/data/1121788/000119312526056028/grmn-20251227.htm"
+},
+"count": 2,
+"score": 0,
+"relationship": false
+},
+{
+"name": "GAP INC  (GAP)",
+"cik": 39911,
+"filings": [
+{
+"form": "8-K",
+"date": "2026-09-15",
+"url": "https://www.sec.gov/Archives/edgar/data/39911/000162828026062054/a2026-09x158xkexhibit991.htm"
+}
+],
+"quotes": [
+"Since founding Forerunner in 2012, she led the firm to partner with more than 100 companies from their earliest stages through scale, including OURA, Chime, Hims & Hers, Faire, Wispr Flow, Suno, Warby Parker, Dollar Shave Club, and Town."
+],
+"read": {
+"form": "8-K",
+"date": "2026-09-15",
+"url": "https://www.sec.gov/Archives/edgar/data/39911/000162828026062054/a2026-09x158xkexhibit991.htm"
+},
+"count": 1,
+"score": 0,
+"relationship": false
+}
+],
+"funds": {
+"funds_found": 6,
+"marks": [
+{
+"fund": "FIDELITY ADVISOR SERIES I",
+"filed": "2026-10-26",
+"period": "2026-08-31",
+"holding": "OURA INC SER E PC PP",
+"units": "NS",
+"balance": 36231.0,
+"value_usd": 2616965.13,
+"per_unit": 72.23,
+"url": "https://www.sec.gov/Archives/edgar/data/722574/000003540226006761/primary_doc.xml"
+},
+{
+"fund": "FIDELITY ADVISOR SERIES I",
+"filed": "2026-10-26",
+"period": "2026-08-31",
+"holding": "OURA INC SER D PC PP",
+"units": "NS",
+"balance": 12183.0,
+"value_usd": 879978.09,
+"per_unit": 72.23,
+"url": "https://www.sec.gov/Archives/edgar/data/722574/000003540226006761/primary_doc.xml"
+},
+{
+"fund": "FIDELITY MT VERNON STREET TRUST",
+"filed": "2026-10-26",
+"period": "2026-08-31",
+"holding": "OURA INC SER E PC PP",
+"units": "NS",
+"balance": 1920845.0,
+"value_usd": 138742634.35,
+"per_unit": 72.23,
+"url": "https://www.sec.gov/Archives/edgar/data/707823/000003540226006789/primary_doc.xml"
+},
+{
+"fund": "FIDELITY MT VERNON STREET TRUST",
+"filed": "2026-10-26",
+"period": "2026-08-31",
+"holding": "OURA INC SER D PC PP",
+"units": "NS",
+"balance": 864427.0,
+"value_usd": 62437562.21,
+"per_unit": 72.23,
+"url": "https://www.sec.gov/Archives/edgar/data/707823/000003540226006789/primary_doc.xml"
+},
+{
+"fund": "FIDELITY SECURITIES FUND",
+"filed": "2026-09-23",
+"period": "2026-07-31",
+"holding": "OURA INC SER D PC PP",
+"units": "NS",
+"balance": 156533.0,
+"value_usd": 8994386.18,
+"per_unit": 57.46,
+"url": "https://www.sec.gov/Archives/edgar/data/754510/000003540226006272/primary_doc.xml"
+},
+{
+"fund": "FIDELITY SECURITIES FUND",
+"filed": "2026-09-23",
+"period": "2026-07-31",
+"holding": "OURA INC SER E PC PP",
+"units": "NS",
+"balance": 193277.0,
+"value_usd": 11105696.42,
+"per_unit": 57.46,
+"url": "https://www.sec.gov/Archives/edgar/data/754510/000003540226006272/primary_doc.xml"
+},
+{
+"fund": "VARIABLE INSURANCE PRODUCTS FUND III",
+"filed": "2026-08-24",
+"period": "2026-06-30",
+"holding": "OURA INC SER E PC PP",
+"units": "NS",
+"balance": 162071.0,
+"value_usd": 9312599.66,
+"per_unit": 57.46,
+"url": "https://www.sec.gov/Archives/edgar/data/927384/000003540226005568/primary_doc.xml"
+},
+{
+"fund": "VARIABLE INSURANCE PRODUCTS FUND III",
+"filed": "2026-08-24",
+"period": "2026-06-30",
+"holding": "OURA INC SER D PC PP",
+"units": "NS",
+"balance": 49381.0,
+"value_usd": 2837432.26,
+"per_unit": 57.46,
+"url": "https://www.sec.gov/Archives/edgar/data/927384/000003540226005568/primary_doc.xml"
+},
+{
+"fund": "FIDELITY TREND FUND",
+"filed": "2026-08-24",
+"period": "2026-06-30",
+"holding": "OURA INC SER E PC PP",
+"units": "NS",
+"balance": 159921.0,
+"value_usd": 9189060.66,
+"per_unit": 57.46,
+"url": "https://www.sec.gov/Archives/edgar/data/35402/000003540226005513/primary_doc.xml"
+},
+{
+"fund": "Robinhood Ventures Fund I  (RVI)",
+"filed": "2026-08-21",
+"period": "2026-06-30",
+"holding": "Oura Inc. (Series E Preferred Stock)",
+"units": "NS",
+"balance": 466679.0,
+"value_usd": 24813322.43,
+"per_unit": 53.17,
+"url": "https://www.sec.gov/Archives/edgar/data/2085091/000089418926022643/primary_doc.xml"
+}
+]
+}
+},
+"statements": {
+"income": {
+"title": "Consolidated Statements of Operations",
+"pages": [
+"F-4",
+"F-45"
+],
+"columns": [
+"2024",
+"2025",
+"9M 2025",
+"9M 2026"
+],
+"rows": [
+{
+"label": "Revenue",
+"values": {
+"2024": null,
+"2025": null,
+"9M 2025": null,
+"9M 2026": null
+},
+"kind": "header",
+"indent": 0
+},
+{
+"label": "Hardware",
+"values": {
+"2024": 331.203,
+"2025": 749.393,
+"9M 2025": 588.726,
+"9M 2026": 973.98
+},
+"kind": "line",
+"indent": 1
+},
+{
+"label": "Membership",
+"values": {
+"2024": 75.548,
+"2025": 158.463,
+"9M 2025": 108.843,
+"9M 2026": 240.526
+},
+"kind": "line",
+"indent": 1
+},
+{
+"label": "Total revenue",
+"values": {
+"2024": 406.751,
+"2025": 907.856,
+"9M 2025": 697.569,
+"9M 2026": 1214.506
+},
+"kind": "subtotal",
+"indent": 0
+},
+{
+"label": "Cost of revenue",
+"values": {
+"2024": 142.657,
+"2025": 436.844,
+"9M 2025": 341.544,
+"9M 2026": 552.339
+},
+"kind": "line",
+"indent": 0
+},
+{
+"label": "Gross profit",
+"values": {
+"2024": 264.094,
+"2025": 471.012,
+"9M 2025": 356.025,
+"9M 2026": 662.167
+},
+"kind": "subtotal",
+"indent": 0
+},
+{
+"label": "Operating expenses",
+"values": {
+"2024": null,
+"2025": null,
+"9M 2025": null,
+"9M 2026": null
+},
+"kind": "header",
+"indent": 0
+},
+{
+"label": "Sales and marketing",
+"values": {
+"2024": 108.41,
+"2025": 202.217,
+"9M 2025": 140.273,
+"9M 2026": 257.858
+},
+"kind": "line",
+"indent": 1
+},
+{
+"label": "Research and development",
+"values": {
+"2024": 90.596,
+"2025": 141.957,
+"9M 2025": 101.078,
+"9M 2026": 206.8
+},
+"kind": "line",
+"indent": 1
+},
+{
+"label": "General and administrative",
+"values": {
+"2024": 51.648,
+"2025": 81.506,
+"9M 2025": 54.409,
+"9M 2026": 126.321
+},
+"kind": "line",
+"indent": 1
+},
+{
+"label": "Total operating expenses",
+"values": {
+"2024": 250.654,
+"2025": 425.68,
+"9M 2025": 295.76,
+"9M 2026": 590.979
+},
+"kind": "subtotal",
+"indent": 0
+},
+{
+"label": "Income from operations",
+"values": {
+"2024": 13.44,
+"2025": 45.332,
+"9M 2025": 60.265,
+"9M 2026": 71.188
+},
+"kind": "subtotal",
+"indent": 0
+},
+{
+"label": "Interest expense",
+"values": {
+"2024": -15.613,
+"2025": -13.384,
+"9M 2025": -10.602,
+"9M 2026": -2.222
+},
+"kind": "line",
+"indent": 0
+},
+{
+"label": "Loss on extinguishment of debt",
+"values": {
+"2024": 0.0,
+"2025": -8.725,
+"9M 2025": -8.725,
+"9M 2026": -0.479
+},
+"kind": "line",
+"indent": 0
+},
+{
+"label": "Other income (expense), net",
+"values": {
+"2024": 8.437,
+"2025": 0.35,
+"9M 2025": -4.471,
+"9M 2026": 1.596
+},
+"kind": "line",
+"indent": 0
+},
+{
+"label": "Income before income taxes",
+"values": {
+"2024": 6.264,
+"2025": 23.573,
+"9M 2025": 36.467,
+"9M 2026": 70.083
+},
+"kind": "subtotal",
+"indent": 0
+},
+{
+"label": "Provision for income taxes",
+"values": {
+"2024": 2.615,
+"2025": 23.561,
+"9M 2025": 34.894,
+"9M 2026": 9.315
+},
+"kind": "line",
+"indent": 0
+},
+{
+"label": "Net income",
+"values": {
+"2024": 3.649,
+"2025": 0.012,
+"9M 2025": 1.573,
+"9M 2026": 60.768
+},
+"kind": "total",
+"indent": 0
+},
+{
+"label": "Deemed dividend to holders of redeemable convertible preferred stock",
+"values": {
+"2024": -12.2,
+"2025": -186.1,
+"9M 2025": -184.417,
+"9M 2026": -985.023
+},
+"kind": "line",
+"indent": 0
+},
+{
+"label": "Net loss attributable to common stockholders",
+"values": {
+"2024": -8.551,
+"2025": -186.088,
+"9M 2025": -182.844,
+"9M 2026": -924.255
+},
+"kind": "subtotal",
+"indent": 0
+},
+{
+"label": "Net loss per share attributable to common stockholders, basic and diluted",
+"values": {
+"2024": -0.3,
+"2025": -8.53,
+"9M 2025": -8.16,
+"9M 2026": -44.77
+},
+"unit": "per share",
+"kind": "line",
+"indent": 0
+},
+{
+"label": "Weighted-average shares outstanding, basic and diluted",
+"values": {
+"2024": 28796772.0,
+"2025": 21803884.0,
+"9M 2025": 22398764.0,
+"9M 2026": 20646388.0
+},
+"unit": "shares",
+"scale": "units",
+"kind": "line",
+"indent": 0
+}
+]
+},
+"balance": {
+"title": "Consolidated Balance Sheets",
+"pages": [
+"F-3",
+"F-44"
+],
+"columns": [
+"2024",
+"2025",
+"Jun 2026"
+],
+"rows": [
+{
+"label": "Assets",
+"values": {
+"2024": null,
+"2025": null,
+"Jun 2026": null
+},
+"kind": "header",
+"indent": 0
+},
+{
+"label": "Current assets",
+"values": {
+"2024": null,
+"2025": null,
+"Jun 2026": null
+},
+"kind": "header",
+"indent": 0
+},
+{
+"label": "Cash and cash equivalents",
+"values": {
+"2024": 105.2,
+"2025": 764.157,
+"Jun 2026": 371.764
+},
+"kind": "line",
+"indent": 1
+},
+{
+"label": "Restricted cash",
+"values": {
+"2024": 0.0,
+"2025": 96.389,
+"Jun 2026": 0.0
+},
+"kind": "line",
+"indent": 1
+},
+{
+"label": "Accounts receivable, net of allowance for credit losses",
+"values": {
+"2024": 64.52,
+"2025": 79.535,
+"Jun 2026": 157.387
+},
+"kind": "line",
+"indent": 1
+},
+{
+"label": "Inventories, net",
+"values": {
+"2024": 81.939,
+"2025": 154.79,
+"Jun 2026": 108.942
+},
+"kind": "line",
+"indent": 1
+},
+{
+"label": "Prepaid expenses and other current assets",
+"values": {
+"2024": 12.483,
+"2025": 118.592,
+"Jun 2026": 149.007
+},
+"kind": "line",
+"indent": 1
+},
+{
+"label": "Total current assets",
+"values": {
+"2024": 264.142,
+"2025": 1213.463,
+"Jun 2026": 787.1
+},
+"kind": "subtotal",
+"indent": 0
+},
+{
+"label": "Property and equipment, net",
+"values": {
+"2024": 13.466,
+"2025": 24.141,
+"Jun 2026": 78.619
+},
+"kind": "line",
+"indent": 0
+},
+{
+"label": "Goodwill",
+"values": {
+"2024": 18.691,
+"2025": 20.483,
+"Jun 2026": 22.952
+},
+"kind": "line",
+"indent": 0
+},
+{
+"label": "Patents, net",
+"values": {
+"2024": 133.292,
+"2025": 119.465,
+"Jun 2026": 109.094
+},
+"kind": "line",
+"indent": 0
+},
+{
+"label": "Other intangible assets, net",
+"values": {
+"2024": 15.161,
+"2025": 21.173,
+"Jun 2026": 28.975
+},
+"kind": "line",
+"indent": 0
+},
+{
+"label": "Deferred tax assets, net",
+"values": {
+"2024": 2.309,
+"2025": 0.0,
+"Jun 2026": null
+},
+"kind": "line",
+"indent": 0
+},
+{
+"label": "Other noncurrent assets",
+"values": {
+"2024": 3.6,
+"2025": 4.489,
+"Jun 2026": 36.448
+},
+"kind": "line",
+"indent": 0
+},
+{
+"label": "Total assets",
+"values": {
+"2024": 450.661,
+"2025": 1403.214,
+"Jun 2026": 1063.188
+},
+"kind": "total",
+"indent": 0
+},
+{
+"label": "Liabilities, Redeemable Convertible Preferred Stock, and Stockholders\u2019 Deficit",
+"values": {
+"2024": null,
+"2025": null,
+"Jun 2026": null
+},
+"kind": "header",
+"indent": 0
+},
+{
+"label": "Current liabilities",
+"values": {
+"2024": null,
+"2025": null,
+"Jun 2026": null
+},
+"kind": "header",
+"indent": 0
+},
+{
+"label": "Accounts payable",
+"values": {
+"2024": 22.495,
+"2025": 31.436,
+"Jun 2026": 82.907
+},
+"kind": "line",
+"indent": 1
+},
+{
+"label": "Accrued and other current liabilities",
+"values": {
+"2024": 154.504,
+"2025": 295.149,
+"Jun 2026": 495.037
+},
+"kind": "line",
+"indent": 1
+},
+{
+"label": "Deferred revenue, current",
+"values": {
+"2024": 55.139,
+"2025": 86.161,
+"Jun 2026": 137.034
+},
+"kind": "line",
+"indent": 1
+},
+{
+"label": "Debt, current",
+"values": {
+"2024": 1.965,
+"2025": 0.819,
+"Jun 2026": 0.708
+},
+"kind": "line",
+"indent": 1
+},
+{
+"label": "Total current liabilities",
+"values": {
+"2024": 234.103,
+"2025": 413.565,
+"Jun 2026": 715.686
+},
+"kind": "subtotal",
+"indent": 0
+},
+{
+"label": "Debt, noncurrent",
+"values": {
+"2024": 136.361,
+"2025": 2.407,
+"Jun 2026": 379.427
+},
+"kind": "line",
+"indent": 0
+},
+{
+"label": "Deferred tax liabilities, net",
+"values": {
+"2024": 0.0,
+"2025": 0.474,
+"Jun 2026": 1.641
+},
+"kind": "line",
+"indent": 0
+},
+{
+"label": "Other noncurrent liabilities",
+"values": {
+"2024": 1.749,
+"2025": 10.226,
+"Jun 2026": 84.417
+},
+"kind": "line",
+"indent": 0
+},
+{
+"label": "Total liabilities",
+"values": {
+"2024": 372.213,
+"2025": 426.672,
+"Jun 2026": 1181.171
+},
+"kind": "subtotal",
+"indent": 0
+},
+{
+"label": "Commitments and contingencies (Note 11)",
+"values": {
+"2024": null,
+"2025": null,
+"Jun 2026": null
+},
+"kind": "header",
+"indent": 0
+},
+{
+"label": "Redeemable convertible preferred stock",
+"values": {
+"2024": null,
+"2025": null,
+"Jun 2026": null
+},
+"kind": "header",
+"indent": 0
+},
+{
+"label": "Redeemable convertible preferred stock, par value $0.00001; 205,093,489 and 318,496,642 shares authorized as of June 30, 2026 and September 30, 2025, respectively; 136,767,173 and 163,606,892 shares issued and outstanding as of June 30, 2026 and September 30, 2025, respectively; aggregate liquidation preference of $1,502.3 million and $1,544.2 million as of June 30, 2026 and September 30, 2025, respectively",
+"values": {
+"2024": 492.77,
+"2025": 1594.98,
+"Jun 2026": 1499.751
+},
+"kind": "line",
+"indent": 1
+},
+{
+"label": "Stockholders\u2019 deficit",
+"values": {
+"2024": null,
+"2025": null,
+"Jun 2026": null
+},
+"kind": "header",
+"indent": 0
+},
+{
+"label": "Common stock, par value $0.00001; 275,100,000 and 81,266,406 shares authorized as of June 30, 2026 and September 30, 2025, respectively; 19,385,920 and 20,670,698 shares issued and outstanding as of June 30, 2026 and September 30, 2025, respectively",
+"values": {
+"2024": 0.0,
+"2025": 0.0,
+"Jun 2026": 0.0
+},
+"kind": "line",
+"indent": 1
+},
+{
+"label": "Treasury stock, at cost, no shares and 966,000 shares as of September 30, 2025, and 2024, respectively",
+"values": {
+"2024": -33.356,
+"2025": 0.0,
+"Jun 2026": null
+},
+"kind": "line",
+"indent": 1
+},
+{
+"label": "Additional paid-in capital",
+"values": {
+"2024": 15.988,
+"2025": 0.119,
+"Jun 2026": 0.0
+},
+"kind": "line",
+"indent": 1
+},
+{
+"label": "Accumulated other comprehensive income (loss)",
+"values": {
+"2024": -5.846,
+"2025": 4.556,
+"Jun 2026": 8.378
+},
+"kind": "line",
+"indent": 1
+},
+{
+"label": "Accumulated deficit",
+"values": {
+"2024": -391.108,
+"2025": -623.113,
+"Jun 2026": -1626.112
+},
+"kind": "line",
+"indent": 1
+},
+{
+"label": "Total stockholders\u2019 deficit",
+"values": {
+"2024": -414.322,
+"2025": -618.438,
+"Jun 2026": -1617.734
+},
+"kind": "subtotal",
+"indent": 0
+},
+{
+"label": "Total liabilities, redeemable convertible preferred stock, and stockholders\u2019 deficit",
+"values": {
+"2024": 450.661,
+"2025": 1403.214,
+"Jun 2026": 1063.188
+},
+"kind": "total",
+"indent": 0
+}
+]
+},
+"cashflow": {
+"title": "Consolidated Statements of Cash Flows",
+"pages": [
+"F-7",
+"F-48"
+],
+"columns": [
+"2024",
+"2025",
+"9M 2025",
+"9M 2026"
+],
+"rows": [
+{
+"label": "Cash flows from operating activities",
+"values": {
+"2024": null,
+"2025": null,
+"9M 2025": null,
+"9M 2026": null
+},
+"kind": "header",
+"indent": 0
+},
+{
+"label": "Net income",
+"values": {
+"2024": 3.649,
+"2025": 0.012,
+"9M 2025": 1.573,
+"9M 2026": 60.768
+},
+"kind": "total",
+"indent": 0
+},
+{
+"label": "Adjustments to reconcile net income to net cash provided by (used in) operating activities",
+"values": {
+"2024": null,
+"2025": null,
+"9M 2025": null,
+"9M 2026": null
+},
+"kind": "header",
+"indent": 0
+},
+{
+"label": "Depreciation and amortization",
+"values": {
+"2024": 17.405,
+"2025": 23.285,
+"9M 2025": 17.31,
+"9M 2026": 25.455
+},
+"kind": "line",
+"indent": 1
+},
+{
+"label": "Share-based compensation expense",
+"values": {
+"2024": 6.127,
+"2025": 6.249,
+"9M 2025": 5.93,
+"9M 2026": 10.007
+},
+"kind": "line",
+"indent": 1
+},
+{
+"label": "Amortization of debt issuance costs",
+"values": {
+"2024": 3.078,
+"2025": 1.808,
+"9M 2025": 1.808,
+"9M 2026": 0.475
+},
+"kind": "line",
+"indent": 1
+},
+{
+"label": "Deferred tax expense",
+"values": {
+"2024": -5.374,
+"2025": 4.03,
+"9M 2025": 5.951,
+"9M 2026": 0.0
+},
+"kind": "line",
+"indent": 1
+},
+{
+"label": "Loss on extinguishment of debt",
+"values": {
+"2024": 0.0,
+"2025": 8.725,
+"9M 2025": 8.725,
+"9M 2026": 0.479
+},
+"kind": "line",
+"indent": 1
+},
+{
+"label": "Unrealized fair value gain of forward equity instrument",
+"values": {
+"2024": 0.0,
+"2025": -4.32,
+"9M 2025": 0.0,
+"9M 2026": -5.138
+},
+"kind": "line",
+"indent": 1
+},
+{
+"label": "Other",
+"values": {
+"2024": -5.332,
+"2025": 1.529,
+"9M 2025": 0.647,
+"9M 2026": -2.966
+},
+"kind": "line",
+"indent": 1
+},
+{
+"label": "Changes in working capital",
+"values": {
+"2024": null,
+"2025": null,
+"9M 2025": null,
+"9M 2026": null
+},
+"kind": "header",
+"indent": 0
+},
+{
+"label": "Accounts receivable",
+"values": {
+"2024": -55.336,
+"2025": -13.298,
+"9M 2025": 11.683,
+"9M 2026": -78.907
+},
+"kind": "line",
+"indent": 1
+},
+{
+"label": "Inventories",
+"values": {
+"2024": -56.599,
+"2025": -65.434,
+"9M 2025": -36.647,
+"9M 2026": 43.243
+},
+"kind": "line",
+"indent": 1
+},
+{
+"label": "Prepaid expenses and other assets",
+"values": {
+"2024": -5.23,
+"2025": -45.045,
+"9M 2025": -31.454,
+"9M 2026": -29.242
+},
+"kind": "line",
+"indent": 1
+},
+{
+"label": "Accounts payable",
+"values": {
+"2024": 12.749,
+"2025": 7.142,
+"9M 2025": 2.573,
+"9M 2026": 45.664
+},
+"kind": "line",
+"indent": 1
+},
+{
+"label": "Accrued liabilities",
+"values": {
+"2024": 62.376,
+"2025": 161.376,
+"9M 2025": 139.709,
+"9M 2026": 176.534
+},
+"kind": "line",
+"indent": 1
+},
+{
+"label": "Deferred revenue",
+"values": {
+"2024": 46.491,
+"2025": 29.074,
+"9M 2025": 1.8,
+"9M 2026": 52.437
+},
+"kind": "line",
+"indent": 1
+},
+{
+"label": "Customer deposits",
+"values": {
+"2024": 4.223,
+"2025": 6.56,
+"9M 2025": 5.707,
+"9M 2026": 29.199
+},
+"kind": "line",
+"indent": 1
+},
+{
+"label": "Net cash provided by operating activities",
+"values": {
+"2024": 28.227,
+"2025": 121.693,
+"9M 2025": 135.315,
+"9M 2026": 328.008
+},
+"kind": "total",
+"indent": 0
+},
+{
+"label": "Cash flows from investing activities",
+"values": {
+"2024": null,
+"2025": null,
+"9M 2025": null,
+"9M 2026": null
+},
+"kind": "header",
+"indent": 0
+},
+{
+"label": "Purchases of property, equipment and intangible assets",
+"values": {
+"2024": -13.189,
+"2025": -21.724,
+"9M 2025": -12.819,
+"9M 2026": -66.24
+},
+"kind": "line",
+"indent": 1
+},
+{
+"label": "Notes receivable from related parties",
+"values": {
+"2024": null,
+"2025": null,
+"9M 2025": 0.0,
+"9M 2026": -3.5
+},
+"kind": "line",
+"indent": 1
+},
+{
+"label": "Acquisitions, net of cash acquired",
+"values": {
+"2024": 0.806,
+"2025": -7.462,
+"9M 2025": -7.462,
+"9M 2026": -7.218
+},
+"kind": "line",
+"indent": 1
+},
+{
+"label": "Net cash used in investing activities",
+"values": {
+"2024": -12.383,
+"2025": -29.186,
+"9M 2025": -20.281,
+"9M 2026": -76.958
+},
+"kind": "total",
+"indent": 0
+},
+{
+"label": "Cash flows from financing activities",
+"values": {
+"2024": null,
+"2025": null,
+"9M 2025": null,
+"9M 2026": null
+},
+"kind": "header",
+"indent": 0
+},
+{
+"label": "Proceeds from exercise of stock options",
+"values": {
+"2024": 0.838,
+"2025": 3.282,
+"9M 2025": 2.455,
+"9M 2026": 2.086
+},
+"kind": "line",
+"indent": 1
+},
+{
+"label": "Proceeds from issuance of redeemable convertible preferred stock, net of issuance costs",
+"values": {
+"2024": 5.538,
+"2025": 1106.369,
+"9M 2025": 199.346,
+"9M 2026": 62.285
+},
+"kind": "line",
+"indent": 1
+},
+{
+"label": "Proceeds from debt, net of issuance costs",
+"values": {
+"2024": null,
+"2025": null,
+"9M 2025": 198.494,
+"9M 2026": 373.876
+},
+"kind": "line",
+"indent": 1
+},
+{
+"label": "Proceeds from debt",
+"values": {
+"2024": 0.0,
+"2025": 198.494,
+"9M 2025": null,
+"9M 2026": null
+},
+"kind": "line",
+"indent": 1
+},
+{
+"label": "Payments on debt",
+"values": {
+"2024": -0.631,
+"2025": -346.203,
+"9M 2025": -145.529,
+"9M 2026": -1.042
+},
+"kind": "line",
+"indent": 1
+},
+{
+"label": "Principal payments on finance lease obligations",
+"values": {
+"2024": null,
+"2025": null,
+"9M 2025": 0.0,
+"9M 2026": -5.146
+},
+"kind": "line",
+"indent": 1
+},
+{
+"label": "Payments for the redemption of liability-classified share-based awards",
+"values": {
+"2024": -9.999,
+"2025": 0.0,
+"9M 2025": null,
+"9M 2026": null
+},
+"kind": "line",
+"indent": 1
+},
+{
+"label": "Repurchase of common and redeemable convertible preferred stock",
+"values": {
+"2024": -37.404,
+"2025": -308.018,
+"9M 2025": -299.261,
+"9M 2026": -1172.897
+},
+"kind": "line",
+"indent": 1
+},
+{
+"label": "Payments of equity financing costs",
+"values": {
+"2024": null,
+"2025": null,
+"9M 2025": 0.0,
+"9M 2026": -0.934
+},
+"kind": "line",
+"indent": 1
+},
+{
+"label": "Net cash provided by (used in) financing activities",
+"values": {
+"2024": -41.658,
+"2025": 653.924,
+"9M 2025": -44.495,
+"9M 2026": -741.772
+},
+"kind": "total",
+"indent": 0
+},
+{
+"label": "Effect of exchange rate changes on cash, cash equivalents, and restricted cash",
+"values": {
+"2024": 4.397,
+"2025": 8.915,
+"9M 2025": 10.705,
+"9M 2026": 1.94
+},
+"kind": "line",
+"indent": 0
+},
+{
+"label": "Net change in cash, cash equivalents, and restricted cash",
+"values": {
+"2024": -21.417,
+"2025": 755.346,
+"9M 2025": 81.244,
+"9M 2026": -488.782
+},
+"kind": "subtotal",
+"indent": 0
+},
+{
+"label": "Cash, cash equivalents, and restricted cash, beginning of period",
+"values": {
+"2024": 126.617,
+"2025": 105.2,
+"9M 2025": 105.2,
+"9M 2026": 860.546
+},
+"kind": "line",
+"indent": 0
+},
+{
+"label": "Cash, cash equivalents, and restricted cash, end of period",
+"values": {
+"2024": 105.2,
+"2025": 860.546,
+"9M 2025": 186.444,
+"9M 2026": 371.764
+},
+"kind": "total",
+"indent": 0
+},
+{
+"label": "Supplemental disclosure of cash flow information",
+"values": {
+"2024": null,
+"2025": null,
+"9M 2025": null,
+"9M 2026": null
+},
+"kind": "header",
+"indent": 0
+},
+{
+"label": "Cash paid for interest",
+"values": {
+"2024": 12.556,
+"2025": 9.599,
+"9M 2025": 7.181,
+"9M 2026": 0.02
+},
+"kind": "line",
+"indent": 1
+},
+{
+"label": "Cash paid for income taxes, net of refunds",
+"values": {
+"2024": 7.141,
+"2025": 5.228,
+"9M 2025": 5.228,
+"9M 2026": 10.485
+},
+"kind": "line",
+"indent": 1
+},
+{
+"label": "Supplemental disclosure of non-cash investing and financing activities",
+"values": {
+"2024": null,
+"2025": null,
+"9M 2025": null,
+"9M 2026": null
+},
+"kind": "header",
+"indent": 0
+},
+{
+"label": "Property and equipment acquired through accounts payable and accrued expenses liabilities",
+"values": {
+"2024": null,
+"2025": null,
+"9M 2025": 0.0,
+"9M 2026": 9.794
+},
+"kind": "line",
+"indent": 1
+},
+{
+"label": "Operating lease right-of-use asset acquired through lease liabilities",
+"values": {
+"2024": null,
+"2025": null,
+"9M 2025": 0.0,
+"9M 2026": 24.317
+},
+"kind": "line",
+"indent": 1
+},
+{
+"label": "Physical settlement of forward equity instrument",
+"values": {
+"2024": null,
+"2025": null,
+"9M 2025": 0.0,
+"9M 2026": -61.699
+},
+"kind": "line",
+"indent": 1
+},
+{
+"label": "Simple agreement for future equity financing liability",
+"values": {
+"2024": null,
+"2025": null,
+"9M 2025": 0.0,
+"9M 2026": 50.0
+},
+"kind": "line",
+"indent": 1
+},
+{
+"label": "Recognition of forward equity instrument asset",
+"values": {
+"2024": 0.0,
+"2025": 50.257,
+"9M 2025": null,
+"9M 2026": null
+},
+"kind": "line",
+"indent": 1
+},
+{
+"label": "Issuance of redeemable convertible preferred stock for acquisition",
+"values": {
+"2024": 9.429,
+"2025": 0.0,
+"9M 2025": null,
+"9M 2026": null
+},
+"kind": "line",
+"indent": 1
+},
+{
+"label": "Liability for share repurchases",
+"values": {
+"2024": 33.226,
+"2025": 0.0,
+"9M 2025": null,
+"9M 2026": null
+},
+"kind": "line",
+"indent": 1
+}
+]
+},
+"units": "$ millions"
+},
+"qual": {
+"filing": "2026-09-21_S-1-A_0001193125-26-396051.htm",
+"summary": {
+"text": "Oura is an always-on health intelligence platform designed to transform how people understand and manage their health in everyday life. Oura was built to give the body a voice\u2014translating physiological signals across sleep, activity, readiness, stress, heart health, metabolic health, and women\u2019s health into more than 50 metrics and predictive insights.",
+"page": "1"
+},
+"offer": {
+"shares_offered": {
+"value": 50000000,
+"text": "50,000,000 Shares",
+"page": "cover",
+"by_company": 13500000,
+"by_selling_stockholders": 36500000
+},
+"price_range": {
+"value": "$40.00 to $44.00 per share",
+"low": 40.0,
+"high": 44.0,
+"fixed": false,
+"text": "It is currently estimated that the initial public offering price per share of common stock will be between $40.00 and $44.00.",
+"page": "cover"
+},
+"exchange": {
+"value": "Nasdaq",
+"listing": "Nasdaq Global Select Market",
+"text": "We have applied to list our common stock on the Nasdaq Global Select Market (\u201cNasdaq\u201d) under the symbol \u201cOURA.\u201d We are an \u201cemerging growth company,\u201d as defined in Section 2(a) of the Securities Act of 1933, as amended, and, as such, will be subject to reduced public company reporting requirements.",
+"page": "cover"
+},
+"ticker": {
+"value": "OURA",
+"text": "We have applied to list our common stock on the Nasdaq Global Select Market (\u201cNasdaq\u201d) under the symbol \u201cOURA.\u201d We are an \u201cemerging growth company,\u201d as defined in Section 2(a) of the Securities Act of 1933, as amended, and, as such, will be subject to reduced public company reporting requirements.",
+"page": "cover"
+},
+"underwriters": {
+"names": [
+"Goldman Sachs & Co. LLC"
+],
+"role": "representatives of the underwriters",
+"text": "Goldman Sachs & Co. LLC is the representative",
+"page": "234"
+},
+"use_of_proceeds": {
+"text": "We estimate that the net proceeds from our sale of 13,500,000 shares of common stock in this offering will be approximately $532.6 million, based on an assumed initial public offering price of $42.00 per share, which is the midpoint of the price range set forth on the cover page of this prospectus, and after deducting estimated underwriting discounts and commissions and estimated offering expenses payable by us. We intend to use approximately $526.4 million of the net proceeds to satisfy our anticipated tax withholding and remittance obligations related to the RSU Net Settlement (based on an assumed initial public offering price of $42.00 per share, which is the midpoint of the price range set forth on the cover page of this prospectus, and an assumed tax withholding rate of 47.7%), and the remainder for general corporate purposes, including technology development, working capital, operating expenses, and capital expenditures.",
+"page": "83"
+},
+"lockup": {
+"days": 180,
+"text": "We, each of our officers and directors, and substantially all of the holders of our outstanding securities, including the selling stockholders, have agreed that, without the prior written consent of Goldman Sachs & Co. LLC, as representative of the underwriters, we and they will not, subject to certain exceptions, during the period ending 180 days after the date of this prospectus: \u2022 offer, sell, contract to sell, pledge, grant any option to purchase, make any short sale or otherwise transfer or dispose of, directly or indirectly or publicly disclose the intention to make any offer, sale, pledge or disposition of any shares of our common stock, or any options or warrants to purchase any shar",
+"page": "235",
+"other_periods_days": [
+77,
+140,
+181
+]
+},
+"selling_stockholders": {
+"value": true,
+"text": "We are offering 13,500,000 shares of our common stock, and the selling stockholders identified in this prospectus are offering 36,500,000 shares of our common stock.",
+"page": "cover"
+},
+"dividend_policy": {
+"text": "We have never declared or paid any cash dividends on our capital stock. We currently intend to retain any future earnings and do not expect to pay any dividends in the foreseeable future.",
+"page": "84"
+}
+},
+"owners": {
+"classes": [
+{
+"name": "Common stock",
+"page": "214",
+"text": "Voting Rights Holders of our common stock will be entitled to one vote for each share held on all matters submitted to a vote of stockholders.",
+"votes_per_share": 1
+}
+],
+"principal_holders": [
+{
+"name": "Entities affiliated with FMR LLC",
+"section": "5% Stockholders",
+"classes": {
+"Common stock": {
+"shares": 33609862,
+"shares_after": 33609862,
+"pct_before": 10.9,
+"pct_after": 10.4,
+"shares_after_option": 33609862,
+"pct_after_option": 10.4
+}
+},
+"votes_pct_before": null,
+"votes_pct_after": null,
+"page": "206",
+"shares_offered": 0,
+"shares_offered_option": 0,
+"pct_before": "10.9%",
+"pct_after": "10.4%",
+"votes_pct": null
+},
+{
+"name": "Entities affiliated with Forerunner Ventures",
+"section": "5% Stockholders",
+"classes": {
+"Common stock": {
+"shares": 28679908,
+"shares_after": 0,
+"pct_before": 9.3,
+"pct_after": 0.0,
+"shares_after_option": 0,
+"pct_after_option": 0.0
+}
+},
+"votes_pct_before": null,
+"votes_pct_after": null,
+"page": "206",
+"shares_offered": 28679908,
+"shares_offered_option": 0,
+"pct_before": "9.3%",
+"pct_after": "none",
+"votes_pct": null
+},
+{
+"name": "Bedford Ridge Investment Company LLP",
+"section": "5% Stockholders",
+"classes": {
+"Common stock": {
+"shares": 28510954,
+"shares_after": 28510954,
+"pct_before": 9.2,
+"pct_after": 8.9,
+"shares_after_option": 28510954,
+"pct_after_option": 8.8
+}
+},
+"votes_pct_before": null,
+"votes_pct_after": null,
+"page": "206",
+"shares_offered": 0,
+"shares_offered_option": 0,
+"pct_before": "9.2%",
+"pct_after": "8.9%",
+"votes_pct": null
+},
+{
+"name": "Entities affiliated with Lifeline Ventures",
+"section": "5% Stockholders",
+"classes": {
+"Common stock": {
+"shares": 22564156,
+"shares_after": 15616292,
+"pct_before": 7.3,
+"pct_after": 4.9,
+"shares_after_option": 11282078,
+"pct_after_option": 3.5
+}
+},
+"votes_pct_before": null,
+"votes_pct_after": null,
+"page": "206",
+"shares_offered": 6947864,
+"shares_offered_option": 4334214,
+"pct_before": "7.3%",
+"pct_after": "4.9%",
+"votes_pct": null
+},
+{
+"name": "Thomas Hale",
+"section": "Named Executive Officers, Directors, and Director Nominees",
+"classes": {
+"Common stock": {
+"shares": 3554065,
+"shares_after": 3554065,
+"pct_before": 1.2,
+"pct_after": 1.1,
+"shares_after_option": 3323949,
+"pct_after_option": 1.0
+}
+},
+"votes_pct_before": null,
+"votes_pct_after": null,
+"page": "206",
+"shares_offered": 0,
+"shares_offered_option": 230116,
+"pct_before": "1.2%",
+"pct_after": "1.1%",
+"votes_pct": null
+},
+{
+"name": "David Shuman",
+"section": "Named Executive Officers, Directors, and Director Nominees",
+"classes": {
+"Common stock": {
+"shares": 12381830,
+"shares_after": 12381830,
+"pct_before": 4.0,
+"pct_after": 3.8,
+"shares_after_option": 12381830,
+"pct_after_option": 3.8
+}
+},
+"votes_pct_before": null,
+"votes_pct_after": null,
+"page": "206",
+"shares_offered": 0,
+"shares_offered_option": 0,
+"pct_before": "4%",
+"pct_after": "3.8%",
+"votes_pct": null
+},
+{
+"name": "Sean Brecker",
+"section": "",
+"classes": {
+"Common stock": {
+"shares": 622772,
+"shares_after": 622772,
+"pct_before": null,
+"pct_after": null,
+"shares_after_option": 561851,
+"pct_after_option": null
+}
+},
+"votes_pct_before": null,
+"votes_pct_after": null,
+"page": "207",
+"shares_offered": 0,
+"shares_offered_option": 60921,
+"under_1pct": [
+"Common stock pct_before",
+"Common stock pct_after",
+"Common stock pct_after_option"
+],
+"pct_before": "<1%",
+"pct_after": "<1%",
+"votes_pct": null
+},
+{
+"name": "Michael A. Chapp",
+"section": "",
+"classes": {
+"Common stock": {
+"shares": 7007291,
+"shares_after": 7007291,
+"pct_before": 2.2,
+"pct_after": 2.1,
+"shares_after_option": 6680396,
+"pct_after_option": 2.0
+}
+},
+"votes_pct_before": null,
+"votes_pct_after": null,
+"page": "207",
+"shares_offered": 0,
+"shares_offered_option": 326895,
+"pct_before": "2.2%",
+"pct_after": "2.1%",
+"votes_pct": null
+},
+{
+"name": "Timo Ahopelto",
+"section": "",
+"classes": {
+"Common stock": {
+"shares": 22564156,
+"shares_after": 15616292,
+"pct_before": 7.3,
+"pct_after": 4.9,
+"shares_after_option": 11282078,
+"pct_after_option": 3.5
+}
+},
+"votes_pct_before": null,
+"votes_pct_after": null,
+"page": "207",
+"shares_offered": 6947864,
+"shares_offered_option": 4334214,
+"pct_before": "7.3%",
+"pct_after": "4.9%",
+"votes_pct": null
+},
+{
+"name": "Dennis Durkin",
+"section": "",
+"classes": {
+"Common stock": {
+"shares": 279490,
+"shares_after": 279490,
+"pct_before": null,
+"pct_after": null,
+"shares_after_option": 279490,
+"pct_after_option": null
+}
+},
+"votes_pct_before": null,
+"votes_pct_after": null,
+"page": "207",
+"shares_offered": 0,
+"shares_offered_option": 0,
+"under_1pct": [
+"Common stock pct_before",
+"Common stock pct_after",
+"Common stock pct_after_option"
+],
+"pct_before": "<1%",
+"pct_after": "<1%",
+"votes_pct": null
+},
+{
+"name": "Wen Hsieh",
+"section": "",
+"classes": {
+"Common stock": {
+"shares": 304242,
+"shares_after": 304242,
+"pct_before": null,
+"pct_after": null,
+"shares_after_option": 304242,
+"pct_after_option": null
+}
+},
+"votes_pct_before": null,
+"votes_pct_after": null,
+"page": "207",
+"shares_offered": 0,
+"shares_offered_option": 0,
+"under_1pct": [
+"Common stock pct_before",
+"Common stock pct_after",
+"Common stock pct_after_option"
+],
+"pct_before": "<1%",
+"pct_after": "<1%",
+"votes_pct": null
+},
+{
+"name": "Eurie Kim",
+"section": "",
+"classes": {
+"Common stock": {
+"shares": 28679908,
+"shares_after": 0,
+"pct_before": 9.3,
+"pct_after": 0.0,
+"shares_after_option": 0,
+"pct_after_option": 0.0
+}
+},
+"votes_pct_before": null,
+"votes_pct_after": null,
+"page": "207",
+"shares_offered": 28679908,
+"shares_offered_option": 0,
+"pct_before": "9.3%",
+"pct_after": "none",
+"votes_pct": null
+},
+{
+"name": "Leslie Kilgore",
+"section": "",
+"classes": {
+"Common stock": {
+"shares": 0,
+"shares_after": 0,
+"pct_before": 0.0,
+"pct_after": 0.0,
+"shares_after_option": 0,
+"pct_after_option": 0.0
+}
+},
+"votes_pct_before": null,
+"votes_pct_after": null,
+"page": "207",
+"shares_offered": 0,
+"shares_offered_option": 0,
+"pct_before": "none",
+"pct_after": "none",
+"votes_pct": null
+},
+{
+"name": "Mikko Kuusi",
+"section": "",
+"classes": {
+"Common stock": {
+"shares": 82184,
+"shares_after": 0,
+"pct_before": null,
+"pct_after": null,
+"shares_after_option": 82184,
+"pct_after_option": null
+}
+},
+"votes_pct_before": null,
+"votes_pct_after": null,
+"page": "207",
+"shares_offered": 0,
+"shares_offered_option": 0,
+"under_1pct": [
+"Common stock pct_before",
+"Common stock pct_after",
+"Common stock pct_after_option"
+],
+"pct_before": "<1%",
+"pct_after": "<1%",
+"votes_pct": null
+},
+{
+"name": "David Sze",
+"section": "",
+"classes": {
+"Common stock": {
+"shares": 0,
+"shares_after": 0,
+"pct_before": 0.0,
+"pct_after": 0.0,
+"shares_after_option": 0,
+"pct_after_option": 0.0
+}
+},
+"votes_pct_before": null,
+"votes_pct_after": null,
+"page": "207",
+"shares_offered": 0,
+"shares_offered_option": 0,
+"pct_before": "none",
+"pct_after": "none",
+"votes_pct": null
+},
+{
+"name": "Jason Warnick",
+"section": "",
+"classes": {
+"Common stock": {
+"shares": 0,
+"shares_after": 0,
+"pct_before": 0.0,
+"pct_after": 0.0,
+"shares_after_option": 0,
+"pct_after_option": 0.0
+}
+},
+"votes_pct_before": null,
+"votes_pct_after": null,
+"page": "207",
+"shares_offered": 0,
+"shares_offered_option": 0,
+"pct_before": "none",
+"pct_after": "none",
+"votes_pct": null
+},
+{
+"name": "All executive officers, directors, and director nominees as a group (12 individuals)",
+"section": "",
+"classes": {
+"Common stock": {
+"shares": 75475938,
+"shares_after": 39848166,
+"pct_before": 24.0,
+"pct_after": 12.2,
+"shares_after_option": 34896020,
+"pct_after_option": 10.6
+}
+},
+"votes_pct_before": null,
+"votes_pct_after": null,
+"page": "207",
+"shares_offered": 35627772,
+"shares_offered_option": 4952146,
+"is_group": true,
+"pct_before": "24%",
+"pct_after": "12.2%",
+"votes_pct": null
+},
+{
+"name": "Teemu Kurppa",
+"section": "Other Selling Stockholders",
+"classes": {
+"Common stock": {
+"shares": 1544463,
+"shares_after": 1544463,
+"pct_before": null,
+"pct_after": null,
+"shares_after_option": 1433243,
+"pct_after_option": null
+}
+},
+"votes_pct_before": null,
+"votes_pct_after": null,
+"page": "207",
+"shares_offered": 0,
+"shares_offered_option": 111220,
+"under_1pct": [
+"Common stock pct_before",
+"Common stock pct_after",
+"Common stock pct_after_option"
+],
+"pct_before": "<1%",
+"pct_after": "<1%",
+"votes_pct": null
+},
+{
+"name": "Elysian Park Ventures, LLC",
+"section": "Other Selling Stockholders",
+"classes": {
+"Common stock": {
+"shares": 1416342,
+"shares_after": 544114,
+"pct_before": null,
+"pct_after": null,
+"shares_after_option": 0,
+"pct_after_option": 0.0
+}
+},
+"votes_pct_before": null,
+"votes_pct_after": null,
+"page": "207",
+"shares_offered": 872228,
+"shares_offered_option": 544114,
+"under_1pct": [
+"Common stock pct_before",
+"Common stock pct_after"
+],
+"pct_before": "<1%",
+"pct_after": "<1%",
+"votes_pct": null
+},
+{
+"name": "Antti Laitala",
+"section": "Other Selling Stockholders",
+"classes": {
+"Common stock": {
+"shares": 1064277,
+"shares_after": 1064277,
+"pct_before": null,
+"pct_after": null,
+"shares_after_option": 982379,
+"pct_after_option": null
+}
+},
+"votes_pct_before": null,
+"votes_pct_after": null,
+"page": "207",
+"shares_offered": 0,
+"shares_offered_option": 81898,
+"under_1pct": [
+"Common stock pct_before",
+"Common stock pct_after",
+"Common stock pct_after_option"
+],
+"pct_before": "<1%",
+"pct_after": "<1%",
+"votes_pct": null
+},
+{
+"name": "Other selling stockholders that beneficially own between 700,001 and 1,050,000",
+"section": "Other Selling Stockholders",
+"classes": {
+"Common stock": {
+"shares": 2815077,
+"shares_after": 2815077,
+"pct_before": null,
+"pct_after": null,
+"shares_after_option": 2587826,
+"pct_after_option": null
+}
+},
+"votes_pct_before": null,
+"votes_pct_after": null,
+"page": "207",
+"shares_offered": 0,
+"shares_offered_option": 227251,
+"under_1pct": [
+"Common stock pct_before",
+"Common stock pct_after",
+"Common stock pct_after_option"
+],
+"pct_before": "<1%",
+"pct_after": "<1%",
+"votes_pct": null
+},
+{
+"name": "Other selling stockholders that beneficially own between 505,001 and 700,000 shares of common stock",
+"section": "Other Selling Stockholders",
+"classes": {
+"Common stock": {
+"shares": 3022829,
+"shares_after": 3022829,
+"pct_before": null,
+"pct_after": null,
+"shares_after_option": 2810060,
+"pct_after_option": null
+}
+},
+"votes_pct_before": null,
+"votes_pct_after": null,
+"page": "207",
+"shares_offered": 0,
+"shares_offered_option": 212169,
+"under_1pct": [
+"Common stock pct_before",
+"Common stock pct_after",
+"Common stock pct_after_option"
+],
+"pct_before": "<1%",
+"pct_after": "<1%",
+"votes_pct": null
+},
+{
+"name": "Other selling stockholders that beneficially own between 300,001 and 505,000 shares of common stock",
+"section": "Other Selling Stockholders",
+"classes": {
+"Common stock": {
+"shares": 3008376,
+"shares_after": 3008376,
+"pct_before": null,
+"pct_after": null,
+"shares_after_option": 2777893,
+"pct_after_option": null
+}
+},
+"votes_pct_before": null,
+"votes_pct_after": null,
+"page": "207",
+"shares_offered": 0,
+"shares_offered_option": 230483,
+"under_1pct": [
+"Common stock pct_before",
+"Common stock pct_after",
+"Common stock pct_after_option"
+],
+"pct_before": "<1%",
+"pct_after": "<1%",
+"votes_pct": null
+},
+{
+"name": "Other selling stockholders that beneficially own between 200,001 and 300,000 shares of common stock",
+"section": "Other Selling Stockholders",
+"classes": {
+"Common stock": {
+"shares": 2679605,
+"shares_after": 2679605,
+"pct_before": null,
+"pct_after": null,
+"shares_after_option": 2455596,
+"pct_after_option": null
+}
+},
+"votes_pct_before": null,
+"votes_pct_after": null,
+"page": "207",
+"shares_offered": 0,
+"shares_offered_option": 224009,
+"under_1pct": [
+"Common stock pct_before",
+"Common stock pct_after",
+"Common stock pct_after_option"
+],
+"pct_before": "<1%",
+"pct_after": "<1%",
+"votes_pct": null
+},
+{
+"name": "Other selling stockholders that beneficially own between 100,001 and 200,000 shares of common stock",
+"section": "Other Selling Stockholders",
+"classes": {
+"Common stock": {
+"shares": 2048725,
+"shares_after": 2048725,
+"pct_before": null,
+"pct_after": null,
+"shares_after_option": 1888405,
+"pct_after_option": null
+}
+},
+"votes_pct_before": null,
+"votes_pct_after": null,
+"page": "207",
+"shares_offered": 0,
+"shares_offered_option": 160320,
+"under_1pct": [
+"Common stock pct_before",
+"Common stock pct_after",
+"Common stock pct_after_option"
+],
+"pct_before": "<1%",
+"pct_after": "<1%",
+"votes_pct": null
+},
+{
+"name": "Other selling stockholders that beneficially own between 50,001 and 100,000 shares of common stock",
+"section": "Other Selling Stockholders",
+"classes": {
+"Common stock": {
+"shares": 2234994,
+"shares_after": 2234994,
+"pct_before": null,
+"pct_after": null,
+"shares_after_option": 2064467,
+"pct_after_option": null
+}
+},
+"votes_pct_before": null,
+"votes_pct_after": null,
+"page": "207",
+"shares_offered": 0,
+"shares_offered_option": 170527,
+"under_1pct": [
+"Common stock pct_before",
+"Common stock pct_after",
+"Common stock pct_after_option"
+],
+"pct_before": "<1%",
+"pct_after": "<1%",
+"votes_pct": null
+},
+{
+"name": "Other selling stockholders that beneficially own between 25,001 and 50,000 shares of common stock",
+"section": "",
+"classes": {
+"Common stock": {
+"shares": 2521535,
+"shares_after": 2521535,
+"pct_before": null,
+"pct_after": null,
+"shares_after_option": 2299368,
+"pct_after_option": null
+}
+},
+"votes_pct_before": null,
+"votes_pct_after": null,
+"page": "208",
+"shares_offered": 0,
+"shares_offered_option": 222167,
+"under_1pct": [
+"Common stock pct_before",
+"Common stock pct_after",
+"Common stock pct_after_option"
+],
+"pct_before": "<1%",
+"pct_after": "<1%",
+"votes_pct": null
+},
+{
+"name": "Other selling stockholders that beneficially own between 10,001 and 25,000 shares of common stock",
+"section": "",
+"classes": {
+"Common stock": {
+"shares": 2458298,
+"shares_after": 2458298,
+"pct_before": null,
+"pct_after": null,
+"shares_after_option": 2238490,
+"pct_after_option": null
+}
+},
+"votes_pct_before": null,
+"votes_pct_after": null,
+"page": "208",
+"shares_offered": 0,
+"shares_offered_option": 219808,
+"under_1pct": [
+"Common stock pct_before",
+"Common stock pct_after",
+"Common stock pct_after_option"
+],
+"pct_before": "<1%",
+"pct_after": "<1%",
+"votes_pct": null
+},
+{
+"name": "Other selling stockholders that beneficially own between 1 and 10,000 shares of common stock",
+"section": "",
+"classes": {
+"Common stock": {
+"shares": 1278980,
+"shares_after": 1278980,
+"pct_before": null,
+"pct_after": null,
+"shares_after_option": 1135092,
+"pct_after_option": null
+}
+},
+"votes_pct_before": null,
+"votes_pct_after": null,
+"page": "208",
+"shares_offered": 0,
+"shares_offered_option": 143888,
+"under_1pct": [
+"Common stock pct_before",
+"Common stock pct_after",
+"Common stock pct_after_option"
+],
+"pct_before": "<1%",
+"pct_after": "<1%",
+"votes_pct": null
+}
+],
+"holders_columns": {
+"classes": [
+"Common stock"
+],
+"columns": [
+{
+"stage": "before",
+"kind": "shares",
+"class": null,
+"header": "Shares Beneficially Owned Before This Offering Number"
+},
+{
+"stage": "before",
+"kind": "pct",
+"class": null,
+"header": "Shares Beneficially Owned Before This Offering Percent"
+},
+{
+"stage": "offered",
+"kind": "shares",
+"class": null,
+"header": "Shares to Be Sold in This Offering Without Exercise of Underwriters\u2019 Option"
+},
+{
+"stage": "after",
+"kind": "shares",
+"class": null,
+"header": "Shares Beneficially Owned After This Offering Without Exercise of Underwriters\u2019 Option Number"
+},
+{
+"stage": "after",
+"kind": "pct",
+"class": null,
+"header": "Shares Beneficially Owned After This Offering Without Exercise of Underwriters\u2019 Option Percent"
+},
+{
+"stage": "offered_option",
+"kind": "shares",
+"class": null,
+"header": "Additional Shares to Be Sold in This Offering With Full Exercise of Underwriters\u2019 Option"
+},
+{
+"stage": "after_option",
+"kind": "shares",
+"class": null,
+"header": "Shares Beneficially Owned After This Offering With Full Exercise of Underwriters\u2019 Option Number"
+},
+{
+"stage": "after_option",
+"kind": "pct",
+"class": null,
+"header": "Shares Beneficially Owned After This Offering With Full Exercise of Underwriters\u2019 Option Percent"
+}
+],
+"page": "206",
+"has": [
+"pct after",
+"pct after_option",
+"pct before",
+"shares after",
+"shares after_option",
+"shares before",
+"shares offered",
+"shares offered_option"
+]
+},
+"wedge": {
+"status": "single class",
+"note": "One class, one vote a share: shares held and votes held are the same."
+},
+"control": {
+"controlled_company": {
+"value": false,
+"note": "No sentence says it is a controlled company.",
+"page": null
+},
+"board_majority": {
+"status": "not found"
+},
+"sunset": {
+"value": false,
+"status": "none found",
+"note": "No conversion or sunset terms found.",
+"page": null
+},
+"public_benefit_corporation": {
+"value": false,
+"page": null
+}
+},
+"vote_rules": []
+},
+"people": {
+"executives": [
+{
+"name": "Thomas Hale",
+"title": "Chief Executive Officer and Director",
+"age": 58,
+"page": "179"
+},
+{
+"name": "David Shuman",
+"title": "Executive Chairman",
+"age": 57,
+"page": "179"
+},
+{
+"name": "Sean Brecker",
+"title": "Chief Financial Officer",
+"age": 51,
+"page": "179"
+},
+{
+"name": "Michael A. Chapp",
+"title": "Chief Operating Officer",
+"age": 48,
+"page": "179"
+}
+],
+"directors": [
+{
+"name": "Thomas Hale",
+"age": 58,
+"page": "179",
+"title": "Chief Executive Officer and Director"
+},
+{
+"name": "David Shuman",
+"age": 57,
+"page": "179",
+"title": "Executive Chairman"
+},
+{
+"name": "Timo Ahopelto",
+"age": 51,
+"page": "179",
+"title": "Director"
+},
+{
+"name": "Dennis Durkin",
+"age": 55,
+"page": "179",
+"title": "Director"
+},
+{
+"name": "Wen Hsieh",
+"age": 53,
+"page": "179",
+"title": "Director"
+},
+{
+"name": "Eurie Kim",
+"age": 46,
+"page": "179",
+"title": "Director"
+},
+{
+"name": "Leslie Kilgore",
+"age": 61,
+"page": "179",
+"title": "Director Nominee"
+},
+{
+"name": "Mikko Kuusi",
+"age": 36,
+"page": "179",
+"title": "Director Nominee"
+},
+{
+"name": "David Sze",
+"age": 60,
+"page": "179",
+"title": "Director Nominee"
+},
+{
+"name": "Jason Warnick",
+"age": 54,
+"page": "179",
+"title": "Director Nominee"
+}
+],
+"departures": []
+},
+"risks": {
+"count": 73,
+"headings": [
+{
+"heading": "We have experienced rapid growth in recent years. This rapid growth may not be sustainable or indicative of future performance, and we expect our growth rate to slow over time.",
+"page": "23"
+},
+{
+"heading": "If we fail to attract new members, retain existing members, or maintain or increase sales to those members, our business, financial condition, results of operations, and growth prospects will be adversely affected.",
+"page": "23"
+},
+{
+"heading": "We operate in a highly competitive market, including against larger companies with greater resources, brand recognition, distribution capabilities, and track record of technology innovation, and we may be unable to compete successfully, which could adversely affect our business, financial condition, and results of operations.",
+"page": "24"
+},
+{
+"heading": "We have only recently achieved profitability and may not maintain profitability in the future.",
+"page": "25"
+},
+{
+"heading": "If we do not continue to successfully develop and commercialize new, innovative, and updated products and features, including new product generations, our business, financial condition, and results of operations may be adversely affected.",
+"page": "25"
+},
+{
+"heading": "Actual or perceived defects in, or safety issues with, our products, including issues relating to battery performance, skin irritation, inaccurate health data, or hardware failures, have in the past and could in the future lead to warranty claims, product replacements or recalls, reputational harm, regulatory proceedings, or litigation, which could adversely affect our business, financial condition, and results of operations.",
+"page": "26"
+},
+{
+"heading": "We may be subject to warranty claims that could result in significant direct or indirect costs, or we could experience greater product returns than expected, either of which could have an adverse effect on our business, financial condition, and operating results.",
+"page": "26"
+},
+{
+"heading": "If our products fail to provide accurate metrics and data to our members, our brand and reputation could be harmed, we may become subject to litigation and regulatory proceedings, and we may be unable to retain our members.",
+"page": "27"
+},
+{
+"heading": "We do not have internal manufacturing capabilities and rely on a limited number of contract manufacturers and suppliers, certain of whom are single-source providers, for the production of Oura Ring. Any disruption, capacity constraint, quality issue, or price increase could result in product shortages, delays, increased costs, or quality issues that could adversely affect our business, financial condition, and results of operations.",
+"page": "27"
+},
+{
+"heading": "We derive substantially all of our revenue from sales of Oura Ring and subscriptions to Oura Membership. Any decline in demand for Oura Ring, failure of future product generations to achieve market acceptance, or erosion of our subscription base could have a disproportionate and adverse effect on our business, financial condition, and results of operations.",
+"page": "28"
+},
+{
+"heading": "Current tensions in international trade and existing and potential tariffs imposed by the U.S. government or other governments, particularly those affecting imports from Asia where we source certain components and where some of our manufacturing occurs, could increase the cost of our products and components and adversely affect our business, financial condition, and results of operations.",
+"page": "28"
+},
+{
+"heading": "If we are unable to accurately forecast consumer preferences and demand in a timely manner, or if we are unable to effectively manage our inventory, our business, financial condition, and results of operations may be adversely affected.",
+"page": "29"
+},
+{
+"heading": "A significant portion of our revenue is derived from a limited number of retail partners. An emerging and growing portion of our revenue is derived from corporate and enterprise customers. The loss of, or a material reduction in orders from, any of these partners could adversely affect our business, financial condition, and results of operations.",
+"page": "30"
+},
+{
+"heading": "Our business has historically been, and may in the future continue to be, affected by seasonality. Seasonal fluctuations may cause our quarterly results of operations to be volatile and may make period-to-period comparisons less meaningful.",
+"page": "30"
+},
+{
+"heading": "Our success depends on our ability to maintain, protect, and enhance our brand and reputation, and if events occur that damage our brand or reputation, our business, financial condition, and results of operations may be adversely affected.",
+"page": "31"
+},
+{
+"heading": "Consumer confidence, spending, and shopping behavior may be negatively impacted by macroeconomic uncertainty, inflation, tariffs, rising interest rates, recessionary conditions, geopolitical tensions, and military conflicts, which may adversely affect our business, financial condition, and results of operations.",
+"page": "31"
+},
+{
+"heading": "Our sales and profitability may decline as a result of increasing product costs or decreasing selling prices.",
+"page": "32"
+},
+{
+"heading": "If we are unable to anticipate appropriate pricing levels for our products and subscriptions, our business could be adversely affected.",
+"page": "32"
+},
+{
+"heading": "The fluctuating cost or limited availability of raw materials and components could increase our cost of goods sold and adversely affect our business, financial condition, and results of operations.",
+"page": "32"
+},
+{
+"heading": "Shipping and fulfillment are critical to our business, and changes in, or disruptions to, our shipping and logistics arrangements could adversely affect our business, financial condition, and results of operations.",
+"page": "33"
+},
+{
+"heading": "If our products cease to qualify for purchase or reimbursement under tax-advantaged consumer health accounts, demand could decline and our results could be harmed.",
+"page": "33"
+},
+{
+"heading": "We plan to expand into additional international markets, which will expose us to new and significant risks, including regulatory, political, operational, financial, and economic risks, any of which could adversely affect our business, financial condition, and results of operations.",
+"page": "34"
+},
+{
+"heading": "We may require additional capital to support the growth of our business, and such capital might not be available on reasonable terms, if at all, and may result in stockholder dilution.",
+"page": "34"
+},
+{
+"heading": "We have a limited operating history with which to evaluate and predict the profitability of our subscription model.",
+"page": "35"
+},
+{
+"heading": "Our subscription model is subject to consumer protection laws governing automatic renewal and subscription billing practices, which could expose us to regulatory enforcement actions and class action litigation.",
+"page": "35"
+}
+],
+"new_since_last_version": [],
+"reworded_since_last_version": [],
+"compared_with": "2026-09-03_S-1_0001193125-26-381855.htm"
+},
+"related_party": {
+"items": [
+{
+"text": "Series E Preferred Stock Financing In September 2025, our predecessor, Oura Health Oy, issued and sold an aggregate of 11,752,554 shares of its Series E convertible preferred stock to entities affiliated with FMR LLC, at a price per share of $53.57 for aggregate proceeds of approximately $629.6 million.",
+"page": "210"
+},
+{
+"text": "In February 2026, Oura Health Oy issued and sold an additional 186,671 shares of its Series E convertible preferred stock to an entity affiliated with FMR LLC, at the same price per share, for aggregate proceeds of approximately $10.0 million.",
+"page": "210"
+},
+{
+"text": "Stock Repurchases In February 2026, our predecessor, Oura Health Oy, repurchased an aggregate of 1,617,721 shares of Series B convertible preferred stock from entities affiliated with Forerunner Ventures, at a price per share of $40.18 for an aggregate repurchase price of $65.0 million, excluding estimated withholdings.",
+"page": "210"
+},
+{
+"text": "In March 2026 and April 2026, Ouraring Inc. issued two additional promissory notes to Mr. Brecker, each in the principal amount of $500,000 and on substantially the same terms as the December 2025 promissory note, maturing in March 2027 and April 2027, respectively.",
+"page": "211"
+},
+{
+"text": "The three notes were issued pursuant to board resolutions authorizing up to $5.0 million in aggregate principal amount of loans from Ouraring Inc. to Mr. Brecker.",
+"page": "211"
+},
+{
+"text": "We have paid webAI an aggregate of approximately $1.2 million to date pursuant to this agreement, and we have committed to spend a minimum of an additional $3.5 million over the next three years.",
+"page": "212"
+}
+]
+},
+"legal": {
+"text": "From time to time, we are involved in legal proceedings, claims, regulatory disputes, governmental inquiries and other proceedings or investigations in the ordinary course of our business, including patent litigation, consumer product liability claims, data privacy regulatory proceedings, securities claims, labor and employment claims, commercial and contract disputes, and other matters. Many of these matters involve highly complex issues and are subject to substantial uncertainties.",
+"page": "176"
+},
+"employees": {
+"count": 1350,
+"as_of": "June 30, 2026",
+"text": "As of June 30, 2026, we employed approximately 1,350 full-time employees across 11 countries.",
+"page": "176"
+},
+"auditor": {
+"name": "Ernst & Young LLP",
+"page": "F-2",
+"since": 2024
+}
+},
+"shares": {
+"as_of": "June 30, 2026",
+"as_of_page": "16",
+"offering": {
+"class": "Common",
+"page": "14",
+"primary": 13500000,
+"secondary": 36500000,
+"overallotment": 7500000,
+"overallotment_from": "selling stockholders",
+"shares_offered_total": 50000000
+},
+"outstanding_after": {
+"by_class": {
+"Common": 320945459
+},
+"total": 320945459,
+"page": "14"
+},
+"excluded": [
+{
+"what": "options",
+"class": "Common",
+"shares": 21746410,
+"strike": 0.46,
+"text": "21,746,410 shares of common stock issuable upon exercise of stock options outstanding as of June 30, 2026 under our Equity Plan 2015, Amended and Restated Equity Plan 2016, Equity Plan 2019, Amended and Restated 2022 Share Option and Grant Plan, and 2026 Share Option and Grant Plan (collectively, our \u201cExisting Plans\u201d), with a weighted-average exercise price of $0.46 per share;",
+"page": "16"
+},
+{
+"what": "rsus",
+"class": "Common",
+"shares": 10842504,
+"strike": null,
+"text": "10,842,504 shares of common stock issuable upon the vesting and settlement of restricted stock units (\u201cRSUs\u201d) that were outstanding as of June 30, 2026 under our Existing Plans and subject to vesting conditions that will not be satisfied in connection with this offering;",
+"page": "16"
+},
+{
+"what": "options",
+"class": "Common",
+"shares": 99762,
+"strike": 1.58,
+"text": "99,762 shares of common stock issuable upon exercise of stock options outstanding as of June 30, 2026 outside of our Existing Plans, with a weighted-average exercise price of $1.58 per share;",
+"page": "16"
+},
+{
+"what": "rsus",
+"class": "Common",
+"shares": 1060718,
+"strike": null,
+"text": "1,060,718 shares of common stock issuable upon the vesting and settlement of RSUs that were outstanding as of June 30, 2026 outside of our Existing Plans and subject to vesting conditions that will not be satisfied in connection with this offering;",
+"page": "16"
+},
+{
+"what": "rsus",
+"class": "Common",
+"shares": 1038996,
+"strike": null,
+"text": "1,038,996 shares of common stock issuable upon the vesting and settlement of RSUs that were granted subsequent to June 30, 2026 under our Existing Plans and subject to vesting conditions that will not be satisfied in connection with this offering;",
+"page": "16"
+},
+{
+"what": "rsus",
+"class": "Common",
+"shares": 115460,
+"strike": null,
+"text": "115,460 shares of common stock issuable upon the vesting and settlement of RSUs that were granted subsequent to June 30, 2026 outside of our Existing Plans and subject to vesting conditions that will not be satisfied in connection with this offering;",
+"page": "16"
+}
+],
+"fully_diluted": {
+"value": 355849309,
+"note": "shares outstanding after the offering plus every option, RSU, PRSU and warrant in the 'excludes' list (all classes, at one share each, no treasury method); reserved plan pools and shares issued, withheld or repurchased after the share-count date are not added",
+"added": {
+"options": 21846172,
+"rsus": 13057678,
+"prsus": 0,
+"warrants": 0
+}
+},
+"underwriting": {
+"discount_per_share": null,
+"discount_total": null,
+"discount_pct": null,
+"price": null,
+"net_proceeds": 532.6,
+"net_proceeds_assumption": "midpoint $42.00",
+"page": "cover",
+"status": "blank in this filing (not printed yet)",
+"net_proceeds_page": "14"
+},
+"lockup_schedule": [
+{
+"when": ", 2026 (earliest date shares can become eligible for sale pursuant to the \u201cStage 1 Expiration\u201d if the relevant price conditions are satisfied (1)(4))",
+"shares": 17000000,
+"who": null,
+"text": "Up to approximately 17.0 million shares",
+"page": "226",
+"date_status": "date blank in this filing (not printed yet)"
+},
+{
+"when": ", 2026 (earliest date shares can become eligible for sale pursuant to the \u201cStage 2 Expiration\u201d if the relevant price conditions are satisfied (2)(4))",
+"shares": 17000000,
+"who": null,
+"text": "Up to approximately 17.0 million shares",
+"page": "226",
+"date_status": "date blank in this filing (not printed yet)"
+},
+{
+"when": ", 2026 (earliest date shares can become eligible for sale pursuant to the \u201cStage 3 Expiration\u201d if the relevant price conditions are satisfied (3)(4))",
+"shares": 17000000,
+"who": null,
+"text": "Up to approximately 17.0 million shares",
+"page": "226",
+"date_status": "date blank in this filing (not printed yet)"
+},
+{
+"when": ", 2026 (35th day after the date of this prospectus)",
+"shares": 14200000,
+"who": null,
+"text": "Up to approximately 14.2 million shares",
+"page": "226",
+"date_status": "date blank in this filing (not printed yet)"
+},
+{
+"when": ", 2026 (49th day after the date of this prospectus)",
+"shares": 14200000,
+"who": null,
+"text": "Up to approximately 14.2 million shares",
+"page": "226",
+"date_status": "date blank in this filing (not printed yet)"
+},
+{
+"when": ", 2026 (63rd day after the date of this prospectus)",
+"shares": 14200000,
+"who": null,
+"text": "Up to approximately 14.2 million shares",
+"page": "226",
+"date_status": "date blank in this filing (not printed yet)"
+},
+{
+"when": ", 2026 (77th day after the date of this prospectus)",
+"shares": 25600000,
+"who": null,
+"text": "Up to approximately 25.6 million shares",
+"page": "227",
+"date_status": "date blank in this filing (not printed yet)"
+},
+{
+"when": ", 2027 (112th day after the date of this prospectus)",
+"shares": 22700000,
+"who": null,
+"text": "Up to approximately 22.7 million shares",
+"page": "227",
+"date_status": "date blank in this filing (not printed yet)"
+},
+{
+"when": ", 2027 (126th day after the date of this prospectus)",
+"shares": 22700000,
+"who": null,
+"text": "Up to approximately 22.7 million shares",
+"page": "227",
+"date_status": "date blank in this filing (not printed yet)"
+},
+{
+"when": ", 2027 (140th day after the date of this prospectus)",
+"shares": 17000000,
+"who": null,
+"text": "Up to approximately 17.0 million shares",
+"page": "227",
+"date_status": "date blank in this filing (not printed yet)"
+},
+{
+"when": ", 2027 (154th day after the date of this prospectus)",
+"shares": 51100000,
+"who": null,
+"text": "Up to approximately 51.1 million shares (subject to pro rata reduction in the event of any Price-Based Lock-Up Expiration (4))",
+"page": "227",
+"date_status": "date blank in this filing (not printed yet)"
+},
+{
+"when": ", 2027 (168th day after the date of this prospectus)",
+"shares": 51100000,
+"who": null,
+"text": "Up to approximately 51.1 million shares (subject to pro rata reduction in the event of any Price-Based Lock-Up Expiration (4))",
+"page": "227",
+"date_status": "date blank in this filing (not printed yet)"
+},
+{
+"when": ", 2027 (181st day after the date of this prospectus)",
+"shares": 51100000,
+"who": "our stockholders not previously eligible for sale due to the restrictions set forth in market standoff provisions and lock-up agreements (1)",
+"text": "Up to approximately 51.1 million shares (subject to pro rata reduction in the event of any Price-Based Lock-Up Expiration (4)), representing all remaining shares held by our stockholders not previously eligible for sale due to the restrictions set forth in market standoff provisions and lock-up agreements (1)",
+"page": "227",
+"date_status": "date blank in this filing (not printed yet)"
+}
+],
+"capitalization": {
+"columns": [
+"Actual",
+"Pro forma",
+"Pro forma as adjusted"
+],
+"rows": [
+{
+"label": "Cash and cash equivalents (2)",
+"values": {
+"Actual": 371.764,
+"Pro forma": 371.764,
+"Pro forma as adjusted": 377.919
+}
+},
+{
+"label": "Debt (3)",
+"values": {
+"Actual": 380.135,
+"Pro forma": 380.135,
+"Pro forma as adjusted": 380.135
+}
+},
+{
+"label": "Redeemable convertible preferred stock, par value $0.00001 per share; 205,093,489 shares authorized, 136,767,173 shares issued and outstanding, actual; and no shares authorized, issued, or outstanding, pro forma and pro forma as adjusted",
+"values": {
+"Actual": 1499.751,
+"Pro forma": 0.0,
+"Pro forma as adjusted": 0.0
+}
+},
+{
+"label": "Additional paid-in capital",
+"values": {
+"Actual": 0.0,
+"Pro forma": 1199.423,
+"Pro forma as adjusted": 1731.044
+}
+},
+{
+"label": "Accumulated other comprehensive income",
+"values": {
+"Actual": 8.378,
+"Pro forma": 8.378,
+"Pro forma as adjusted": 8.378
+}
+},
+{
+"label": "Accumulated deficit",
+"values": {
+"Actual": -1626.112,
+"Pro forma": -1802.186,
+"Pro forma as adjusted": -1802.186
+}
+},
+{
+"label": "Total stockholders\u2019 deficit",
+"values": {
+"Actual": -1617.734,
+"Pro forma": -594.381,
+"Pro forma as adjusted": -62.76
+}
+},
+{
+"label": "Total capitalization",
+"values": {
+"Actual": 262.152,
+"Pro forma": -214.246,
+"Pro forma as adjusted": 317.375
+}
+}
+],
+"page": "85",
+"pages": [
+"85",
+"86"
+]
+},
+"dilution": {
+"ntbv_per_share_before": -2.46,
+"ntbv_per_share_after": -0.69,
+"dilution_per_share": 42.69,
+"price_per_share": 42.0,
+"page": "87",
+"ntbv_per_share_historical": -14.45
+}
+},
+"metrics": {
+"quarterly": {
+"columns": [
+"Dec 2024",
+"Mar 2025",
+"Jun 2025",
+"Sep 2025",
+"Dec 2025",
+"Mar 2026",
+"Jun 2026"
+],
+"rows": [
+{
+"label": "Hardware",
+"section": "",
+"values": {
+"Dec 2024": 202.592,
+"Mar 2025": 196.12,
+"Jun 2025": 190.014,
+"Sep 2025": 160.667,
+"Dec 2025": 385.86,
+"Mar 2026": 272.308,
+"Jun 2026": 315.812
+},
+"unit": "$M",
+"pct_of_revenue": {
+"Dec 2024": 87.8,
+"Mar 2025": 84.3,
+"Jun 2025": 81.1,
+"Sep 2025": 76.4,
+"Dec 2025": 85.6,
+"Mar 2026": 76.7,
+"Jun 2026": 77.3
+}
+},
+{
+"label": "Membership",
+"section": "",
+"values": {
+"Dec 2024": 28.092,
+"Mar 2025": 36.475,
+"Jun 2025": 44.276,
+"Sep 2025": 49.62,
+"Dec 2025": 65.107,
+"Mar 2026": 82.507,
+"Jun 2026": 92.912
+},
+"unit": "$M",
+"pct_of_revenue": {
+"Dec 2024": 12.2,
+"Mar 2025": 15.7,
+"Jun 2025": 18.9,
+"Sep 2025": 23.6,
+"Dec 2025": 14.4,
+"Mar 2026": 23.3,
+"Jun 2026": 22.7
+}
+},
+{
+"label": "Total revenue",
+"section": "",
+"values": {
+"Dec 2024": 230.684,
+"Mar 2025": 232.595,
+"Jun 2025": 234.29,
+"Sep 2025": 210.287,
+"Dec 2025": 450.967,
+"Mar 2026": 354.815,
+"Jun 2026": 408.724
+},
+"unit": "$M",
+"pct_of_revenue": {
+"Dec 2024": 100.0,
+"Mar 2025": 100.0,
+"Jun 2025": 100.0,
+"Sep 2025": 100.0,
+"Dec 2025": 100.0,
+"Mar 2026": 100.0,
+"Jun 2026": 100.0
+}
+},
+{
+"label": "Cost of Revenue",
+"section": "",
+"values": {
+"Dec 2024": 117.89,
+"Mar 2025": 109.216,
+"Jun 2025": 114.438,
+"Sep 2025": 95.3,
+"Dec 2025": 235.586,
+"Mar 2026": 151.716,
+"Jun 2026": 165.037
+},
+"unit": "$M",
+"pct_of_revenue": {
+"Dec 2024": 51.1,
+"Mar 2025": 47.0,
+"Jun 2025": 48.8,
+"Sep 2025": 45.3,
+"Dec 2025": 52.2,
+"Mar 2026": 42.8,
+"Jun 2026": 40.4
+}
+},
+{
+"label": "Gross profit",
+"section": "",
+"values": {
+"Dec 2024": 112.794,
+"Mar 2025": 123.379,
+"Jun 2025": 119.852,
+"Sep 2025": 114.987,
+"Dec 2025": 215.381,
+"Mar 2026": 203.099,
+"Jun 2026": 243.687
+},
+"unit": "$M",
+"pct_of_revenue": {
+"Dec 2024": 48.9,
+"Mar 2025": 53.0,
+"Jun 2025": 51.2,
+"Sep 2025": 54.7,
+"Dec 2025": 47.8,
+"Mar 2026": 57.2,
+"Jun 2026": 59.6
+}
+},
+{
+"label": "Sales and marketing",
+"section": "Operating expenses",
+"values": {
+"Dec 2024": 51.929,
+"Mar 2025": 38.045,
+"Jun 2025": 50.299,
+"Sep 2025": 61.944,
+"Dec 2025": 81.71,
+"Mar 2026": 72.94,
+"Jun 2026": 103.208
+},
+"unit": "$M",
+"pct_of_revenue": {
+"Dec 2024": 22.5,
+"Mar 2025": 16.4,
+"Jun 2025": 21.5,
+"Sep 2025": 29.5,
+"Dec 2025": 18.1,
+"Mar 2026": 20.6,
+"Jun 2026": 25.3
+}
+},
+{
+"label": "Research and development",
+"section": "Operating expenses",
+"values": {
+"Dec 2024": 29.222,
+"Mar 2025": 31.775,
+"Jun 2025": 40.081,
+"Sep 2025": 40.879,
+"Dec 2025": 54.662,
+"Mar 2026": 63.477,
+"Jun 2026": 88.661
+},
+"unit": "$M",
+"pct_of_revenue": {
+"Dec 2024": 12.7,
+"Mar 2025": 13.7,
+"Jun 2025": 17.1,
+"Sep 2025": 19.4,
+"Dec 2025": 12.1,
+"Mar 2026": 17.9,
+"Jun 2026": 21.7
+}
+},
+{
+"label": "General and administrative",
+"section": "Operating expenses",
+"values": {
+"Dec 2024": 16.109,
+"Mar 2025": 17.67,
+"Jun 2025": 20.63,
+"Sep 2025": 27.097,
+"Dec 2025": 25.321,
+"Mar 2026": 44.227,
+"Jun 2026": 56.773
+},
+"unit": "$M",
+"pct_of_revenue": {
+"Dec 2024": 7.0,
+"Mar 2025": 7.6,
+"Jun 2025": 8.8,
+"Sep 2025": 12.9,
+"Dec 2025": 5.6,
+"Mar 2026": 12.5,
+"Jun 2026": 13.9
+}
+},
+{
+"label": "Total operating expenses",
+"section": "Operating expenses",
+"values": {
+"Dec 2024": 97.26,
+"Mar 2025": 87.49,
+"Jun 2025": 111.01,
+"Sep 2025": 129.92,
+"Dec 2025": 161.693,
+"Mar 2026": 180.644,
+"Jun 2026": 248.642
+},
+"unit": "$M",
+"pct_of_revenue": {
+"Dec 2024": 42.2,
+"Mar 2025": 37.6,
+"Jun 2025": 47.4,
+"Sep 2025": 61.8,
+"Dec 2025": 35.9,
+"Mar 2026": 50.9,
+"Jun 2026": 60.8
+}
+},
+{
+"label": "Income (loss) from operations",
+"section": "Operating expenses",
+"values": {
+"Dec 2024": 15.534,
+"Mar 2025": 35.889,
+"Jun 2025": 8.842,
+"Sep 2025": -14.933,
+"Dec 2025": 53.688,
+"Mar 2026": 22.455,
+"Jun 2026": -4.955
+},
+"unit": "$M",
+"pct_of_revenue": {
+"Dec 2024": 6.7,
+"Mar 2025": 15.4,
+"Jun 2025": 3.8,
+"Sep 2025": -7.1,
+"Dec 2025": 11.9,
+"Mar 2026": 6.3,
+"Jun 2026": -1.2
+}
+},
+{
+"label": "Interest expense",
+"section": "Operating expenses",
+"values": {
+"Dec 2024": -4.011,
+"Mar 2025": -3.859,
+"Jun 2025": -2.732,
+"Sep 2025": -2.782,
+"Dec 2025": -0.327,
+"Mar 2026": -0.5,
+"Jun 2026": -1.395
+},
+"unit": "$M",
+"pct_of_revenue": {
+"Dec 2024": -1.7,
+"Mar 2025": -1.7,
+"Jun 2025": -1.2,
+"Sep 2025": -1.3,
+"Dec 2025": -0.1,
+"Mar 2026": -0.1,
+"Jun 2026": -0.3
+}
+},
+{
+"label": "Loss on extinguishment of debt",
+"section": "Operating expenses",
+"values": {
+"Dec 2024": 0.0,
+"Mar 2025": 0.0,
+"Jun 2025": -8.725,
+"Sep 2025": 0.0,
+"Dec 2025": 0.0,
+"Mar 2026": 0.0,
+"Jun 2026": -0.479
+},
+"unit": "$M",
+"pct_of_revenue": {
+"Dec 2024": 0.0,
+"Mar 2025": 0.0,
+"Jun 2025": -3.7,
+"Sep 2025": 0.0,
+"Dec 2025": 0.0,
+"Mar 2026": 0.0,
+"Jun 2026": -0.1
+}
+},
+{
+"label": "Other income (expense), net",
+"section": "Operating expenses",
+"values": {
+"Dec 2024": -4.621,
+"Mar 2025": -1.616,
+"Jun 2025": 1.766,
+"Sep 2025": 4.821,
+"Dec 2025": 12.09,
+"Mar 2026": -10.013,
+"Jun 2026": -0.481
+},
+"unit": "$M",
+"pct_of_revenue": {
+"Dec 2024": -2.0,
+"Mar 2025": -0.7,
+"Jun 2025": 0.8,
+"Sep 2025": 2.3,
+"Dec 2025": 2.7,
+"Mar 2026": -2.8,
+"Jun 2026": -0.1
+}
+},
+{
+"label": "Income (loss) before income taxes",
+"section": "Operating expenses",
+"values": {
+"Dec 2024": 6.902,
+"Mar 2025": 30.414,
+"Jun 2025": -0.849,
+"Sep 2025": -12.894,
+"Dec 2025": 65.451,
+"Mar 2026": 11.942,
+"Jun 2026": -7.31
+},
+"unit": "$M",
+"pct_of_revenue": {
+"Dec 2024": 3.0,
+"Mar 2025": 13.1,
+"Jun 2025": -0.4,
+"Sep 2025": -6.1,
+"Dec 2025": 14.5,
+"Mar 2026": 3.4,
+"Jun 2026": -1.8
+}
+},
+{
+"label": "Provision for (benefit from) income taxes",
+"section": "Operating expenses",
+"values": {
+"Dec 2024": 20.903,
+"Mar 2025": 17.847,
+"Jun 2025": -3.856,
+"Sep 2025": -11.333,
+"Dec 2025": 4.524,
+"Mar 2026": 2.135,
+"Jun 2026": 2.656
+},
+"unit": "$M",
+"pct_of_revenue": {
+"Dec 2024": 9.1,
+"Mar 2025": 7.7,
+"Jun 2025": -1.6,
+"Sep 2025": -5.4,
+"Dec 2025": 1.0,
+"Mar 2026": 0.6,
+"Jun 2026": 0.6
+}
+},
+{
+"label": "Net income (loss)",
+"section": "Operating expenses",
+"values": {
+"Dec 2024": -14.001,
+"Mar 2025": 12.567,
+"Jun 2025": 3.007,
+"Sep 2025": -1.561,
+"Dec 2025": 60.927,
+"Mar 2026": 9.807,
+"Jun 2026": -9.966
+},
+"unit": "$M",
+"pct_of_revenue": {
+"Dec 2024": -6.1,
+"Mar 2025": 5.4,
+"Jun 2025": 1.3,
+"Sep 2025": -0.7,
+"Dec 2025": 13.5,
+"Mar 2026": 2.8,
+"Jun 2026": -2.4
+}
+}
+],
+"pages": [
+"109",
+"110"
+],
+"note": "three months ended on each date; % of revenue worked out here from the printed rows"
+},
+"sbc": {
+"by_year": {
+"2025": 6.249,
+"2024": 6.127,
+"9M 2026": 10.007,
+"9M 2025": 5.93
+},
+"page": "F-7",
+"pages": [
+"F-7",
+"F-48"
+],
+"pct_of_revenue": {
+"2025": 0.7,
+"2024": 1.5,
+"9M 2026": 0.8,
+"9M 2025": 0.9
+},
+"note": "from the cash flow statement; % of revenue worked out here",
+"unrecognized": 172.4,
+"recognition_years": null,
+"unrecognized_as_of": "September 30, 2025",
+"unrecognized_page": "F-38",
+"unrecognized_pages": [
+"F-38",
+"F-39"
+],
+"built_from": [
+{
+"award": "stock options",
+"amount": 1.3,
+"years": 0.94,
+"page": "F-38"
+},
+{
+"award": "PSUs",
+"amount": 169.1,
+"years": null,
+"page": "F-39"
+},
+{
+"award": "restricted stock awards",
+"amount": 2.0,
+"years": 1.01,
+"page": "F-39"
+}
+],
+"items": [
+{
+"amount": 1.3,
+"award": "stock options",
+"award_from_context": false,
+"as_of": "September 30, 2025",
+"years": 0.94,
+"page": "F-38",
+"text": "As of September 30, 2025, the Company had $1.3 million of unrecognized share-based compensation expenses related to unvested stock options, which is expected to be recognized over a weighted-average period of 0.94 years"
+},
+{
+"amount": 169.1,
+"award": "PSUs",
+"award_from_context": false,
+"as_of": "September 30, 2025",
+"years": null,
+"page": "F-39",
+"text": "As of September 30, 2025, the Company had $169.1 million of unrecognized share-based compensation expense related to PSUs"
+},
+{
+"amount": 2.0,
+"award": "restricted stock awards",
+"award_from_context": true,
+"as_of": "September 30, 2025",
+"years": 1.01,
+"page": "F-39",
+"text": "As of September 30, 2025, the Company had $2.0 million of unrecognized share-based compensation expense, which is expected to be recognized over a weighted-average period of 1.01 years"
+}
+],
+"unrecognized_note": "sum of the award types printed separately at the latest date; not every type prints its years"
+},
+"commitments": {
+"status": "not printed in this filing (no commitments schedule by year found)"
+},
+"key_metrics": [
+{
+"label": "Rings Sold",
+"values": {
+"9M 2026": 3.1,
+"9M 2025": 1.8,
+"2025": 2.3,
+"2024": 1.0
+},
+"unit": "million",
+"page": "98"
+},
+{
+"label": "Paid Members",
+"values": {
+"9M 2026": 5.0,
+"9M 2025": 2.5,
+"2025": 2.9,
+"2024": 1.3
+},
+"unit": "million",
+"page": "98"
+},
+{
+"label": "Rings Sold",
+"values": {
+"Dec 2024": 0.6,
+"Mar 2025": 0.6,
+"Jun 2025": 0.6,
+"Sep 2025": 0.5,
+"Dec 2025": 1.4,
+"Mar 2026": 0.8,
+"Jun 2026": 1.0
+},
+"unit": "million",
+"page": "111"
+},
+{
+"label": "Paid Members",
+"values": {
+"Dec 2024": 1.5,
+"Mar 2025": 2.1,
+"Jun 2025": 2.5,
+"Sep 2025": 2.9,
+"Dec 2025": 3.4,
+"Mar 2026": 4.6,
+"Jun 2026": 5.0
+},
+"unit": "million",
+"page": "111"
+}
+]
+}
+}

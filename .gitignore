@@ -1,0 +1,9 @@
+data/
+dashboards/
+build_all.log
+__pycache__/
+*.pyc
+.DS_Store
+notes/
+# your AI key and provider: stays on this computer
+.ai.json
