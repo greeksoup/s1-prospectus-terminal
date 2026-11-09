@@ -75,7 +75,7 @@ on a small computer can be slow with that much text; a larger model reads it bet
 
 ## Where the key lives
 
-In one file on your computer, `.ai.json` in the program folder, readable by you only. It is
+In one file on your computer, `.ai.json` in the program folder. On a Mac or Linux it is readable by you only; on Windows it is as private as the folder you keep the program in (your Documents folder is private to your account). It is
 listed in `.gitignore`, so it never goes into git. It is never written into `library/`, never put
 into the page (the page only sees "saved, ends 1a2b"), never printed or logged, and goes only to
 the provider you picked. **Remove the key** deletes it from the file. Switching to another

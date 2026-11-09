@@ -70,7 +70,8 @@ pub = ai.save({"provider": "custom", "base_url": BASE + "/v1", "model": "m1", "f
 CHECKS += [
     ("the page never sees the key", KEY in json.dumps(pub), False),
     ("the page sees that a key is saved", pub["key"], "saved, ends wxyz"),
-    ("key file readable by you only", oct(os.stat(ai.FILE).st_mode & 0o777), "0o600"),
+    # Windows has no such file mode: there the file is as private as the folder it sits in
+    ("key file readable by you only (Mac and Linux)", oct(os.stat(ai.FILE).st_mode & 0o777) if os.name != "nt" else "0o600", "0o600"),
     ("common way answers", ai.ping(), {"ok": True, "reply": "openai ok"}),
     ("common way sends the key as Bearer", SEEN[-1]["authorization"], "Bearer " + KEY),
     ("common way path", SEEN[-1]["path"], "/v1/chat/completions"),
