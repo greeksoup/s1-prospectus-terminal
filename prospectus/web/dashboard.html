@@ -210,7 +210,8 @@ input.in{height:30px;border:1px solid var(--line2);border-radius:3px;background:
 select.sel.wide{height:30px;width:100%}
 details.adv{margin:0 0 8px;font-size:12px}details.adv summary{cursor:pointer;color:var(--mute);margin-bottom:8px}
 .btns{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
-@media (max-width:820px){table.apps1 tr{display:grid;grid-template-columns:minmax(0,1fr) auto;border-bottom:1px solid var(--line)}table.apps1 td{border:0;height:auto}table.apps1 td.acts{grid-column:1/-1;text-align:left;padding-bottom:10px}table.apps1 td.acts .btn{margin:0 6px 0 0}.frow{grid-template-columns:72px minmax(0,1fr)}}
+table.apps1 tr{display:grid;grid-template-columns:minmax(0,1fr) auto;border-bottom:1px solid var(--line)}table.apps1 td{border:0;height:auto}table.apps1 td.acts{grid-column:1/-1;text-align:left;padding-top:0;padding-bottom:10px}table.apps1 td.acts .btn{margin:0 6px 0 0}
+@media (max-width:820px){.frow{grid-template-columns:72px minmax(0,1fr)}}
 .strip{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:12px;margin:0 0 10px}
 .appchip{border:1px solid var(--line2);border-radius:3px;padding:2px 7px;font-weight:500;color:var(--ink2)}.appchip.on{border-color:var(--up);color:var(--up)}.appchip.off{color:var(--down)}
 ol.setup{margin:0;padding-left:20px;font-size:13.5px;line-height:1.6}ol.setup li{margin:0 0 12px}
@@ -882,7 +883,7 @@ addView('ASK','Ask','Yours','',v=>{
   onProv(false);if(AI.provider&&AI.key)saveB.textContent='Save changes'}
 
  async function load(fresh){try{const[r1,r2]=await Promise.all([fetch('/apps'+(fresh?'?fresh=1':'')).then(r=>{if(!r.ok)throw 0;return r.json()}),fetch('/ai').then(r=>r.json())]);APPS=r1.apps;AI=r2;
-   strip.innerHTML='';const ready=APPS.filter(a=>a.state==='in');strip.append(el('span',{class:'mute'},'Connected: '),...ready.map(a=>el('span',{class:'appchip on'},'✓ ',a.label)),AI.ready?el('span',{class:'appchip on'},'✓ ',AI.label.replace(' (free)','')):null,!ready.length&&!AI.ready?el('span',{class:'appchip off'},'nothing yet: connect one below'):null,el('a',{href:'#',onclick:e=>{e.preventDefault();load(true)}},'check again'));
+   strip.innerHTML='';const ready=APPS.filter(a=>a.state==='in');strip.append(...[el('span',{class:'mute'},'Connected: '),...ready.map(a=>el('span',{class:'appchip on'},'✓ ',a.label)),AI.ready?el('span',{class:'appchip on'},'✓ ',AI.label.replace(' (free)','')):null,!ready.length&&!AI.ready?el('span',{class:'appchip off'},'nothing yet: connect one below'):null,el('a',{href:'#',onclick:e=>{e.preventDefault();load(true)}},'check again')].filter(Boolean));
    fillWho();drawApps();drawKey()}catch(e){strip.innerHTML='';appsHost.innerHTML='';keyHost.innerHTML='';appsHost.append(offline())}}
  function offline(){return el('div',{class:'empty'},el('b',{},'Questions need the local server. '),'Start it from the program folder; it opens this page by itself:',el('code',{class:'cl'},'python3 -m prospectus serve'))}
  async function send(){const q=i.value.trim();if(!q||b.disabled)return;i.value='';fit();b.disabled=true;

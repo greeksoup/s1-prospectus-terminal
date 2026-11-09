@@ -1,12 +1,25 @@
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/banner-dark.svg">
-  <img alt="S-1 Prospectus Terminal, by GreekSoup" src="assets/banner-light.svg" width="600">
-</picture>
+<p align="center">
+  <a href="https://greeksoup.ai">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="assets/banner-dark.svg">
+      <img alt="S-1 Prospectus Terminal, by GreekSoup" src="assets/banner-light.svg" width="100%">
+    </picture>
+  </a>
+</p>
+
+<p align="center">
+  <a href="https://www.python.org/downloads/"><img src="https://img.shields.io/badge/python-3.10%2B-3776AB?style=flat-square" alt="Python 3.10 or newer"></a>
+  <a href="https://www.sec.gov/edgar/search/"><img src="https://img.shields.io/badge/reads-SEC%20EDGAR-0B1424?style=flat-square" alt="Reads SEC EDGAR"></a>
+  <a href="docs/YOUR_AI.md"><img src="https://img.shields.io/badge/AI-optional%2C%20yours-ECEBE6?style=flat-square&labelColor=0F1114" alt="AI optional, your own"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/licence-MIT-3ECF8E?style=flat-square" alt="Licence: MIT"></a>
+  <a href="https://ai.shikshannivesh.com"><img src="https://img.shields.io/badge/newsletter-Alpha%20with%20AI-ED5A24?style=flat-square" alt="Alpha with AI on Substack"></a>
+</p>
 
 # S-1 Prospectus Terminal
 
-Read any S-1 filing or IPO prospectus from SEC EDGAR as a terminal-style dashboard.
-Open source by [GreekSoup](https://greeksoup.ai), the equity research platform.
+Read any S-1 filing or IPO prospectus from SEC EDGAR as a terminal-style dashboard. Free and
+open source, built by the team at [greeksoup.ai](https://greeksoup.ai), a web-based stock
+research platform.
 
 Type a company's name. The program finds its IPO prospectus on SEC EDGAR, reads every printed
 page, answers five questions in a fixed order, flags what deserves a closer look, shows what
@@ -21,6 +34,10 @@ computer through Ollama or LM Studio.
 ```
 python3 -m prospectus "Anthropic"
 ```
+
+[greeksoup.ai, our stock research platform](https://greeksoup.ai) · [Install](#install) · [Your AI](docs/YOUR_AI.md) · [Alpha with AI, the newsletter](https://ai.shikshannivesh.com) · [Shikshan Nivesh Data](https://shikshannivesh.com)
+
+<p align="center"><img src="assets/screens/overview.png" alt="The overview of Anthropic's S-1/A: the five questions with their readings, key figures and the printed page each came from" width="100%"></p>
 
 ## The five questions, in this order
 
@@ -107,6 +124,8 @@ type a code or a word ("debt", "flags"), and press Enter.
 | NTS | Your five lines and what changed after the filing (saved in your browser only) |
 | ASK | A conversation about the filing, with follow-ups, answered by the AI you choose: an app you pay for, your own key, or a free local model |
 
+<p align="center"><img src="assets/screens/financials.png" alt="Every line of the income statement as printed, with the % change under each line" width="49%"> <img src="assets/screens/owners.png" alt="Share classes and votes: who holds the vote after the offering, against who holds the shares" width="49%"></p>
+
 ## The question box
 
 The code scores every printed page against your question (the same word-matching formula
@@ -127,6 +146,8 @@ the code already read, to the AI you choose. Two ways, side by side in the Ask v
 
 The full guide, with every install line and where it came from: [docs/YOUR_AI.md](docs/YOUR_AI.md).
 
+<p align="center"><img src="assets/screens/ask.png" alt="The Ask view: the question box, and the two ways to connect an AI side by side" width="100%"></p>
+
 If an app's default model is one your plan cannot use (Codex set to an API-only model on a
 ChatGPT plan, say), the program retries once with a model the plan takes and says which one
 answered.
@@ -146,29 +167,46 @@ SEC asks programs to identify themselves. If SEC ever refuses a request, set you
 
 ## Tests
 
-The tests replay real filings against figures checked by hand on SEC's own pages.
+249 checks in 10 files. Most replay real filings against figures read by hand on SEC's own
+pages; the AI one runs against a stand-in model on your computer, with no key and no internet.
 
 ```
+python3 -m tests.test_ai                 # 29: every app listed, both key formats, Ollama, the key never reaches the page
 python3 -m tests.test_spacex_tables      # 9 figures from the SpaceX S-1 (20 May 2026)
 python3 -m tests.test_spacex_questions   # 15 answers
 python3 -m tests.test_spacex_flags       # 7 findings
 python3 -m tests.test_anthropic          # 12 figures and flags from the Anthropic S-1/A (2 Nov 2026)
+python3 -m tests.test_statements         # 34 statement lines across the four filings
+python3 -m tests.test_shares             # 44 share counts, lock-ups and dilution figures
+python3 -m tests.test_metrics            # 20 quarterly, pay and commitment figures
+python3 -m tests.test_qual               # 59 offer, owner, people and risk readings
+python3 -m tests.test_pages_price_trust  # 20 page numbers and price checks
 ```
 
-Run `python3 -m prospectus "Space Exploration Technologies"` and `python3 -m prospectus "Anthropic"` once
-first so the filings are on disk.
+Every file but `test_ai` needs the filings on disk first. Read the four companies once:
+`python3 -m prospectus "Space Exploration Technologies"`, then `"Anthropic"`, `"Cerebras"` and `"Oura"`.
 
-## What it will not do
+## Community
 
-Tell you whether to buy. The dashboard is information from public filings, not advice. Check
-every figure against the linked page before relying on it.
+- **Something wrong, or a filing it misreads**: [open an issue](https://github.com/greeksoup/s1-prospectus-terminal/issues) with the company and the page. A misread figure with its page number is the most useful report there is.
+- **A company you want added to `library/`**: an issue with its name is enough.
+- **A contribution**: pull requests are welcome, including ones written with an AI agent. Add a check to `tests/` for any figure you fix.
+- **The newsletter**: [Alpha with AI](https://ai.shikshannivesh.com) carries the IPO editions this program grew out of.
+- **The research platform**: [greeksoup.ai](https://greeksoup.ai) has a page for every US-listed company we cover. For the full statements of listed companies, year after year, there is [Shikshan Nivesh Data](https://shikshannivesh.com).
 
-## Made by
+## Disclaimer
 
-[GreekSoup](https://greeksoup.ai) makes stock research tools for investors. This program reads
-prospectuses; for the full statements of listed US companies, year after year, there is
-[Shikshan Nivesh Data](https://shikshannivesh.com).
+This is an investment research tool, published for educational purposes. Nothing in this
+repository, and nothing the dashboard shows, is investment, legal or tax advice, or a
+recommendation to buy, sell or hold any security. The author is not a registered investment
+adviser or research analyst. Every figure is read by code from public SEC filings and can be
+wrong, because filings get amended and code has bugs: check it against the printed page it links
+to before relying on it. An answer from an AI can misread a figure too. AI coding tools,
+including Claude Code, wrote this software. Investing carries risk, including the loss of
+capital. Do your own research and consult a qualified professional in your jurisdiction.
 
-## License
+## Licence
 
-MIT.
+MIT, copyright Shubham Borkar. See [LICENSE](LICENSE). S-1 Prospectus Terminal is made by the
+team behind [greeksoup.ai](https://greeksoup.ai) and [Shikshan Nivesh](https://shikshannivesh.com);
+Alpha with AI is our newsletter.
