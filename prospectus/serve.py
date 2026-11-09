@@ -112,8 +112,11 @@ def serve(port=8861, open_browser=True):
     try:
         server = ThreadingHTTPServer(("127.0.0.1", port), partial(Handler, directory=str(OUT)))
     except OSError:
-        print(f"Port {port} is already in use, probably by an S-1 Prospectus Terminal you started earlier: open http://127.0.0.1:{port}/ "
-              f"or start this one on another port: python3 -m prospectus serve {port + 1}")
+        # most often the program is already open from an earlier double-click: show that one
+        print(f"S-1 Prospectus Terminal is already running at http://127.0.0.1:{port}/ (opening it). "
+              f"If that is some other program, start this one on another port: python3 -m prospectus serve {port + 1}")
+        if open_browser:
+            webbrowser.open(f"http://127.0.0.1:{port}/")
         return
     url = f"http://127.0.0.1:{port}/"
     print(f"S-1 Prospectus Terminal at {url}  (keep this window open; Ctrl+C to stop)")

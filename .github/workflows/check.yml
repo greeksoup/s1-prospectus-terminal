@@ -1,0 +1,45 @@
+name: check
+on:
+  push:
+  pull_request:
+jobs:
+  starters:
+    name: ${{ matrix.os }} · Python ${{ matrix.python }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        python: ["3.10", "3.13"]
+    runs-on: ${{ matrix.os }}
+    env:
+      S1PT_SETUP_ONLY: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - name: The double-click starter, as a reader would run it (Mac)
+        if: runner.os == 'macOS'
+        run: bash start-mac.command
+      - name: The starter (Linux)
+        if: runner.os == 'Linux'
+        run: bash start-linux.sh
+      - name: The double-click starter (Windows)
+        if: runner.os == 'Windows'
+        shell: cmd
+        run: start-windows.bat
+      - name: Tests that need no filings
+        shell: bash
+        run: |
+          if [ -x .venv/Scripts/python.exe ]; then VPY=.venv/Scripts/python.exe; else VPY=.venv/bin/python; fi
+          "$VPY" -m tests.test_ai
+          "$VPY" -m tests.test_update
+      - name: The dashboards were drawn and the local server answers
+        shell: bash
+        run: |
+          if [ -x .venv/Scripts/python.exe ]; then VPY=.venv/Scripts/python.exe; else VPY=.venv/bin/python; fi
+          ls dashboards/anthropic-pbc.html dashboards/index.html
+          "$VPY" -m prospectus serve --no-open &
+          for i in $(seq 1 30); do curl -sf http://127.0.0.1:8861/anthropic-pbc.html -o page.html && break; sleep 1; done
+          grep -q "S-1 Prospectus Terminal" page.html
+          curl -sf http://127.0.0.1:8861/apps | grep -q '"app": "claude"'

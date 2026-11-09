@@ -35,7 +35,7 @@ computer through Ollama or LM Studio.
 python3 -m prospectus "Anthropic"
 ```
 
-[greeksoup.ai, our stock research platform](https://greeksoup.ai) · [Install](#install) · [Your AI](docs/YOUR_AI.md) · [Alpha with AI, the newsletter](https://ai.shikshannivesh.com) · [Shikshan Nivesh Data](https://shikshannivesh.com)
+[greeksoup.ai, our stock research platform](https://greeksoup.ai) · [Start here (plain words)](START_HERE.md) · [Install](#install) · [Your AI](docs/YOUR_AI.md) · [Alpha with AI, the newsletter](https://ai.shikshannivesh.com) · [Shikshan Nivesh Data](https://shikshannivesh.com)
 
 <p align="center"><img src="assets/screens/overview.png" alt="The overview of Anthropic's S-1/A: the five questions with their readings, key figures and the printed page each came from" width="100%"></p>
 
@@ -57,14 +57,26 @@ prospectus is a photograph frozen on its date).
 
 ## Install
 
-There is no install script to pipe into your shell, nothing starts with your computer, and
-nothing updates itself. You download the code, can read every file first, and run it.
+**Not technical? Read [START_HERE.md](START_HERE.md).** It walks through getting Python, the
+download, and the one double-click, with what to press when your computer warns you.
 
-You need Python 3.10 or newer.
+The short version:
 
-1. Download it: on this page, **Code → Download ZIP** (or `git clone https://github.com/greeksoup/s1-prospectus-terminal.git`), and unzip it.
-2. Read it if you like: it is plain Python in `prospectus/` and one HTML page in `prospectus/web/`.
-3. In a terminal, inside the folder, give it its own Python environment and its three libraries:
+1. Have Python 3.10 or newer ([python.org/downloads](https://www.python.org/downloads/); on
+   Windows, tick "Add python.exe to PATH").
+2. Download the [latest release](https://github.com/greeksoup/s1-prospectus-terminal/releases/latest)
+   (**Source code (zip)**) and unzip it.
+3. Double-click `start-mac.command`, `start-windows.bat` or `start-linux.sh`.
+
+The starter gives the program its own Python environment inside its folder (`.venv`, nothing
+installed anywhere else), installs its three libraries the first time, checks GitHub for a newer
+release each time you start it and asks before updating (your notes, filings and AI key are never
+touched), and opens the dashboard in your browser. There is no script to pipe into your shell and
+nothing starts with your computer. Every starter is a short plain-text file you can read first; the
+shared one is `scripts/start.sh`. A GitHub check runs them on fresh Windows, Mac and Linux machines
+on every change.
+
+By hand, if you prefer:
 
 ```
 python3 -m venv .venv
@@ -74,11 +86,9 @@ python3 -m prospectus serve
 ```
 
 The three libraries are `beautifulsoup4` and `lxml` (reading the filing's HTML) and `certifi`
-(the certificates that reach SEC.gov). The program talks to SEC EDGAR, and to the AI you choose
-only when you ask a question; nothing else. To update, download the new version the same way.
-
-`certifi` matters on a Mac: the Python from python.org ships without the certificates that
-reach SEC.gov.
+(the certificates that reach SEC.gov, which the Python from python.org lacks on a Mac). The program
+talks to SEC EDGAR, to GitHub for the version check, and to the AI you choose only when you ask a
+question; nothing else.
 
 ## Use
 
@@ -167,11 +177,12 @@ SEC asks programs to identify themselves. If SEC ever refuses a request, set you
 
 ## Tests
 
-249 checks in 10 files. Most replay real filings against figures read by hand on SEC's own
-pages; the AI one runs against a stand-in model on your computer, with no key and no internet.
+264 checks in 11 files. Most replay real filings against figures read by hand on SEC's own
+pages; the AI one runs against a stand-in model on your computer, and the update one against release zips built on the spot, with no key and no internet.
 
 ```
 python3 -m tests.test_ai                 # 29: every app listed, both key formats, Ollama, the key never reaches the page
+python3 -m tests.test_update             # 15: an update replaces the program and keeps your notes, filings and key
 python3 -m tests.test_spacex_tables      # 9 figures from the SpaceX S-1 (20 May 2026)
 python3 -m tests.test_spacex_questions   # 15 answers
 python3 -m tests.test_spacex_flags       # 7 findings
@@ -183,7 +194,7 @@ python3 -m tests.test_qual               # 59 offer, owner, people and risk read
 python3 -m tests.test_pages_price_trust  # 20 page numbers and price checks
 ```
 
-Every file but `test_ai` needs the filings on disk first. Read the four companies once:
+Every file but `test_ai` and `test_update` needs the filings on disk first. Read the four companies once:
 `python3 -m prospectus "Space Exploration Technologies"`, then `"Anthropic"`, `"Cerebras"` and `"Oura"`.
 
 ## Community

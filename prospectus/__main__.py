@@ -5,6 +5,7 @@
   python3 -m prospectus ask 2130357 "question" ask your own AI app about the filing, from the terminal
                                         (add --app grok, codex, claude... or --app key for your own key/local model, and --model NAME)
   python3 -m prospectus apps                   list every AI app, whether it is installed and signed in, and how to install it
+  python3 -m prospectus update                check GitHub for a newer version and offer it (the starters do this each time)
   python3 -m prospectus redraw                 redraw every dashboard with the current design (no downloads)
   python3 -m prospectus reread                 re-read every company from the filings on disk with the current code (no SEC calls)
   python3 -m prospectus refresh                check EDGAR for newer filings of every company and rebuild those
@@ -108,7 +109,16 @@ def main(argv):
     if not argv:
         print(__doc__)
         return
-    if argv[0] == "redraw":
+    if argv[0] == "setup":
+        from .setup import main as setup
+        sys.exit(setup(argv[1:]))
+    elif argv[0] == "update":
+        from .update import main as update
+        sys.exit(update(argv[1:]))
+    elif argv[0] == "version":
+        from . import __version__
+        print(__version__)
+    elif argv[0] == "redraw":
         from .dashboard import redraw
         print(f"redrew {redraw()} dashboards")
     elif argv[0] == "serve":
