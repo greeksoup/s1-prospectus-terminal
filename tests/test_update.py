@@ -3,6 +3,7 @@ replaces the program, keeps everything that is yours, and refuses a zip that is 
 program's or reaches outside the folder. No internet. Run: python3 -m tests.test_update
 """
 import io
+import os
 import tempfile
 import zipfile
 from pathlib import Path
@@ -58,7 +59,8 @@ CHECKS += [
     ("your filings stay", r("data/1/filings.json"), "MY FILINGS"),
     ("your dashboards stay", r("dashboards/index.html"), "MY PAGE"),
     ("files the program does not know are not written", (root / "something-else.txt").exists(), False),
-    ("the Mac starter stays double-clickable", bool((root / "start-mac.command").stat().st_mode & 0o100), True),
+    # Windows has no such flag on files; on a Mac or Linux the starter must keep it
+    ("the Mac starter stays double-clickable", bool((root / "start-mac.command").stat().st_mode & 0o100) if os.name != "nt" else True, True),
 ]
 
 
