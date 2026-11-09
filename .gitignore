@@ -7,3 +7,5 @@ __pycache__/
 notes/
 # your AI key and provider: stays on this computer
 .ai.json
+# the starters give the program its own Python environment here
+.venv/
