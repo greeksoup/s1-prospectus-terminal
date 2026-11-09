@@ -8,7 +8,9 @@
 </p>
 
 <p align="center">
+  <a href="https://github.com/greeksoup/s1-prospectus-terminal/actions/workflows/check.yml"><img src="https://img.shields.io/github/actions/workflow/status/greeksoup/s1-prospectus-terminal/check.yml?branch=main&style=flat-square&label=checks" alt="Checks"></a>
   <a href="https://www.python.org/downloads/"><img src="https://img.shields.io/badge/python-3.10%2B-3776AB?style=flat-square" alt="Python 3.10 or newer"></a>
+  <a href="START_HERE.md"><img src="https://img.shields.io/badge/runs%20on-mac%20%C2%B7%20windows%20%C2%B7%20linux-ECEBE6?style=flat-square&labelColor=0F1114" alt="Runs on Mac, Windows and Linux"></a>
   <a href="https://www.sec.gov/edgar/search/"><img src="https://img.shields.io/badge/reads-SEC%20EDGAR-0B1424?style=flat-square" alt="Reads SEC EDGAR"></a>
   <a href="docs/YOUR_AI.md"><img src="https://img.shields.io/badge/AI-optional%2C%20yours-ECEBE6?style=flat-square&labelColor=0F1114" alt="AI optional, your own"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/licence-MIT-3ECF8E?style=flat-square" alt="Licence: MIT"></a>
