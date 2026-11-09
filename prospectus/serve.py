@@ -39,6 +39,24 @@ class Handler(SimpleHTTPRequestHandler):
             slug_ = re.sub(r"[^a-z0-9-]", "", (parse_qs(urlparse(self.path).query).get("company") or [""])[0])[:60]
             f = NOTES / f"{slug_}.json"
             return self._json(json.loads(f.read_text()) if slug_ and f.exists() else {})
+        if self.path.split("?")[0].startswith("/companies/"):
+            from urllib.parse import parse_qs, urlparse
+            from . import addco
+            u = urlparse(self.path)
+            try:
+                if u.path == "/companies/search":
+                    return self._json({"rows": addco.search((parse_qs(u.query).get("q") or [""])[0])})
+                if u.path == "/companies/recent":
+                    return self._json({"rows": addco.recent()})
+                if u.path == "/companies/jobs":
+                    return self._json({"jobs": addco.jobs()})
+                if u.path == "/companies/list":
+                    from .dashboard import index_rows
+                    return self._json({"rows": index_rows()})
+            except SystemExit as e:
+                return self._json({"rows": [], "error": str(e)})
+            except Exception as e:
+                return self._json({"rows": [], "error": f"could not reach SEC EDGAR ({type(e).__name__})"})
         if self.path.split("?")[0] == "/ai":
             return self._json(ai.public())
         if self.path.split("?")[0] == "/ai/models":
@@ -85,6 +103,12 @@ class Handler(SimpleHTTPRequestHandler):
                     md += [f"## {t}", "", notes[k], ""]
             (NOTES / f"{slug_}.md").write_text("\n".join(md))
             return self._json({"ok": True, "file": str((NOTES / f"{slug_}.md").resolve())})
+        if self.path == "/companies/add":
+            from . import addco
+            try:
+                return self._json({"job": addco.add(int(body["cik"]), str(body.get("name") or ""))})
+            except (KeyError, ValueError):
+                return self._json({"error": "no company picked"})
         if self.path == "/rebuild":
             from .__main__ import build
             try:

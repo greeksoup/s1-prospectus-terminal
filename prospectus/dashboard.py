@@ -88,8 +88,8 @@ def redraw():
     return n
 
 
-def write_index():
-    """A front page listing every company already read, newest first."""
+def index_rows():
+    """Every company already read, newest first (the front page and the Companies menu)."""
     rows = []
     for p in sorted(OUT.glob("*.html"), key=lambda p: p.stat().st_mtime, reverse=True):
         if p.name == "index.html":
@@ -97,6 +97,12 @@ def write_index():
         m = re.search(r'const DATA = (\{.*?\});\n', p.read_text(), re.S)
         if m:
             rows.append(_index_row(p, json.loads(m.group(1).replace("<\\/", "</"))))
+    return rows
+
+
+def write_index():
+    """A front page listing every company already read, newest first."""
+    rows = index_rows()
     (OUT / "index.html").write_text(_template("index.html").replace("__CARDS__", json.dumps(rows).replace("</", "<\\/")))
 
 

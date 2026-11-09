@@ -34,11 +34,35 @@ td a{text-decoration:none;color:var(--ink);font-weight:600}
 .up{color:var(--up)}.down{color:var(--down)}.warn{color:var(--warn);font-weight:600}.na{color:var(--faint)}
 code{display:inline-block;font:12px/1.5 var(--mono);background:var(--band);border:1px solid var(--line);border-radius:3px;padding:6px 10px;margin-top:4px}
 .note{color:var(--mute);font-size:11.5px;margin:12px 0 0;max-width:110ch}
+.btn.pri{background:var(--sn);border-color:var(--sn);color:#fff}.btn.pri:hover{filter:brightness(.95);background:var(--sn)}
+.head{display:flex;align-items:flex-start;gap:12px;flex-wrap:wrap}.head>div{flex:1;min-width:260px}
+.add{overflow:hidden;max-height:0;opacity:0;transition:max-height .28s ease,opacity .2s ease,margin .28s ease;margin:0}
+.add.open{max-height:640px;opacity:1;margin:0 0 14px}
+.add .in{padding:10px}
+.add input{width:100%;height:34px;border:1px solid var(--line2);border-radius:3px;background:var(--bg);color:var(--ink);padding:0 10px;font:13px var(--sans)}
+.add input:focus{outline:2px solid var(--focus);outline-offset:-1px}
+.list{max-height:420px;overflow-y:auto;border-top:1px solid var(--line)}
+.co{display:flex;align-items:center;gap:10px;padding:8px 10px;border-bottom:1px solid var(--line);cursor:pointer}
+.co:hover{background:var(--hover)}.co .nm{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:500}
+.co .meta{color:var(--mute);font:11.5px var(--mono);white-space:nowrap}
+.tag{font:600 10px/1 var(--sans);letter-spacing:.04em;text-transform:uppercase;color:var(--mute);border:1px solid var(--line2);border-radius:3px;padding:3px 5px;white-space:nowrap}
+.lh{padding:8px 10px;color:var(--mute);font-size:11.5px;background:var(--band)}
+.jobs{margin:0 0 14px}.jobs:empty{display:none}
+.job{display:flex;align-items:center;gap:10px;padding:8px 10px;border-bottom:1px solid var(--line)}.job:last-child{border-bottom:0}
+.job .nm{font-weight:600}.job .st{flex:1;color:var(--ink2);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.job.failed .st{color:var(--down)}
+.spin{width:12px;height:12px;border:2px solid var(--line2);border-top-color:var(--sn);border-radius:50%;animation:sp 0.8s linear infinite;flex:none}
+@keyframes sp{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){.add{transition:none}.spin{animation:none}}
 </style></head><body>
 <div class="bar"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="20" height="20" aria-hidden="true"><rect width="120" height="120" rx="26" fill="#ED5A24"/><path d="M16 42l14 18-14 18" stroke="#FFFFFF" stroke-width="10" stroke-linecap="square" stroke-linejoin="miter" fill="none"/><g fill="#0B1424"><rect x="42" y="42" width="22" height="8"/><rect x="42" y="42" width="8" height="22"/><rect x="42" y="56" width="22" height="8"/><rect x="56" y="56" width="8" height="22"/><rect x="42" y="70" width="22" height="8"/><rect x="67" y="56" width="12" height="8"/><rect x="90" y="42" width="8" height="36"/><rect x="82" y="42" width="10" height="8"/></g></svg><span>S-1 Prospectus Terminal</span></div><span class="sp"></span><button class="btn" id="theme">Dark</button></div>
 <main>
-<h1>Every prospectus read so far</h1>
-<p class="lead">Each row was built from SEC filings by code, with no AI. Click a company to open its terminal. To add one, run this in the program folder:<br><code>python3 -m prospectus "company name or ticker"</code></p>
+<div class="head"><div><h1>Every prospectus read so far</h1>
+<p class="lead">Each row was built from SEC filings by code, with no AI. Click a company to open its terminal, or add one.</p></div>
+<button class="btn pri" id="addbtn" aria-expanded="false" aria-controls="add">+ Add a company</button></div>
+<div class="panel add" id="add"><div class="in"><input id="q" autocomplete="off" spellcheck="false" placeholder="Company name, ticker or SEC CIK number" aria-label="Find a company on SEC EDGAR"></div>
+<div class="list" id="found"></div></div>
+<div class="panel jobs" id="jobs"></div>
 <div class="panel"><div class="ph"><h3>IPO pipeline · newest read first</h3></div><div class="tw"><table>
 <thead><tr><th class="l">Ticker</th><th class="l">Company</th><th class="l">Latest filing</th><th>Filed</th><th>Versions</th><th>Price</th><th>Revenue (latest)</th><th>Growth</th><th>Flags to read</th><th>Pages</th><th>Read in</th></tr></thead>
 <tbody id="rows"></tbody></table></div></div>
@@ -53,6 +77,40 @@ const rows=document.getElementById('rows');
 C.forEach(c=>{const tr=document.createElement('tr');tr.onclick=()=>location.href=c.file;
  const g=c.growth;tr.innerHTML=`<td class="l"><span class="tk">${esc(c.ticker||'NA')}</span></td><td class="l"><a href="${esc(c.file)}">${esc(c.name)}</a></td><td class="l">${esc(c.latest?c.latest.form:'')}</td><td>${esc(c.latest?fmtDate(c.latest.date):'')}</td><td>${c.versions||''}</td><td>${esc(c.price||'Not set')}</td><td>${money(c.revenue)} <span class="na">${esc(c.revenue_label||'')}</span></td><td class="${g==null?'na':g>=0?'up':'down'}">${g==null?'NA':(g>=0?'+':'−')+Math.abs(g).toFixed(0)+'%'}</td><td class="${c.watch?'warn':''}">${c.watch}/${c.flags}</td><td>${c.pages||'NA'}</td><td>${c.seconds?c.seconds+'s':'NA'}</td>`;rows.append(tr)});
 if(!C.length)rows.innerHTML='<tr><td class="l" colspan="11">Nothing read yet.</td></tr>';
+(function(){
+ const btn=document.getElementById('addbtn'),box=document.getElementById('add'),q=document.getElementById('q'),found=document.getElementById('found'),jobsEl=document.getElementById('jobs');
+ const served=location.protocol.startsWith('http');
+ const mine=new Set();let recentRows=null,timer=null,polling=null,seq=0;
+ const get=u=>fetch(u).then(r=>r.json());
+ const row=c=>`<div class="co" data-cik="${c.cik}" data-name="${esc(c.name)}" role="button" tabindex="0"><span class="nm">${esc(c.name)}</span>${c.ticker?`<span class="tk">${esc(c.ticker)}</span>`:''}${c.blank_check?'<span class="tag" title="A blank-check company (SPAC): it raises money first and buys a business later, so its prospectus has no operating numbers to read">blank check</span>':''}<span class="meta">${c.date?esc(c.form||'')+' · '+esc(fmtDate(c.date)):'CIK '+c.cik}</span></div>`;
+ function show(rows,head){found.innerHTML=(head?`<div class="lh">${head}</div>`:'')+(rows.length?rows.map(row).join(''):'<div class="lh">No company by that name on SEC EDGAR. Try the ticker, or fewer words.</div>')}
+ function offline(){found.innerHTML='<div class="lh">Adding a company needs the program running: double-click the starter (start-mac.command, start-windows.bat or start-linux.sh), and this page opens with it. Or, in the program folder:<br><code>python3 -m prospectus "company name or ticker"</code></div>'}
+ async function showRecent(){
+  if(!served)return offline();
+  if(!recentRows){found.innerHTML='<div class="lh">Loading the newest S-1 and F-1 filings from SEC EDGAR…</div>';
+   try{const r=await get('/companies/recent');recentRows=r.rows||[];if(r.error&&!recentRows.length){found.innerHTML=`<div class="lh">${esc(r.error)}. Type a name above to search anyway.</div>`;return}}catch(e){return offline()}}
+  if(!q.value.trim())show(recentRows,`Filed an S-1 or F-1 in the last three weeks · ${recentRows.length} companies · newest first · or type any name above`)}
+ btn.onclick=()=>{const open=!box.classList.contains('open');box.classList.toggle('open',open);btn.setAttribute('aria-expanded',open);if(open){q.focus();if(!q.value.trim())showRecent()}};
+ q.oninput=()=>{clearTimeout(timer);const v=q.value.trim();if(!served)return offline();if(v.length<2)return showRecent();
+  timer=setTimeout(async()=>{const my=++seq;found.innerHTML='<div class="lh">Searching SEC EDGAR…</div>';
+   try{const r=await get('/companies/search?q='+encodeURIComponent(v));if(my!==seq)return;r.error&&!(r.rows||[]).length?found.innerHTML=`<div class="lh">${esc(r.error)}</div>`:show(r.rows||[],'Companies on SEC EDGAR · click one to read its prospectus')}catch(e){offline()}},350)};
+ q.onkeydown=e=>{if(e.key==='Enter'){const f=found.querySelector('.co');if(f)f.click()}if(e.key==='Escape')btn.click()};
+ async function pick(el){const cik=+el.dataset.cik,name=el.dataset.name;mine.add(cik);
+  try{const r=await fetch('/companies/add',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({cik,name})}).then(r=>r.json());if(r.error)throw new Error(r.error)}catch(e){alert('Could not start reading it: '+e.message);return}
+  box.classList.remove('open');btn.setAttribute('aria-expanded','false');q.value='';poll()}
+ found.onclick=e=>{const el=e.target.closest('.co');if(el)pick(el)};
+ found.onkeydown=e=>{if(e.key==='Enter'){const el=e.target.closest('.co');if(el)pick(el)}};
+ const secs=j=>Math.round(((j.ended||Date.now()/1000)-(j.started||j.added)));
+ async function poll(){if(!served)return;let r;try{r=await get('/companies/jobs')}catch(e){return}
+  const js=(r.jobs||[]).filter(j=>j.state==='waiting'||j.state==='reading'||mine.has(j.cik)||Date.now()/1000-j.ended<600);
+  jobsEl.innerHTML=js.length?`<div class="ph"><h3>Adding</h3></div>`+js.map(j=>`<div class="job ${j.state}">${j.state==='waiting'||j.state==='reading'?'<span class="spin"></span>':''}<span class="nm">${esc(j.name)}</span><span class="st">${j.state==='done'?'Read in '+secs(j)+'s':j.state==='failed'?esc(j.error):esc(j.state==='waiting'?'waiting its turn':j.step)+' · '+secs(j)+'s'}</span>${j.state==='done'?`<a class="btn" href="${esc(j.file)}">Open</a>`:''}</div>`).join(''):'';
+  const busy=js.some(j=>j.state==='waiting'||j.state==='reading');
+  const doneMine=js.find(j=>j.state==='done'&&mine.has(j.cik));
+  if(doneMine){mine.delete(doneMine.cik);location.href=doneMine.file;return}
+  clearTimeout(polling);if(busy)polling=setTimeout(poll,1500)}
+ if(served)poll();
+ if(location.hash==='#add')btn.click();
+})();
 (function(){const t=document.getElementById('theme');let cur=null;try{cur=localStorage.getItem('ipo-dash:theme')}catch(e){}
  const dark=()=>cur?cur==='dark':matchMedia('(prefers-color-scheme: dark)').matches;const apply=()=>{if(cur)document.documentElement.dataset.theme=cur;t.textContent=dark()?'Light':'Dark'};apply();
  t.onclick=()=>{cur=dark()?'light':'dark';try{localStorage.setItem('ipo-dash:theme',cur)}catch(e){};apply()}})();

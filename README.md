@@ -33,6 +33,10 @@ only when you ask a question the code did not answer, and then on the AI you cho
 already pay for (no key), your own key from any of fourteen providers, or a free model on your own
 computer through Ollama or LM Studio.
 
+Press **+ Add a company** on the front page, pick from the companies that filed an S-1 or F-1 in
+the last three weeks or type any name or ticker, and the dashboard opens a minute or two later.
+From a terminal, the same thing is one line:
+
 ```
 python3 -m prospectus "Anthropic"
 ```
@@ -96,6 +100,7 @@ question; nothing else.
 
 | Command | What it does |
 |---|---|
+| **+ Add a company** on the front page | pick a recent S-1 or F-1 filer, or search any name or ticker; it reads in the background and opens the dashboard |
 | `python3 -m prospectus "Cerebras"` | read the newest prospectus and open its dashboard |
 | `python3 -m prospectus CBRS --no-open` | same, by ticker, without opening the browser |
 | `python3 -m prospectus serve` | start the local server and open http://127.0.0.1:8861 in your browser (keep the window open) |

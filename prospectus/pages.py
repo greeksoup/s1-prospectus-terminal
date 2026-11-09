@@ -84,7 +84,9 @@ def _number(lines):
     return None
 
 
-BREAK = re.compile(r"<[^>]+page-break-(?:before|after)\s*:\s*always[^>]*>", re.I)
+# Older filings write page-break-before: always; newer ones (M2 Compliance, 2026) the CSS3 form
+# break-before: page. Either starts a new printed page.
+BREAK = re.compile(r"<[^>]+(?:page-break-(?:before|after)\s*:\s*always|(?<![-\w])break-(?:before|after)\s*:\s*page)[^>]*>", re.I)
 
 
 def html_chunks(html):

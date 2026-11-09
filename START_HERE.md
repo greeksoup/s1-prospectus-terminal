@@ -83,16 +83,20 @@ AI key stay as they are. Then the dashboard opens.
 
 ## Reading a company
 
-The four companies already read (SpaceX, Anthropic, Cerebras, Oura) open from the front page. To
-read another one, you type one line in a terminal for now:
+The companies already read (SpaceX, Anthropic, Cerebras, Oura) open from the front page. To read
+another one:
 
-- **Mac:** open the **Terminal** app, type `cd ` (with a space), drag the program's folder onto
-  the Terminal window, press Enter, then type `.venv/bin/python -m prospectus "Company name"` and
-  press Enter.
-- **Windows:** open the program's folder, click the address bar at the top, type `cmd`, press
-  Enter, then type `.venv\Scripts\python -m prospectus "Company name"` and press Enter.
+1. On the front page, press **+ Add a company**. A list drops down with every company that filed
+   an S-1 or F-1 at the SEC in the last three weeks, newest first.
+2. Click one, or type a company's name or ticker in the box to find any other.
+3. The page shows how far it has got (downloading the filings, reading the pages). In a minute or
+   two the company's dashboard opens by itself, and it stays on the front page from then on.
 
-It finds the newest prospectus on SEC EDGAR, reads it in a minute or two, and opens its dashboard.
+On any dashboard, the **Companies** button at the top switches to another company, and its last
+line, **+ Add a company**, brings you back to the list.
+
+Companies marked **blank check** are SPACs: they raise money first and buy a business later, so
+their prospectus has no business numbers to read yet.
 
 ## Asking questions about a filing
 

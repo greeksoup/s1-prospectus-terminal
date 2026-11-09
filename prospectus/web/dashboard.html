@@ -54,6 +54,13 @@ a{color:inherit}button,input,textarea{font:inherit;color:inherit}
 .btn:hover{background:var(--hover)}
 .btn.pri{background:var(--sn);border-color:var(--sn);color:#fff}
 .btn.pri:hover{filter:brightness(.95)}
+.cos{position:relative}
+.cosmenu{display:none;position:absolute;top:34px;left:0;z-index:60;min-width:280px;max-width:min(420px,90vw);max-height:70vh;overflow-y:auto;background:var(--bg);border:1px solid var(--line2);border-radius:3px;box-shadow:0 8px 24px rgba(0,0,0,.14)}
+.cosmenu.open{display:block}
+.cosmenu a{display:flex;gap:8px;align-items:center;padding:8px 12px;text-decoration:none;color:var(--ink);border-bottom:1px solid var(--line);font-size:12.5px}
+.cosmenu a:hover,.cosmenu a:focus{background:var(--hover);outline:none}
+.cosmenu a.on{font-weight:600}.cosmenu a .t{font:600 11px var(--mono);color:var(--mute)}
+.cosmenu a.addco{color:var(--sn-ink);font-weight:600;border-bottom:0}
 
 /* security header */
 .sh{background:var(--bg);border-bottom:1px solid var(--line);padding:12px 16px 0}
@@ -269,6 +276,7 @@ code.cl{display:block;font:12px/1.5 var(--mono);background:var(--band);border:1p
 <body>
 <div class="bar">
  <a class="logo" href="index.html" title="All companies"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="20" height="20" aria-hidden="true"><rect width="120" height="120" rx="26" fill="#ED5A24"/><path d="M16 42l14 18-14 18" stroke="#FFFFFF" stroke-width="10" stroke-linecap="square" stroke-linejoin="miter" fill="none"/><g fill="#0B1424"><rect x="42" y="42" width="22" height="8"/><rect x="42" y="42" width="8" height="22"/><rect x="42" y="56" width="22" height="8"/><rect x="56" y="56" width="8" height="22"/><rect x="42" y="70" width="22" height="8"/><rect x="67" y="56" width="12" height="8"/><rect x="90" y="42" width="8" height="36"/><rect x="82" y="42" width="10" height="8"/></g></svg><span>S-1 Prospectus Terminal</span></a>
+ <div class="cos"><button class="btn" id="cosbtn" aria-haspopup="true" aria-expanded="false">Companies ▾</button><div class="cosmenu" id="cosmenu" role="menu"></div></div>
  <div class="cmd"><span class="sec" id="cmdsec"></span><input id="cmd" autocomplete="off" spellcheck="false" placeholder="Type a function: FLG, FA, DBT…" aria-label="Function command"><span class="hint">/</span><div class="sug" id="sug"></div></div>
  <span class="sp"></span>
  <a class="btn sec2" id="secbtn" target="_blank" rel="noopener">SEC filing ↗</a>
@@ -317,6 +325,7 @@ function showTip(e,h,rows){tip.innerHTML=(h?`<div class="h">${esc(h)}</div>`:'')
 const hideTip=()=>{tip.style.opacity=0};
 
 /* ---------- views + charts registry ---------- */
+const arr=x=>Array.isArray(x)?x:[];  // a filing with nothing for a list gives {status:'not found'}
 const VIEWS=[];let BUILDING=null;const charts=[];let CUR='DES';
 function chartReg(fn){charts.push({v:BUILDING,fn})}
 function renderCharts(){charts.filter(c=>c.v===CUR).forEach(c=>c.fn())}
@@ -351,7 +360,7 @@ function hbars(items,opts={}){const box=el('div',{class:'chart'});
    s+=`<path d="M${lw},${y+5}H${lw+w-3}Q${lw+w},${y+5} ${lw+w},${y+8}V${y+18}Q${lw+w},${y+21} ${lw+w-3},${y+21}H${lw}Z" fill="var(${it.hl?'--c2':'--c1'})"/>`;
    s+=`<text class="lbl" x="${lw+w+6}" y="${y+16.5}">${fmt(it.v)}</text>`;
    s+=`<rect x="0" y="${y}" width="${W}" height="${rh}" fill="transparent" data-i="${i}"/>`});
-  s+='</svg>';box.innerHTML=s;box.querySelectorAll('[data-i]').forEach(r=>{const it=items[+r.dataset.i];r.addEventListener('mousemove',e=>showTip(e,it.k,[['Value',fmt(it.v)],...(it.rows||[])]));r.addEventListener('mouseleave',hideTip)})});
+  s+='</svg>';box.innerHTML=s;box.querySelectorAll('[data-i]').forEach(r=>{const it=items[+r.dataset.i];r.addEventListener('mousemove',e=>showTip(e,it.k,[['Value',fmt(it.v)],...arr(it.rows)]));r.addEventListener('mouseleave',hideTip)})});
  return box}
 let rt;addEventListener('resize',()=>{clearTimeout(rt);rt=setTimeout(renderCharts,120)});
 
@@ -412,7 +421,7 @@ const A={};
  const cash=V(D3.cash),debt=V(D3.debt),pf=V(D3.redeemable_preferred),mt=D3.maturities||{};
  if(cash&&debt){const k=lastK(cash);A.q3.text+=` At ${label(k)} the balance sheet held ${money(cash[k])} of cash against ${money(debt[k])} of debt${pf&&pf[k]!=null?` and ${money(pf[k])} of convertible preferred stock outside equity`:''}.`}
  if(mt.schedule)A.q3.text+=` ${mt.largest_share_pct}% of the debt principal falls due in ${mt.largest_year}.`;
- const it=((P4.largest_non_cash_items||{}).items||[]);const ni=V(C2.net_income);if(it.length&&ni){const k=lastK(ni);const top=it.filter(x=>x.values[k]!=null).sort((a,b)=>Math.abs(b.values[k])-Math.abs(a.values[k]))[0];if(top)A.q4.text+=` The largest non-cash item in ${label(k)} was “${top.label.toLowerCase()}”, ${money(top.values[k])}.`}
+ const it=arr((P4.largest_non_cash_items||{}).items);const ni=V(C2.net_income);if(it.length&&ni){const k=lastK(ni);const top=it.filter(x=>x.values[k]!=null).sort((a,b)=>Math.abs(b.values[k])-Math.abs(a.values[k]))[0];if(top)A.q4.text+=` The largest non-cash item in ${label(k)} was “${top.label.toLowerCase()}”, ${money(top.values[k])}.`}
  if(P5.votes_per_share_high_class)A.q5.text+=` The high-vote class carries ${P5.votes_per_share_high_class} votes a share against one for the shares on offer, so public buyers will hold less of the vote than of the shares.`;
  if(REV&&!((P5.price&&P5.price.value)||P5.price_range)){const k=lastFY(REV);A.q5.text+=` Whatever the price, it will sit on ${money(REV[k])} of ${label(k)} revenue${IG?` and ${money(REVI[IG.to])} in ${label(IG.to)}`:''}.`}})();
 const QS=[['q1','GRW','Is revenue really growing?','Growth'],['q2','CSH','Does it fund its own growth?','Funds itself'],['q3','DBT','Is the debt sane?','Debt'],['q4','QLT','Does the profit show up as cash?','Profit is real'],['q5','PX','Only now: is the price sane?','Price']];
@@ -459,7 +468,7 @@ addView('DES','Overview','Monitor','',v=>{
  // filing history
  const fr=M.filings.slice().reverse().map((f,i)=>el('tr',{},el('td',{class:'l'},el('b',{class:'m',style:'font-weight:600'},f.form),i===0?el('span',{class:'mute',style:'margin-left:6px;font-size:11px'},'latest'):null),el('td',{},fmtDate(f.date)),el('td',{},el('a',{class:'pg',href:f.url,target:'_blank',rel:'noopener'},'SEC ↗'))));
  g.append(panel('Filing history','s6',table([{t:'Form',a:{class:'l'}},'Filed',''],fr),{flush:true,go:'VER'}));
- if(DATA.qual&&DATA.qual.offer){const O=DATA.qual.offer,Q2=DATA.qual,rk=Q2.risks||{};const rows=[['Listing',O.exchange],['Ticker',O.ticker],['Lead underwriters',O.underwriters],['Lock-up',O.lockup&&O.lockup.days?{value:O.lockup.days+' days',page:O.lockup.page}:O.lockup],['Employees',Q2.employees&&Q2.employees.count?{value:Number(Q2.employees.count).toLocaleString('en-US'),page:Q2.employees.page}:Q2.employees],['Risk headings',rk.count?{value:rk.count+((rk.reworded_since_last_version||[]).length?`, ${rk.reworded_since_last_version.length} reworded since the last version`:'')+((rk.new_since_last_version||[]).length?`, ${rk.new_since_last_version.length} new`:'')}:rk]];
+ if(DATA.qual&&DATA.qual.offer){const O=DATA.qual.offer,Q2=DATA.qual,rk=Q2.risks||{};const rows=[['Listing',O.exchange],['Ticker',O.ticker],['Lead underwriters',O.underwriters],['Lock-up',O.lockup&&O.lockup.days?{value:O.lockup.days+' days',page:O.lockup.page}:O.lockup],['Employees',Q2.employees&&Q2.employees.count?{value:Number(Q2.employees.count).toLocaleString('en-US'),page:Q2.employees.page}:Q2.employees],['Risk headings',rk.count?{value:rk.count+(arr(rk.reworded_since_last_version).length?`, ${rk.reworded_since_last_version.length} reworded since the last version`:'')+(arr(rk.new_since_last_version).length?`, ${rk.new_since_last_version.length} new`:'')}:rk]];
   g.append(panel('The offer and the people','s6',table([{t:'Item',a:{class:'l'}},{t:'',a:{class:'l'}},'Src'],factRows(rows)),{flush:true,go:'BIZ'}))}
  // revenue
  if(REV){const cats=keys(REV).concat(REVI?keys(REVI):[]);g.append(panel('Revenue by period','s6',bars([{name:'Revenue',values:{...REV,...(REVI||{})},color:'--c1',page:G.revenue.page}],cats,{aria:'Revenue by period'}),{go:'GRW',page:G.revenue.page}))}
@@ -473,7 +482,7 @@ addView('DES','Overview','Monitor','',v=>{
  const cash=V(D3.cash),debt=V(D3.debt),eq=V(D3.equity);const ss=[];if(cash)ss.push({name:'Cash',values:cash,color:'--c1',page:D3.cash.page});if(debt)ss.push({name:'Debt',values:debt,color:'--c2',page:D3.debt.page});if(eq)ss.push({name:'Equity',values:eq,color:'--c3',page:D3.equity.page});
  if(ss.length)g.append(panel('Cash, debt, equity','s5',bars(ss,keys(Object.assign({},cash,debt,eq)),{aria:'Cash, debt and equity'}),{go:'DBT'}));
  // others
- const O=DATA.others||{},cs=(O.companies||[]).slice(0,6);
+ const O=DATA.others||{},cs=arr(O.companies).slice(0,6);
  g.append(panel('Who else names it in SEC filings','s6',cs.length?table([{t:'Company',a:{class:'l'}},'Filings',{t:'Type',a:{class:'l'}},'Latest'],cs.map(x=>el('tr',{class:'click',onclick:()=>go('RLT')},el('td',{class:'l'},x.name.replace(/\s+\(.*$/,'')),el('td',{},String(x.count)),el('td',{class:'l'},el('span',{class:'tagx'+(x.relationship?' rel':'')},x.relationship?'Relationship':'Mention')),el('td',{},x.read&&x.read.date?fmtDate(x.read.date):NA))))
   :el('div',{class:'empty',style:'margin:12px'},'No other company filing names it yet.'),{flush:true,go:'RLT'}));
  const mk=((O.funds||{}).marks||[]).filter(m=>m.per_unit);
@@ -555,7 +564,7 @@ qView('q4','QLT','Does the profit show up as cash?','Profit is real','Reported p
  const g=el('div',{class:'grid'});const k=lastK(ni);
  g.append(panel('Reported result vs cash from operations','s7',bars([{name:'Net income (loss)',values:ni,color:'--c1',page:C2.net_income.page},{name:'Operating cash flow',values:o,color:'--c2',page:C2.operating_cash_flow.page}],keys(ni),{h:260,aria:'Net income vs operating cash flow'}),{page:C2.net_income.page}));
  const gap=V(P4.gap);if(gap)g.append(panel('The gap · operating cash minus result · $M','s5',table([{t:'Period',a:{class:'l'}},'Result','Op. cash','Gap'],keys(gap).map(x=>el('tr',{},el('td',{class:'l'},label(x)),el('td',{},acct(ni[x])),el('td',{},acct(o[x])),el('td',{style:'font-weight:600'},acct(gap[x]))))),{flush:true,page:P4.gap.page}));
- const it=(P4.largest_non_cash_items||{}).items||[];if(it.length)g.append(panel('Largest non-cash items, '+label(k),'s12',hbars(it.filter(x=>x.values[k]).map(x=>({k:x.label,v:x.values[k]}))),{page:it[0].page}));
+ const it=arr((P4.largest_non_cash_items||{}).items);if(it.length)g.append(panel('Largest non-cash items, '+label(k),'s12',hbars(it.filter(x=>x.values[k]).map(x=>({k:x.label,v:x.values[k]}))),{page:it[0].page}));
  v.append(g,el('p',{class:'note'},'Positive gap means cash came in above the reported result.'))});
 
 /* ---------- price: share ladder, bridge, multiples (mechanics only, never a view of the price) ---------- */
@@ -583,7 +592,7 @@ const EXTRA={};
 const qRow=re=>{const q=MT.quarterly;if(!q||!q.rows)return null;return q.rows.find(r=>re.test(r.label.trim()))||null};
 EXTRA.q1=v=>{const q=MT.quarterly,r=qRow(/^(total\s+)?(net\s+)?revenues?$/i);if(!q||!r)return;const cols=q.columns;
  const qoq={};cols.forEach((c,i)=>{if(i>0&&r.values[cols[i-1]])qoq[c]=(r.values[c]/r.values[cols[i-1]]-1)*100});
- v.append(el('div',{style:'height:12px'}),el('div',{class:'grid'},panel('Revenue by quarter','s8',bars([{name:'Revenue',values:r.values,color:'--c1',page:(q.pages||[])[0]}],cols,{h:240,aria:'Revenue by quarter'}),{page:(q.pages||[]).join(', ')}),
+ v.append(el('div',{style:'height:12px'}),el('div',{class:'grid'},panel('Revenue by quarter','s8',bars([{name:'Revenue',values:r.values,color:'--c1',page:arr(q.pages)[0]}],cols,{h:240,aria:'Revenue by quarter'}),{page:arr(q.pages).join(', ')}),
   panel('Quarter on quarter','s4',table([{t:'Quarter',a:{class:'l'}},'Revenue','Change'],cols.map(c=>el('tr',{},el('td',{class:'l'},c),el('td',{},acct(r.values[c])),el('td',{class:qoq[c]==null?'na':qoq[c]>=0?'up':'down'},qoq[c]!=null?pct(qoq[c]):'')))),{flush:true})))};
 EXTRA.q2=v=>{const sb=MT.sbc||{};if(!sb.by_year)return;const rows=keys(sb.by_year).map(k=>{const r=(REV||{})[k]??(REVI||{})[k];return el('tr',{},el('td',{class:'l'},label(k)),el('td',{},acct(sb.by_year[k])),el('td',{},r?(sb.by_year[k]/r*100).toFixed(1)+'%':''))});
  v.append(el('div',{style:'height:12px'}),panel('Stock-based pay: a cost paid in shares, not cash','',el('div',{},table([{t:'Period',a:{class:'l'}},'$M','% of revenue'],rows),sb.unrecognized!=null?el('p',{class:'note',style:'margin:8px 12px 10px'},`${money(sb.unrecognized)} of stock pay is granted but not yet expensed${sb.recognition_years?`, over about ${sb.recognition_years} years`:''}. It adds to operating cash flow above because it is not cash; it dilutes shareholders instead.`):null),{flush:true,page:sb.page}))};
@@ -593,9 +602,9 @@ EXTRA.q3=v=>{const c=MT.commitments||{};if(!c.by_year)return;const cash=V(D3.cas
   el('p',{class:'note'},'Commitments are promises to pay that sit off the balance sheet. Some analysts treat them like debt; the filing lists them by year so you can set them against the cash.'))};
 EXTRA.q4=v=>{const q=MT.quarterly;if(!q||!q.rows)return;const r=qRow(/^(total\s+)?(net\s+)?revenues?$/i);if(!r)return;const cols=q.columns;
  const lines=q.rows.filter(x=>x!==r&&!x.unit&&cols.some(c=>x.values[c]!=null)&&/cost|expense|research|sales|marketing|general|compute|gross|operating|income|loss/i.test(x.label)).slice(0,10);if(!lines.length)return;
- v.append(el('div',{style:'height:12px'}),panel('Each line as a share of revenue, by quarter','',table([{t:'',a:{class:'l'}},...cols],lines.map(x=>el('tr',{},el('td',{class:'l'},x.label),...cols.map(c=>el('td',{},x.values[c]!=null&&r.values[c]?(x.values[c]/r.values[c]*100).toFixed(0)+'%':''))))),{flush:true,page:(q.pages||[]).join(', ')}))};
+ v.append(el('div',{style:'height:12px'}),panel('Each line as a share of revenue, by quarter','',table([{t:'',a:{class:'l'}},...cols],lines.map(x=>el('tr',{},el('td',{class:'l'},x.label),...cols.map(c=>el('td',{},x.values[c]!=null&&r.values[c]?(x.values[c]/r.values[c]*100).toFixed(0)+'%':''))))),{flush:true,page:arr(q.pages).join(', ')}))};
 /* prices on record before an offer price: the last funding round (from the filing) and fund marks (Form N-PORT) */
-const ROUNDS=(((DATA.qual||{}).related_party||{}).items||[]).map(x=>{const t=x.text||'';const m=t.match(/(Series [A-Z][\w-]*)[^.]*?purchase price of \$([\d,.]+) per share/i);const d=t.match(/(?:From|In)\s+([A-Z][a-z]+ \d{4})(?:\s+to\s+([A-Z][a-z]+ \d{4}))?/);return m?{series:m[1],px:parseFloat(m[2].replace(/,/g,'')),when:d?(d[2]?d[1]+' to '+d[2]:d[1]):'',page:x.page}:null}).filter(Boolean);
+const ROUNDS=arr(((DATA.qual||{}).related_party||{}).items).map(x=>{const t=x.text||'';const m=t.match(/(Series [A-Z][\w-]*)[^.]*?purchase price of \$([\d,.]+) per share/i);const d=t.match(/(?:From|In)\s+([A-Z][a-z]+ \d{4})(?:\s+to\s+([A-Z][a-z]+ \d{4}))?/);return m?{series:m[1],px:parseFloat(m[2].replace(/,/g,'')),when:d?(d[2]?d[1]+' to '+d[2]:d[1]):'',page:x.page}:null}).filter(Boolean);
 const MARKS=(((DATA.others||{}).funds||{}).marks||[]).filter(m=>m.per_unit>0);
 qView('q5','PX','Only now: is the price sane?','Price','Last on purpose. Look at the price before checking whether the profit is real and you will reverse-engineer a reason to like it. This section lays out the arithmetic of the price; it never says whether the price is right. That decision is yours.',v=>{
  const O=SH.offering||{},U=SH.underwriting||{};const fl=num(O.shares_offered_total);const mid=PRICES.length?bridge(PRICES[PRICES.length===3?1:0][1]):null;
@@ -641,7 +650,7 @@ qView('q5','PX','Only now: is the price sane?','Price','Last on purpose. Look at
  const names=Object.keys(ob).filter(n=>num(ob[n]));const allVotes=names.length&&names.every(n=>vps(n)!=null);const totV=allVotes?names.reduce((a,n)=>a+num(ob[n])*vps(n),0):0;
  const lr=names.map(n=>el('tr',{},el('td',{class:'l'},n),el('td',{},sharesFmt(num(ob[n]))),el('td',{},OUTT?(num(ob[n])/OUTT*100).toFixed(1)+'%':''),el('td',{},vps(n)!=null?String(vps(n)):NA),el('td',{},allVotes&&totV?(num(ob[n])*vps(n)/totV*100).toFixed(1)+'%':'')));
  if(OUTT)lr.push(el('tr',{class:'hi'},el('td',{class:'l'},'Outstanding after the offering'),el('td',{},sharesFmt(OUTT)),el('td',{},'100%'),el('td',{}),el('td',{})));
- (()=>{const ex=(SH.excluded||[]).filter(x=>x.what!=='reserved'&&x.shares);const by={};ex.forEach(x=>{(by[x.what]=by[x.what]||[]).push(x)});const lab={options:'Options',rsus:'RSUs',prsus:'Performance RSUs',warrants:'Warrants',other:'Other excluded items (not added)'};
+ (()=>{const ex=arr(SH.excluded).filter(x=>x.what!=='reserved'&&x.shares);const by={};ex.forEach(x=>{(by[x.what]=by[x.what]||[]).push(x)});const lab={options:'Options',rsus:'RSUs',prsus:'Performance RSUs',warrants:'Warrants',other:'Other excluded items (not added)'};
   Object.entries(by).forEach(([kk,xs])=>{const tot=xs.reduce((a,x)=>a+x.shares,0);const st=xs.filter(x=>x.strike!=null);const avg=st.length?st.reduce((a,x)=>a+x.strike*x.shares,0)/st.reduce((a,x)=>a+x.shares,0):null;
    lr.push(el('tr',{class:'sub',title:xs.map(x=>x.text||'').join(' | ').slice(0,600)},el('td',{class:'l'},'+ '+(lab[kk]||kk)+(xs.length>1?` (${xs.length} lines)`:'')+(avg!=null?` · avg. strike $${avg.toFixed(2)}`:'')),el('td',{},sharesFmt(tot)),el('td',{},OUTT?(tot/OUTT*100).toFixed(1)+'%':''),el('td',{}),el('td',{},xs[0].page?pgs(xs[0].page):'')))})})();
  if(FD)lr.push(el('tr',{class:'hi'},el('td',{class:'l'},'Fully diluted'),el('td',{},sharesFmt(FD)),el('td',{},OUTT?(FD/OUTT*100).toFixed(1)+'%':''),el('td',{}),el('td',{})));
@@ -691,7 +700,7 @@ function stmtView(v){
    el('tr',{class:(r.kind==='total'||r.kind==='subtotal')?'hi':''},el('td',{class:'l',style:`padding-left:${10+(r.indent||0)*14}px`},r.label+(r.unit?` (${r.unit})`:'')),...cols.map((k,i)=>cell(r,k,i))));
   const hdr=[[{t:ST.units||'$ millions',a:{class:'l'}},...cols.map((k,i)=>({t:label(k),a:{class:i===firstI&&firstI>0?'div':''}}))]];
   const note=mode==='both'?'Under each line, its % change against the same kind of period before it: a year against the year before, nine months against the same nine months a year earlier, and a balance against the last year-end balance.':mode==='chg'?'Each figure against the same kind of period before it: a year against the year before, nine months against the same nine months a year earlier, a balance against the balance before.':mode==='pct'?(b?`Each line as a share of ${b.label.toLowerCase()} in the same period.`:'This statement has no total to divide by.'):`${ST.units||'$ millions'}, as printed; brackets are negative.`;
-  host.append(panel(st.title||'Statement','',table(hdr,rows),{flush:true,page:(st.pages||[]).join(', '),act:el('button',{class:'act',onclick:()=>csv(st)},'Download CSV')}),el('p',{class:'note'},note+' Lines and labels are the filing’s own, so they differ from company to company.'))}
+  host.append(panel(st.title||'Statement','',table(hdr,rows),{flush:true,page:arr(st.pages).join(', '),act:el('button',{class:'act',onclick:()=>csv(st)},'Download CSV')}),el('p',{class:'note'},note+' Lines and labels are the filing’s own, so they differ from company to company.'))}
  function csv(st){const q=x=>'"'+String(x).replace(/"/g,'""')+'"';const lines=[[q('Line'),...st.columns.map(label)].join(',')];st.rows.forEach(r=>lines.push([q(r.label),...st.columns.map(k=>r.values[k]??'')].join(',')));
   const a=el('a',{href:URL.createObjectURL(new Blob([lines.join('\n')],{type:'text/csv'})),download:`${TK}-${cur}.csv`});document.body.append(a);a.click();a.remove()}
  kinds.forEach(([k,t])=>{const bt=el('button',{class:k===cur?'on':''},t,el('b',{},String(ST[k].rows.filter(r=>r.kind!=='header').length)));bt.onclick=()=>{cur=k;tabs.querySelectorAll('button').forEach(x=>x.classList.remove('on'));bt.classList.add('on');draw()};tabs.append(bt)});
@@ -721,7 +730,7 @@ addView('OWN','Owners, people, risks','Filing','',v=>{
  if(!Object.keys(QL).length){v.append(el('div',{class:'empty'},'Rebuild this dashboard to read the owners and the people: python3 -m prospectus "'+M.name+'"'));return}
  const g=el('div',{class:'grid'}),ow=QL.owners||{},pe=QL.people||{},rk=QL.risks||{};
  const cl=ow.classes||[];g.append(panel('Share classes and votes','s12',cl.length?table([{t:'Class',a:{class:'l'}},'Votes a share','Src'],cl.map(c=>el('tr',{},el('td',{class:'l'},c.name),el('td',{},c.votes_per_share!=null?String(c.votes_per_share):NA),el('td',{},fp(c))))):missing('Share classes',ow.classes_status||{status:'not found'}),{flush:!!cl.length}));
- const wd=ow.wedge||{};if(wd.holder&&wd.votes_pct!=null)g.append(el('div',{class:'s12'},el('div',{class:'wedge'},el('div',{},el('b',{},wd.holder),wd.economic_pct!=null?` holds ${wd.economic_pct}% of all shares but `:' holds ',el('b',{},wd.votes_pct+'% of the vote'),` ${wd.stage==='after'?'after':'before'} the offering.`,wd.economic_pct==null&&wd.shares_held!=null?` It holds ${Number(wd.shares_held).toLocaleString('en-US')} share${wd.shares_held===1?'':'s'}.`:''),el('div',{class:'wbar'},el('div',{},el('span',{},'Shares'),el('i',{style:`width:${wd.economic_pct||0.4}%`}),el('b',{},wd.economic_pct!=null?wd.economic_pct+'%':'NA')),el('div',{},el('span',{},'Votes'),el('i',{class:'v',style:`width:${wd.votes_pct}%`}),el('b',{},wd.votes_pct+'%'))),el('div',{class:'mute',style:'font-size:11.5px'},wd.note||'',' ',wd.economic_page?pgs(wd.economic_page):'',' ',wd.votes_page?pgs(wd.votes_page):''))));
+ const wd=ow.wedge||{};const hv=/^(entities|funds|affiliates|investment funds|shareholders|members)\b|\b(and|entities|funds|trusts|partners)\b/i.test(wd.holder||'')?'hold':'holds';if(wd.holder&&wd.votes_pct!=null)g.append(el('div',{class:'s12'},el('div',{class:'wedge'},el('div',{},el('b',{},wd.holder),wd.economic_pct!=null?` ${hv} ${wd.economic_pct}% of all shares but `:` ${hv} `,el('b',{},wd.votes_pct+'% of the vote'),` ${wd.stage==='after'?'after':'before'} the offering.`,wd.economic_pct==null&&wd.shares_held!=null?` It holds ${Number(wd.shares_held).toLocaleString('en-US')} share${wd.shares_held===1?'':'s'}.`:''),el('div',{class:'wbar'},el('div',{},el('span',{},'Shares'),el('i',{style:`width:${wd.economic_pct||0.4}%`}),el('b',{},wd.economic_pct!=null?wd.economic_pct+'%':'NA')),el('div',{},el('span',{},'Votes'),el('i',{class:'v',style:`width:${wd.votes_pct}%`}),el('b',{},wd.votes_pct+'%'))),el('div',{class:'mute',style:'font-size:11.5px'},wd.note||'',' ',wd.economic_page?pgs(wd.economic_page):'',' ',wd.votes_page?pgs(wd.votes_page):''))));
  const ph=ow.principal_holders||[],hc=(ow.holders_columns||{}).classes||[...new Set((Array.isArray(ph)?ph:[]).flatMap(h=>Object.keys(h.classes||{})))];
  if(Array.isArray(ph)&&ph.length){const anyAfter=ph.some(h=>Object.values(h.classes||{}).some(c=>c&&c.shares_after!=null));const head=[{t:'Holder',a:{class:'l'}},...hc.flatMap(c=>[{t:c+(anyAfter?' shares after':' shares')},{t:'% of '+c}]),'Vote before','Vote after','Src'];
   const f=x=>x==null?'':Number(x).toLocaleString('en-US'),pc=x=>x==null?'':String(x).replace(/%?$/,'%');
@@ -730,16 +739,16 @@ addView('OWN','Owners, people, risks','Filing','',v=>{
  const vr=ow.vote_rules||[];if(vr.length)g.append(panel('How the votes are cast','s12',table([{t:'From the filing',a:{class:'l'}},'Src'],vr.map(x=>el('tr',{},el('td',{class:'l wrap'},x.text),el('td',{},x.page?pgs(x.page):'')))),{flush:true}));
  const ct=ow.control||{};const crow=[['Controlled company',ct.controlled_company],['Public benefit corporation',ct.public_benefit_corporation||ct.pbc],['Who elects the board majority',ct.board_majority||ct.board],['When the high-vote shares convert (sunset)',ct.sunset]].filter(r=>r[1]);
  if(crow.length)g.append(panel('Control','s12',table([{t:'',a:{class:'l'}},{t:'From the filing',a:{class:'l'}},'Src'],factRows(crow.map(([k,x])=>[k,x&&typeof x==='object'&&typeof x.value==='boolean'?{...x,value:x.value}:x]))),{flush:true}));
- const ex=pe.executives||[];g.append(panel('Executives','s6',Array.isArray(ex)&&ex.length?table([{t:'Name',a:{class:'l'}},{t:'Role',a:{class:'l'}},'Age','Src'],ex.map(x=>el('tr',{},el('td',{class:'l',style:'font-weight:500'},x.name),el('td',{class:'l wrap'},x.title||''),el('td',{},x.age!=null?String(x.age):''),el('td',{},fp(x))))):missing('Executives',ex),{flush:Array.isArray(ex)&&ex.length>0}));
- const dr=pe.directors||[];g.append(panel('Board','s6',Array.isArray(dr)&&dr.length?table([{t:'Director',a:{class:'l'}},'Age','Src'],dr.map(x=>el('tr',{},el('td',{class:'l'},x.name),el('td',{},x.age!=null?String(x.age):''),el('td',{},fp(x))))):missing('Directors',dr),{flush:Array.isArray(dr)&&dr.length>0}));
- const dp=(pe.departures||[]);g.append(panel('People who left close to the filing','s12',dp.length?table([{t:'From the filing',a:{class:'l'}},'Src'],dp.map(d=>el('tr',{},el('td',{class:'l wrap'},d.title||d.text||''),el('td',{},pgs(d.page))))):el('div',{class:'empty',style:'margin:10px'},'No departure in the year before the filing was found. The first IPO dashboard caught two co-founders stepping down 29 days before a filing; this is where that would show.'),{flush:dp.length>0}));
- const hd=rk.headings||[],nw=new Set((rk.new_since_last_version||[]).map(x=>typeof x==='string'?x:x.text||x.heading));const rw=new Set((rk.reworded_since_last_version||[]).map(x=>typeof x==='string'?x:x.text||x.heading));
+ const ex=arr(pe.executives);g.append(panel('Executives','s6',Array.isArray(ex)&&ex.length?table([{t:'Name',a:{class:'l'}},{t:'Role',a:{class:'l'}},'Age','Src'],ex.map(x=>el('tr',{},el('td',{class:'l',style:'font-weight:500'},x.name),el('td',{class:'l wrap'},x.title||''),el('td',{},x.age!=null?String(x.age):''),el('td',{},fp(x))))):missing('Executives',ex),{flush:Array.isArray(ex)&&ex.length>0}));
+ const dr=arr(pe.directors);g.append(panel('Board','s6',Array.isArray(dr)&&dr.length?table([{t:'Director',a:{class:'l'}},'Age','Src'],dr.map(x=>el('tr',{},el('td',{class:'l'},x.name),el('td',{},x.age!=null?String(x.age):''),el('td',{},fp(x))))):missing('Directors',dr),{flush:Array.isArray(dr)&&dr.length>0}));
+ const dp=arr(pe.departures);g.append(panel('People who left close to the filing','s12',dp.length?table([{t:'From the filing',a:{class:'l'}},'Src'],dp.map(d=>el('tr',{},el('td',{class:'l wrap'},d.title||d.text||''),el('td',{},pgs(d.page))))):el('div',{class:'empty',style:'margin:10px'},'No departure in the year before the filing was found. The first IPO dashboard caught two co-founders stepping down 29 days before a filing; this is where that would show.'),{flush:dp.length>0}));
+ const hd=arr(rk.headings),nw=new Set(arr(rk.new_since_last_version).map(x=>typeof x==='string'?x:x.text||x.heading));const rw=new Set(arr(rk.reworded_since_last_version).map(x=>typeof x==='string'?x:x.text||x.heading));
  g.append(panel(`Risk factors · ${rk.count!=null?rk.count+' headings in the filing':'count not read'}`,'s12',hd.length?table([{t:'#',a:{class:'l'}},{t:'The filing’s own heading',a:{class:'l'}},'','Src'],hd.map((h,i)=>{const t=typeof h==='string'?h:h.text||h.heading;return el('tr',{},el('td',{class:'l mute',style:'width:34px'},String(i+1)),el('td',{class:'l wrap'},t),el('td',{class:'l'},nw.has(t)?el('span',{class:'tagx rel'},'New in this version'):rw.has(t)?el('span',{class:'tagx'},'Reworded in this version'):''),el('td',{},h.page?pgs(h.page):''))})):missing('Risk headings',rk),{flush:hd.length>0}));
- const rp=(QL.related_party||{}).items||[];if(rp.length)g.append(panel('Related-party dealings','s12',table([{t:'From the filing',a:{class:'l'}},'Src'],rp.map(x=>el('tr',{},el('td',{class:'l wrap'},x.text||String(x)),el('td',{},x.page?pgs(x.page):'')))),{flush:true}));
+ const rp=arr((QL.related_party||{}).items);if(rp.length)g.append(panel('Related-party dealings','s12',table([{t:'From the filing',a:{class:'l'}},'Src'],rp.map(x=>el('tr',{},el('td',{class:'l wrap'},x.text||String(x)),el('td',{},x.page?pgs(x.page):'')))),{flush:true}));
  v.append(g)});
 
 /* ---------- VER ---------- */
-addView('VER','Versions','Filing',(DATA.versions||[]).length||'',v=>{
+addView('VER','Versions','Filing',arr(DATA.versions).length||'',v=>{
  v.append(viewHead('VER','What changed between versions','Each amendment is a new photograph of the company. Sentences with numbers in them come first: that is where the information moves.'));
  const Vs=DATA.versions||[];if(!Vs.length){v.append(el('div',{class:'empty'},'Only one version of this prospectus is on file so far.'));return}
  const f=x=>x.replace(/^(\d{4}-\d{2}-\d{2})_([^_]+)_.*$/,(m,a,b)=>b.replace('-A','/A')+' · '+fmtDate(a));
@@ -761,11 +770,11 @@ addView('VER','Versions','Filing',(DATA.versions||[]).length||'',v=>{
 addView('RLT','Who names it','Filing',((DATA.others||{}).companies||[]).length||'',v=>{
  v.append(viewHead('RLT','Who else names it','The company describes itself in its prospectus. Its customers, suppliers, partners and investors describe it in their own filings, under their own lawyers.'));
  const O=DATA.others||{},cs=O.companies||[];const g=el('div',{class:'grid'});
- const rows=[];cs.forEach(x=>{const r=x.read||{};const qs=(x.quotes||[]).slice(0,3);
+ const rows=[];cs.forEach(x=>{const r=x.read||{};const qs=arr(x.quotes).slice(0,3);
   const more=el('tr',{class:'more',style:'display:none'},el('td',{colspan:5},qs.map(q=>{const t=q.startsWith('[table entry]');return el('blockquote',{class:'q',style:'margin-bottom:8px'},t?el('span',{class:'tagx',style:'margin-right:8px'},'Table entry'):null,(t?q.slice(14):q).slice(0,480))}),r.url?el('a',{class:'pg',href:r.url,target:'_blank',rel:'noopener'},'Open '+r.form+' '+fmtDate(r.date)+' ↗'):null));
   rows.push(el('tr',{class:'click',onclick:()=>{more.style.display=more.style.display==='none'?'':'none'}},el('td',{class:'l',style:'font-weight:500'},x.name.replace(/\s+\(.*$/,'')),el('td',{},String(x.count)),el('td',{class:'l'},el('span',{class:'tagx'+(x.relationship?' rel':'')},x.relationship?'Relationship':'Mention')),el('td',{},r.form||NA),el('td',{},r.date?fmtDate(r.date):NA)),more)});
  g.append(panel('Company filings that name it · click a row for their words','s12',cs.length?table([{t:'Company',a:{class:'l'}},'Filings',{t:'Type',a:{class:'l'}},'Form','Filed'],rows):el('div',{class:'empty',style:'margin:12px'},'No other company filing names it yet.'),{flush:true}));
- const F=O.funds||{},mk=(F.marks||[]).filter(m=>m.per_unit);
+ const F=O.funds||{},mk=arr(F.marks).filter(m=>m.per_unit);
  if(mk.length){g.append(panel(`Fund marks · ${F.funds_found} fund filers hold it`,'s7',fundBars(mk)));
   g.append(panel('Fund filings','s5',table([{t:'Fund',a:{class:'l'}},'Period','Per share'],mk.slice().sort((a,b)=>(b.period||'').localeCompare(a.period||'')).slice(0,14).map(m=>el('tr',{},el('td',{class:'l'},el('a',{href:m.url,target:'_blank',rel:'noopener',style:'text-decoration:none'},m.fund.replace(/\s+\(.*$/,'').slice(0,34))),el('td',{},fmtDate(m.period)),el('td',{},'$'+m.per_unit.toFixed(2))))),{flush:true}))}
  v.append(g)});
@@ -903,7 +912,7 @@ addView('ASK','Ask','Yours','',v=>{
 
 /* ---------- build, route, command bar ---------- */
 const host=$('#views'),rail=$('#rail');let g0='';
-VIEWS.forEach(x=>{const d=el('section',{class:'view',id:'v-'+x.code,'aria-label':x.name});BUILDING=x.code;x.build(d);BUILDING=null;host.append(d);
+VIEWS.forEach(x=>{const d=el('section',{class:'view',id:'v-'+x.code,'aria-label':x.name});BUILDING=x.code;try{x.build(d)}catch(err){console.error(x.code,err);d.append(el('div',{class:'empty'},'This view could not be drawn for this filing. The other views are not affected; the filing itself is one click away under SEC filing.'))}BUILDING=null;host.append(d);
  if(x.grp!==g0){g0=x.grp;rail.append(el('div',{class:'g'},x.grp))}
  rail.append(el('a',{href:'#'+x.code,'data-c':x.code},el('span',{class:'c'},x.code),el('span',{},x.name),el('span',{class:'n'},x.num!==''&&x.num!=null?String(x.num):'')))});
 function go(code){if(location.hash!=='#'+code)location.hash=code;else show(code)}
@@ -925,4 +934,18 @@ addEventListener('keydown',e=>{if(e.key==='/'&&!/INPUT|TEXTAREA/.test(document.a
  t.onclick=()=>{cur=dark()?'light':'dark';try{localStorage.setItem('ipo-dash:theme',cur)}catch(e){};apply();renderCharts()}})();
 
 show((location.hash.slice(1)||'DES').toUpperCase());
+
+(function(){
+ const b=document.getElementById('cosbtn'),m=document.getElementById('cosmenu');if(!b||!m)return;
+ const e=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+ const here=location.pathname.split('/').pop();let loaded=false;
+ async function fill(){if(loaded)return;loaded=true;let rows=[];
+  if(location.protocol.startsWith('http')){try{rows=(await fetch('/companies/list').then(r=>r.json())).rows||[]}catch(x){}}
+  m.innerHTML=(rows.length?rows.map(c=>`<a role="menuitem" href="${e(c.file)}" class="${c.file===here?'on':''}"><span class="t">${e(c.ticker||'')}</span>${e(c.name)}</a>`).join(''):'<a role="menuitem" href="index.html">All companies</a>')+
+   '<a role="menuitem" class="addco" href="index.html#add">+ Add a company</a>'}
+ const close=()=>{m.classList.remove('open');b.setAttribute('aria-expanded','false')};
+ b.onclick=async ev=>{ev.stopPropagation();if(m.classList.contains('open'))return close();await fill();m.classList.add('open');b.setAttribute('aria-expanded','true');const f=m.querySelector('a');if(f)f.focus()};
+ document.addEventListener('click',ev=>{if(!m.contains(ev.target))close()});
+ document.addEventListener('keydown',ev=>{if(ev.key==='Escape')close()});
+})();
 </script></body></html>
