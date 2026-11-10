@@ -4,7 +4,8 @@ The starters (start-mac.command, start-windows.bat, start-linux.sh) run `python 
 each time you open the program. It asks GitHub for the newest release of
 github.com/greeksoup/s1-prospectus-terminal, and when that is newer than the version on your
 computer it says what changed and asks once (Enter means yes). It downloads only from GitHub, over
-HTTPS, and only this repository's release.
+HTTPS, and only this repository's release, and installs it only when it is signed by the GreekSoup
+team and every file matches the signed list (prospectus/signing.py), checked before anything is written.
 
 What it replaces: the program's own folders (prospectus/, tests/, docs/, assets/) and its top-level
 files, and it adds the release's companies to library/. What it never touches: your notes (notes/),
@@ -13,7 +14,6 @@ environment (.venv/), and any company you read yourself.
 """
 import io
 import json
-import shutil
 import ssl
 import sys
 import urllib.error
@@ -21,12 +21,13 @@ import urllib.request
 import zipfile
 from pathlib import Path
 
-from . import __version__
+from . import __version__, signing
 
 REPO = "greeksoup/s1-prospectus-terminal"
 ROOT = Path(__file__).resolve().parent.parent
 REPLACE_DIRS = ("prospectus", "tests", "docs", "assets", "scripts", ".github")
 REPLACE_FILES = ("README.md", "START_HERE.md", "LICENSE", "requirements.txt", ".gitignore", "install.sh", "install.ps1",
+                 "MANIFEST.json", "MANIFEST.sig",
                  "start-mac.command", "start-windows.bat", "start-linux.sh")
 NEVER = ("notes", "data", "dashboards", ".ai.json", ".venv", ".git")
 
@@ -73,37 +74,32 @@ def _newest(raw):
         return ""
 
 
-def apply(zip_bytes):
-    """Unpack a release zip over this folder, keeping everything that is yours."""
-    z = zipfile.ZipFile(io.BytesIO(zip_bytes))
-    names = z.namelist()
-    top = names[0].split("/")[0] + "/"
-    if not all(n.startswith(top) for n in names) or "s1-prospectus-terminal" not in top:
-        raise ValueError("the download is not this program's release")
+def apply(zip_bytes, version="", keys=None):
+    """Unpack a release zip over this folder, keeping everything that is yours. Only a release signed
+    by the GreekSoup team is installed: every file has to match the signed MANIFEST.json, checked
+    before anything is written (prospectus/signing.py)."""
+    blobs = signing.read_release(io.BytesIO(zip_bytes), version, keys or signing.KEYS)
     todo = []
-    for n in names:  # check every path before writing anything
-        rel = n[len(top):]
-        if not rel or rel.endswith("/"):
-            continue
+    for rel, data in blobs.items():
         parts = Path(rel).parts
-        if ".." in parts or Path(rel).is_absolute():
-            raise ValueError("the download holds a path outside the folder")
         if parts[0] in NEVER:
             continue
         if parts[0] in REPLACE_DIRS or parts[0] == "library" or rel in REPLACE_FILES:
-            todo.append((n, rel))
-    if not any(rel.startswith("prospectus/") for _, rel in todo):
+            todo.append((rel, data))
+    if not any(rel.startswith("prospectus/") for rel, _ in todo):
         raise ValueError("the download has no program in it")
-    for n, rel in todo:
+    modes = {}
+    z = zipfile.ZipFile(io.BytesIO(zip_bytes))
+    for info in z.infolist():
+        rel = info.filename.split("/", 1)[1] if "/" in info.filename else ""
+        modes[rel] = (info.external_attr >> 16) & 0o777
+    for rel, data in todo:
         dest = ROOT / rel
-        if rel.startswith("library/") and dest.exists() and _newest(dest.read_bytes()) >= _newest(z.read(n)):
+        if rel.startswith("library/") and dest.exists() and _newest(dest.read_bytes()) >= _newest(data):
             continue  # you read this company from a filing at least as new: keep yours
         dest.parent.mkdir(parents=True, exist_ok=True)
-        with z.open(n) as src, open(dest, "wb") as out:
-            shutil.copyfileobj(src, out)
-        info = z.getinfo(n)
-        mode = (info.external_attr >> 16) & 0o777
-        if mode & 0o100:
+        dest.write_bytes(data)
+        if modes.get(rel, 0) & 0o100:
             dest.chmod(dest.stat().st_mode | 0o111)  # keep the starters double-clickable
 
 
@@ -136,9 +132,9 @@ def main(argv):
             return 0
     try:
         print("Downloading from GitHub...")
-        apply(_get(rel["zip"], timeout=120))
+        apply(_get(rel["zip"], timeout=120), rel["tag"])
     except Exception as e:  # noqa: BLE001
-        print(f"The update did not go through ({e}). Carrying on with the version you have.")
+        print(f"The update was not installed: {e}. Nothing was changed; carrying on with the version you have.")
         return 0
     print(f"Updated to {rel['tag']}.")
     return 10  # tells the starter to reinstall the libraries and redraw the dashboards

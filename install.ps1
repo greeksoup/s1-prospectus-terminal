@@ -6,7 +6,8 @@
 #   1. finds Python 3.10 or newer. If there is none, installs Python 3.12 with winget, Windows' own
 #      app installer (a window may ask you to approve). Without winget, it opens python.org.
 #   2. downloads the newest release of this program from GitHub into your user folder, in
-#      S1-Prospectus-Terminal
+#      S1-Prospectus-Terminal, and unpacks it only after checking it is signed by the GreekSoup team
+#      and every file matches
 #   3. runs the program's own starter (start-windows.bat): it makes the program a private Python
 #      environment inside that folder, installs its three libraries there, draws the dashboards and
 #      opens them in your browser.
@@ -20,6 +21,112 @@ $ErrorActionPreference = "Stop"
 $ProgressPreference = "SilentlyContinue"   # the progress bar makes downloads many times slower
 [Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12
 $Repo = "greeksoup/s1-prospectus-terminal"
+$CheckPy = @'
+# --- s1pt release check: begin
+import hashlib, json, os, zipfile
+KEYS = ("05dda68ca32afc7b38f5778dc2a75f3ac5eeeb7567cce2ce1e08220048acbfec",
+        "5584dcacbf7bfd16cd5030bb87f5e27c95a50ddc91e017b0a253551679307fd3")
+P = 2 ** 255 - 19
+L = 2 ** 252 + 27742317777372353535851937790883648493
+D = -121665 * pow(121666, P - 2, P) % P
+I = pow(2, (P - 1) // 4, P)
+def _x(y, sign):
+    xx = (y * y - 1) * pow(D * y * y + 1, P - 2, P) % P
+    x = pow(xx, (P + 3) // 8, P)
+    if (x * x - xx) % P:
+        x = x * I % P
+    if (x * x - xx) % P or (x == 0 and sign):
+        return None
+    return P - x if (x & 1) != sign else x
+def _add(a, b):
+    x1, y1, z1, t1 = a
+    x2, y2, z2, t2 = b
+    A, B = (y1 - x1) * (y2 - x2) % P, (y1 + x1) * (y2 + x2) % P
+    C, E = t1 * 2 * D * t2 % P, z1 * 2 * z2 % P
+    e, f, g, h = B - A, E - C, E + C, B + A
+    return (e * f % P, g * h % P, f * g % P, e * h % P)
+def _mul(n, pt):
+    q = (0, 1, 1, 0)
+    while n:
+        if n & 1:
+            q = _add(q, pt)
+        pt = _add(pt, pt)
+        n >>= 1
+    return q
+def _point(b):
+    y = int.from_bytes(b, "little")
+    sign, y = y >> 255, y & ((1 << 255) - 1)
+    if y >= P:
+        return None
+    x = _x(y, sign)
+    return None if x is None else (x, y, 1, x * y % P)
+GY = 4 * pow(5, P - 2, P) % P
+G = (_x(GY, 0), GY, 1, _x(GY, 0) * GY % P)
+def ed25519_ok(key, msg, sig):
+    if len(key) != 32 or len(sig) != 64:
+        return False
+    a, r = _point(key), _point(sig[:32])
+    s = int.from_bytes(sig[32:], "little")
+    if a is None or r is None or s >= L:
+        return False
+    h = int.from_bytes(hashlib.sha512(sig[:32] + key + msg).digest(), "little") % L
+    lhs, rhs = _mul(s, G), _add(r, _mul(h, a))
+    return (lhs[0] * rhs[2] - rhs[0] * lhs[2]) % P == 0 and (lhs[1] * rhs[2] - rhs[1] * lhs[2]) % P == 0
+def fold(b):
+    return b.replace(b"\r\n", b"\n")
+def _safe(rel):
+    if not isinstance(rel, str) or not rel or "\\" in rel or rel.startswith("/") or ":" in rel:
+        return False
+    return all(part not in ("", ".", "..") for part in rel.split("/"))
+def read_release(zip_path, version="", keys=KEYS):
+    """Every file the signed manifest lists, {path: bytes}, plus MANIFEST.json and MANIFEST.sig.
+    Raises ValueError, having written nothing, when anything does not match."""
+    with zipfile.ZipFile(zip_path) as zf:
+        names = [n for n in zf.namelist() if not n.endswith("/")]
+        roots = {n.split("/", 1)[0] for n in names}
+        if len(roots) != 1 or "s1-prospectus-terminal" not in next(iter(roots)):
+            raise ValueError("the download is not a release of this program")
+        root = roots.pop() + "/"
+        have = set(names)
+        try:
+            raw = zf.read(root + "MANIFEST.json")
+            sig = bytes.fromhex(zf.read(root + "MANIFEST.sig").decode("ascii").strip())
+        except (KeyError, ValueError, UnicodeDecodeError):
+            raise ValueError("the download carries no signature")
+        if not any(ed25519_ok(bytes.fromhex(k), fold(raw), sig) for k in keys):
+            raise ValueError("the download is not signed by the GreekSoup team")
+        manifest = json.loads(raw)
+        want = str(version or "").lstrip("vV")
+        if want and manifest.get("version") != want:
+            raise ValueError("the download is version %s, not %s" % (manifest.get("version"), want))
+        files = dict(manifest["files"])
+        blobs = {}
+        for rel, digest in sorted(files.items()):
+            if not _safe(rel):
+                raise ValueError("the release names a file outside the program folder")
+            if root + rel not in have:
+                raise ValueError(rel + " is missing from the download")
+            data = zf.read(root + rel)
+            if hashlib.sha256(fold(data)).hexdigest() != digest:
+                raise ValueError(rel + " in the download is not the file the signed release lists")
+            blobs[rel] = data
+        blobs["MANIFEST.json"] = raw
+        blobs["MANIFEST.sig"] = zf.read(root + "MANIFEST.sig")
+    return blobs
+def unpack(blobs, out):
+    for rel, data in blobs.items():
+        dst = os.path.join(out, *rel.split("/"))
+        os.makedirs(os.path.dirname(dst), exist_ok=True)
+        with open(dst, "wb") as fh:
+            fh.write(data)
+# --- s1pt release check: end
+import sys
+try:
+    unpack(read_release(sys.argv[1], sys.argv[3] if len(sys.argv) > 3 else ""), sys.argv[2])
+except (ValueError, OSError, KeyError, zipfile.BadZipFile, json.JSONDecodeError) as exc:
+    print("\n  STOPPED: %s. Nothing was installed." % exc)
+    sys.exit(3)
+'@
 $Dest = if ($env:S1PT_HOME) { $env:S1PT_HOME } else { Join-Path $env:USERPROFILE "S1-Prospectus-Terminal" }
 
 Write-Host "`n  S-1 Prospectus Terminal`n  -----------------------"
@@ -89,16 +196,20 @@ if (-not $Fresh) {
   try {
     $Zip = Join-Path $Tmp "release.zip"
     Invoke-WebRequest -Uri "https://codeload.github.com/$Repo/zip/$Tag" -OutFile $Zip -UseBasicParsing
-    Expand-Archive -Path $Zip -DestinationPath (Join-Path $Tmp "out")
-    $Top = Get-ChildItem -Path (Join-Path $Tmp "out") -Directory
-    if (@($Top).Count -ne 1 -or $Top.Name -notlike "s1-prospectus-terminal*" -or -not (Test-Path (Join-Path $Top.FullName "prospectus"))) {
-      Write-Host "`n  The download was not a release of this program. Nothing was installed."
-      Write-Host "  Tell us at https://github.com/$Repo/issues`n"
+    $Check = Join-Path $Tmp "check.py"
+    [IO.File]::WriteAllText($Check, $CheckPy)
+    $Out = Join-Path $Tmp "out"
+    $Want = if ($Tag -match '^(v?\d+\.\d+)') { $Tag } else { "" }
+    $PyExe = (& cmd /c "$Py -c `"import sys;print(sys.executable)`"" | Select-Object -Last 1).Trim()
+    & $PyExe -I $Check $Zip $Out $Want
+    if ($LASTEXITCODE -ne 0) {
+      Write-Host "  The download did not pass the check that it is the GreekSoup team's own release."
+      Write-Host "  Please tell us at https://github.com/$Repo/issues`n"
       return
     }
     New-Item -ItemType Directory -Path (Split-Path $Dest -Parent) -Force | Out-Null
     if (Test-Path $Dest) { Remove-Item -Force $Dest -Recurse }
-    Move-Item -Path $Top.FullName -Destination $Dest
+    Move-Item -Path $Out -Destination $Dest
   } finally {
     Remove-Item -Recurse -Force $Tmp -ErrorAction SilentlyContinue
   }

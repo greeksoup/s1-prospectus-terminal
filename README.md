@@ -219,6 +219,9 @@ is open, so anyone can change it to read another market's filings.
   nothing with your computer.
 - Your AI key, if you use one, is kept in one file in the program folder, readable by you only,
   and never shown in the page.
+- Every release is signed by the GreekSoup team. The install line and the update check that
+  signature, and every file against it, before anything is written, and stop if anything does not
+  match. You see nothing of this unless a check fails.
 - Every script is plain text you can read before running.
 
 ## For people who use a terminal
@@ -276,12 +279,13 @@ or a word ("debt", "flags") and press Enter.
 
 ### Tests
 
-283 checks in 12 files. Most replay real filings against figures read by hand on SEC's own pages;
+Over 300 checks in 13 files. Most replay real filings against figures read by hand on SEC's own pages;
 the AI one runs against a stand-in model, and the update and add-a-company ones need no internet.
 
 ```bash
 python3 -m tests.test_ai                 # 29: every app listed, both key formats, Ollama, the key never reaches the page
-python3 -m tests.test_update             # 15: an update replaces the program and keeps your notes, filings and key
+python3 -m tests.test_update             # 21: an update replaces the program, keeps your notes, filings and key, refuses an unsigned or changed release
+python3 -m tests.test_signing            # the release signature, the installers' check, no file changed since signing
 python3 -m tests.test_addco              # 18: + Add a company: the list, progress in plain words, a company picked twice is read once
 python3 -m tests.test_spacex_tables      # 9 figures from the SpaceX S-1 (20 May 2026)
 python3 -m tests.test_spacex_questions   # 15 answers
@@ -294,7 +298,7 @@ python3 -m tests.test_qual               # 59 offer, owner, people and risk read
 python3 -m tests.test_pages_price_trust  # 20 page numbers and price checks
 ```
 
-Every file but `test_ai`, `test_update` and `test_addco` needs the filings on disk first. Read the
+Every file but `test_ai`, `test_update`, `test_addco` and `test_signing` needs the filings on disk first. Read the
 four companies once: `python3 -m prospectus "Space Exploration Technologies"`, then `"Anthropic"`,
 `"Cerebras"` and `"Oura"`.
 

@@ -35,6 +35,7 @@ jobs:
           "$VPY" -m tests.test_ai
           "$VPY" -m tests.test_update
           "$VPY" -m tests.test_addco
+          "$VPY" -m tests.test_signing
       - name: The dashboards were drawn and the local server answers
         shell: bash
         run: |
