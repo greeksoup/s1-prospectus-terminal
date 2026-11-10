@@ -18,9 +18,12 @@ from .tables import read as read_tables
 
 YEAR = re.compile(r"(?:19|20)\d\d")
 STATEMENTS = {
-    "income": re.compile(r"statements? of (?:operations|income|comprehensive (?:loss|income))", re.I),
-    "cash": re.compile(r"statements? of cash flows", re.I),
-    "balance": re.compile(r"balance sheets?", re.I),
+    # US titles first; IFRS filers (most F-1s) print "profit or loss" and "financial position", banks
+    # often print "financial condition" (Windward Bio, Hometown Financial, Nov 2026)
+    "income": re.compile(r"statements? of (?:operations|income|comprehensive (?:loss|income)|(?:consolidated )?"
+                         r"profit (?:or|and) loss|loss(?:es)?\b|earnings)|\bincome statements?\b", re.I),
+    "cash": re.compile(r"statements? of cash flows?|\bcash flow statements?\b", re.I),
+    "balance": re.compile(r"balance sheets?|statements? of financial (?:position|condition)", re.I),
 }
 
 
@@ -66,6 +69,27 @@ def label(period):
 
 # ---------- finding the statements ----------
 
+
+INVISIBLE = "\u200b\u200c\u200d\u2060\ufeff\u00a0\u2009\u202f"
+
+
+def head_lines(text, n):
+    """The first n lines of a page that carry any visible character. Some filing agents put empty or
+    zero-width lines above a statement's title (Rezera, Nov 2026), so counting raw lines misses it."""
+    out = []
+    for l in text.split("\n"):
+        l = l.strip(INVISIBLE + " \t\r")
+        if not l:
+            continue
+        if out and l[0].islower() and out[-1][-1:].isalpha() and len(out[-1]) < 40:
+            out[-1] += l  # a title broken mid-word across two lines: "Consolidat" / "ed Balance Sheets"
+            continue
+        out.append(l)
+        if len(out) == n:
+            break
+    return out
+
+
 class Filing:
     def __init__(self, path):
         self.path = Path(path)
@@ -88,12 +112,14 @@ class Filing:
         fpages = [p for p in self.pages if p["page"].startswith("F-")]
         groups, i = [], 0
         while i < len(fpages):
-            head = [l for l in fpages[i]["text"].split("\n")[:6] if len(l) < 90]
-            if any(pat.search(l) for l in head) and not any(re.search(r"notes to", l, re.I) for l in head):
+            head = [l for l in head_lines(fpages[i]["text"], 6) if len(l) < 90]
+            index_page = any(re.search(r"^index to|report of independent", l, re.I) for l in head[:3]) \
+                and not any(re.search(r"^(?:unaudited |interim |condensed |consolidated |combined )*" + pat.pattern, l, re.I) for l in head[:2])
+            if any(pat.search(l) for l in head) and not any(re.search(r"notes to", l, re.I) for l in head) and not index_page:
                 group = [fpages[i]["page"]]
                 j = i + 1
                 while j < len(fpages) and j <= i + 2:
-                    nhead = [l for l in fpages[j]["text"].split("\n")[:6] if len(l) < 90]
+                    nhead = [l for l in head_lines(fpages[j]["text"], 6) if len(l) < 90]
                     same = any(pat.search(l) for l in nhead) and not any(re.search(r"notes to", l, re.I) for l in nhead)
                     if any(any_title.search(l) for l in nhead) and not same:
                         break
@@ -147,15 +173,17 @@ class Filing:
     def find(self, kind, pattern, annual=False):
         """First row in the statement whose label matches; returns (series, page) or (None, None)."""
         groups = self.statement_groups(kind)
-        pages = groups[0] if groups else []
         rx = re.compile(pattern, re.I)
-        for r in self.rows(pages):
-            if rx.search(r["label"]):
-                series = r["series"]
-                if annual:
-                    series = {k: v for k, v in series.items() if k.isdigit()}
-                if series:
-                    return series, r["page"]
+        # the first statement is usually the audited year; some filers print the interim set first
+        # (ConnectM, Nov 2026), so an annual search moves on to the next statement when it finds no years
+        for pages in (groups if annual else groups[:1]) or [[]]:
+            for r in self.rows(pages):
+                if rx.search(r["label"]):
+                    series = r["series"]
+                    if annual:
+                        series = {k: v for k, v in series.items() if k.isdigit()}
+                    if series and any(v is not None for v in series.values()):
+                        return series, r["page"]
         return None, None
 
     def interim(self, kind, pattern):
@@ -189,6 +217,13 @@ def growth(series):
 def q1_growth(f):
     rev, page = f.find("income", r"^(total )?revenues?$|^total net revenues?$|^net revenues?$", annual=True)
     ans = {"revenue": fact(rev, page)}
+    if rev is None:
+        grp = f.statement_groups("income")
+        text = " ".join(f.page_text.get(pg, "")[:1500] for g in grp[:1] for pg in g)
+        if grp and not re.search(r"\brevenues?\b|\bnet sales\b|\bsales\b", text, re.I):
+            # the income statement was read and carries no revenue line at all (a company before its first sale)
+            ans["revenue"] = {"status": "no revenue", "page": grp[0][0],
+                              "note": "the income statement has no revenue line: no revenue reported yet"}
     if rev:
         ans["growth_pct"] = growth(rev)
     irev, ipage = f.interim("income", r"^(total )?revenues?$|^net revenues?$")
@@ -228,8 +263,9 @@ def segments(f):
 
 
 def q2_funds_itself(f):
-    ni, p1 = f.find("cash", r"^net (income|loss|income \(loss\)|\(loss\) income)$")
-    ocf, p2 = f.find("cash", r"^net cash (?:flows? )?(provided by|used in|provided by \(used in\)|\(used in\) provided by|from) operating")
+    ni, p1 = f.find("cash", r"^net (income|loss|income \(loss\)|\(loss\) income)$"
+                       r"|^net \(?(?:loss|income)\)?\s*/\s*\(?(?:income|loss|profit)\)?$|^(?:loss|profit|income) for the (?:year|period)$")
+    ocf, p2 = f.find("cash", r"^(?:net )?cash (?:flows? )?(?:\(?(?:provided by|used in|generated from|generated by|from|\(used in\)|provided)\)?[\s/,]*(?:and |or )?)+operating activities")
     capex, p3 = f.find("cash", r"^purchases? of property|^capital expenditures|^purchases? of property and equipment")
     fin, pf = f.find("cash", r"^net cash (?:flows? )?(provided by|used in|provided by \(used in\)|\(used in\) provided by|from) financing")
     raised = {}
@@ -255,7 +291,11 @@ def q2_funds_itself(f):
 
 def q3_debt(f):
     cash, p1 = f.find("balance", r"^cash and cash equivalents$")
-    equity, p2 = f.find("balance", r"^total (stockholders|shareholders)[’'] (equity|deficit)|^total (stockholders|shareholders)[’'] equity \(deficit\)")
+    if not cash:  # "Cash" alone (SeeQC), with restricted cash, or a bank's "cash and due from banks"
+        cash, p1 = f.find("balance", r"^(?:total )?cash(?: and cash equivalents)?(?:,? (?:and )?restricted cash(?: and cash equivalents)?)?(?:, net)?$"
+                          r"|^cash and (?:due from banks|amounts due from (?:depository institutions|banks))$|^total cash and cash equivalents$")
+    equity, p2 = f.find("balance", r"^total (stockholders|shareholders)[’'] (equity|deficit)|^total (stockholders|shareholders)[’'] equity \(deficit\)"
+                         r"|^total (?:stockholders|shareholders)[’'] equity\s*/\s*\(?deficit\)?|^total (?:equity|deficit)$|^total (?:stockholders|shareholders)[’']? (?:equity|deficit)$")
     debt, p3 = f.find("balance", r"^long-term debt|^debt\b.*net of current|^debt, (noncurrent|non-current|long-term)|^(convertible )?notes payable(, net of current.*|, noncurrent)?$")
     debt_cur, p4 = f.find("balance", r"^current portion of (long-term )?debt|^short-term debt|^debt\b[^,]*, current")
     ans = {"cash": fact(cash, p1), "equity": fact(equity, p2)}
@@ -327,8 +367,9 @@ def maturities(f):
 
 
 def q4_profit_real(f):
-    ni, p1 = f.find("cash", r"^net (income|loss|income \(loss\)|\(loss\) income)$")
-    ocf, p2 = f.find("cash", r"^net cash (?:flows? )?(provided by|used in|provided by \(used in\)|\(used in\) provided by|from) operating")
+    ni, p1 = f.find("cash", r"^net (income|loss|income \(loss\)|\(loss\) income)$"
+                       r"|^net \(?(?:loss|income)\)?\s*/\s*\(?(?:income|loss|profit)\)?$|^(?:loss|profit|income) for the (?:year|period)$")
+    ocf, p2 = f.find("cash", r"^(?:net )?cash (?:flows? )?(?:\(?(?:provided by|used in|generated from|generated by|from|\(used in\)|provided)\)?[\s/,]*(?:and |or )?)+operating activities")
     ans = {}
     if ni and ocf:
         ans["gap"] = {"values": {y: ocf[y] - ni[y] for y in ni if y in ocf},

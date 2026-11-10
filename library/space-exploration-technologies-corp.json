@@ -31,10 +31,10 @@
 "url": "https://www.sec.gov/Archives/edgar/data/1181412/000162828026042639/spaceexplorationtechnologi.htm"
 },
 "latest_file": "2026-06-12_424B4_0001628280-26-042639.htm",
-"generated": "09 November 2026, 22:01",
+"generated": "10 November 2026, 13:47",
 "stats": {
 "pages": 406,
-"seconds": 22.8,
+"seconds": 28.7,
 "total_seconds": 79.4,
 "ai_tokens": 0
 }
@@ -5321,6 +5321,9 @@
 "name": "PricewaterhouseCoopers LLP",
 "page": "F-3",
 "since": 2012
+},
+"kind": {
+"kind": "ipo"
 }
 },
 "shares": {

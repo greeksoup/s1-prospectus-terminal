@@ -29,11 +29,22 @@ def _unscaled(label, heading):
                 or (heading and re.search(PER_SHARE, heading, re.I) and re.match(SHARE_CHILD, label, re.I)))
 
 
+STATEMENT_TITLE = re.compile(r"balance sheets?|statements? of (?:operations|income|comprehensive|cash flows?|"
+                             r"financial (?:position|condition)|profit (?:or|and) loss|loss|earnings)", re.I)
+
+
 def thousands_scale(text):
     """0.001 when the page reports in thousands, so every figure ends up in $ millions.
-    "(In millions, except share amounts which are in thousands)" is millions: the dollars decide."""
+    "(In millions, except share amounts which are in thousands)" is millions: the dollars decide.
+    A financial statement page that names no unit at all and prints seven-digit figures is in whole
+    dollars (Simwon America, Focus Media, Nov 2026), so it is scaled by a million."""
     if re.search(r"in\s+thousands", text, re.I) and not re.search(r"in\s+millions", text, re.I):
         return 0.001
+    if re.search(r"in\s+millions", text, re.I):
+        return 1.0
+    head = [l.strip() for l in text.split("\n") if l.strip()][:8]
+    if any(STATEMENT_TITLE.search(l) and len(l) < 120 for l in head) and re.search(r"\b\d{1,3}(?:,\d{3})+\b", text):
+        return 0.000001
     return 1.0
 
 
@@ -202,7 +213,7 @@ def positioned_tables(box, seq):
                 right = x + DIGIT_WIDTH * len(t)
                 i = min(range(len(edges)), key=lambda k: abs(edges[k] - right))
                 v = parse_number(t)
-                values[i] = round(v * scale, 3) if (v is not None and not per_share) else v
+                values[i] = round(v * scale, 6 if scale < 0.001 else 3) if (v is not None and not per_share) else v
             rows.append({"label": r["label"], "values": values})
         tables.append({"seq": seq, "page": page, "caption": caption, "columns": titles, "rows": rows})
     return tables
@@ -212,7 +223,7 @@ def html_tables(soup, page, scale=1.0):
     """Ordinary <table> markup on one printed page. `scale` turns thousands into millions."""
     out = []
     for table in soup.find_all("table"):
-        rows, heading = [], ""
+        rows, heading, notes_col = [], "", False
         for tr in table.find_all("tr"):
             cells = [re.sub(r"\s+", " ", c.get_text(" ", strip=True)).strip() for c in tr.find_all(["td", "th"])]
             cells = [c for c in cells if c not in ("", "$", "%")]
@@ -229,19 +240,24 @@ def html_tables(soup, page, scale=1.0):
             label = cells[0] if not NUMBER.match(cells[0].replace(" ", "")) else ""
             nums = cells[1:] if label else cells
             values = [parse_number(c) for c in nums if NUMBER.match(c.replace(" ", ""))]
-            if values and not label and all(YEAR.match(c.replace(" ", "")) for c in nums):
+            if values and (not label or re.fullmatch(r"notes?", label, re.I) or (len(nums) >= 2 and not re.search(r"[a-z]", label)))\
+                    and all(YEAR.match(c.replace(" ", "")) for c in nums):
+                # a year row may carry the statement's title or "Notes" in its first cell (Windward Bio, Nov 2026)
+                notes_col = notes_col or bool(label)  # "Notes 2025 2026": a column of note numbers sits left of the years
                 rows.append({"label": "", "values": [], "raw": nums})  # a row of years is the heading
                 continue
             if not values:
                 heading = label
             if not _unscaled(label, heading):
-                values = [round(v * scale, 3) if v is not None else v for v in values]
+                values = [round(v * scale, 6 if scale < 0.001 else 3) if v is not None else v for v in values]
             rows.append({"label": re.sub(r"\s+([’'),.;:])", r"\1", label), "values": values, "raw": nums})
+        currency = _tidy_foreign(rows, notes_col)
         numeric = [r for r in rows if r["values"]]
         if len(numeric) < 2:
             continue
         first = rows.index(numeric[0])
-        header = [" ".join([r["label"]] + r["raw"]).strip() for r in rows[:first]]
+        header = [" ".join([r["label"]] + r["raw"]).strip() for r in rows[:first]
+                  if not all(CURRENCY.match(c) for c in ([r["label"]] if r["label"] else []) + (r.get("raw") or []))]
         width = max(len(r["values"]) for r in numeric)
         # headings printed between the column titles and the first figure ("Assets", "Current assets:")
         dated = [i for i, r in enumerate(rows[:first])
@@ -253,13 +269,63 @@ def html_tables(soup, page, scale=1.0):
             "caption": "",
             "columns": _html_columns(header, width),
             "rows": [{"label": r["label"], "values": r["values"]} for r in rows[first:]],
+            **({"currency": currency} if currency else {}),
         })
     return out
+
+
+CURRENCY = re.compile(r"^(?:US\$|USD|\$|RMB|CNY|HK\$|HKD|SGD|S\$|MYR|RM|EUR|€|GBP|£|CHF|JPY|¥|AUD|A\$|CAD|C\$|TWD|NT\$|KRW|INR|ILS|SEK|DKK|NOK|THB|IDR|PHP|VND)$", re.I)
+
+
+def _tidy_foreign(rows, notes_col):
+    """Small foreign filers (Focus Media, Nov 2026) print a column of note numbers left of the figures,
+    and a last column that repeats the latest year translated into US dollars. Drop both, so every row
+    holds one value per period in the company's own currency, and return that currency when it is not
+    the US dollar."""
+    years = next((r["raw"] for r in rows if not r["values"] and r.get("raw") and not r["label"]), None)
+    width = len(years) if years else None
+    first_num = next((i for i, r in enumerate(rows) if r["values"]), len(rows))
+    head_text = " ".join(" ".join([r["label"]] + (r.get("raw") or [])) for r in rows[:first_num])
+    if not notes_col and re.search(r"\bnotes?\b", head_text, re.I):
+        # "AS OF NOTES DECEMBER 31, 2025 DECEMBER 31, 2024" (Windward Bio, Nov 2026): the notes column is
+        # named inside the header text, and the dates carry months, so the years are counted in the text
+        notes_col = True
+        width = width or len(re.findall(r"\b(?:19|20)\d\d\b", head_text)) or None
+    if notes_col:
+        # rows that cite a note are one value longer, and that first value is a small whole number
+        lens = [len(r["values"]) for r in rows if r["values"]]
+        longest = max(lens) if lens else 0
+        longer = [r for r in rows if len(r["values"]) == longest]
+        def note_like(r):
+            raw = next((c for c in r.get("raw") or [] if re.match(r"^[\d(]", c)), "")
+            return bool(re.fullmatch(r"\d{1,2}(?:\s*,\s*\d{1,2})*", raw.strip()))
+        if width and longest == width + 1 or (longest - 1 in lens and longer and all(note_like(r) for r in longer)):
+            for r in longer:
+                r["values"] = r["values"][1:]
+    first_num = next((i for i, r in enumerate(rows) if r["values"]), len(rows))
+    codes = None
+    for r in rows[:first_num]:
+        cells = ([r["label"]] if r["label"] else []) + (r.get("raw") or [])
+        if cells and all(CURRENCY.match(c) for c in cells):
+            codes = cells
+    if not codes or not width or len(codes) != width:
+        return None
+    usd = lambda c: c.upper() in ("US$", "USD", "$")
+    if not usd(codes[0]) and usd(codes[-1]) and years[-1] == years[-2]:
+        for r in rows:
+            if len(r["values"]) == width:
+                r["values"] = r["values"][:-1]
+        if years:
+            del years[-1]
+        return codes[0].upper().replace("S$", "SGD")
+    return None if usd(codes[0]) else codes[0].upper()
 
 
 def _html_columns(header_lines, width):
     """Spread the header's years over the columns: 'Year Ended September 30, 2025 2024' -> one title each."""
     text = " ".join(header_lines)
+    # "for the period from July 5, 2024, to December 31, 2024" is one column: only its end year counts
+    text = re.sub(r"\bfrom\s+[A-Za-z]+\s+\d{1,2},?\s+(?:19|20)\d\d,?\s*(?:\([^)]*\)\s*)?(?:to|through)\b", "to", text, flags=re.I)
     years = re.findall(r"(?:19|20)\d\d", text)
     if len(years) >= width:
         years = years[-width:]
@@ -269,7 +335,8 @@ def _html_columns(header_lines, width):
 
 
 def read(path):
-    html = Path(path).read_text(encoding="utf-8", errors="ignore")
+    from .pages import read_html
+    html = read_html(path)
     soup = BeautifulSoup(html, "html.parser")
     from .pages import page_boxes
     boxes = page_boxes(soup)
@@ -278,14 +345,21 @@ def read(path):
         for i, box in enumerate(boxes):
             tables.extend(positioned_tables(box, i + 1))
         return "positioned", tables
-    from .pages import html_chunks, _number
-    tables = []
-    for chunk in html_chunks(html):
+    from .pages import html_chunks, _number, _mark_financial_pages
+    tables, labels = [], []
+    for i, chunk in enumerate(html_chunks(html)):
         part = BeautifulSoup(chunk, "lxml")
         text = part.get_text("\n")
         lines = [l.strip() for l in text.split("\n") if l.strip()]
         scale = thousands_scale(text)  # everything in $ millions
-        tables.extend(html_tables(part, _number(lines) or "unnumbered", scale))
+        label = _number(lines) or "unnumbered"
+        labels.append({"page": label, "text": "\n".join(lines[:40])})
+        for t in html_tables(part, label, scale):
+            t["_chunk"] = i
+            tables.append(t)
+    _mark_financial_pages(labels)  # the same F- labels the page splitter gives (bank filings)
+    for t in tables:
+        t["page"] = labels[t.pop("_chunk")]["page"]
     return "html", tables
 
 

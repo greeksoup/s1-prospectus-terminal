@@ -281,7 +281,7 @@ or a word ("debt", "flags") and press Enter.
 
 ### Tests
 
-Over 300 checks in 13 files. Most replay real filings against figures read by hand on SEC's own pages;
+Over 340 checks in 15 files. Most replay real filings against figures read by hand on SEC's own pages;
 the AI one runs against a stand-in model, and the update and add-a-company ones need no internet.
 
 ```bash
@@ -298,11 +298,13 @@ python3 -m tests.test_shares             # 44 share counts, lock-ups and dilutio
 python3 -m tests.test_metrics            # 20 quarterly, pay and commitment figures
 python3 -m tests.test_qual               # 59 offer, owner, people and risk readings
 python3 -m tests.test_pages_price_trust  # 20 page numbers and price checks
+python3 -m tests.test_rezera            # 16 readings from Rezera's S-1/A, a filing that first came out mostly empty
+python3 -m tests.test_filers            # 27 readings across recent S-1 and F-1 filers: banks, foreign filers, IFRS, whole dollars
 ```
 
 Every file but `test_ai`, `test_update`, `test_addco` and `test_signing` needs the filings on disk first. Read the
 four companies once: `python3 -m prospectus "Space Exploration Technologies"`, then `"Anthropic"`,
-`"Cerebras"` and `"Oura"`.
+`"Cerebras"` and `"Oura"`. `test_rezera` and `test_filers` also need the companies they name read first.
 
 ## Something wrong, or a request?
 

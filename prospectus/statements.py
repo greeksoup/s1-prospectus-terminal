@@ -11,12 +11,12 @@ import json
 import re
 import sys
 
-from .questions import STATEMENTS, Filing, label, periods
+from .questions import STATEMENTS, Filing, head_lines, label, periods
 from .tables import _continues
 
 KINDS = {"income": "income", "balance": "balance", "cashflow": "cash"}
 # the printed title line itself, e.g. "Condensed Consolidated Statements of Operations (continued)"
-TITLE = r"^(?:unaudited\s+)?(?:condensed\s+)?(?:consolidated\s+)?(?:{})\b[^.]{{0,60}}$"
+TITLE = r"^(?:unaudited\s+)?(?:interim\s+)?(?:condensed\s+)?(?:consolidated\s+)?(?:interim\s+)?(?:combined\s+)?(?:{})\b[^.]{{0,60}}$"
 NOISE = re.compile(r"^(?:\(?[a-z0-9*]\)?|[_\W]*)$|accompanying notes|^see notes", re.I)
 PER_SHARE = re.compile(r"per share|per unit", re.I)
 SHARES = re.compile(r"^weighted[- ]average|^(?:number of )?shares\b", re.I)
@@ -33,7 +33,7 @@ SUBTOTAL = re.compile(r"^total\b|^net (?:income|loss|\(loss\)|earnings|cash|incr
 def _title(f, page, pattern):
     """The statement title printed at the top of this page, or None."""
     rx = re.compile(TITLE.format(pattern), re.I)
-    for line in f.page_text.get(page, "").split("\n")[:8]:
+    for line in head_lines(f.page_text.get(page, ""), 8):
         line = re.sub(r"\s+", " ", line).strip()
         if len(line) < 120 and rx.search(line):
             return line
@@ -268,7 +268,19 @@ def statement(f, kind):
 def run(path):
     f = Filing(path)
     out = {name: statement(f, kind) for name, kind in KINDS.items()}
-    out["units"] = "$ millions"
+    text = " ".join(p["text"] for p in f.pages)
+    if all(v.get("status") for v in out.values()) and re.search(r"incorporat\w+ (?:herein )?by reference", text, re.I) \
+            and re.search(r"Annual Report on Form 10-K|Form 20-F", text):
+        # a short S-1 from a company already listed (Exozymes, Nov 2026) points to its annual report instead
+        for name in KINDS:
+            out[name] = {"status": "incorporated by reference",
+                         "note": "this filing does not print its financial statements; it incorporates them by reference "
+                                 "from the company's annual and quarterly reports"}
+    pages = {pg for v in out.values() if isinstance(v, dict) for pg in v.get("pages") or []}
+    cur = next((t["currency"] for t in f.tables if t["page"] in pages and t.get("currency")), None)
+    out["units"] = f"{cur} millions" if cur else "$ millions"
+    if cur:
+        out["currency"] = cur
     return out
 
 

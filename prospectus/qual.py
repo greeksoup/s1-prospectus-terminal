@@ -13,7 +13,7 @@ from difflib import SequenceMatcher
 from pathlib import Path
 
 from .flags import HYPOTHETICAL, filing_date, people_leaving
-from .pages import PAGE_NUMBER
+from .pages import PAGE_NUMBER, read_html
 from .versions import table_of_contents
 
 NOT_FOUND = {"status": "not found"}
@@ -97,12 +97,13 @@ def _toc(doc):
     falls back to a looser one for two-column contents pages and one-cell-per-line HTML."""
     toc = table_of_contents(doc)
     for p in doc.pages[:40]:
-        if not re.search(r"table of contents", p["text"], re.I):
+        if not re.search(r"table\s+of\s+contents", p["text"], re.I):  # "TABLE" / "OF CONTENTS" on two lines (LIS)
             continue
         joined = re.sub(r"\s+", " ", p["text"])
         pairs = [(n.strip(), pg) for n, pg in TOC_PAIR.findall(joined)]
         names = " ".join(n for n, _ in pairs)
-        if len(pairs) >= 8 and re.search(r"Risk Factors", names, re.I) and re.search(r"Underwrit", names, re.I):
+        # a best-efforts or placement-agent offering lists "Plan of Distribution" instead of "Underwriting"
+        if len(pairs) >= 8 and re.search(r"Risk\s+Factors", names, re.I) and re.search(r"Underwrit|Plan\s+of\s+Distribution|The\s+Conversion", names, re.I):
             if not toc:
                 toc = [(re.sub(r"^(?:Page\s+)+", "", n), pg) for n, pg in pairs if not re.fullmatch(r"[ivx]+", pg)]
             return p["seq"], toc
@@ -110,17 +111,19 @@ def _toc(doc):
 
 
 SECTION_NAMES = {
-    "summary": r"prospectus summary|^summary$",
-    "risk": r"^risk factors$",
-    "proceeds": r"^use of proceeds",
-    "dividend": r"^dividend policy",
-    "business": r"^business$",
-    "management": r"^management$",
+    # the first name in a contents list can carry the heading in front ("TABLE OF CONTENTS Page SUMMARY"),
+    # and banks, small companies and best-efforts offerings name their sections their own way (Nov 2026)
+    "summary": r"(?:^|\bpage\s+)(?:prospectus\s+)?summary$|^summary$",
+    "risk": r"^risk factors$|\brisk factors$",
+    "proceeds": r"^use of (?:the )?proceeds|use the proceeds",
+    "dividend": r"^dividend policy|^our dividend policy|policy regarding dividends",
+    "business": r"^business$|^business of |^(?:detailed )?description of (?:our )?business|^our business$",
+    "management": r"^management$|^directors,? (?:and )?executive officers|^executive officers(?:,| and) directors",
     "related": r"certain relationships|related (?:party|person) transactions",
-    "principal": r"principal (?:and selling )?(?:stock|share)holders|security ownership",
-    "capital": r"^description of (?:capital stock|share capital)",
+    "principal": r"principal (?:and selling )?(?:stock|share)holders|security ownership|beneficial ownership of|^stock ownership",
+    "capital": r"^description of (?:capital stock|share capital|securities)",
     "eligible": r"^shares eligible",
-    "underwriting": r"^underwrit",
+    "underwriting": r"^underwrit|^plan of distribution",
 }
 
 
@@ -449,7 +452,7 @@ LEADER = re.compile(r"^[.\s]+$")
 def _doc_soup(doc):
     if getattr(doc, "_soup", None) is None:
         from bs4 import BeautifulSoup
-        doc._html = doc.path.read_text(encoding="utf-8", errors="ignore")
+        doc._html = read_html(doc.path)
         doc._soup = BeautifulSoup(doc._html, "lxml")
     return doc._soup
 
@@ -528,7 +531,8 @@ def _read_holder_lines(lines, wide):
         vals = [(c, t) for c, t in cells if _is_value_cell(c, t, wide) or (t == "%" and (c[1] - c[0]) < wide)]
         label_parts = [t for c, t in cells if (c, t) not in vals]
         if not started:
-            if any(re.search(r"Beneficially Owned|Beneficial Owner\b|^Number$|^#$|^Percent$", t) for _, t in cells):
+            if any(re.search(r"Beneficially Owned|Beneficial Owner\b|^Number$|^#$|^Percent$", t)
+                   or (t.isupper() and re.search(r"BENEFICIALLY OWNED|BENEFICIAL OWNER\b", t)) for _, t in cells):
                 started = True
                 header.extend(cells)
             continue
@@ -546,6 +550,30 @@ def _read_holder_lines(lines, wide):
             continue
         data.append((y, " ".join(label_parts), vals))
     return header, data
+
+
+def _columns_from_values(lines, wide):
+    """Fallback when the header cells are too wide to be columns (Rezera, Nov 2026: each title spans four
+    grid cells over spacer cells). The columns are where the numbers sit; each is named by every header
+    cell printed above it."""
+    first = next((i for i, (_, cells) in enumerate(lines) if any(_is_value_cell(c, t, wide) for c, t in cells)), None)
+    if first is None:
+        return [], []
+    header = [ct for _, cells in lines[:first] for ct in cells]
+    _, data = _read_holder_lines([(-1, [((0, 1), "Beneficially Owned")])] + lines[first:], wide)
+    spans = sorted({c for _, _, vals in data for c, t in vals})
+    cols = []
+    for sp in spans:
+        mid = (sp[0] + sp[1]) / 2
+        above = " ".join(t for c, t in header if c[0] <= mid <= c[1] and not FOOTNOTE.match(t))
+        if above:
+            cols.append({"span": sp, "head": above, "own": above})
+    # one share-count column beside %-before and %-after columns: the count is the holding before the offering
+    if any(re.search(r"\bAfter\b", c["head"], re.I) for c in cols):
+        for c in cols:
+            if re.search(r"Number|Shares", c["head"], re.I) and not re.search(r"Percent|%|\bBefore\b|\bAfter\b|\bPrior\b", c["head"], re.I):
+                c["head"] = c["own"] = c["head"] + " before the offering"
+    return cols, data
 
 
 def _leaves(header, wide):
@@ -676,8 +704,11 @@ def _holder_tables(doc):
             for table in part.find_all("table"):
                 if not re.search(r"Beneficially|Beneficial Owner", table.get_text(" "), re.I):
                     continue
-                header, data = _read_holder_lines(_grid_lines(table), wide=4)
+                grid = _grid_lines(table)
+                header, data = _read_holder_lines(grid, wide=4)
                 leaves = _leaves(header, wide=4) if header else []
+                if len(leaves) < 2:
+                    leaves, data = _columns_from_values(grid, wide=4)
                 if len(leaves) >= 2:
                     cols = leaves
                 if not cols or not data:
@@ -969,28 +1000,115 @@ def auditor(doc):
 
 # ---------- people ----------
 
-NAME = r"[A-Z][A-Za-z.’'\-“”]*(?:\s+(?:[A-Z][A-Za-z.’'\-“”]*|de|van|von|der|da|del|la|le)){1,4}"
+NAME = (r"[A-Z][^\W\d_.’'\-“”]*[\w.’'\-“”]*(?:\s+(?:[A-Z][\w.’'\-“”]*|de|van|von|der|da|del|la|le)){1,4}"
+        r"(?:,\s*(?:[A-Z][A-Za-z.]{0,9}|Ph\.D\.|M\.D\.))*\**")  # degrees after a comma (", M.D., Ph.D.") and footnote stars
 EXEC_WORDS = re.compile(r"Chief|President|Officer|Secretary|Counsel|Treasurer|Executive|Head|Vice|Controller|Founder", re.I)
 
 
+def _name_age_pages(doc):
+    """Body pages that print a 'Name / Age / Position' table header."""
+    out = []
+    for p in doc.body():
+        lines = [l.strip() for l in p["text"].split("\n") if l.strip()]
+        if any(re.match(r"^Name\b", l, re.I) and re.search(r"\bAge\b", " ".join(lines[k:k + 3]), re.I)
+               for k, l in enumerate(lines)):
+            out.append(p)
+    return out
+
+
+TITLE_WORDS = re.compile(r"Chief|President|Officer|Secretary|Counsel|Treasurer|Executive|Head|Vice|Controller|Founder|"
+                         r"Director|Chair|Manager|Partner|Member|Trustee|Principal|Lead", re.I)
+HEADER_BITS = re.compile(r"^(?:Name(?: and)?|Address|Age|Positions?(?:\(s\))?(?: Held.*)?|Title|Held Since|Position Held Since|"
+                         r"Year Term|Term|Expires|Director Since|\(\d+\)|\*+|Mutual .*|.*Bank)$", re.I)
+
+
+def _people_by_age(lines, page):
+    """A second reader for tables that spread one person over several lines (LIS, Blue Laser Fusion, MFB
+    Bancorp, Holvek, Nov 2026): each two-digit age line is a person; the lines after it that read as a
+    title are the title, the lines before it since the last title are the name."""
+    people, name, title, group, cur = [], [], [], None, None
+    def close():
+        if cur is not None:
+            cur["title"] = re.sub(r"\s+", " ", " ".join(title)).strip(" ,")
+            people.append(cur)
+    for line in lines:
+        if len(line) > 140 or re.search(r"\b(?:has served|has been|serves as|joined (?:us|the)|is our)\b", line):
+            break  # the biographies begin
+        if re.fullmatch(r"(?:19|20)\d\d|\(\d+\)(?:\(\d+\))*", line) or HEADER_BITS.match(line):
+            continue
+        if cur is not None and title and title[-1].rstrip().endswith((",", " and", "&", " of")):
+            title.append(line)  # "... Treasurer and" / "Director": the title runs on, it is no heading (Holvek)
+            continue
+        if re.match(r"^(?:Executive Officers?|Officers|Management|Significant Employees|Key Employees)(?: and Directors?)?:?$", line, re.I):
+            group = "exec"
+            continue
+        if re.match(r"^(?:Non-Employee |Independent |Other )?Directors?(?: Nominees)?:?$", line, re.I):
+            group = "dir"
+            continue
+        if re.fullmatch(r"\d{2}", line):
+            close()
+            nm = " ".join(name).strip()
+            cur = {"name": nm.rstrip("*").strip(), "age": int(line), "page": page, "group": group} if nm else None
+            name, title = [], []
+            continue
+        if cur is not None and not title and TITLE_WORDS.search(line):
+            title.append(line)
+            continue
+        if cur is not None and title and (TITLE_WORDS.search(line) or line[:1].islower() or title[-1].rstrip().endswith((",", "and", "of", "&"))):
+            title.append(line)
+            continue
+        if cur is not None and title:
+            close()
+            cur, title = None, []
+        if re.search(r"\d", line):
+            continue  # an address beside the name (Holvek)
+        name.append(line)
+    if cur is not None:
+        close()
+    ok = [p for p in people if p["title"] and re.fullmatch(r"(?:(?:Mr|Ms|Mrs|Dr|Mdm|Prof)\.\s+)?[A-Z][^\d]{1,70}", p["name"])
+          and len(p["name"].split()) >= 2]
+    execs, dirs = [], []
+    for p in ok:
+        rec = {"name": p["name"], "title": p["title"], "age": p["age"], "page": p["page"]}
+        is_exec = p["group"] == "exec" or (p["group"] is None and EXEC_WORDS.search(p["title"]))
+        if is_exec:
+            execs.append(rec)
+        if not is_exec or re.search(r"Director|Chair", p["title"]):
+            dirs.append({"name": p["name"], "age": p["age"], "page": p["page"], "title": p["title"]})
+    return execs, dirs
+
+
 def people(doc):
-    pages = doc.section("management")
+    sec = doc.section("management")
     filed = filing_date(doc)
     departures = people_leaving(doc, filed)
-    for i, p in enumerate(pages[:3]):
+    # the table often sits on the page before the section's first page (SeeQC, Simwon, Focus Media), and
+    # some filings give no Management entry the reader can map (Hometown Financial): then any page with a
+    # Name / Age / Position header is tried
+    before = [p for p in doc.pages if sec and p["seq"] == sec[0]["seq"] - 1]
+    pages = before + sec[:3]
+    pages += [p for p in _name_age_pages(doc) if p not in pages]
+    for i, p in enumerate(pages[:8]):
         lines = [l.strip() for l in p["text"].split("\n")]
         head = next((k for k, l in enumerate(lines)
-                     if re.match(r"^Name\b", l) and re.search(r"\bAge\b", " ".join(lines[k:k + 2]))), None)
+                     if re.match(r"^Name\b", l, re.I) and re.search(r"\bAge\b", " ".join(lines[k:k + 3]), re.I)), None)
         if head is None:
             continue
         execs, dirs, group = [], [], None
         body = [l for l in lines[head + 1:] if l and not re.fullmatch(r"(?:\(\d+\))+", l)]
+        joined = []  # "Mr." printed on its own line above the name (Focus Media, Nov 2026)
+        for l in body:
+            if joined and re.fullmatch(r"(?:Mr|Ms|Mrs|Mdm|Dr|Prof)\.?", joined[-1]):
+                joined[-1] = joined[-1] + " " + l
+            else:
+                joined.append(l)
+        body = joined
         k = 0
         while k < len(body):
             line = body[k]
             if re.match(r"^_{3,}|^\*|^\(\d\)\s+\w", line) or len(line) > 140:
                 break
-            if re.match(r"^(?:Position|Age|Following|Electing)", line):
+            if re.match(r"^(?:Position|Age|Following|Electing)", line, re.I):
                 k += 1
                 continue
             m = re.match(rf"^({NAME})\s*(?:\(\d+\))*\s+(\d{{2}})\s+(.+)$", line)
@@ -998,7 +1116,7 @@ def people(doc):
                 m = re.match(rf"^({NAME})\s+(\d{{2}})\s+(.+)$", f"{line} {body[k + 1]} {body[k + 2]}")
                 k += 2
             if m:
-                name, age = m.group(1).strip(), int(m.group(2))
+                name, age = m.group(1).strip().rstrip("*").strip(), int(m.group(2))
                 title = re.sub(r"\s+Class(?:es)? [A-Z](?:,? (?:and )?[A-Z])*$", "", m.group(3)).strip()
                 is_exec = group == "exec" or (group is None and EXEC_WORDS.search(title))
                 rec = {"name": name, "title": title, "age": age, "page": p["page"]}
@@ -1008,6 +1126,8 @@ def people(doc):
                     dirs.append({"name": name, "age": age, "page": p["page"], "title": title})
             elif (execs or dirs) and (len(line) > 60 or re.search(r"Management Directors|Biographical", line)):
                 break  # the biographies begin
+            elif re.match(r"^(?:Significant|Key|Other) Employees", line, re.I):
+                group = "exec"  # a sub-heading inside the same table, never the start of the biographies
             elif re.match(r"^(?:Executive Officers|Management|Executive|Officers)", line, re.I):
                 if execs or dirs:
                     break  # a second "Executive Officers" heading opens the biographies
@@ -1017,6 +1137,10 @@ def people(doc):
             elif execs or dirs:
                 break
             k += 1
+        e2, d2 = _people_by_age(body, p["page"])
+        n2, n1 = len({x["name"] for x in e2 + d2}), len({x["name"] for x in execs + dirs})
+        if n2 > n1 or (n2 == n1 and len(e2) + len(d2) > len(execs) + len(dirs)):
+            execs, dirs = e2, d2  # the line-by-line reader found more of the table
         if execs or dirs:
             return {"executives": execs or NOT_FOUND, "directors": dirs or NOT_FOUND, "departures": departures}
     return {"executives": NOT_FOUND, "directors": NOT_FOUND, "departures": departures}
@@ -1024,11 +1148,12 @@ def people(doc):
 
 # ---------- risk factors ----------
 
-def _emphasised_runs(html):
-    """Bold-and-italic passages in document order: the way all four filers set a risk heading."""
+def _emphasised_runs(html, mode="bi"):
+    """Emphasised passages in document order: bold-and-italic ("bi", how the first four filers set a risk
+    heading), bold only ("b") or italic only ("i"), for filers that set their headings another way."""
     import lxml.html
     sys.setrecursionlimit(max(sys.getrecursionlimit(), 20000))
-    root = lxml.html.fromstring(html)
+    root = lxml.html.fromstring(re.sub(r"^\s*<\?xml[^>]*\?>", "", html))  # an XML declaration line (SeeQC, Nov 2026)
     runs = []
 
     def state(el, b, i):
@@ -1050,12 +1175,13 @@ def _emphasised_runs(html):
         if not isinstance(el.tag, str):
             return
         b, i = state(el, b, i)
+        pick = (b and i) if mode == "bi" else b if mode == "b" else i
         if el.text:
-            runs.append((el.text, b and i))
+            runs.append((el.text, pick))
         for c in el:
             walk(c, b, i)
             if c.tail:
-                runs.append((c.tail, b and i))
+                runs.append((c.tail, (b and i) if mode == "bi" else b if mode == "b" else i))
     walk(root, False, False)
 
     out, cur = [], []
@@ -1082,10 +1208,26 @@ def risk_headings(doc):
     pages = doc.section("risk")
     if not pages:
         return None
-    html = doc.path.read_text(encoding="utf-8", errors="ignore")
+    html = read_html(doc.path)
     texts = [(p["page"], norm(p["text"])) for p in pages]
+    best = []
+    for mode in ("bi", "b", "i"):
+        found_ = _risk_headings_in(_emphasised_runs(html, mode), texts)
+        if len(found_) > len(best):
+            best = found_
+        if len(best) >= 5:
+            break
+    return best
+
+
+GROUP_TITLE = re.compile(r"^Risks? (?:Related|Relating) to .{3,90}?(?:(?<=[a-z])(?=[A-Z][a-z])|\s+(?=(?:Our|We|The|If|A|An|Any|"
+                         r"Because|There|In|As|Changes|Future|Increases|Competition|Economic|Strong|Recent|Higher|Rising)\b))")
+
+
+def _risk_headings_in(runs, texts):
     out, at, seen = [], 0, set()
-    for h in _emphasised_runs(html):
+    for h in runs:
+        h = GROUP_TITLE.sub("", h)  # a bold group title run into the first heading (bank filings, Nov 2026)
         if not (40 <= len(h) <= 1200 and re.search(r"[.?]”?$", h)):
             continue
         key = norm(h)[:60]
@@ -1223,21 +1365,59 @@ def vote_rules(doc):
     return out
 
 
+def filing_kind(doc):
+    """What kind of registration this is, so an empty screen can say why. A resale (shares that existing
+    holders may sell, often from a company already listed) and a mutual bank's conversion print far less than
+    an IPO prospectus does (Blue Laser Fusion, VCI Global, Hometown Financial, Nov 2026)."""
+    front = re.sub(r"\s+", " ", " ".join(p["text"] for p in doc.pages[:5]))
+    if re.search(r"mutual holding company", front, re.I) and re.search(r"\bconversion\b", front, re.I):
+        return {"kind": "mutual conversion",
+                "note": "A mutual bank converting to stock form: there were no shareholders before, and the shares "
+                        "on offer are a range set by an independent appraisal, so the holder table and a single "
+                        "share count after the offering do not exist yet."}
+    whole = " ".join(p["text"] for p in doc.pages)
+    if len(doc.pages) < 100 and len(re.findall(r"incorporat\w+ (?:herein )?by reference", whole, re.I)) >= 10 \
+            and re.search(r"Form 20-F|Form 10-K", whole):
+        return {"kind": "short form",
+                "note": "A short-form registration from a company that already files annual reports: the financial "
+                        "statements, management and owners are not printed here but incorporated by reference from "
+                        "its annual and quarterly reports, so those screens stay empty."}
+    resale = re.search(r"\bresale\b|offered by the selling (?:stock|share)holders identified|by the selling (?:stock|share)holders identified", front, re.I)
+    ipo = re.search(r"initial public offering|this is our initial", front, re.I)
+    if resale and not ipo:
+        return {"kind": "resale",
+                "note": "A resale registration: it lets existing holders sell shares they already own, and the "
+                        "company raises little or nothing from it. It prints far less than an IPO prospectus, so "
+                        "several screens stay empty."}
+    return {"kind": "ipo"}
+
+
+def _safe(fn, *args):
+    """One section failing on an unusual filing must never empty every other section (SeeQC, Nov 2026:
+    a crash in the risk headings blanked management, holders, the offer and the risks)."""
+    try:
+        return fn(*args)
+    except Exception as e:  # noqa: BLE001 - recorded on the dashboard as "not read", with the reason
+        return {"status": "not read", "note": f"this section could not be read from this filing ({type(e).__name__})"}
+
+
 def run(path):
     doc = Doc(path)
     result = {
         "filing": doc.path.name,
-        "summary": summary(doc),
-        "offer": offer(doc),
-        "owners": owners(doc),
-        "people": people(doc),
-        "risks": risks(doc, previous_version(path)),
-        "related_party": related_party(doc),
-        "legal": legal(doc),
-        "employees": employees(doc),
-        "auditor": auditor(doc),
+        "summary": _safe(summary, doc),
+        "offer": _safe(offer, doc),
+        "owners": _safe(owners, doc),
+        "people": _safe(people, doc),
+        "risks": _safe(risks, doc, previous_version(path)),
+        "related_party": _safe(related_party, doc),
+        "legal": _safe(legal, doc),
+        "employees": _safe(employees, doc),
+        "auditor": _safe(auditor, doc),
+        "kind": _safe(filing_kind, doc),
     }
-    result["owners"]["vote_rules"] = vote_rules(doc)
+    if isinstance(result["owners"], dict) and "status" not in result["owners"]:
+        result["owners"]["vote_rules"] = _safe(vote_rules, doc)
     return result
 
 

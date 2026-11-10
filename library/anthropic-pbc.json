@@ -21,10 +21,10 @@
 "url": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026068676/anthropicpbc-sx1ax1.htm"
 },
 "latest_file": "2026-11-02_S-1-A_0001628280-26-068676.htm",
-"generated": "10 November 2026, 08:41",
+"generated": "10 November 2026, 13:43",
 "stats": {
 "pages": 427,
-"seconds": 13.9,
+"seconds": 28.9,
 "total_seconds": 89.1,
 "ai_tokens": 0
 }
@@ -4193,6 +4193,9 @@
 "page": "F-4"
 }
 ]
+},
+"kind": {
+"kind": "ipo"
 }
 },
 "shares": {

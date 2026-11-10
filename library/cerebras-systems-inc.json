@@ -36,10 +36,10 @@
 "url": "https://www.sec.gov/Archives/edgar/data/2021728/000162828026035214/cerebras-424b4.htm"
 },
 "latest_file": "2026-05-14_424B4_0001628280-26-035214.htm",
-"generated": "09 November 2026, 22:00",
+"generated": "10 November 2026, 13:43",
 "stats": {
 "pages": 271,
-"seconds": 14.3,
+"seconds": 16.2,
 "total_seconds": 96.7,
 "ai_tokens": 0
 }
@@ -3223,6 +3223,9 @@
 "page": "F-2"
 }
 ]
+},
+"kind": {
+"kind": "ipo"
 }
 },
 "shares": {

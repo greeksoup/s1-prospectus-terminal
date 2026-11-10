@@ -90,14 +90,44 @@ BREAK = re.compile(r"<[^>]+(?:page-break-(?:before|after)\s*:\s*always|(?<![-\w]
 
 
 def html_chunks(html):
-    """Cut the raw HTML at every element that forces a new printed page (filings without page boxes)."""
-    cuts = [m.start() for m in BREAK.finditer(html)]
+    """Cut the raw HTML at every element that forces a new printed page (filings without page boxes).
+    A page-break-BEFORE starts the page at that element; a page-break-AFTER ends the page after it. Cutting
+    at the start of a break-after element (Alopexx, SeeQC, Focus Media, Nov 2026) moved each page's printed
+    number to the top of the next page, so every page was labelled with the previous page's number."""
+    cuts = []
+    for m in BREAK.finditer(html):
+        tag = re.match(r"<\s*([a-zA-Z0-9]+)", m.group(0))
+        name = tag.group(1).lower() if tag else ""
+        # only a small break-after element (a paragraph holding the page number) is cut after; a break-after
+        # DIV that wraps a whole page (Rezera) starts that page, so it is cut at its start as before
+        if re.search(r"break-after\s*:\s*(?:always|page)", m.group(0), re.I) and name in ("p", "span", "font", "a", "b", "i"):
+            end = html.find("</" + tag.group(1), m.end())
+            if end != -1 and end - m.end() < 4000:
+                close = html.find(">", end)
+                cuts.append(close + 1 if close != -1 else m.start())
+                continue
+        cuts.append(m.start())
+    cuts = sorted(set(c for c in cuts if 0 < c < len(html)))
     bounds = [0] + cuts + [len(html)]
     return [html[a:b] for a, b in zip(bounds, bounds[1:]) if b > a]
 
 
-def split(path):
+
+# Zero-width characters some filing agents put inside empty table cells and above titles (Rezera's S-1,
+# Nov 2026: every row label read as blank and every statement went unread). They print as nothing, so
+# they are removed before any reading; non-breaking spaces become ordinary spaces.
+_INVISIBLE = re.compile(r"[\u200b\u200c\u200d\u2060\ufeff]|&#(?:8203|8204|8205|8288|65279);|&#x(?:200b|200c|200d|2060|feff);", re.I)
+
+
+def read_html(path):
+    """A filing's HTML, with the invisible characters taken out."""
     html = Path(path).read_text(encoding="utf-8", errors="ignore")
+    html = re.sub(r"^\s*<\?xml[^>]*\?>", "", html)  # an XML declaration line (SeeQC, Nov 2026)
+    return _INVISIBLE.sub("", html)
+
+
+def split(path):
+    html = read_html(path)
     soup = BeautifulSoup(html, "lxml")
     boxes = page_boxes(soup)
     if not boxes:
@@ -121,7 +151,32 @@ def split(path):
         if i in inferred:
             page["inferred"] = True
         pages.append(page)
+    _mark_financial_pages(pages)
     return pages
+
+
+FIN_START = re.compile(r"report of independent|independent auditor|balance sheets?|statements? of financial (?:condition|position)", re.I)
+
+
+def _mark_financial_pages(pages):
+    """Some filers (banks especially; Hometown Financial, Nov 2026) number the financial statements 1, 2, 3
+    again after the main text, with no "F-" in front. Those pages are labelled F-1, F-2... so every reader
+    knows they are the financial statements; the number printed on the page is kept as "printed"."""
+    if any(p["page"].startswith("F-") for p in pages):
+        return
+    best = 0
+    for i, p in enumerate(pages):
+        n = p["page"]
+        if n.isdigit() and int(n) > best:
+            best = int(n)
+        if n == "1" and best >= 30 and any(FIN_START.search(q["text"][:600]) for q in pages[i:i + 6]):
+            for q in pages[i:]:
+                m = q["page"]
+                if q is not p and m == "1":
+                    break  # numbering restarts again: a later section, not these statements
+                if m.isdigit():
+                    q["printed"], q["page"] = m, "F-" + m
+            return
 
 
 def main(path):

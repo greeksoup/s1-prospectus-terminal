@@ -10,13 +10,15 @@ run(path) -> {
 """
 import json
 import re
+
+from .questions import head_lines
 import sys
 from pathlib import Path
 
 from bs4 import BeautifulSoup
 
 from .tables import read as read_tables, positioned_lines, _page_number
-from .pages import page_boxes
+from .pages import page_boxes, read_html
 
 N = r"(\d{1,3}(?:,\d{3})+|\d+)"
 MONTH = r"(?:January|February|March|April|May|June|July|August|September|October|November|December)"
@@ -68,7 +70,7 @@ def _load(path):
 def _offering_pages(pages):
     """The 'The Offering' summary box: its first page and the next three (the excludes list follows it)."""
     for i, p in enumerate(pages[:80]):
-        lines = [l.strip() for l in p["text"].split("\n")[:4]]
+        lines = head_lines(p["text"], 4)
         if any(re.fullmatch(r"(?i)the offering", l) for l in lines):
             return pages[i:i + 4]
     return []
@@ -115,8 +117,14 @@ def _offering(s):
 def _outstanding_after(s):
     t = s.text
     by_class, page, blank = {}, None, []
-    pat = re.compile(r"(?:(Class [A-Z]) )?[Cc]ommon stock (?:to be )?outstanding (?:immediately )?after(?: this offering)?\s+"
-                     r"(?:(" + N[1:-1] + r"|one|no) shares?|(None)\b|shares)")
+    # "Common stock", "Shares of Common Stock", "common shares", "Ordinary Shares" (F-1 filers), "Shares outstanding
+    # after the offering: 6,500,000" (Holvek), "To Be Outstanding Immediately After Completion of This Offering" (LIS),
+    # a "(1)" footnote mark before the number (Alopexx). Any case.
+    pat = re.compile(r"(?:(Class [A-Z]) )?(?:shares of )?(?:(?:Class [A-Z] )?(?:common stock|common shares|ordinary shares)|(?<!ordinary )(?<!common )\bshares)"
+                     r"\s+(?:to be )?outstanding\s+(?:immediately\s+)?(?:after|following|upon)"
+                     r"(?:\s+(?:the\s+)?(?:completion|consummation|closing)\s+of)?(?:\s+(?:this|the)\s+offering)?"
+                     r"(?:\s+and (?:the )?concurrent private placement)?\s*(?:\(\d+\)\s*)?:?\s*"
+                     r"(?:(" + N[1:-1] + r"|one|no)(?:\s+(?:Class [A-Z]\s+)?(?:ordinary|common))?(?:\s+shares?)?|(None)\b|shares)", re.I)
     for m in pat.finditer(t):
         before = t[max(0, m.start() - 160):m.start()]
         if before.strip().endswith(",") or re.search(r"Total [^.]*$|Class [A-Z], [^.]*$", before):
@@ -128,14 +136,19 @@ def _outstanding_after(s):
         if raw is None:
             blank.append(cls)
             continue
+        cls = re.sub(r"(?i)^class ([a-z])$", lambda k: "Class " + k.group(1).upper(), cls)
         by_class[cls] = 0 if raw.lower() in ("none", "no") else 1 if raw.lower() == "one" else _int(raw)
         page = page or s.page_at(m.start())
     total = None
-    m = re.search(r"Total [^.]{0,120}?outstanding after\s+" + N + r" shares", t)
+    m = re.search(r"Total [^.]{0,120}?outstanding (?:immediately )?after(?: (?:this|the) offering)?(?: and (?:the )?concurrent private placement)?\s+"
+                  + N + r"(?:\s+(?:[Oo]rdinary|[Cc]ommon))?\s+[Ss]hares", t)
     if m:
         total = _int(m.group(1))
     elif by_class and not blank:
         total = sum(by_class.values())
+    if m and not by_class and total is not None:
+        by_class = {"Common": total}  # only the printed total line names the count (Windward Bio, Nov 2026)
+        page = page or s.page_at(m.start())
     out = {"by_class": by_class, "total": total, "page": page}
     if m:
         out["total_note"] = "printed total"
@@ -314,7 +327,7 @@ def _row(when, right, page):
 
 
 def _lockup_positioned(path):
-    soup = BeautifulSoup(Path(path).read_text(encoding="utf-8", errors="ignore"), "lxml")
+    soup = BeautifulSoup(read_html(path), "lxml")
     boxes = page_boxes(soup)
     rows, started = [], False
     for b in boxes:
@@ -508,6 +521,9 @@ def run(path):
     as_of, as_of_page = _as_of(box)
     offering = _offering(box) if box.text else {"status": NOT_READ}
     after = _outstanding_after(box) if box.text else {"status": NOT_READ}
+    if after.get("status") == NOT_READ:
+        # no box headed "The Offering" (small and best-efforts filings): the same line anywhere up front
+        after = _outstanding_after(Stream([p for p in pages if not p["page"].startswith("F-")][:45]))
     excluded, ex_status = _excluded(box) if box.text else ([], NOT_READ)
     out = {
         "as_of": as_of,
