@@ -26,7 +26,7 @@ from . import __version__
 REPO = "greeksoup/s1-prospectus-terminal"
 ROOT = Path(__file__).resolve().parent.parent
 REPLACE_DIRS = ("prospectus", "tests", "docs", "assets", "scripts", ".github")
-REPLACE_FILES = ("README.md", "START_HERE.md", "LICENSE", "requirements.txt", ".gitignore",
+REPLACE_FILES = ("README.md", "START_HERE.md", "LICENSE", "requirements.txt", ".gitignore", "install.sh", "install.ps1",
                  "start-mac.command", "start-windows.bat", "start-linux.sh")
 NEVER = ("notes", "data", "dashboards", ".ai.json", ".venv", ".git")
 

@@ -293,10 +293,19 @@ def converts_at_ipo(f, q):
         parts.append(f"equity {money(eq[latest])} ({latest})")
     cap = next((p["page"] for p in f.pages if re.search(r"pro forma basis", p["text"], re.I)
                 and re.search(r"Conversion", p["text"])), None)
-    return [flag("numbers", "Pre-IPO funding turns into shares at the offering", ", ".join(dict.fromkeys(pages[:6])), "",
-                 "Before the IPO: " + "; ".join(parts) + ". These convert into common stock at the offering, "
-                 "so the deficit is not the picture after listing. Read the pro forma column of the capitalization "
-                 f"table{(' (page ' + cap + ')') if cap else ''}.")]
+    # Some notes convert only up to a holder's ownership cap; the rest stays debt after the IPO (Anthropic, Amazon Notes, p. 60).
+    stays = next((p["page"] for p in f.pages
+                  if re.search(r"ownership cap", p["text"], re.I)
+                  and re.search(r"remain outstanding|cannot (?:be fully )?convert|repaid in cash", re.sub(r"\s+", " ", p["text"]), re.I)), None)
+    out = flag("numbers", "Pre-IPO funding turns into shares at the offering", ", ".join(dict.fromkeys(pages[:6])), "",
+               "Before the IPO: " + "; ".join(parts) + ". These convert into common stock at the offering, "
+               "so the deficit is not the picture after listing. Read the pro forma column of the capitalization "
+               f"table{(' (page ' + cap + ')') if cap else ''}."
+               + (f" Notes above the holder's ownership cap stay outstanding after the offering and convert later "
+                  f"or are repaid in cash at maturity (page {stays})." if stays else ""))
+    if stays:
+        out["stays"] = stays
+    return [out]
 
 
 

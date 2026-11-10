@@ -8,7 +8,9 @@ from prospectus.questions import answer
 
 path = glob.glob("data/2130357/filings/2026-11-02_S-1-A_*.htm")[0]
 q = answer(path)
-titles = [f["title"] for f in run(path)["flags"]]
+flags = run(path)["flags"]
+titles = [f["title"] for f in flags]
+conv = next((f for f in flags if "turns into shares" in f["title"]), {})
 g, c, d = q["q1_growth"], q["q2_funds_itself"], q["q3_debt"]
 
 CHECKS = [
@@ -22,6 +24,7 @@ CHECKS = [
     ("F-6 stockholders' deficit 30 Sep 2026", d["equity"]["values"]["Sep 2026"], -149873),
     ("flag: 9M 2026 loss mostly not cash", any("9M 2026 loss is not cash" in t for t in titles), True),
     ("flag: funding converts at the offering", any("turns into shares" in t for t in titles), True),
+    ("p. 59: Amazon Notes above the ownership cap stay debt after the IPO", conv.get("stays"), "59"),
     ("flag: Founder LLC 50.1% of the vote", any("50.1%" in t for t in titles), True),
     ("flag: SpaceX contract cancellable on 90 days", any("90 days" in t and "SpaceX" in t for t in titles), True),
 ]

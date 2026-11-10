@@ -44,3 +44,35 @@ jobs:
           for i in $(seq 1 30); do curl -sf http://127.0.0.1:8861/anthropic-pbc.html -o page.html && break; sleep 1; done
           grep -q "S-1 Prospectus Terminal" page.html
           curl -sf http://127.0.0.1:8861/apps | grep -q '"app": "claude"'
+
+  one-line-install:
+    # the one-line install, the way a reader pastes it, on fresh machines; it installs this commit
+    name: one-line install · ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    env:
+      S1PT_SETUP_ONLY: "1"
+      S1PT_VERSION: ${{ github.sha }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Mac and Linux, piped into bash
+        if: runner.os != 'Windows'
+        run: |
+          export S1PT_HOME="$RUNNER_TEMP/s1pt"
+          cat install.sh | bash
+          ls "$S1PT_HOME/dashboards/anthropic-pbc.html" "$S1PT_HOME/.venv/bin/python"
+          cat install.sh | bash
+      - name: Windows, piped into PowerShell
+        if: runner.os == 'Windows'
+        shell: powershell
+        run: |
+          $env:S1PT_HOME = Join-Path $env:RUNNER_TEMP "s1pt"
+          Get-Content -Raw install.ps1 | Invoke-Expression
+          if (-not (Test-Path (Join-Path $env:S1PT_HOME "dashboards\anthropic-pbc.html"))) { throw "no dashboard" }
+          if (-not (Test-Path (Join-Path $env:S1PT_HOME ".venv\Scripts\python.exe"))) { throw "no environment" }

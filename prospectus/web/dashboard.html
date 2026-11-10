@@ -576,7 +576,7 @@ function ttm(fy,ytd){if(!fy)return null;const y=lastFY(fy);if(!ytd)return{v:fy[y
 const PRICES=(()=>{const p=P5.price&&P5.price.value?[['Offer price',+P5.price.value]]:P5.price_range?[['Low',+P5.price_range.low],['Mid',(+P5.price_range.low+ +P5.price_range.high)/2],['High',+P5.price_range.high]]:[];
  if(!p.length){const q=((DATA.qual||{}).offer||{});if(q.price_range&&q.price_range.low!=null)return[['Low',+q.price_range.low],['Mid',(+q.price_range.low+ +q.price_range.high)/2],['High',+q.price_range.high]];if(q.offer_price&&q.offer_price.value)return[['Offer price',+q.offer_price.value]]}return p})();
 const OUTT=num((SH.outstanding_after||{}).total),FD=num(SH.fully_diluted);
-const debtConverts=converts&&/convertible/i.test(((D3.debt||{}).note||''));
+const debtConverts=converts&&/convertible/i.test(((D3.debt||{}).note||''));const notesStay=debtConverts?(FL.find(f=>/turns into shares/i.test(f.title)&&f.stays)||{}).stays:null;
 function bridge(px,mcapIn){const cash=V(D3.cash),debt=V(D3.debt);const cK=cash?lastK(cash):null,dK=debt?lastK(debt):null;const U=SH.underwriting||{};
  const prim=num((SH.offering||{}).primary);let net=num(U.net_proceeds);const disc=num(U.discount_pct);
  if(prim&&px)net=prim*px*(1-((disc??7)/100))/1e6;
@@ -633,7 +633,7 @@ qView('q5','PX','Only now: is the price sane?','Price','Last on purpose. Look at
   if(!cols.length)box.append(el('p',{class:'note',style:'margin:0 0 10px'},'No price or range in this filing yet. Type a market value below, for example one reported in the press, and the arithmetic fills in. It stays labelled as outside the filing.'));
   else{const rq=lastQRev();const row=(n,f,cls)=>el('tr',{class:cls||''},el('td',{class:'l'},n),...cols.map(c=>el('td',{},f(c))));
    const rows=[row('Price a share',c=>c.px?'$'+c.px.toFixed(2):(OUTT?NA:'needs share count')),row('Shares outstanding after the offering',c=>OUTT?sharesFmt(OUTT):NA,'sub'),row('Market value',c=>money(c.mcap),'hi'),row('Fully diluted market value',c=>c.fd!=null?money(c.fd):NA,'sub'),
-    row('+ Debt'+(debtConverts?' (convertible notes convert at the IPO, not added)':''),c=>money(c.debt)),row('− Cash, '+(cols[0].cK?label(cols[0].cK):''),c=>money(c.cash)),row('− Cash the offering brings in',c=>c.net!=null?money(c.net):'not set yet'),row('Enterprise value',c=>money(c.ev),'hi'),
+    row('+ Debt'+(notesStay?` (notes above the holder’s ownership cap stay outstanding; amount not in this filing, p.${notesStay})`:debtConverts?' (convertible notes convert at the IPO, not added)':''),c=>notesStay?'not set yet':money(c.debt)),row('− Cash, '+(cols[0].cK?label(cols[0].cK):''),c=>money(c.cash)),row('− Cash the offering brings in',c=>c.net!=null?money(c.net):'not set yet'),row('Enterprise value'+(notesStay?', before the notes that stay':''),c=>money(c.ev),'hi'),
     row(`EV ÷ revenue, ${REVT?REVT.k:''}`,c=>c.ev&&REVT&&REVT.v>0?(c.ev/REVT.v).toFixed(1)+'×':NA),
     ...(rq?[row(`EV ÷ latest quarter × 4 (${rq.k})`,c=>c.ev?(c.ev/(rq.v*4)).toFixed(1)+'×':NA)]:[]),
     row(`Market value ÷ operating cash, ${OCFT?OCFT.k:''}`,c=>c.mcap&&OCFT&&OCFT.v>0?(c.mcap/OCFT.v).toFixed(1)+'×':OCFT&&OCFT.v<=0?'cash flow negative':NA)];

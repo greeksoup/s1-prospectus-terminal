@@ -21,11 +21,11 @@
 "url": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026068676/anthropicpbc-sx1ax1.htm"
 },
 "latest_file": "2026-11-02_S-1-A_0001628280-26-068676.htm",
-"generated": "08 November 2026, 23:05",
+"generated": "10 November 2026, 08:41",
 "stats": {
 "pages": 427,
-"seconds": 102.7,
-"total_seconds": 96.8,
+"seconds": 13.9,
+"total_seconds": 89.1,
 "ai_tokens": 0
 }
 },
@@ -309,7 +309,8 @@
 "title": "Pre-IPO funding turns into shares at the offering",
 "page": "19, 21, 22, 24, 25, 59",
 "quote": "",
-"detail": "Before the IPO: convertible notes $130.5B (Sep 2026); convertible preferred $157.5B (Sep 2026); equity \u2212$149.9B (Sep 2026). These convert into common stock at the offering, so the deficit is not the picture after listing. Read the pro forma column of the capitalization table (page 127)."
+"detail": "Before the IPO: convertible notes $130.5B (Sep 2026); convertible preferred $157.5B (Sep 2026); equity \u2212$149.9B (Sep 2026). These convert into common stock at the offering, so the deficit is not the picture after listing. Read the pro forma column of the capitalization table (page 127). Notes above the holder's ownership cap stay outstanding after the offering and convert later or are repaid in cash at maturity (page 59).",
+"stays": "59"
 },
 {
 "kind": "contracts",
@@ -698,9 +699,50 @@
 ]
 },
 {
+"section": "Principal And Selling Stockholders",
+"added": 64,
+"removed": 0,
+"changed": 1,
+"examples_added": [
+{
+"text": "(9) Consists of (i) 481,077,470 shares of Class A common stock beneficially owned by our executive officers and directors, (ii) 13,845,290 shares of Class A common stock subject to stock options exercisable within 60 days of September 30, 2026, and (iii) 1,438,050 shares of Class A common stock issuable upon settlement of RSUs for which the service-based vesting condition will be satisfied within 60 days of September 30, 2026.",
+"page": "294"
+},
+{
+"text": "Amodei\u2019s spouse, (iv) 639,500 shares of Class A common stock issuable upon settlement of RSUs for which the service-based vesting condition will be satisfied within 60 days of September 30, 2026, and (v) 133,950 shares of Class A common stock issuable upon settlement of RSUs for which the service-based vesting condition will be satisfied within 60 days of September 30, 2026 held by Ms.",
+"page": "294"
+},
+{
+"text": "McCandlish exercises shared investment or voting control, (ii) 2,185,400 shares of Class A common stock subject to stock options exercisable within 60 days of September 30, 2026, and (iii) 639,500 shares of Class A common stock issuable upon settlement of RSUs for which the service-based vesting condition will be satisfied within 60 days of September 30, 2026.",
+"page": "295"
+},
+{
+"text": "Kaplan exercises shared investment or voting control, (ii) 2,185,400 shares of Class A common stock subject to stock options exercisable within 60 days of September 30, 2026, and (iii) 639,500 shares of Class A common stock issuable upon settlement of RSUs for which the service-based vesting condition will be satisfied within 60 days of September 30, 2026.",
+"page": "295"
+},
+{
+"text": "Amodei exercises investment or voting control, (ii) 2,185,400 shares of Class A common stock subject to stock options exercisable within 60 days of September 30, 2026, and (iii) 639,500 shares of Class A common stock issuable upon settlement of RSUs for which the service-based vesting condition will be satisfied within 60 days of September 30, 2026.",
+"page": "294"
+},
+{
+"text": "Brown exercises investment or voting control, (ii) 2,185,400 shares of Class A common stock subject to stock options exercisable within 60 days of September 30, 2026, and (iii) 639,500 shares of Class A common stock issuable upon settlement of RSUs for which the service-based vesting condition will be satisfied within 60 days of September 30, 2026.",
+"page": "294"
+}
+],
+"examples_changed": [
+{
+"before": "We have based our calculation of the percentage of beneficial ownership prior to this offering on shares of our Class A common stock, shares of our Class N common stock, and one share of our Class T common stock outstanding as of September 30, 2026 (after giving effect to the Preferred Stock Conversion, Convertible Notes Conversion, and the RSU Settlement).",
+"after": "We have based our calculation of the percentage of beneficial ownership prior to this offering on shares of our Class A common stock, shares of our Class N common stock, and one share of our Class T common stock outstanding as of September 30, 2026 (after giving effect to the Preferred Stock Conversion, Convertible Notes Conversion, the Initial Public Benefit Issuance, and the RSU Settlement).",
+"page": "292",
+"diff": "We have based \u2026 Convertible Notes Conversion, {+the Initial Public Benefit Issuance,+} and the RSU Settlement)."
+}
+],
+"examples_removed": []
+},
+{
 "section": "Prospectus Summary",
-"added": 9,
-"removed": 9,
+"added": 10,
+"removed": 8,
 "changed": 28,
 "examples_added": [
 {
@@ -716,16 +758,16 @@
 "page": "6"
 },
 {
-"text": "Our 2026 Plan and ESPP each provide for an annual automatic increase in the number of shares of our Class A common stock reserved thereunder, and our 2026 Plan provides for increases to the number of shares that may be granted thereunder based on awards under our 2021 Plan that expire or are cancelled or forfeited, and shares under our 2021 Plan that are tendered to or withheld by us for payment of an exercise price or for satisfying tax withholding obligations or are forfeited or otherwise repurchased by us, as more fully described in the section titled \u201cExecutive Compensation\u2014Equity Plans.\u201d Summary Consolidated Financial and Other Data The following tables summarize our consolidated financial and other data.",
-"page": "20"
+"text": "(4) Except as otherwise indicated, all information in this prospectus assumes: \u2022 the Preferred Stock Conversion will occur immediately prior to the completion of this offering; \u2022 the Convertible Notes Conversion will occur immediately prior to the completion of this offering; \u2022 the filing and effectiveness of our amended and restated certificate of incorporation in Delaware and the effectiveness of our amended and restated bylaws will each occur immediately prior to the completion of this offering; \u2022 the Class F Stock Issuance will occur immediately prior to the completion of this offering; \u2022 no issuance of shares of Class E common stock prior to the completion of this offering; \u2022 no exercise of outstanding stock options or settlement of outstanding RSUs subsequent to September 30, 2026, other than the RSU Settlement; and \u2022 no exercise by the underwriters of their option to purchase up to an additional shares of our Class A common stock from us in this offering.",
+"page": "21"
+},
+{
+"text": "(2) For more information about the terms of our convertible promissory notes, see the section titled \u201cManagement\u2019s Discussion and Analysis of Financial Condition and Results of Operations\u2014Liquidity and Capital Resources\u2014Convertible Notes\u2014Outstanding Notes.\u201d (3) For more information about the terms of our acquisition holdback shares, see Note 15 to our consolidated financial statements included elsewhere in this prospectus.",
+"page": "21"
 },
 {
 "text": "Claude Cowork extends the agentic architecture of Claude Code to knowledge workers broadly by translating a user\u2019s intent into completed work, autonomously reading files, navigating applications, and executing multi-step workflows on a user\u2019s desktop while the underlying code is abstracted away.",
 "page": "8"
-},
-{
-"text": "We recently launched an AI services company, Ode with Anthropic, in partnership with leading private equity firms to bring Claude\u2019s capabilities to mid-sized companies across sectors, building solutions on the Claude Platform and supporting customers over the long term.",
-"page": "9"
 }
 ],
 "examples_changed": [
@@ -956,41 +998,41 @@
 "page": "unnumbered"
 },
 {
-"text": "Signature Title Date /s/ Dario Amodei Chief Executive Officer, Co-Founder, and Director November 2, 2026 Dario Amodei (Principal Executive Officer) /s/ Daniela Amodei President, Co-Founder, and Director November 2, 2026 Daniela Amodei /s/ Krishna Rao Chief Financial Officer November 2, 2026 Krishna Rao (Principal Financial Officer) * Chief Accounting Officer November 2, 2026 Effendi Ng (Principal Accounting Officer) * Director November 2, 2026 Reed Hastings * Director November 2, 2026 Christopher Liddell * Director November 2, 2026 Vas Narasimhan * Director November 2, 2026 Yasmin Razavi * By: /s/ Dario Amodei Dario Amodei Attorney-in-Fact II-8",
-"page": "unnumbered"
-},
-{
-"text": "II-6 Exhibit Number Description 23.3* Consent of Wilson Sonsini Goodrich & Rosati, P.C.",
-"page": "unnumbered"
+"text": "Signature Title Date /s/ Dario Amodei Chief Executive Officer, Co-Founder, and Director November 2, 2026 Dario Amodei (Principal Executive Officer) /s/ Daniela Amodei President, Co-Founder, and Director November 2, 2026 Daniela Amodei /s/ Krishna Rao Chief Financial Officer November 2, 2026 Krishna Rao (Principal Financial Officer) * Chief Accounting Officer November 2, 2026 Effendi Ng (Principal Accounting Officer) * Director November 2, 2026 Reed Hastings * Director November 2, 2026 Christopher Liddell * Director November 2, 2026 Vas Narasimhan * Director November 2, 2026 Yasmin Razavi * By: /s/ Dario Amodei Dario Amodei Attorney-in-Fact",
+"page": "II-8"
 },
 {
 "text": "The information in this preliminary prospectus is not complete and may be changed.",
 "page": "unnumbered"
+},
+{
+"text": "Exhibit Number Description 23.3* Consent of Wilson Sonsini Goodrich & Rosati, P.C.",
+"page": "II-7"
 }
 ],
 "examples_changed": [
 {
 "before": "From August 2025 to September 2025, we sold an aggregate of (i) 92,219,720 shares of our Series F-1 redeemable convertible preferred stock to 202 accredited investors at a purchase price of $140.9676 per share, for an aggregate purchase price of approximately $13.0 billion and (ii) 20,739,866 shares of our Series F-2 non- voting redeemable convertible preferred stock to one accredited investor upon conversion of our convertible promissory notes at a purchase price of $20.9280 per share for an aggregate purchase price of approximately $434 million.",
 "after": "From August 2025 to September 2025, we (i) sold an aggregate of 92,219,720 shares of our Series F-1 redeemable convertible preferred stock to 202 accredited investors at a purchase price of $140.9676 per share, for an aggregate purchase price of approximately $13.0 billion and (ii) issued 20,739,866 shares of our Series F-2 non-voting redeemable convertible preferred stock to one accredited investor upon conversion of our convertible promissory notes at a purchase price of $20.9280 per share for an aggregate purchase price of approximately $434 million.",
-"page": "unnumbered",
+"page": "II-3",
 "diff": "From August 2025 to September 2025, we {+(i)+} sold an aggregate of [-(i)-] 92,219,720 shares of \u2026 billion and (ii) {+issued+} 20,739,866 shares of our Series F-2 [-non- voting-] {+non-voting+} redeemable convertible preferred \u2026 approximately $434 million."
 },
 {
 "before": "From November 1, 2023 through the filing date of this registration statement, we have issued the following unregistered securities: Preferred Stock Issuances From January 2024 to May 2024, we sold an aggregate of 39,978,675 shares of our Series D-1 and D-3 redeemable convertible preferred stock to 54 accredited investors at a purchase price of $30.0045 per share, for an aggregate purchase price of approximately $1.2 billion.",
 "after": "From November 2023 through the filing date of this registration statement, we have issued the following unregistered securities: Preferred Stock Issuances From January 2024 to May 2024, we sold an aggregate of 39,978,675 shares of our Series D-1 and D-3 redeemable convertible preferred stock to 54 accredited investors at a purchase price of $30.0045 per share, for an aggregate purchase price of approximately $1.2 billion.",
-"page": "unnumbered",
+"page": "II-3",
 "diff": "From November [-1,-] 2023 through the \u2026 approximately $1.2 billion."
 },
 {
 "before": "From November 2023 through the filing date of this registration statement, we issued to our directors, officers, employees, consultants, and other service providers an aggregate of 409,116,603 shares of our Class A common stock upon the exercise of options under our equity compensation plans at exercise prices ranging from approximately $0.0859 to $24.5360 per share, for a weighted-average exercise price of $1.2043.",
 "after": "From November 2023 through the filing date of this registration statement, we issued to our directors, officers, employees, consultants, and other service providers an aggregate of 412,076,522 shares of our Class A common stock upon the exercise of options under our equity compensation plans at exercise prices ranging from approximately $0.0859 to $24.5360 per share, for a weighted-average exercise price of $1.21273.",
-"page": "unnumbered",
+"page": "II-4",
 "diff": "From November 2023 \u2026 an aggregate of [-409,116,603-] {+412,076,522+} shares of our \u2026 exercise price of [-$1.2043.-] {+$1.21273.+}"
 },
 {
 "before": "From November 2023 through the filing date of this registration statement, we granted to our directors, officers, employees, consultants, and other service providers an aggregate of 1,171,364,280 RSUs to be settled in shares of our Class A common stock under our equity compensation plans.",
 "after": "From November 2023 through the filing date of this registration statement, we granted to our directors, officers, employees, consultants, and other service providers an aggregate of 1,218,405,567 RSUs to be settled in shares of our Class A common stock under our equity compensation plans.",
-"page": "unnumbered",
+"page": "II-4",
 "diff": "From November 2023 \u2026 an aggregate of [-1,171,364,280-] {+1,218,405,567+} RSUs to be \u2026 equity compensation plans."
 },
 {
@@ -1008,7 +1050,7 @@
 ],
 "examples_removed": [
 {
-"text": "ANTHROPIC, PBC By: /s/ Dario Amodei Dario Amodei Chief Executive Officer II-8 Power of Attorney KNOW ALL PERSONS BY THESE PRESENTS, that each person whose signature appears below constitutes and appoints Dario Amodei, Daniela Amodei, and Krishna Rao, and each one of them, as their true and lawful attorneys-in-fact and agents, with full power of substitution and resubstitution, for them and in their name, place and stead, in any and all capacities, to sign any and all amendments (including post-effective amendments) to this registration statement, and to sign any registration statement for the same offering covered by this registration statement that is to be effective on filing pursuant to Rule 462(b) under the Securities Act of 1933, as amended, and all post-effective amendments thereto, and to file the same, with all exhibits thereto and other documents in connection therewith, with the Securities and Exchange Commission, granting unto said attorneys-in-fact and agents, and each of them, full power and authority to do and perform each and every act and thing requisite and necessary to be done in connection therewith, as fully to all intents and purposes as they might or could do in person, hereby ratifying and confirming all that said attorneys-in-fact and agents or any of them, or their substitute or substitutes, may lawfully do or cause to be done by virtue hereof.",
+"text": "ANTHROPIC, PBC By: /s/ Dario Amodei Dario Amodei Chief Executive Officer Power of Attorney KNOW ALL PERSONS BY THESE PRESENTS, that each person whose signature appears below constitutes and appoints Dario Amodei, Daniela Amodei, and Krishna Rao, and each one of them, as their true and lawful attorneys-in-fact and agents, with full power of substitution and resubstitution, for them and in their name, place and stead, in any and all capacities, to sign any and all amendments (including post-effective amendments) to this registration statement, and to sign any registration statement for the same offering covered by this registration statement that is to be effective on filing pursuant to Rule 462(b) under the Securities Act of 1933, as amended, and all post-effective amendments thereto, and to file the same, with all exhibits thereto and other documents in connection therewith, with the Securities and Exchange Commission, granting unto said attorneys-in-fact and agents, and each of them, full power and authority to do and perform each and every act and thing requisite and necessary to be done in connection therewith, as fully to all intents and purposes as they might or could do in person, hereby ratifying and confirming all that said attorneys-in-fact and agents or any of them, or their substitute or substitutes, may lawfully do or cause to be done by virtue hereof.",
 "page": "unnumbered"
 },
 {
@@ -1016,7 +1058,7 @@
 "page": "unnumbered"
 },
 {
-"text": "Signature Title Date /s/ Dario Amodei Chief Executive Officer, Co-Founder, and Director October 26, 2026 Dario Amodei (Principal Executive Officer) /s/ Daniela Amodei President, Co-Founder, and Director October 26, 2026 Daniela Amodei /s/ Krishna Rao Chief Financial Officer October 26, 2026 Krishna Rao (Principal Financial Officer) /s/ Effendi Ng Chief Accounting Officer October 26, 2026 Effendi Ng (Principal Accounting Officer) /s/ Reed Hastings Director October 26, 2026 Reed Hastings /s/ Christopher Liddell Director October 26, 2026 Christopher Liddell /s/ Vas Narasimhan Director October 26, 2026 Vas Narasimhan /s/ Yasmin Razavi Director October 26, 2026 Yasmin Razavi II-9",
+"text": "Signature Title Date /s/ Dario Amodei Chief Executive Officer, Co-Founder, and Director October 26, 2026 Dario Amodei (Principal Executive Officer) /s/ Daniela Amodei President, Co-Founder, and Director October 26, 2026 Daniela Amodei /s/ Krishna Rao Chief Financial Officer October 26, 2026 Krishna Rao (Principal Financial Officer) /s/ Effendi Ng Chief Accounting Officer October 26, 2026 Effendi Ng (Principal Accounting Officer) /s/ Reed Hastings Director October 26, 2026 Reed Hastings /s/ Christopher Liddell Director October 26, 2026 Christopher Liddell /s/ Vas Narasimhan Director October 26, 2026 Vas Narasimhan /s/ Yasmin Razavi Director October 26, 2026 Yasmin Razavi",
 "page": "unnumbered"
 }
 ]
@@ -1330,28 +1372,6 @@
 {
 "text": "If the underwriters\u2019 option to purchase additional shares of our Class A common stock from us is exercised in full, the pro forma net tangible book value per share of our Class A common stock, as adjusted to give effect to this offering, would be $ per share, and the dilution in pro forma net tangible book value per share to new investors purchasing shares of Class A common stock in this offering would be $ per share.",
 "page": "130"
-}
-]
-},
-{
-"section": "Experts",
-"added": 0,
-"removed": 13,
-"changed": 0,
-"examples_added": [],
-"examples_changed": [],
-"examples_removed": [
-{
-"text": "Certain members of, and investment partnerships comprised of members of, and persons associated with, Wilson Sonsini Goodrich & Rosati, P.C., directly or indirectly own less than 0.01% of our outstanding capital stock.",
-"page": "334"
-},
-{
-"text": "During the years ended December 31, 2023 and December 31, 2024, and through the period ended October 30, 2025, neither we, nor anyone acting on our behalf, consulted with Ernst & Young LLP on matters that involved the application of accounting principles to a specified transaction, either completed or proposed, the type of audit opinion that might be rendered on our financial statements, or any other matter that was the subject of a disagreement as that term is used in Item 304(a)(1)(iv) of Regulation S-K and the related instructions to Item 304 of Regulation S-K or a reportable event as that term is used in Item 304(a)(1)(v) and the related instructions to Item 304 of Regulation S-K.",
-"page": "334"
-},
-{
-"text": "During the years ended December 31, 2023 and December 31, 2024, and through the period ended October 30, 2025, there were: \u2022 no \u201cdisagreements\u201d as such term is defined in Item 304(a)(1)(iv) of Regulation S-K with Grant Thornton LLP on any matter of accounting principles or practices, financial statement disclosure, or auditing scope or procedure, which disagreements, if not resolved to its satisfaction, would have caused Grant Thornton LLP to make reference in connection with its opinion to the subject matter of the disagreement. \u2022 no \u201creportable events\u201d as such term is defined in Item 304(a)(1)(v) of Regulation S-K.",
-"page": "334"
 }
 ]
 }
