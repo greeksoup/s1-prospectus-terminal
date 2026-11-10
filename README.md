@@ -25,6 +25,8 @@ Code reads the filing, with no AI, so it costs nothing to run again and gives th
 every time. Made by the team at [greeksoup.ai](https://greeksoup.ai), a web-based stock research
 platform.
 
+How we built it, step by step: [the Alpha with AI edition](https://ai.shikshannivesh.com/p/how-we-built-an-ipo-dashboard-program).
+
 <p align="center"><img src="assets/screens/overview.png" alt="Anthropic's amended S-1 on the overview screen: the five questions in a fixed order, each with its key figure and the printed page it came from" width="100%"></p>
 
 **Install with one line** (details [below](#how-do-i-install-it)):
@@ -310,6 +312,7 @@ four companies once: `python3 -m prospectus "Space Exploration Technologies"`, t
 - **A company you want added to `library/`**: an issue with its name is enough.
 - **A contribution**: pull requests are welcome, including ones written with an AI agent. Add a
   check to `tests/` for any figure you fix.
+- **How we built it**, step by step: [the Alpha with AI edition](https://ai.shikshannivesh.com/p/how-we-built-an-ipo-dashboard-program).
 - **The newsletter**: [Alpha with AI](https://ai.shikshannivesh.com) carries the IPO editions this
   program grew out of.
 - **The research platform**: [greeksoup.ai](https://greeksoup.ai) has a page for every US-listed

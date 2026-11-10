@@ -158,3 +158,5 @@ S-1 Prospectus Terminal is free and open source, made by the team behind
 [greeksoup.ai](https://greeksoup.ai), a web-based stock research platform. The IPO editions it grew
 out of are in our newsletter, [Alpha with AI](https://ai.shikshannivesh.com). Information from
 public filings, not investment advice.
+
+How we built it, step by step: [the Alpha with AI edition](https://ai.shikshannivesh.com/p/how-we-built-an-ipo-dashboard-program).
